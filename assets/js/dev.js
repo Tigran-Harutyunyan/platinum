@@ -114,7 +114,7 @@ $(document).ready(function() {
     //************* PARALLAX SCROLLING ********************************
     var controller2 = new ScrollMagic.Controller({ globalSceneOptions: { triggerHook: "onEnter", duration: "200%" } });
     var scene2 = new ScrollMagic.Scene({ triggerElement: "#parallax-trigger" })
-        .setTween("#parallax1", { y: "20%", ease: Linear.easeNone })
+        .setTween("#parallax1", { y: "10%", ease: Linear.easeNone })
         .addTo(controller2);
 
     //**************** CONTENT SLIDER ********************************** 
@@ -211,9 +211,7 @@ $(document).ready(function() {
     });
     // ***************COUNTER****************************
     var sectionContainer = $('.section-counters');
-
     var allowCounting = true;
-
     $('#counters').bind('inview', function(event, visible) {
         if (visible) {
             if (allowCounting) {
@@ -241,8 +239,56 @@ $(document).ready(function() {
             scrollCounter = 0;
             sectionContainer.css('background-position', '50% 0');
         }
-    }); 
+    });
 
+
+    // ============TOP NAVIGATION ===========================================
+
+    var sectionsController = new ScrollMagic.Controller();
+    var sceneNav = new ScrollMagic.Scene({ triggerElement: "#section-services" })
+        .addTo(sectionsController)
+        .addIndicators()
+        .on("enter", function(e) {
+            
+        })
+       .setTween("#setTween("#animate1", 0.5, {backgroundColor: "green", scale: 2.5}) 
+     /* scene.setClassToggle("#top-nav", "section-services");*/
+      
+
+
+    $(".menu-item, .logo-link").bind('click', function(event) {
+        var param = event.currentTarget.attributes['data-scroll-nav'];
+        var offsetTop;
+        if (param && param.value) {
+            switch (param.value) {
+                case 'section-home':
+                    offsetTop = 0;
+                    break;
+                case 'section-services':
+                    offsetTop = 90;
+                    break;
+                case 'section-about-us':
+                    offsetTop = 90;
+                    break;
+                case 'section-portfolio':
+                    offsetTop = 0;
+                    break;
+                case 'section-contact-us':
+                    offsetTop = 0;
+                    break;
+            }
+            var section_to_scroll = "#" + param.value;
+            var currentElement = $(this);
+            $('html,body').delay(400).animate({
+                scrollTop: $(section_to_scroll).offset().top - offsetTop
+            }, 1200, 'easeInOutQuad', function() {
+                $(".menu-item").each(function(index) {
+                    $(this).removeClass('active-menu');
+                });
+                currentElement.addClass('active-menu');
+            });
+        }
+    });
     //********************************TOASTER *********************
     toastr.options = {
             "closeButton": false,
@@ -261,32 +307,9 @@ $(document).ready(function() {
             "showMethod": "fadeIn",
             "hideMethod": "fadeOut"
         }
-        // ================================================================
-        /*    $.scrollIt({
-                upKey: 38, // key code to navigate to the next section
-                downKey: 40, // key code to navigate to the previous section
-                easing: 'swing', // the easing function for animation
-                scrollTime: 800, // how long (in ms) the animation takes
-                //activeClass: 'active-link', // class given to the active nav element
-                onPageChange: null, // function(pageIndex) that is called when page is changed
-                topOffset: aCare.topOffset // offets (in px) for fixed top navigation
-            });
-        */
-        /*    $(".contact-link,.home-link").on("click", function() {
-                $(".menu-item").each(function(element) {
-                    $(element).removeClass("active");
-                });
-                var element = this;
-                if ($(element).hasClass('home-link')) {
-                    $("html, body").animate({ scrollTop: 0 }, 800, 'swing', function() {
-                        $(element).addClass("active");
-                    });
-                } else {
-                    $("html, body").animate({ scrollTop: $(document).height() }, 800, 'swing', function() {
-                        $(element).addClass("active");
-                    });
-                }
-
-            })*/
+        //*****************************************************************
+    $('html,body').delay(400).animate({
+        scrollTop: 0
+    }, 1200, 'easeInOutQuad');
 
 });
