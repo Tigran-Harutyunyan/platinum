@@ -792,6 +792,20 @@ footer {
     }
 }
 
+.active-services {
+    .services-box {
+        .box-image {
+            opacity: 1 !important
+        }
+        .box-title {
+            opacity: 1 !important
+        }
+        .box-text {
+            opacity: 1 !important
+        }
+    }
+}
+
 .services-box {
     width: 270px;
     margin-right: 30px;
@@ -802,16 +816,22 @@ footer {
         width: 40px;
         height: 40px;
         margin: 0 auto;
+        opacity: 0;
+        transition: opacity 0.2s linear;
     }
     .box-title {
         font-size: 16px;
         margin-top: 9px;
         margin-bottom: 15px;
+        opacity: 0;
+        transition: opacity 0.3s linear 0.3s;
     }
     .box-text {
         font-size: 12px;
         color: #999999;
         line-height: 18px;
+        opacity: 0;
+        transition: opacity 0.3s linear 0.3s;
     }
 }
 

@@ -5,7 +5,7 @@
  **/
 var allowdToGet = true;
 var previousPosition = 0;
-
+var section_to_scroll;
 /*function trackMouse(sliders) {
 
     sliders.mousemove(function(e) {
@@ -245,51 +245,60 @@ $(document).ready(function() {
     // ============TOP NAVIGATION ===========================================
 
     var sectionsController = new ScrollMagic.Controller();
-    var sceneNav = new ScrollMagic.Scene({ triggerElement: "#section-services" })
-        .addTo(sectionsController)
-        .addIndicators()
-        .on("enter", function(e) {
-            
+    var sceneNav = new ScrollMagic.Scene({
+            triggerElement: "#section-services",
+            triggerHook: 'onEnter',
+            offset: 203
         })
-       .setTween("#setTween("#animate1", 0.5, {backgroundColor: "green", scale: 2.5}) 
-     /* scene.setClassToggle("#top-nav", "section-services");*/
-      
+        .addTo(sectionsController)
+        //.addIndicators()
+        .on("enter", function(e) {
+            console.log("enter");
+        })
+    sceneNav.setClassToggle("#top-nav", "section-services");
+    sceneNav.setClassToggle("#service-boxes", "active-services");
+
+    sectionsController.scrollTo(function(newpos) {
+        if (section_to_scroll) {
+            var offsetTop = 0;
+            switch (section_to_scroll) {
+                case '#section-home':
+                    offsetTop = 0;
+                    break;
+                case '#section-services':
+                    offsetTop = 90;
+                    break;
+                case '#section-about-us':
+                    offsetTop = 90;
+                    break;
+                case '#section-portfolio':
+                    offsetTop = 0;
+                    break;
+                case '#section-contact-us':
+                    offsetTop = 0;
+                    break;
+            }
+        }
+
+        TweenMax.to(window, 0.5, { scrollTo: { y: newpos - offsetTop } });
+    });
+    /* scene.setClassToggle("#top-nav", "section-services");*/
+
 
 
     $(".menu-item, .logo-link").bind('click', function(event) {
         var param = event.currentTarget.attributes['data-scroll-nav'];
-        var offsetTop;
         if (param && param.value) {
-            switch (param.value) {
-                case 'section-home':
-                    offsetTop = 0;
-                    break;
-                case 'section-services':
-                    offsetTop = 90;
-                    break;
-                case 'section-about-us':
-                    offsetTop = 90;
-                    break;
-                case 'section-portfolio':
-                    offsetTop = 0;
-                    break;
-                case 'section-contact-us':
-                    offsetTop = 0;
-                    break;
-            }
-            var section_to_scroll = "#" + param.value;
+            section_to_scroll = "#" + param.value;
             var currentElement = $(this);
-            $('html,body').delay(400).animate({
-                scrollTop: $(section_to_scroll).offset().top - offsetTop
-            }, 1200, 'easeInOutQuad', function() {
-                $(".menu-item").each(function(index) {
-                    $(this).removeClass('active-menu');
-                });
-                currentElement.addClass('active-menu');
+            sectionsController.scrollTo(section_to_scroll);
+            $(".menu-item").each(function(index) {
+                $(this).removeClass('active-menu');
             });
+            currentElement.addClass('active-menu');
         }
     });
-    //********************************TOASTER *********************
+    //********************TOASTER *********************
     toastr.options = {
             "closeButton": false,
             "debug": false,
@@ -308,8 +317,8 @@ $(document).ready(function() {
             "hideMethod": "fadeOut"
         }
         //*****************************************************************
-    $('html,body').delay(400).animate({
+    $('html,body').animate({
         scrollTop: 0
-    }, 1200, 'easeInOutQuad');
+    }, 400, 'easeInOutQuad');
 
 });
