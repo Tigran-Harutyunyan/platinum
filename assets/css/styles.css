@@ -570,7 +570,7 @@ footer {
   -moz-appearance: none;
   -webkit-appearance: none;
   -webkit-appearance: none;
-  border: 2px solid #1a1a1a;
+  border: 2px solid #000000;
   border-radius: 6px;
   -webkit-appearance: none;
   -webkit-appearance: none;
@@ -582,7 +582,7 @@ footer {
 }
 .form-container .def-input:focus {
   border: 1px solid #af995a;
-  color: #1a1a1a;
+  color: #000000;
   transition: border-color 0.3s linear, color 0.3s linear;
 }
 .form-container .contact-with-us {
@@ -599,7 +599,7 @@ footer {
 .contact-us-p {
   width: 455px;
   height: 34px;
-  color: #1a1a1a;
+  color: #000000;
   font-size: 14px;
   line-height: 20px;
   margin-top: 28px;
@@ -628,7 +628,7 @@ footer {
   margin-top: 25px;
 }
 .social-place p {
-  color: #1a1a1a;
+  color: #000000;
   font-size: 14px;
   padding-bottom: 8px;
 }
@@ -650,7 +650,7 @@ footer {
 }
 
 .availability {
-  color: #1a1a1a;
+  color: #000000;
   font-size: 14px;
   line-height: 20px;
   margin-top: 27px;
@@ -687,11 +687,11 @@ footer {
 
 .btn-submit {
   float: right;
-  color: #1a1a1a;
+  color: #000000;
 }
 .btn-submit:hover {
   background: #af995a;
-  color: #1a1a1a;
+  color: #fff;
 }
 
 .clearfix {
@@ -887,7 +887,7 @@ footer {
 }
 .section-title-place h5 {
   font-size: 32px;
-  color: #1a1a1a;
+  color: #000000;
   text-transform: uppercase;
 }
 .section-title-place .letter-divider {
@@ -962,16 +962,17 @@ footer {
 }
 .section-about-us-inner .founder-info-left .tnoren-title {
   font-size: 12px;
-  color: #1a1a1a;
+  color: #000000;
   float: left;
 }
 .section-about-us-inner .founder-info-left .tnoren-name {
-  color: #1a1a1a;
+  color: #000000;
   font-size: 16px;
 }
 .section-about-us-inner .founder-info-right {
   float: right;
   padding-left: 20px;
+  position: relative;
   width: calc(100% - 300px);
 }
 .section-about-us-inner .founder-info-right p {
@@ -1020,6 +1021,7 @@ footer {
 .counter-box .counter-info {
   font-size: 18px;
   color: #666666;
+  position: relative;
 }
 .counter-box .icon {
   width: 50px;
@@ -1119,6 +1121,36 @@ footer {
   left: 595px;
 }
 
+.large-triangle7 {
+  position: absolute;
+  background: url("../../assets/img/svg/Poligon_7.svg") no-repeat;
+  transition: transform 0.5s linear;
+  width: 756px;
+  height: 783px;
+  top: -131px;
+  left: -385px;
+}
+
+.large-triangle10 {
+  position: absolute;
+  background: url("../../assets/img/svg/Poligon_10.svg") no-repeat;
+  transition: transform 0.5s linear;
+  width: 724px;
+  height: 783px;
+  top: 28px;
+  left: 595px;
+}
+
+.large-triangle9 {
+  position: absolute;
+  background: url("../../assets/img/svg/Poligon_9.svg") no-repeat;
+  transition: transform 0.5s linear;
+  width: 724px;
+  height: 783px;
+  top: -108px;
+  left: 552px;
+}
+
 .left-floated {
   float: left;
 }
@@ -1147,7 +1179,7 @@ footer {
 
 .link-type-2 {
   float: right;
-  color: #1a1a1a;
+  color: #000000;
   margin-right: 33px;
   margin-top: -33px;
 }
@@ -1251,6 +1283,7 @@ footer {
 
 .partners-slider-container {
   padding-top: 14px;
+  position: relative;
 }
 
 section.contact-us-section {
@@ -1259,6 +1292,14 @@ section.contact-us-section {
 
 .rating-place {
   padding-top: 24px;
+}
+
+.partners-inner {
+  position: relative;
+}
+
+#animation_container {
+  margin: 0 auto 50px;
 }
 
 /*

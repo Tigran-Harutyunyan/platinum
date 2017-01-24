@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
-<body id="section-home">
+<body id="section-home" onload="init();">
     <header data-scroll-index="0" id="appHeader">
         <nav class="nav-bar">
             <div class="container nav-container nav1">
@@ -31,7 +31,12 @@
     </header>
     <div class="main-section">
         <div class="banner">
-            <div class="logo"></div>
+            <!-- <div class="logo"></div> -->
+            <div id="animation_container" style="background-color:rgba(0, 0, 0, 0.00); width:566px; height:370px">
+                <canvas id="canvas" width="566" height="370" style="position: absolute; display: block; background-color:rgba(0, 0, 0, 0.00);"></canvas>
+                <div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:566px; height:370px; position: absolute; left: 0px; top: 0px; display: block;">
+                </div>
+            </div>
             <a href="" class="btn-link">Ավելին</a>
             <div class="banner-line"></div>
         </div>
@@ -163,7 +168,7 @@
                         <div class="counter-box">
                             <div class="small-triangle2"></div>
                             <div class="icon ico4"> </div>
-                            <h5 class="counter-nums" id="counter4">4</h5>
+                            <h5 class="counter-nums" id="counter4">7</h5>
                             <h6 class="counter-info">Տարվա Փորձ</h6>
                         </div>
                     </div>
@@ -189,8 +194,52 @@
                 </section>
             </div>
             <div class="sliders-place">
-                <div class="landing-wrapper">
-                    <div class="landing-inner-content">
+                <div class="landing-wrapper" id="landing1">
+                    <div class="landing-inner-content" id="landing-content1">
+                        <div class="box box-1">
+                            <div class="box-content">
+                            </div>
+                        </div>
+                        <div class="box box-2">
+                            <div class="box-content">
+                            </div>
+                        </div>
+                        <div class="box box-3">
+                            <div class="box-content">
+                            </div>
+                        </div>
+                        <div class="box box-4">
+                            <div class="box-content">
+                            </div>
+                        </div>
+                        <div class="box box-5">
+                            <div class="box-content">
+                            </div>
+                        </div>
+                        <div class="box box-6">
+                            <div class="box-content">
+                            </div>
+                        </div>
+                        <div class="box box-7">
+                            <div class="box-content">
+                            </div>
+                        </div>
+                        <div class="box box-8">
+                            <div class="box-content">
+                            </div>
+                        </div>
+                        <div class="box box-9">
+                            <div class="box-content">
+                            </div>
+                        </div>
+                        <div class="box box-10">
+                            <div class="box-content">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="landing-wrapper" id="landing2">
+                    <div class="landing-inner-content" id="landing-content2">
                         <div class="box box-1">
                             <div class="box-content">
                             </div>
@@ -332,7 +381,7 @@
                                 <img src=" assets/img/partners/5.png" alt="Armenian Wine">
                             </div>
                         </div>
-                         <div class="owl-item">
+                        <div class="owl-item">
                             <div class="partners-box">
                                 <img src=" assets/img/partners/1.png" alt="Tsirani">
                             </div>
@@ -366,6 +415,9 @@
                 </div>
                 <!-- Partners -->
                 <section class="contact-us-section" id="section-contact-us">
+                    <div class="large-triangle7 triangles"></div>
+                    <!--  <div class="large-triangle10 triangles"></div>  -->
+                    <div class="large-triangle9 triangles"></div>
                     <div class="section-title-place">
                         <div class="rating-place right-floated">
                             <ul class="right-floated">
@@ -376,7 +428,6 @@
                                 <li class="stars"></li>
                             </ul>
                             <p class="partners-opinion-p">Գործընկերների գնահատականը մեր մասին</p>
-                            
                         </div>
                         <div class="letter-divider">
                             <h6>05</h6>
@@ -411,12 +462,13 @@
                             </div>
                             <p class="rights-info">
                                 Բոլոր հեղինակային իրավունքները պաշտպանված
-                                <br> են © 2010-2017 PlatinumInk Design.
+                                <br> են © 2010-2017 Platinum Ink Design.
                             </p>
                         </div>
                         <div class="partners-right right-floated">
-                        <div class="availability">
-                                Մենք հասանելի ենք <br>09:00 - 19:00
+                            <div class="availability">
+                                Մենք հասանելի ենք
+                                <br>09:00 - 19:00
                             </div>
                             <div class="form-place">
                                 <div class="form-container">
@@ -434,24 +486,81 @@
                                                 <textarea name="contact_message" placeholder="Նամակ" class="def-input " id="contact_message" cols="30 " rows="10 "></textarea>
                                             </div>
                                             <div class="elem-spacer"></div>
-                                              <div class="default-inp-row ">
-                                            <input type="submit" class="btn-submit"" id="contact-us-btn" value="Ուղարկել">
+                                            <div class="default-inp-row ">
+                                                <input type="submit" class="btn-submit" " id="contact-us-btn " value="Ուղարկել ">
                                             </div>
                                         </div>
                                     </form>
                                 </div>
                             </div>
                         </div>
-                        <div class="contacts-space clearfix"></div>
+                        <div class="contacts-space clearfix "></div>
                     </div>
                 </section>
             </div>
         </div>
-        <footer class="footer">
+        <footer class="footer ">
         </footer>
     </div>
     <script type="text/javascript " src="assets/js/min/libs.min.js "></script>
     <script src="assets/js/dev.js "></script>
+    <script src="https://code.createjs.com/createjs-2015.11.26.min.js "></script>
+<script src="Logo_animation.js "></script>
+<script>
+var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+function init() {
+    canvas = document.getElementById("canvas");
+    anim_container = document.getElementById("animation_container");
+    dom_overlay_container = document.getElementById("dom_overlay_container");
+    handleComplete();
+}
+function handleComplete() {
+    //This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+    exportRoot = new lib.Logo_animation();
+    stage = new createjs.Stage(canvas);
+    stage.addChild(exportRoot); 
+    //Registers the "tick" event listener.
+    fnStartAnimation = function() {
+        createjs.Ticker.setFPS(lib.properties.fps);
+        createjs.Ticker.addEventListener("tick", stage);
+    }       
+    //Code to support hidpi screens and responsive scaling.
+    function makeResponsive(isResp, respDim, isScale, scaleType) {      
+        var lastW, lastH, lastS=1;      
+        window.addEventListener('resize', resizeCanvas);        
+        resizeCanvas();     
+        function resizeCanvas() {           
+            var w = lib.properties.width, h = lib.properties.height;            
+            var iw = window.innerWidth, ih=window.innerHeight;          
+            var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;          
+            if(isResp) {                
+                if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {                    
+                    sRatio = lastS;                
+                }               
+                else if(!isScale) {                 
+                    if(iw<w || ih<h)                        
+                        sRatio = Math.min(xRatio, yRatio);              
+                }               
+                else if(scaleType==1) {                 
+                    sRatio = Math.min(xRatio, yRatio);              
+                }               
+                else if(scaleType==2) {                 
+                    sRatio = Math.max(xRatio, yRatio);              
+                }           
+            }           
+            canvas.width = w*pRatio*sRatio;         
+            canvas.height = h*pRatio*sRatio;
+            canvas.style.width = dom_overlay_container.style.width = anim_container.style.width =  w*sRatio+'px';               
+            canvas.style.height = anim_container.style.height = dom_overlay_container.style.height = h*sRatio+'px';
+            stage.scaleX = pRatio*sRatio;           
+            stage.scaleY = pRatio*sRatio;           
+            lastW = iw; lastH = ih; lastS = sRatio;     
+        }
+    }
+    makeResponsive(true,'both',false,1);    
+    fnStartAnimation();
+}
+</script>
 </body>
 
 </html>

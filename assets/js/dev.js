@@ -118,31 +118,97 @@ $(document).ready(function() {
         .addTo(controller2);
 
     //**************** CONTENT SLIDER ********************************** 
-
-    var $landingWrapper = $(".landing-wrapper"),
-        $landingInnerContent = $(".landing-inner-content");
+    var velocity = 0,
+        threshold = 300,
+        maxVelocity = 10;
+    var $landingWrapper = $("#landing1"),
+        $landingInnerContent = $("#landing-content1");
+    var $landingWrapper2 = $("#landing2"),
+        $landingInnerContent2 = $("#landing-content2");
     // set initial container to half of .landing-inner-content width
     //TweenMax.set($landingWrapper, {scrollTo: {x: $landingInnerContent.width()/4}, ease: Power2.easeOut});
 
     // scroll left and right
-    $landingInnerContent.on("mousemove touchmove", function(e) {
-        if (e.clientX > $landingWrapper.width() / 2) {
-            //console.log($landingWrapper.width() - e.clientX );
-            TweenMax.to($landingWrapper, 2, {
-                scrollTo: {
-                    x: "+=175"
-                },
-                ease: Power2.easeOut
-            });
-        } else {
-            TweenMax.to($landingWrapper, 2, {
-                scrollTo: {
-                    x: "-=175"
-                },
-                ease: Power2.easeOut
-            });
+    var latestPosition;
+    var allowScroll = true;
+    var allowScroll2 = true;
+    var _docWidth = $(document).width();
+    var land_width = $landingWrapper.width();
+    var land_width2 = $landingWrapper2.width()
+    $landingInnerContent.on("mousemove touchmove", function(e) { 
+        if (allowScroll) {
+
+            if ((e.clientX < land_width / 4) || (e.clientX > land_width * 3 / 4)) {
+                allowScroll = false;
+                setTimeout(function() {
+                    var difference = _docWidth - e.clientX;
+                    var currentVelocity = Math.round(Math.abs(calculateVelocity(e.clientX, difference)));
+                    if (e.clientX > land_width / 2) {
+                        TweenMax.to($landingWrapper, 2, {
+                            scrollTo: {
+                                x: "+=" + 30 * currentVelocity
+                            },
+                            ease: Power2.easeOut
+                        });
+                    } else {
+                        TweenMax.to($landingWrapper, 2, {
+                            scrollTo: {
+                                x: "-=" + 30 * currentVelocity
+                            },
+                            ease: Power2.easeOut
+                        });
+                    }
+                    allowScroll = true;
+                }, 100);
+            } else {
+                TweenMax.to($landingWrapper, 2, {
+                    scrollTo: {
+                        x: "+=0"
+                    },
+                    ease: Power2.easeOut
+                });
+            }
         }
     });
+     $landingInnerContent2.on("mousemove touchmove", function(e) { 
+        if (allowScroll2) {
+
+            if ((e.clientX < land_width2 / 4) || (e.clientX > land_width2 * 3 / 4)) {
+                allowScroll2 = false;
+                setTimeout(function() {
+                    var difference = _docWidth - e.clientX;
+                    var currentVelocity = Math.round(Math.abs(calculateVelocity(e.clientX, difference)));
+                    if (e.clientX > land_width2 / 2) {
+                        TweenMax.to($landingWrapper2, 2, {
+                            scrollTo: {
+                                x: "+=" + 30 * currentVelocity
+                            },
+                            ease: Power2.easeOut
+                        });
+                    } else {
+                        TweenMax.to($landingWrapper2, 2, {
+                            scrollTo: {
+                                x: "-=" + 30 * currentVelocity
+                            },
+                            ease: Power2.easeOut
+                        });
+                    }
+                    allowScroll2 = true;
+                }, 100);
+            } else {
+                TweenMax.to($landingWrapper2, 2, {
+                    scrollTo: {
+                        x: "+=0"
+                    },
+                    ease: Power2.easeOut
+                });
+            }
+        }
+    });
+    var calculateVelocity = function(clientX, difference) {
+        return clientX < threshold ? (threshold - clientX) / threshold * -maxVelocity : difference < threshold ? (threshold - difference) / threshold * maxVelocity : 0;
+    };
+
 
     //**********REVIES SLIDER****************************************
 
@@ -216,7 +282,7 @@ $(document).ready(function() {
         if (visible) {
             if (allowCounting) {
                 var startValues = [0, 100, 0, 0];
-                var endValues = [11, 225, 155, 4];
+                var endValues = [11, 225, 155, 7];
                 for (var i = 0; i < 4; i++) {
                     var element = document.getElementById("counter" + (i + 1));
                     var numAnim = new CountUp(element, startValues[i], endValues[i]);
