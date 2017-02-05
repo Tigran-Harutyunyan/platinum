@@ -6,6 +6,23 @@
 var allowdToGet = true;
 var previousPosition = 0;
 var section_to_scroll;
+var allowMouseMove = true;
+var triangle1 = $(".large-triangle1"),
+    triangle2 = $(".large-triangle2"),
+    triangle3 = $(".large-triangle3"),
+    triangle4 = $(".large-triangle4"),
+    triangle5 = $(".large-triangle5"),
+    triangle6 = $(".large-triangle6"),
+    triangle7 = $(".large-triangle7"),
+    triangle8 = $(".large-triangle8"),
+    triangle9 = $(".large-triangle9"),
+    triangle10 = $(".large-triangle10"),
+    triangle11 = $(".large-triangle11"),
+    triangles = $(".triangles"),
+    defaultTransform = "rotateY(0deg) rotateX(0deg)",
+    contactsArea = $('.content-area'),
+    windowWidth = $(window).width(),
+    windowHeight = $(window).height();
 /*function trackMouse(sliders) {
 
     sliders.mousemove(function(e) {
@@ -20,73 +37,93 @@ var section_to_scroll;
 }*/
 
 
-mousePerspective($(window).width(), $(window).height());
+// mousePerspective(windowWidth, windowHeight);
 
 function mousePerspective(w, h) {
-    var triangle1 = $(".large-triangle1");
-    var triangle2 = $(".large-triangle2");
-    var triangle3 = $(".large-triangle3");
-    var triangle4 = $(".large-triangle4");
-    var triangle5 = $(".large-triangle5");
-    var triangle6 = $(".large-triangle6");
-    var triangles = $(".triangles");
-    var defaultTransform = "rotateY(0deg) rotateX(0deg)"
-    $('.content-area').mousemove(function(e) {
-        var Xmouse = e.pageX;
-        var Ymouse = e.pageY;
-        //calc perc
-        var Xperc = Xmouse / w;
-        var Yperc = Ymouse / h;
-        // triangle 1.
-        Xpos = Math.floor(Xperc * 30);
-        Ypos = Math.floor(Yperc * 30);
-        //console.info("X Axis : " + Xpos + " Y Axis : " + Ypos);
-        Xrev = 100 - Xpos;
-        Yrev = 100 - Ypos;
-        triangle1.css({
-            //perspectiveOrigin: Xpos + '% ' + Ypos + '%'
-            transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
-        });
-        // triangle 2
-        Xpos = Math.floor(Xperc * 20);
-        Ypos = Math.floor(Yperc * 20);
-        Xrev = 200 - Xpos;
-        Yrev = 200 - Ypos;
-        triangle2.css({
-            transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
-        });
-        // triangle 3
-        Xpos = Math.floor(Xperc * 20);
-        Ypos = Math.floor(Yperc * 20);
-        Xrev = 200 - Xpos;
-        Yrev = 200 - Ypos;
-        triangle3.css({
-            transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
-        });
-        // triangle 4
-        Xpos = Math.floor(Xperc * 15);
-        Ypos = Math.floor(Yperc * 15);
-        Xrev = 200 - Xpos;
-        Yrev = 200 - Ypos;
-        triangle4.css({
-            transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
-        });
-        // triangle 5
-        Xpos = Math.floor(Xperc * 16);
-        Ypos = Math.floor(Yperc * 16);
-        Xrev = 180 - Xpos;
-        Yrev = 180 - Ypos;
-        triangle5.css({
-            transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
-        });
-        // triangle 6
-        Xpos = Math.floor(Xperc * 20);
-        Ypos = Math.floor(Yperc * 20);
-        Xrev = 170 - Xpos;
-        Yrev = 170 - Ypos;
-        triangle6.css({
-            transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
-        });
+    $('.content-area').mousemove(function (e) {
+        if (allowMouseMove) {
+            allowMouseMove = false;
+            setTimeout(function () {
+                allowMouseMove = true;
+                var Xmouse = e.pageX;
+                var Ymouse = e.pageY;
+                //calc perc
+                var Xperc = Xmouse / w;
+                var Yperc = Ymouse / h;
+                // triangle 1.
+                Xpos = Math.floor(Xperc * 20);
+                Ypos = Math.floor(Yperc * 20);
+                //console.info("X Axis : " + Xpos + " Y Axis : " + Ypos);
+                Xrev = 100 - Xpos;
+                Yrev = 100 - Ypos;
+                triangle1.css({
+                    //perspectiveOrigin: Xpos + '% ' + Ypos + '%'
+                    transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
+                });
+                // triangle 2
+                Xpos = -(Math.floor(Xperc * 20));
+                Ypos = Math.floor(Yperc * 30);
+                triangle2.css({
+                    transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
+                });
+                // triangle 3
+                Xpos = Math.floor(Xperc * 50);
+                Ypos = -(Math.floor(Yperc * 20));
+                triangle3.css({
+                    transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
+                });
+                // triangle 4
+                Xpos = -(Math.floor(Xperc * 22));
+                Ypos = Math.floor(Yperc * 30);
+                triangle4.css({
+                    transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
+                });
+                // triangle 5
+                Xpos = Math.floor(Xperc * 16);
+                Ypos = Math.floor(Yperc * 16);
+                triangle5.css({
+                    transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
+                });
+                // triangle 6
+                Xpos = -(Math.floor(Xperc * 16));
+                Ypos = Math.floor(Yperc * 20);
+
+                triangle6.css({
+                    transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
+                });
+                // triangle 7
+                Xpos = Math.floor(Xperc * 20);
+                Ypos = Math.floor(Yperc * 20);
+                triangle7.css({
+                    transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
+                });
+                // triangle 8
+                Xpos = Math.floor(Xperc * 20);
+                Ypos = Math.floor(Yperc * 20);
+                triangle8.css({
+                    transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
+                });
+                // triangle 9
+                Xpos = -(Math.floor(Xperc * 10));
+                Ypos = (Math.floor(Yperc * 5));
+                triangle9.css({
+                    transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
+                });
+                // triangle 10
+                Xpos = Math.floor(Xperc * 4);
+                Ypos = Math.floor(Yperc * 3);
+                triangle10.css({
+                    transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
+                });
+                // triangle 11
+                Xpos = Math.floor(Xperc * 20);
+                Ypos = Math.floor(Yperc * 20);
+                triangle11.css({
+                    transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
+                });
+            }, 200)
+        }
+
     });
     /*  $('.content-area').on('mouseleave', function(e) {
            triangles.css({ 
@@ -95,28 +132,117 @@ function mousePerspective(w, h) {
 
       });*/
 }
-$(document).ready(function() {
-    var disabled = false;
-    var allowScrolling = true;
-    var _docWidth = $(window).width();
-    var sliders = $('.sliders-place');
+$(document).ready(function () {
+    var disabled = false,
+        allowScrolling = true,
+        _docWidth = $(window).width(),
+        sliders = $('.sliders-place'),
+        menuToggler = $('#menu-toggler'),
+        mobileMenuContainer = $('.menu-toggler-container');
 
+    menuToggler.click(function () {
+        $(this).toggleClass("active-breadcrump");
+         mobileMenuContainer.toggleClass('menu-opened')
+    });
 
     //************* HEADER SCROLLING **********************************
 
     var controller = new ScrollMagic.Controller();
-    var scene = new ScrollMagic.Scene({ triggerElement: "#appHeader", triggerHook: 0, duration: 86 })
+    var scene = new ScrollMagic.Scene({
+            triggerElement: "#appHeader",
+            triggerHook: 0,
+            duration: 86
+        })
         .addTo(controller);
     scene.setClassToggle("#appHeader", "normal-header");
     //trackMouse(sliders);
 
 
-    //************* PARALLAX SCROLLING ********************************
-    var controller2 = new ScrollMagic.Controller({ globalSceneOptions: { triggerHook: "onEnter", duration: "200%" } });
-    var scene2 = new ScrollMagic.Scene({ triggerElement: "#parallax-trigger" })
-        .setTween("#parallax1", { y: "10%", ease: Linear.easeNone })
+    //*************  PARALLAX SCROLLING ********************************
+    var controller2 = new ScrollMagic.Controller({
+        globalSceneOptions: {
+            triggerHook: "onEnter",
+            duration: "200%"
+        }
+    });
+    var scene2 = new ScrollMagic.Scene({
+            triggerElement: "#parallax-trigger"
+        })
+        .setTween("#parallax1", {
+            y: "10%",
+            ease: Linear.easeNone
+        })
         .addTo(controller2);
 
+    //************* BIG SLIDER PARALLAX SCROLLING ********************************
+
+    /*  var controller3 = new ScrollMagic.Controller({
+        triggerElement: "#mainSlider",
+        triggerHook: 0
+    });
+    var scene3 = new ScrollMagic.Scene({
+            triggerElement: "#mainSlider"
+        })
+        .setTween("#mainSlider", {
+            y: "10%",
+            ease: Linear.easeNone
+        })
+        .addTo(controller3)
+        .addIndicators()
+*/
+    //*************  CONTACT US SECTIon ********************************
+    /*    var contactsController = new ScrollMagic.Controller({
+            globalSceneOptions: {
+                triggerHook: "onEnter",
+                duration: "200%"
+            }
+        });
+        var sceneContacts = new ScrollMagic.Scene({
+                triggerElement: "#area-contacts"
+            })
+            .addTo(contactsController);
+
+        sceneContacts.on("enter", function (event) {
+            console.log("Scene entered.");
+            contactsArea.mousemove(function (e) {
+                //allowMouseMove = false;
+                setTimeout(function () {
+                    allowMouseMove = true;
+                    //calc perc
+                    var Xperc = e.pageX / windowWidth;
+                    var Yperc = e.pageY / windowHeight;
+
+                    // triangle 7
+                    Xpos = Math.floor(Xperc * 20);
+                    Ypos = Math.floor(Yperc * 20);
+                    triangle7.css({
+                        transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
+                    });
+
+                    // triangle 9
+                    Xpos = -(Math.floor(Xperc * 10));
+                    Ypos = (Math.floor(Yperc * 5));
+                    triangle9.css({
+                        transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
+                    });
+                    // triangle 10
+                    Xpos = Math.floor(Xperc * 4);
+                    Ypos = Math.floor(Yperc * 3);
+                    triangle10.css({
+                        transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
+                    });
+
+                }, 200)
+            });
+
+        });
+        sceneContacts.on("leave", function (event) {
+            console.log("Scene left."); 
+            triangles.css({
+                transform: defaultTransform
+            }); 
+            contactsArea.unbind("mousemove");
+        });*/
     //**************** CONTENT SLIDER ********************************** 
     var velocity = 0,
         threshold = 300,
@@ -135,12 +261,12 @@ $(document).ready(function() {
     var _docWidth = $(document).width();
     var land_width = $landingWrapper.width();
     var land_width2 = $landingWrapper2.width()
-    $landingInnerContent.on("mousemove touchmove", function(e) { 
+    $landingInnerContent.on("mousemove touchmove", function (e) {
         if (allowScroll) {
 
             if ((e.clientX < land_width / 4) || (e.clientX > land_width * 3 / 4)) {
                 allowScroll = false;
-                setTimeout(function() {
+                setTimeout(function () {
                     var difference = _docWidth - e.clientX;
                     var currentVelocity = Math.round(Math.abs(calculateVelocity(e.clientX, difference)));
                     if (e.clientX > land_width / 2) {
@@ -170,12 +296,12 @@ $(document).ready(function() {
             }
         }
     });
-     $landingInnerContent2.on("mousemove touchmove", function(e) { 
+    $landingInnerContent2.on("mousemove touchmove", function (e) {
         if (allowScroll2) {
 
             if ((e.clientX < land_width2 / 4) || (e.clientX > land_width2 * 3 / 4)) {
                 allowScroll2 = false;
-                setTimeout(function() {
+                setTimeout(function () {
                     var difference = _docWidth - e.clientX;
                     var currentVelocity = Math.round(Math.abs(calculateVelocity(e.clientX, difference)));
                     if (e.clientX > land_width2 / 2) {
@@ -205,7 +331,7 @@ $(document).ready(function() {
             }
         }
     });
-    var calculateVelocity = function(clientX, difference) {
+    var calculateVelocity = function (clientX, difference) {
         return clientX < threshold ? (threshold - clientX) / threshold * -maxVelocity : difference < threshold ? (threshold - difference) / threshold * maxVelocity : 0;
     };
 
@@ -223,10 +349,10 @@ $(document).ready(function() {
         mouseDrag: false,
         //touchDrag:false,
         dotsContainer: "#reviews-dots",
-        onResized: function() {
+        onResized: function () {
 
         },
-        onInitialized: function() {
+        onInitialized: function () {
 
         }
     });
@@ -252,7 +378,7 @@ $(document).ready(function() {
             contact_email: "required",
             contact_message: "required"
         },
-        submitHandler: function() {
+        submitHandler: function () {
             if (!disabled) {
                 var button = $(".btn-submit");
                 button.disabled = true;
@@ -261,14 +387,14 @@ $(document).ready(function() {
                 $.ajax('http://jsonplaceholder.typicode.com/posts', {
                     method: 'POST',
                     data: data
-                }).done(function(success) {
+                }).done(function (success) {
                     $("#contact_subject").val("");
                     $("#contact_email").val("");
                     $("#contact_message").val("");
                     toastr.success("Success!")
-                }).fail(function(error) {
+                }).fail(function (error) {
                     toastr.error("An error occured.")
-                }).always(function() {
+                }).always(function () {
                     disabled = false;
                     button.val("Send");
                 });
@@ -278,7 +404,7 @@ $(document).ready(function() {
     // ***************COUNTER****************************
     var sectionContainer = $('.section-counters');
     var allowCounting = true;
-    $('#counters').bind('inview', function(event, visible) {
+    $('#counters').bind('inview', function (event, visible) {
         if (visible) {
             if (allowCounting) {
                 var startValues = [0, 100, 0, 0];
@@ -286,11 +412,11 @@ $(document).ready(function() {
                 for (var i = 0; i < 4; i++) {
                     var element = document.getElementById("counter" + (i + 1));
                     var numAnim = new CountUp(element, startValues[i], endValues[i]);
-                    numAnim.start(function() {});
+                    numAnim.start(function () {});
                 }
                 allowCounting = false;
             }
-            $(window).scroll(function() {
+            $(window).scroll(function () {
                 var scrollPosition = $(window).scrollTop();
                 if (_docWidth > 1150 && _docWidth < 1250) {
                     sectionContainer.css('background-position', '50% ' + (-Math.round(scrollPosition * 0.04)) + 'px');
@@ -318,13 +444,13 @@ $(document).ready(function() {
         })
         .addTo(sectionsController)
         //.addIndicators()
-        .on("enter", function(e) {
+        .on("enter", function (e) {
             console.log("enter");
         })
     sceneNav.setClassToggle("#top-nav", "section-services");
     sceneNav.setClassToggle("#service-boxes", "active-services");
 
-    sectionsController.scrollTo(function(newpos) {
+    sectionsController.scrollTo(function (newpos) {
         if (section_to_scroll) {
             var offsetTop = 0;
             switch (section_to_scroll) {
@@ -346,22 +472,31 @@ $(document).ready(function() {
             }
         }
 
-        TweenMax.to(window, 0.5, { scrollTo: { y: newpos - offsetTop } });
+        TweenMax.to(window, 0.5, {
+            scrollTo: {
+                y: newpos - offsetTop
+            }
+        });
     });
     /* scene.setClassToggle("#top-nav", "section-services");*/
 
 
 
-    $(".menu-item, .logo-link").bind('click', function(event) {
+    $(".menu-item, .logo-link, .nav-item").bind('click', function (event) {
         var param = event.currentTarget.attributes['data-scroll-nav'];
         if (param && param.value) {
             section_to_scroll = "#" + param.value;
-            var currentElement = $(this);
-            sectionsController.scrollTo(section_to_scroll);
-            $(".menu-item").each(function(index) {
+            var currentElement = $(this); 
+            $(".menu-item").each(function (index) {
+                $(this).removeClass('active-menu');
+            });
+             $(".nav-item").each(function (index) {
                 $(this).removeClass('active-menu');
             });
             currentElement.addClass('active-menu');
+            setTimeout(function(){
+                 sectionsController.scrollTo(section_to_scroll);
+            },400) 
         }
     });
     //********************TOASTER *********************

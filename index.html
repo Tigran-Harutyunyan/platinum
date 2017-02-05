@@ -12,6 +12,7 @@
 </head>
 
 <body id="section-home" onload="init();">
+
     <header data-scroll-index="0" id="appHeader">
         <nav class="nav-bar">
             <div class="container nav-container nav1">
@@ -26,19 +27,57 @@
                     <li><a class="menu-item" data-scroll-nav="section-contact-us">Հետադարձ կապ<span class="line-elem-menu"></span></a></li>
                     <li class="lang-toggler"><a class="menu-item-lang active-lang">ՀԱՅ</a><a class="menu-item-lang">ENG</a></li>
                 </ul>
+                <div class="menu-toggler-container">
+                    <div class="button button-toggle" id="menu-toggler">
+                        <div class="nav-mobile-inner">
+                            <nav class="nav-mobile">
+                                <a class="nav-item active-menu" data-scroll-nav="section-home">
+                               Գլխավոր<span class="line-elem-menu"></span>
+                            </a>
+                                <a class="nav-item" data-scroll-nav="section-services">
+                                Ծառայություններ<span class="line-elem-menu"></span>
+                            </a>
+                                <a class="nav-item" data-scroll-nav="section-about-us">
+                                Մեր մասին <span class="line-elem-menu"></span></a>
+                                <a class="nav-item" data-scroll-nav="section-contact-us">
+                                Հետադարձ կապ<span class="line-elem-menu"></span>
+                             </a>
+                            </nav>
+                            <div class="lang-selector">
+                                <a>ENG</a>
+                                <a>ՀԱՅ</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </nav>
     </header>
     <div class="main-section">
-        <div class="banner">
+        <div class="banner" id="mainSlider">
             <!-- <div class="logo"></div> -->
-            <div id="animation_container" style="background-color:rgba(0, 0, 0, 0.00); width:566px; height:370px">
-                <canvas id="canvas" width="566" height="370" style="position: absolute; display: block; background-color:rgba(0, 0, 0, 0.00);"></canvas>
-                <div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:566px; height:370px; position: absolute; left: 0px; top: 0px; display: block;">
+            <!-- Home Slider -->
+            <div class="owl-container" id="banners-slider">
+                <div class="banner-container">
+                    <div class="owl-carousel owl-carousel-home owl-theme">
+                        <div class="owl-item">
+                            <!-- <div class="logo"></div> -->
+                            <div id="animation_container" style="background-color:rgba(0, 0, 0, 0.00); width:566px; height:370px">
+                                <canvas id="canvas" width="566" height="370" style="position: absolute; display: block; background-color:rgba(0, 0, 0, 0.00);"></canvas>
+                                <div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:566px; height:370px; position: absolute; left: 0px; top: 0px; display: block;">
+                                </div>
+                            </div>
+                            <a href="" class="btn-link">Ավելին</a>
+                            <div class="banner-line"></div>
+                        </div>
+                        <div class="owl-item">
+                              <a href="" class="btn-link">Ավելին</a>
+                            <div class="banner-line"></div>
+                        </div>
+                    </div> 
                 </div>
             </div>
-            <a href="" class="btn-link">Ավելին</a>
-            <div class="banner-line"></div>
+            <!-- Home slider  -->
         </div>
         <div class="content-area">
             <div class="main-inner">
@@ -60,58 +99,58 @@
                         <div class="services-box">
                             <div class="box-image"></div>
                             <h6 class="box-title">Գրաֆիկական Դիզայն</h6>
-                            <p class="box-text">
+                            <!-- <p class="box-text">
                                 Մենք կստեղծենք ձեր ընկերության կորպորատիվ ոճը, որը թույլ կտա ձեզ դառնալ ավելի յուրահատուկ,ավելի մրցունակ և հեշտությամբ ճանաչելի:
-                            </p>
+                            </p>-->
                         </div>
                         <div class="services-box">
                             <div class="box-image"></div>
                             <h6 class="box-title">Վեբ Դիզայն</h6>
-                            <p class="box-text">
+                            <!--<p class="box-text">
                                 Վստահեք մեզ ձեր վեբ կայքի նախագծումը, պատրաստումն ու առաջխաղացումը և մեր մասնագետները հոգ կտանեն նրբաճաշակ դիզայնի և հարմարավետության մասին:
-                            </p>
+                            </p>-->
                         </div>
                         <div class="services-box">
                             <div class="box-image"></div>
                             <h6 class="box-title">Արտաքին Գովազդ</h6>
-                            <p class="box-text">
+                            <!--     <p class="box-text">
                                 Արտաքին գովազդի պատրաստում և տեղադրում տարատեսակ նյութերով`ծավալային տառեր,լուսավորվող վահանակներ,ցուցանակներ և այլն:
-                            </p>
+                            </p>-->
                         </div>
                         <div class="services-box">
                             <div class="box-image"></div>
                             <h6 class="box-title">Գովազդային Ակցիաներ</h6>
-                            <p class="box-text">
+                            <!--    <p class="box-text">
                                 Գովազդային ակցիաների կազմակերպումը ենթադրում է որոշակի գործողություններ, որոնք ուղղված են ընկերության և սպառողների միջև անմիջական կապի ձևավորմանը:
-                            </p>
+                            </p>-->
                         </div>
                         <div class="services-box">
                             <div class="box-image"></div>
                             <h6 class="box-title">Թվային Տպագրություն</h6>
-                            <p class="box-text">
+                            <!-- <p class="box-text">
                                 Այս եղանակը թույլ է տալիս արագ և որակյալ տպագրել փոքր և միջին քանակ ունեցող այցեքարտեր, բուկլետներ և այլ տպագիր նյութեր:
-                            </p>
+                            </p>-->
                         </div>
                         <div class="services-box">
                             <div class="box-image"></div>
                             <h6 class="box-title">Օֆսեթ Տպագրություն</h6>
-                            <p class="box-text">
+                            <!--<p class="box-text">
                                 Այս եղանակը ամենահարմարն է մեծաքանակ տպագրության համար, քանի որ ապահովում է արտադրության բարձր որակ և մատչելի գին:
-                            </p>
+                            </p>-->
                         </div>
                         <div class="services-box">
                             <div class="box-image"></div>
                             <h6 class="box-title">Լայնաֆորմատ Տպագրություն</h6>
-                            <p class="box-text">
+                            <!--<p class="box-text">
                                 Այս եղանակը թույլ է տալիս ստանալ մեծ չափսերի տպագիր նյութեր,որոնք կիրառվում են ինտերյերի ձևաորման և արտաքին գովազդի մեջ:
-                            </p>
+                            </p>-->
                         </div>
                         <div class="services-box">
                             <div class="box-image"></div>
                             <h6 class="box-title">Այլ Ծառայություններ</h6>
-                            <p class="box-text">
+                            <!--<p class="box-text">
                                 Ծառայության տեսակներ,որոնք փոքր ինչ բազմազան են, այդ իսկ պատճառով խմբագրվելեն մեկ ընդհանուր վերնագրով:
-                            </p>
+                            </p>-->
                         </div>
                     </div>
                 </section>
@@ -285,6 +324,7 @@
             </div>
             <div class="main-inner">
                 <section class="testimonials-section">
+                    <div class="large-triangle11" id="triangle11"></div>
                     <div class="section-title-place">
                         <div class="letter-divider">
                             <h6>04</h6>
@@ -346,8 +386,8 @@
                 </div>
             </div>
         </div>
-        <div class="content-area">
-            <div class="main-inner">
+        <div class="content-area" id="area-contacts">
+            <div class="main-inner" id="section-5">
                 <!-- Partners -->
                 <div class="owl-container partners-slider-container">
                     <div class="owl-carousel owl-theme" id="partners-slider">
@@ -415,9 +455,9 @@
                 </div>
                 <!-- Partners -->
                 <section class="contact-us-section" id="section-contact-us">
-                    <div class="large-triangle7 triangles"></div>
-                    <!--  <div class="large-triangle10 triangles"></div>  -->
-                    <div class="large-triangle9 triangles"></div>
+                    <div class="large-triangle7 triangles" id="triangle7"></div>
+                    <div class="large-triangle10 triangles" id="triangle10"></div>
+                    <div class="large-triangle9 triangles" id="triangle9"></div>
                     <div class="section-title-place">
                         <div class="rating-place right-floated">
                             <ul class="right-floated">
@@ -448,7 +488,7 @@
                             </div>
                             <div class="social-place">
                                 <p>Միացեք մեր էջերին</p>
-                                <ul>
+                                <ul class="footer-social-links">
                                     <li class="social-icons fb">
                                         <a href="" class="fb-link"></a>
                                     </li>
@@ -483,11 +523,11 @@
                                             </div>
                                             <div class="elem-spacer"></div>
                                             <div class="default-inp-row ">
-                                                <textarea name="contact_message" placeholder="Նամակ" class="def-input " id="contact_message" cols="30 " rows="10 "></textarea>
+                                                <textarea name="contact_message" placeholder="Նամակ" class="def-input" id="contact_message" cols="30 " rows="10 "></textarea>
                                             </div>
                                             <div class="elem-spacer"></div>
-                                            <div class="default-inp-row ">
-                                                <input type="submit" class="btn-submit" " id="contact-us-btn " value="Ուղարկել ">
+                                            <div class="default-inp-row row-btn">
+                                                <input type="submit" class="btn-submit" id="contact-us-btn" value="Ուղարկել">
                                             </div>
                                         </div>
                                     </form>
@@ -499,68 +539,76 @@
                 </section>
             </div>
         </div>
-        <footer class="footer ">
+        <footer class="footer">
         </footer>
     </div>
-    <script type="text/javascript " src="assets/js/min/libs.min.js "></script>
-    <script src="assets/js/dev.js "></script>
-    <script src="https://code.createjs.com/createjs-2015.11.26.min.js "></script>
-<script src="Logo_animation.js "></script>
-<script>
-var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
-function init() {
-    canvas = document.getElementById("canvas");
-    anim_container = document.getElementById("animation_container");
-    dom_overlay_container = document.getElementById("dom_overlay_container");
-    handleComplete();
-}
-function handleComplete() {
-    //This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
-    exportRoot = new lib.Logo_animation();
-    stage = new createjs.Stage(canvas);
-    stage.addChild(exportRoot); 
-    //Registers the "tick" event listener.
-    fnStartAnimation = function() {
-        createjs.Ticker.setFPS(lib.properties.fps);
-        createjs.Ticker.addEventListener("tick", stage);
-    }       
-    //Code to support hidpi screens and responsive scaling.
-    function makeResponsive(isResp, respDim, isScale, scaleType) {      
-        var lastW, lastH, lastS=1;      
-        window.addEventListener('resize', resizeCanvas);        
-        resizeCanvas();     
-        function resizeCanvas() {           
-            var w = lib.properties.width, h = lib.properties.height;            
-            var iw = window.innerWidth, ih=window.innerHeight;          
-            var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;          
-            if(isResp) {                
-                if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {                    
-                    sRatio = lastS;                
-                }               
-                else if(!isScale) {                 
-                    if(iw<w || ih<h)                        
-                        sRatio = Math.min(xRatio, yRatio);              
-                }               
-                else if(scaleType==1) {                 
-                    sRatio = Math.min(xRatio, yRatio);              
-                }               
-                else if(scaleType==2) {                 
-                    sRatio = Math.max(xRatio, yRatio);              
-                }           
-            }           
-            canvas.width = w*pRatio*sRatio;         
-            canvas.height = h*pRatio*sRatio;
-            canvas.style.width = dom_overlay_container.style.width = anim_container.style.width =  w*sRatio+'px';               
-            canvas.style.height = anim_container.style.height = dom_overlay_container.style.height = h*sRatio+'px';
-            stage.scaleX = pRatio*sRatio;           
-            stage.scaleY = pRatio*sRatio;           
-            lastW = iw; lastH = ih; lastS = sRatio;     
+    <script type="text/javascript" src="assets/js/min/libs.min.js"></script>
+    <script type="text/javascript" src="assets/js/dev.js"></script>
+    <script type="text/javascript" src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+    <script src="Logo_animation.js"></script>
+    <script>
+        var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+
+        function init() {
+            canvas = document.getElementById("canvas");
+            anim_container = document.getElementById("animation_container");
+            dom_overlay_container = document.getElementById("dom_overlay_container");
+            handleComplete();
         }
-    }
-    makeResponsive(true,'both',false,1);    
-    fnStartAnimation();
-}
-</script>
+
+        function handleComplete() {
+            //This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+            exportRoot = new lib.Logo_animation();
+            stage = new createjs.Stage(canvas);
+            stage.addChild(exportRoot);
+            //Registers the "tick" event listener.
+            fnStartAnimation = function() {
+                    createjs.Ticker.setFPS(lib.properties.fps);
+                    createjs.Ticker.addEventListener("tick", stage);
+                }
+                //Code to support hidpi screens and responsive scaling.
+            function makeResponsive(isResp, respDim, isScale, scaleType) {
+                var lastW, lastH, lastS = 1;
+                window.addEventListener('resize', resizeCanvas);
+                resizeCanvas();
+
+                function resizeCanvas() {
+                    var w = lib.properties.width,
+                        h = lib.properties.height;
+                    var iw = window.innerWidth,
+                        ih = window.innerHeight;
+                    var pRatio = window.devicePixelRatio || 1,
+                        xRatio = iw / w,
+                        yRatio = ih / h,
+                        sRatio = 1;
+                    if (isResp) {
+                        if ((respDim == 'width' && lastW == iw) || (respDim == 'height' && lastH == ih)) {
+                            sRatio = lastS;
+                        } else if (!isScale) {
+                            if (iw < w || ih < h)
+                                sRatio = Math.min(xRatio, yRatio);
+                        } else if (scaleType == 1) {
+                            sRatio = Math.min(xRatio, yRatio);
+                        } else if (scaleType == 2) {
+                            sRatio = Math.max(xRatio, yRatio);
+                        }
+                    }
+                    canvas.width = w * pRatio * sRatio;
+                    canvas.height = h * pRatio * sRatio;
+                    canvas.style.width = dom_overlay_container.style.width = anim_container.style.width = w * sRatio + 'px';
+                    canvas.style.height = anim_container.style.height = dom_overlay_container.style.height = h * sRatio + 'px';
+                    stage.scaleX = pRatio * sRatio;
+                    stage.scaleY = pRatio * sRatio;
+                    lastW = iw;
+                    lastH = ih;
+                    lastS = sRatio;
+                }
+            }
+            makeResponsive(true, 'both', false, 1);
+            fnStartAnimation();
+        }
+
+    </script>
 </body>
 
 </html>
