@@ -140,7 +140,7 @@ $(document).ready(function () {
         _docWidth = $(window).width(),
         sliders = $('.sliders-place'),
         menuToggler = $('#menu-toggler'),
-        mobileMenuContainer = $('.menu-toggler-container');
+        mobileMenuContainer = $('.mobile-menu-container');
 
     menuToggler.click(function (event) {
         event.stopPropagation()

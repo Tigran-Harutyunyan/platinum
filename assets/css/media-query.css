@@ -299,13 +299,13 @@
     display: none;
   }
 
+  .counters-place {
+    width: 440px;
+    margin: 0 auto;
+    padding-left: 40px;
+  }
   .counters-place .counter-box:last-child {
     width: 199px;
-  }
-
-  .counters-place {
-    width: 390px;
-    margin: 0 auto;
   }
 
   .counter-info.ci-1 {
@@ -563,9 +563,10 @@
   }
 
   .counters-place {
-    width: 160px;
+    width: 180px;
     padding-top: 40px;
     padding-bottom: 0;
+    padding-left: 29px;
   }
 
   .portfolio-section {

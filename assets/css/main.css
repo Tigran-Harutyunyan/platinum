@@ -1423,207 +1423,8 @@ section.contact-us-section {
   height: 100%;
 }
 
-.button-toggle {
-  position: relative;
-  display: inline-block;
-  width: 25px;
-  height: 25px;
-  margin-top: 25px;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  transition: 0.6s;
-  margin-right: 30px;
-}
-
-.button-toggle.opened-menubar:before {
-  transform: translateY(-50%) rotate(45deg) scale(0);
-}
-
-.button-toggle:before {
-  transform: translateY(-50%) rotate(45deg) scale(0);
-}
-
-.button-toggle:after {
-  transform: translateY(-50%) rotate(-45deg) scale(0);
-}
-
-.button-toggle:before,
-.button-toggle:after {
-  position: absolute;
-  content: '';
-  top: 10px;
-  right: 0;
-  width: 21px;
-  height: 2px;
-  background-color: #ae995a;
-  border-radius: 5px;
-  transition: 0.5s;
-}
-
-.button-toggle.opened-menubar:before {
-  transform: translateY(-50%) rotate(45deg) scale(1);
-}
-
-.button-toggle.opened-menubar:after {
-  transform: translateY(-50%) rotate(-45deg) scale(1);
-}
-
-.menu-toggler-container {
-  float: right;
-  text-align: right;
-  background: transparent;
-  top: 0;
-  position: absolute;
-  right: 0;
-}
-.menu-toggler-container .line-elem-menu {
-  display: none;
-}
-.menu-toggler-container .lang-selector {
-  transform: translate(200px, 170px);
-  width: 100px;
-  opacity: 0;
-  font-size: 14px;
-}
-.menu-toggler-container .lang-selector a:first-child {
-  margin-right: 24px;
-}
-.menu-toggler-container .lang-selector a.active-lang {
-  color: #af995a;
-}
-
-nav.nav-mobile {
-  display: inline-block;
-  pointer-events: none;
-  left: 0;
-}
-nav.nav-mobile .nav-item {
-  position: relative;
-  display: inline-block;
-  float: right;
-  clear: both;
-  color: transparent;
-  font-size: 14px;
-  letter-spacing: -6.2px;
-  height: 6px;
-  line-height: 7px;
-  text-transform: uppercase;
-  white-space: nowrap;
-  transform: scaleY(0.2);
-  max-width: 20px;
-  margin-bottom: 1px;
-  transition: 0.5s, opacity 1s;
-}
-nav.nav-mobile .nav-item:nth-child(1) {
-  transition-delay: 0s;
-}
-nav.nav-mobile .nav-item:nth-child(1):before {
-  transition-delay: 0s;
-}
-nav.nav-mobile .nav-item:nth-child(2) {
-  transition-delay: 0.05s;
-}
-nav.nav-mobile .nav-item:nth-child(2):before {
-  transition-delay: 0.05s;
-}
-nav.nav-mobile .nav-item:nth-child(3) {
-  transition-delay: 0.1s;
-}
-nav.nav-mobile .nav-item:nth-child(3):before {
-  transition-delay: 0.1s;
-}
-nav.nav-mobile .nav-item:nth-child(4) {
-  transition-delay: 0.15s;
-}
-nav.nav-mobile .nav-item:nth-child(4):before {
-  transition-delay: 0.15s;
-}
-nav.nav-mobile .nav-item:nth-child(1) {
-  letter-spacing: -6px;
-}
-nav.nav-mobile .nav-item:nth-child(2) {
-  letter-spacing: -8px;
-  float: right;
-}
-nav.nav-mobile .nav-item:nth-child(3) {
-  letter-spacing: -6px;
-}
-nav.nav-mobile .nav-item:nth-child(4) {
-  display: none;
-}
-nav.nav-mobile .nav-item:before {
-  position: absolute;
-  content: '';
-  top: 50%;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: #fff;
-  transform: translateY(-50%) scaleY(5);
-  transition: 0.5s;
-}
-
 .z-indexed {
   z-index: 10;
-}
-
-.button-toggle.opened-menubar .nav-item:before {
-  opacity: 0;
-}
-.button-toggle.opened-menubar nav {
-  pointer-events: auto;
-  transform: translate(-170px, 50px);
-  /* display: flex;
-  flex-wrap: wrap;
-  justify-content: center;*/
-  transition: 0.5s;
-}
-.button-toggle.opened-menubar nav .nav-item {
-  color: #b2b2b2;
-  max-width: none;
-  letter-spacing: 0;
-  height: 40px;
-  line-height: 40px;
-  margin: 0 auto 10px;
-  width: 100%;
-  text-align: center;
-  opacity: 1;
-  transform: scaleY(1);
-  transition: 0.5s, opacity 0.1s;
-}
-
-.menu-toggler-container.menu-opened {
-  height: 680px;
-  background-color: white;
-  width: 300px;
-  box-shadow: -20px 0 40px rgba(0, 0, 0, 0.2);
-}
-.menu-toggler-container.menu-opened .active-menu .line-elem-menu {
-  display: block;
-}
-.menu-toggler-container.menu-opened nav.nav-mobile .nav-item:nth-child(4) {
-  display: block;
-}
-.menu-toggler-container.menu-opened .lang-selector {
-  opacity: 1;
-  transition: opacity 0.1s linear 0.5s;
-  transform: translate(-166px, 369px);
-}
-.menu-toggler-container.menu-opened .nav-mobile-inner {
-  padding-top: 10px;
-}
-.menu-toggler-container.menu-opened .nav-item.active-menu,
-.menu-toggler-container.menu-opened .nav-item:hover {
-  color: black !important;
-}
-
-.menu-toggler-container {
-  display: none;
-}
-
-.nav-mobile-inner {
-  position: relative;
 }
 
 .slides-info-place {
@@ -1661,6 +1462,10 @@ nav.nav-mobile .nav-item:before {
 .home-slider-container .owl-item.active #reviews-slider p {
   transform: translateY(0);
   transition: transform 0.2s linear 0.2;
+}
+
+.menu-toggler-container {
+  display: none;
 }
 
 menu,
@@ -1894,14 +1699,12 @@ menu input[type=checkbox]:checked ~ hamburger > i {
 
 menu input[type=checkbox]:checked ~ hamburger > i:before {
   transform: translate(-50%, -50%) rotate(315deg);
-  /*  background-color: #b8a56e;
-     transition: background-color 0s linear 0.7s*/
+  background-color: #b8a56e;
 }
 
 menu input[type=checkbox]:checked ~ hamburger > i:after {
   transform: translate(-50%, -50%) rotate(-315deg);
-  /* background-color: #b8a56e;
-   transition: background-color 0s linear 0.7s*/
+  background-color: #b8a56e;
 }
 
 menu input[type=checkbox]:checked ~ hamburger close {
@@ -1949,28 +1752,38 @@ menu .drawer-list li {
   white-space: nowrap;
   box-sizing: border-box;
   transform: translatex(100vw);
+  text-align: center;
   /* ie workaround */
   -ms-transform: translatex(-100vw);
 }
 
 menu .drawer-list li:last-child {
-  margin-bottom: 2em;
+  margin-top: 51px;
 }
 
 menu .drawer-list li a {
   text-decoration: none;
   color: #b2b2b2;
   text-align: center;
-  display: block;
-  padding-bottom: 36px;
+  padding-bottom: 7px;
   font-size: 0.875em;
   text-transform: uppercase;
+  position: relative;
+  width: 100%;
+  text-align: center;
+  line-height: 52px;
 }
 
 .nav-item.active-menu {
   color: black;
+  border-bottom: 2px solid #af995a;
 }
 
+@media (max-width: 768px) {
+  menu .drawer-list {
+    width: 100%;
+  }
+}
 menu .drawer-list li a:hover {
   cursor: pointer;
 }
@@ -2031,7 +1844,7 @@ menu hamburger > i:after {
   left: 50%;
   background: #FEFEFE;
   content: "";
-  transition: transform 0.35s;
+  transition: transform 0.35s, background-color 0s linear 0.4s;
   transform-origin: 50% 50%;
 }
 
@@ -2041,4 +1854,12 @@ menu hamburger > i:before {
 
 menu hamburger > i:after {
   transform: translate(-50%, 7px);
+}
+
+.lang-selector a.nav-item:first-child {
+  margin-right: 30px;
+}
+
+.nav-item.active-lang {
+  color: #af995a;
 }

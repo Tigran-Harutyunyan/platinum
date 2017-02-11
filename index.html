@@ -11,15 +11,14 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
-<body id="section-home" onload="init();">
-
+<body id="section-home" onload="init();"> 
     <header data-scroll-index="0" id="appHeader">
         <nav class="nav-bar">
             <div class="container nav-container nav1">
                 <a href="javascript:void(0);" class="left-floated logo-link" data-scroll-nav="section-home">
                     <div class="logo-place"></div>
                 </a>
-                <!--  <ul class="nav sidemenu right-floated" id="top-nav">
+                <ul class="nav sidemenu right-floated" id="top-nav">
                     <li><a class="menu-item active-menu" data-scroll-nav="section-home">Գլխավոր<span class="line-elem-menu"></span></a></li>
                     <li><a class="menu-item" data-scroll-nav="section-services">Ծառայություններ<span class="line-elem-menu"></span></a></li>
                     <li><a class="menu-item" data-scroll-nav="section-about-us">Մեր մասին<span class="line-elem-menu"></span></a></li>
@@ -27,40 +26,18 @@
                     <li><a class="menu-item" data-scroll-nav="section-contact-us">Հետադարձ կապ<span class="line-elem-menu"></span></a></li>
                     <li class="lang-toggler"><a class="menu-item-lang active-lang">ՀԱՅ</a><a class="menu-item-lang">ENG</a></li>
                 </ul>
-                <div class="menu-toggler-container">
-                    <div class="button button-toggle" id="menu-toggler">
-                        <div class="nav-mobile-inner">
-                            <nav class="nav-mobile">
-                                <a class="nav-item active-menu" data-scroll-nav="section-home">
-                               Գլխավոր<span class="line-elem-menu"></span>
-                            </a>
-                                <a class="nav-item" data-scroll-nav="section-services">
-                                Ծառայություններ<span class="line-elem-menu"></span>
-                            </a>
-                                <a class="nav-item" data-scroll-nav="section-about-us">
-                                Մեր մասին <span class="line-elem-menu"></span></a>
-                                <a class="nav-item" data-scroll-nav="section-contact-us">
-                                Հետադարձ կապ<span class="line-elem-menu"></span>
-                             </a>
-                            </nav>
-                            <div class="lang-selector">
-                                <a class="menu-item-lang">ENG</a>
-                                <a class="menu-item-lang active-lang">ՀԱՅ</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>-->
-                <content id="menu-toggler">
+                <content class="menu-toggler-container">
                     <menu>
                         <label for="trigger">
                             <input id="trigger" type="checkbox" />
                             <section class="drawer-list">
                                 <ul>
-                                    <li><a class="nav-item active-menu" data-scroll-nav="section-home">Գլխավոր
-                                    <span class="line-elem-menu"></span></a></li>
+                                    <li><a class="nav-item active-menu" data-scroll-nav="section-home">Գլխավոր</a></li>
                                     <li><a class="nav-item" data-scroll-nav="section-services">Ծառայություններ</a></li>
                                     <li><a class="nav-item" data-scroll-nav="section-about-us">Մեր մասին </a></li>
+                                    <li><a class="nav-item" data-scroll-nav="section-portfolio">Աշխատանքներ</a></li>
                                     <li><a class="nav-item" data-scroll-nav="section-contact-us">Հետադարձ կապ</a></li>
+                                    <li class="lang-selector"><a class="nav-item">ENG </a><a class="nav-item active-lang">ՀԱՅ</a></li>
                                 </ul>
                             </section>
                             <hamburger> <i></i>
@@ -71,8 +48,7 @@
                             </hamburger>
                         </label>
                     </menu>
-                </content>
-
+                </content> 
             </div>
         </nav>
     </header>

@@ -16,7 +16,6 @@
         margin-left: 0
     }
 }
-
 @media only screen and (max-width: 1250px) {
     .large-triangle9 {
         right: 169px;
@@ -35,7 +34,6 @@
         }
     }
 }
-
 @media only screen and (max-width: 1150px) {
     .small-triangle1,
     .small-triangle2,
@@ -82,7 +80,6 @@
         display: block
     }
 }
-
 @media only screen and (max-width: 1010px) {
     .large-triangle7 {
         top: -59px;
@@ -162,7 +159,6 @@
         right: -117px;
     }
 }
-
 @media only screen and (max-width: 950px) {
     .services-inner {
         width: 570px;
@@ -181,7 +177,6 @@
         right: 61px;
     }
 }
-
 @media only screen and (max-width: 768px) {
     .slider-social-btns {
         left: 30px;
@@ -269,12 +264,13 @@
             display: none
         }
     }
-    .counters-place .counter-box:last-child {
-        width: 199px;
-    }
     .counters-place {
-        width: 390px;
+        width: 440px;
         margin: 0 auto;
+        padding-left: 40px;
+        .counter-box:last-child {
+            width: 199px;
+        }
     }
     .counter-info.ci-1 {
         display: none
@@ -286,7 +282,6 @@
         bottom: 96px
     }
 }
-
 @media only screen and (max-width: 650px) {
     .large-triangle1 {
         top: 189px;
@@ -367,7 +362,6 @@
         }
     }
 }
-
 @media only screen and (max-width: 600px) {
     .partners-inner,
     .form-place,
@@ -399,7 +393,6 @@
         display: none
     }
 }
-
 @media only screen and (max-width: 550px) {
     .services-inner {
         width: 280px;
@@ -413,7 +406,6 @@
         }
     }
 }
-
 @media only screen and (max-width: 480px) {
     .foundation {
         width: 100%;
@@ -499,9 +491,10 @@
         right: -63px;
     }
     .counters-place {
-        width: 160px;
+        width: 180px;
         padding-top: 40px;
         padding-bottom: 0;
+        padding-left: 29px;
     }
     .portfolio-section {
         padding-top: 22px;
@@ -566,7 +559,6 @@
         transform: translate(-160px, 170px);
     }
 }
-
 @media only screen and (max-width: 420px) {
     #reviews-dots {
         transform: translate(-50%, 0%);
@@ -574,7 +566,6 @@
         left: 50%;
     }
 }
-
 @media only screen and (max-width: 370px) {
     #animation_container,
     #canvas,
@@ -587,7 +578,6 @@
         width: 51px
     }
 }
-
 @media only screen and (max-width: 320px) {
     .banner {
         background-image: url(../../assets/img/320/banner.jpg);
