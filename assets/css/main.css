@@ -1427,6 +1427,10 @@ section.contact-us-section {
   z-index: 10;
 }
 
+.english .counters-place .counter-box:last-child {
+  width: 94px;
+}
+
 .slides-info-place {
   position: absolute;
   right: 30px;

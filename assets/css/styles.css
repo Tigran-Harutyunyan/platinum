@@ -1561,6 +1561,10 @@ section.contact-us-section {
   z-index: 10;
 }
 
+.english .counters-place .counter-box:last-child {
+  width: 94px;
+}
+
 .slides-info-place {
   position: absolute;
   right: 30px;
@@ -2363,6 +2367,10 @@ html.remodal-is-locked {
 
   .counters-place .counter-box:last-child {
     width: 86px;
+  }
+
+  .english .counters-place .counter-box:last-child {
+    width: 94px;
   }
 
   .form-place {

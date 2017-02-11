@@ -62,6 +62,10 @@
     width: 86px;
   }
 
+  .english .counters-place .counter-box:last-child {
+    width: 94px;
+  }
+
   .form-place {
     width: 395px;
     margin: 0 auto;

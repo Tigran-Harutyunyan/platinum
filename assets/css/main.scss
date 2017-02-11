@@ -1332,12 +1332,14 @@ section.contact-us-section {
         height: 100%
     }
 }
- 
- 
 .z-indexed {
     z-index: 10
 }
- 
+.english {
+    .counters-place .counter-box:last-child {
+        width: 94px;
+    }
+}
 /////
 .slides-info-place {
     position: absolute;
@@ -1560,14 +1562,12 @@ menu input[type=checkbox]:checked ~ hamburger > i {
 menu input[type=checkbox]:checked ~ hamburger > i:before {
     transform: translate(-50%, -50%) rotate(315deg);
     background-color: #b8a56e;
-     
 }
 menu input[type=checkbox]:checked ~ hamburger > i:after {
     transform: translate(-50%, -50%) rotate(-315deg);
-     background-color: #b8a56e;
-    
+    background-color: #b8a56e;
 }
-menu input[type=checkbox]:checked ~ hamburger close { 
+menu input[type=checkbox]:checked ~ hamburger close {
     color: #FEFEFE;
     width: 100%;
 }
@@ -1588,11 +1588,10 @@ menu .drawer-list {
     pointer-events: none;
     padding-top: 98px;
     transition: width 475ms ease-out, transform 450ms ease, border-radius .8s .1s ease;
-    border-bottom-left-radius: 100vw;   
+    border-bottom-left-radius: 100vw;
     background-color: white;
     box-shadow: -20px 0 40px rgba(0, 0, 0, 0.2);
 }
- 
 menu .drawer-list ul {
     height: 100%;
     width: 100%;
@@ -1614,31 +1613,31 @@ menu .drawer-list li {
     -ms-transform: translatex(-100vw);
 }
 menu .drawer-list li:last-child {
-       margin-top: 51px;
+    margin-top: 51px;
 }
 menu .drawer-list li a {
     text-decoration: none;
     color: #b2b2b2;
-    text-align: center; 
+    text-align: center;
     padding-bottom: 7px;
     font-size: 0.875em;
-    text-transform: uppercase; 
+    text-transform: uppercase;
     position: relative;
     width: 100%;
     text-align: center;
     line-height: 52px;
 }
 .nav-item.active-menu {
-    color:black;
-        border-bottom: 2px solid #af995a;
+    color: black;
+    border-bottom: 2px solid #af995a;
 }
 @media (max-width: 768px) {
     menu .drawer-list {
-        width:100%
-    }  
+        width: 100%
+    }
 }
 menu .drawer-list li a:hover {
-    cursor: pointer; 
+    cursor: pointer;
 }
 menu hamburger {
     position: absolute;
@@ -1690,7 +1689,7 @@ menu hamburger > i:after {
     left: 50%;
     background: #FEFEFE;
     content: "";
-    transition: transform 0.35s, background-color 0s linear 0.4s  ;
+    transition: transform 0.35s, background-color 0s linear 0.4s;
     transform-origin: 50% 50%;
 }
 menu hamburger > i:before {
