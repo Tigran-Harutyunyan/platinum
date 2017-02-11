@@ -36,8 +36,10 @@ var triangle1 = $(".large-triangle1"),
     });
 }*/
 
-
-// mousePerspective(windowWidth, windowHeight);
+if (windowWidth>1200){
+    mousePerspective(windowWidth, windowHeight);
+}
+  
 
 function mousePerspective(w, h) {
     $('.content-area').mousemove(function (e) {
@@ -140,11 +142,15 @@ $(document).ready(function () {
         menuToggler = $('#menu-toggler'),
         mobileMenuContainer = $('.menu-toggler-container');
 
-    menuToggler.click(function () {
-        $(this).toggleClass("active-breadcrump");
-         mobileMenuContainer.toggleClass('menu-opened')
+    menuToggler.click(function (event) {
+        event.stopPropagation()
+        $(this).toggleClass("opened-menubar");
+        mobileMenuContainer.toggleClass('menu-opened')
     });
 
+    /* $('body.html').on('click',function(event){
+         event.stopPropagation();
+     })*/
     //************* HEADER SCROLLING **********************************
 
     var controller = new ScrollMagic.Controller();
@@ -260,10 +266,10 @@ $(document).ready(function () {
     var allowScroll2 = true;
     var _docWidth = $(document).width();
     var land_width = $landingWrapper.width();
-    var land_width2 = $landingWrapper2.width()
+    var land_width2 = $landingWrapper2.width();
     $landingInnerContent.on("mousemove touchmove", function (e) {
         if (allowScroll) {
-
+            land_width = $landingWrapper.width();
             if ((e.clientX < land_width / 4) || (e.clientX > land_width * 3 / 4)) {
                 allowScroll = false;
                 setTimeout(function () {
@@ -272,14 +278,14 @@ $(document).ready(function () {
                     if (e.clientX > land_width / 2) {
                         TweenMax.to($landingWrapper, 2, {
                             scrollTo: {
-                                x: "+=" + 30 * currentVelocity
+                                x: "+=" + 20 * currentVelocity
                             },
                             ease: Power2.easeOut
                         });
                     } else {
                         TweenMax.to($landingWrapper, 2, {
                             scrollTo: {
-                                x: "-=" + 30 * currentVelocity
+                                x: "-=" + 20 * currentVelocity
                             },
                             ease: Power2.easeOut
                         });
@@ -298,7 +304,7 @@ $(document).ready(function () {
     });
     $landingInnerContent2.on("mousemove touchmove", function (e) {
         if (allowScroll2) {
-
+            land_width2 = $landingWrapper2.width();
             if ((e.clientX < land_width2 / 4) || (e.clientX > land_width2 * 3 / 4)) {
                 allowScroll2 = false;
                 setTimeout(function () {
@@ -307,14 +313,14 @@ $(document).ready(function () {
                     if (e.clientX > land_width2 / 2) {
                         TweenMax.to($landingWrapper2, 2, {
                             scrollTo: {
-                                x: "+=" + 30 * currentVelocity
+                                x: "+=" + 20 * currentVelocity
                             },
                             ease: Power2.easeOut
                         });
                     } else {
                         TweenMax.to($landingWrapper2, 2, {
                             scrollTo: {
-                                x: "-=" + 30 * currentVelocity
+                                x: "-=" + 20 * currentVelocity
                             },
                             ease: Power2.easeOut
                         });
@@ -340,7 +346,10 @@ $(document).ready(function () {
 
     $('#reviews-slider').owlCarousel({
         loop: false,
-        smartSpeed: 250,
+        smartSpeed: 400,
+        animateOut: 'fadeOut',
+        animateIn: 'fadeIn',
+
         margin: 0,
         nav: true,
         dots: true,
@@ -357,7 +366,63 @@ $(document).ready(function () {
         }
     });
 
-    //==========PARTNERS SLIDER ====================================== 
+
+    //**********HOME SLIDER****************************************
+    var itemsCounter = $('#items-counter'),
+        currentSlide = $('#current-slide'),
+        navElemContainer = $(".nav-element-container"),
+        navElemContainerElements,
+        bannersSlider = $('#banners-slider');
+    bannersSlider.owlCarousel({
+        loop: false,
+        smartSpeed: 250,
+        margin: 0,
+        //nav: true,
+        dots: true,
+        items: 1,
+        autoHeight: true,
+        mouseDrag: false,
+        animateOut: 'fadeOut',
+        animateIn: 'fadeIn',
+        //touchDrag:false,
+        dotsContainer: ".banner-dots",
+        onInitialized: function (event) {
+            calculateSlideInfo(event);
+            createElements(event.item.index, event.item.count);
+        },
+        onTranslated: function (event) {
+            calculateSlideInfo(event);
+            createElements(event.item.index);
+        }
+    });
+
+    function calculateSlideInfo(event) {
+        itemsCounter.text(event.item.count < 10 ? '/0' + (event.item.count) : '/' + event.item.count);
+        currentSlide.text(event.item.index + 1 < 10 ? '0' + (event.item.index + 1) : event.item.index + 1);
+    }
+
+
+    function createElements(currentIndex, slideCount) {
+        if (slideCount) {
+            for (i = 0; i < slideCount - 1; i++) {
+                navElemContainer.append("<span class='' data-nav=" + (i + 1) + "></span>");
+            }
+            navElemContainerElements = $(".nav-element-container span");
+        } else {
+            console.log(currentIndex);
+            navElemContainerElements.each(function (index) {
+                if (currentIndex != $(this).data('nav')) {
+                    $(this).removeClass('active-nav');
+                } else {
+                    $(this).addClass('active-nav');
+                }
+            });
+        }
+    }
+    navElemContainerElements.on('click', function () {
+            bannersSlider.trigger('to.owl.carousel', $(this).data('nav'));
+        })
+        //==========PARTNERS SLIDER ====================================== 
 
     $('#partners-slider').owlCarousel({
         loop: true,
@@ -369,6 +434,20 @@ $(document).ready(function () {
         items: 5,
         autoHeight: false,
         mouseDrag: true
+            /*    ,responsive: {
+                    0: {
+                        items: 4,
+                        margin:0
+                         
+                    }, 
+                    950: {
+                        items: 5,
+                        margin:0
+                    },
+                    1200: {
+                        items: 5
+                    }  
+                }*/
     });
 
     //==========CONTACT FORM ====================================== 
@@ -454,21 +533,21 @@ $(document).ready(function () {
         if (section_to_scroll) {
             var offsetTop = 0;
             switch (section_to_scroll) {
-                case '#section-home':
-                    offsetTop = 0;
-                    break;
-                case '#section-services':
-                    offsetTop = 90;
-                    break;
-                case '#section-about-us':
-                    offsetTop = 90;
-                    break;
-                case '#section-portfolio':
-                    offsetTop = 0;
-                    break;
-                case '#section-contact-us':
-                    offsetTop = 0;
-                    break;
+            case '#section-home':
+                offsetTop = 0;
+                break;
+            case '#section-services':
+                offsetTop = 90;
+                break;
+            case '#section-about-us':
+                offsetTop = 90;
+                break;
+            case '#section-portfolio':
+                offsetTop = 0;
+                break;
+            case '#section-contact-us':
+                offsetTop = 0;
+                break;
             }
         }
 
@@ -486,18 +565,33 @@ $(document).ready(function () {
         var param = event.currentTarget.attributes['data-scroll-nav'];
         if (param && param.value) {
             section_to_scroll = "#" + param.value;
-            var currentElement = $(this); 
+            var currentElement = $(this);
             $(".menu-item").each(function (index) {
                 $(this).removeClass('active-menu');
             });
-             $(".nav-item").each(function (index) {
+            $(".nav-item").each(function (index) {
                 $(this).removeClass('active-menu');
             });
             currentElement.addClass('active-menu');
-            setTimeout(function(){
-                 sectionsController.scrollTo(section_to_scroll);
-            },400) 
+            setTimeout(function () {
+                sectionsController.scrollTo(section_to_scroll);
+            }, 400)
         }
+    });
+    //********************DRAGGBLE*********************
+    Draggable.create("#landing-content1", {
+        bounds: $("#landing1"),
+        edgeResistance: .65,
+        cursor: "pointer",
+        type: "x",
+        throwProps: true
+    });
+    Draggable.create("#landing-content2", {
+        bounds: $("#landing2"),
+        edgeResistance: .65,
+        cursor: "pointer",
+        type: "x",
+        throwProps: true
     });
     //********************TOASTER *********************
     toastr.options = {

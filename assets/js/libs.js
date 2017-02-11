@@ -2,6 +2,8 @@
 //@prepros-append jquery.easing.1.3.js   
 //@prepros-append TweenMax.min.js  
 //@prepros-append ScrollMagic.min.js  
+//@prepros-append draggable.min.js
+//@prepros-append ThrowPropsPlugin.min.js
 //@prepros-append debug.addIndicators.min.js
 //@prepros-append animation.gsap.js
 //@prepros-append ScrollToPlugin.min.js
@@ -11,4 +13,5 @@
 //@prepros-append jquery.inview.js
 //@prepros-append countUp.min.js  
 //@prepros-append jquery.magnific-popup.min.js 
+//@prepros-append jquery.dotdotdot.min.js
 //@prepros-append cursometer.js
