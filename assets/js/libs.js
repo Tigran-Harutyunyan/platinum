@@ -14,4 +14,4 @@
 //@prepros-append countUp.min.js  
 //@prepros-append jquery.magnific-popup.min.js 
 //@prepros-append jquery.dotdotdot.min.js
-//@prepros-append cursometer.js
+//@prepros-append cursometer.js 
