@@ -7,13 +7,12 @@
     <title>Platinum Ink</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="Description" lang="en" content="Platinum Ink">
-    <meta name="author" content="ZenNoho">
+    <meta name="author" content="Platinum Ink">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body id="section-home" class="english" onload="init();">
-
-    <header data-scroll-index="0" id="appHeader">
+    <header data-scroll-index="0" id="appHeader" class="normal-header">
         <nav class="nav-bar">
             <div class="container nav-container nav1">
                 <a href="javascript:void(0);" class="left-floated logo-link" data-scroll-nav="section-home">
@@ -25,7 +24,10 @@
                     <li><a class="menu-item" data-scroll-nav="section-about-us">About us<span class="line-elem-menu"></span></a></li>
                     <li><a class="menu-item" data-scroll-nav="section-portfolio">Projects<span class="line-elem-menu"></span></a></li>
                     <li><a class="menu-item" data-scroll-nav="section-contact-us">Contact us<span class="line-elem-menu"></span></a></li>
-                    <li class="lang-toggler"><a class="menu-item-lang active-lang">ՀԱՅ</a><a class="menu-item-lang">ENG</a></li>
+                    <li class="lang-toggler">
+                        <a href="http://platinuminkdesign.com" class="menu-item-lang">ՀԱՅ</a>
+                        <a href="http://platinuminkdesign.com/english.html" class="menu-item-lang active-lang">ENG</a>
+                    </li>
                 </ul>
                 <content class="menu-toggler-container">
                     <menu>
@@ -38,7 +40,10 @@
                                     <li><a class="nav-item" data-scroll-nav="section-about-us">About us </a></li>
                                     <li><a class="nav-item" data-scroll-nav="section-portfolio">Projects</a></li>
                                     <li><a class="nav-item" data-scroll-nav="section-contact-us">Contact us</a></li>
-                                    <li class="lang-selector"><a class="nav-item">ENG </a><a class="nav-item active-lang">ՀԱՅ</a></li>
+                                    <li class="lang-selector">
+                                        <a class="nav-item active-lang" href="http://platinuminkdesign.com/english.html">ENG </a>
+                                        <a class="nav-item" href="http://platinuminkdesign.com">ՀԱՅ</a>
+                                    </li>
                                 </ul>
                             </section>
                             <hamburger> <i></i>
@@ -53,7 +58,7 @@
             </div>
         </nav>
     </header>
-    <div class="main-section">
+    <div class="main-section" id="main-section">
         <div class="banner" id="mainSlider">
             <!-- <div class="logo"></div> -->
             <div class="banner-nav-inner">
@@ -94,10 +99,8 @@
                             </div>
                         </div>
                         <div class="owl-item">
-
                         </div>
                         <div class="owl-item">
-
                         </div>
                     </div>
                     <div id="banner-dots2" class="banner-dots"></div>
@@ -105,7 +108,7 @@
             </div>
             <!-- Home slider  -->
         </div>
-        <div class="content-area">
+        <div class="content-area content-area1">
             <div class="main-inner">
                 <!--                 
                 <div class="big-triangle swingimage1"></div>
@@ -208,9 +211,9 @@
                         <figure class="founder-info-left">
                             <img src="assets/img/founder.jpg" alt="Macaque in the trees">
                             <figcaption>
-                                <span class="tnoren-title">Հիմադիր տնօրեն՝</span>
+                                <span class="tnoren-title">Founding Director</span>
                                 <br>
-                                <span class="tnoren-name">Գնել Չիբուխչյան</span>
+                                <span class="tnoren-name">Gnel Chibukhchyan </span>
                             </figcaption>
                             <div class="erankyun"></div>
                         </figure>
@@ -280,42 +283,51 @@
                     <div class="landing-inner-content" id="landing-content1">
                         <div class="box box-1">
                             <div class="box-content">
+                                <a href="assets/img/portfolio/Avangard_1200px_Card.jpg" class="open-popup-link" magnific-popup>
+                                    <img src="assets/img/portfolio/Avangard_thumb.jpg" alt="Avangard">
+                                </a>
                             </div>
                         </div>
                         <div class="box box-2">
                             <div class="box-content">
+                                <a href="assets/img/portfolio/Green_Art_1200px_BC.jpg" class="open-popup-link" magnific-popup>
+                                    <img src="assets/img/portfolio/Green_Art_thumb.jpg" alt="Green Art">
+                                </a>
                             </div>
                         </div>
                         <div class="box box-3">
                             <div class="box-content">
+                                <a href="assets/img/portfolio/Hay_Amerikyan_aroxjutyan_kentron_1200px_BC.jpg" class="open-popup-link" magnific-popup>
+                                    <img src="assets/img/portfolio/Hay_Amerikyan_aroxjutyan_kentron_thumb.jpg" alt="Hay Amerikyan aroxjutyan kentron">
+                                </a>
                             </div>
                         </div>
                         <div class="box box-4">
                             <div class="box-content">
+                                <a href="assets/img/portfolio/Lider_Class_1200px_BC.jpg" class="open-popup-link" magnific-popup>
+                                    <img src="assets/img/portfolio/Lider_Class_thumb.jpg" alt="Lider Class"> kentron">
+                                </a>
                             </div>
                         </div>
                         <div class="box box-5">
                             <div class="box-content">
+                                <a href="assets/img/portfolio/Major_travel_1200px_BC.jpg" class="open-popup-link" magnific-popup>
+                                    <img src="assets/img/portfolio/Major_travel_thumb.jpg" alt="Major travel">
+                                </a>
                             </div>
                         </div>
                         <div class="box box-6">
                             <div class="box-content">
+                                <a href="assets/img/portfolio/Majorica_1200px_BC.jpg" class="open-popup-link" magnific-popup>
+                                    <img src="assets/img/portfolio/Majorica_thumb.jpg" alt="Majorica">
+                                </a>
                             </div>
                         </div>
                         <div class="box box-7">
                             <div class="box-content">
-                            </div>
-                        </div>
-                        <div class="box box-8">
-                            <div class="box-content">
-                            </div>
-                        </div>
-                        <div class="box box-9">
-                            <div class="box-content">
-                            </div>
-                        </div>
-                        <div class="box box-10">
-                            <div class="box-content">
+                                <a href="assets/img/portfolio/Vaneni_1200px_BC.jpg" class="open-popup-link" magnific-popup>
+                                    <img src="assets/img/portfolio/Vaneni_thumb.jpg" alt="Vaneni">
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -385,8 +397,9 @@
                 </section>
             </div>
         </div>
-        <div class="parallax-bg" id="parallax1">
-        </div>
+    </div>
+    <div class="parallax-bg" id="parallax1"></div>
+    <div class="main-section">
         <div class="parallax-section" id="parallax-trigger">
             <!-- Reviews slider main container -->
             <div id="reviews-dots"> </div>
@@ -394,47 +407,48 @@
                 <div class="owl-carousel owl-theme" id="reviews-slider">
                     <div class="owl-item">
                         <div class="review-box">
-                            <h5>Իրինա Ֆլջյան</h5>
+                            <h5>Luiza M</h5>
                             <p class="dot-ellipsis dot-resize-update">
-                                Ես ներկայացնում եմ Gmarketing ընկերությունը, որը աշխատում է տարբեր ոլորտի ընկերությունների հետ: Համագործակցում ենք Platinumink-ի հետ արդեն մեկ տարուց ավել; Փորձը ցույց է տվել, որ Platinumink-ը վստահելի գործընկեր է, ով տրամադրում է որակի և գնի իդեալկան համադրություն, հաճախորդին անհրաժեշտ ժամկետներում; Կարելի է ասել, որ Platinumink-ը այն եզակի գործընկերներից է, ում վրա կարելի է 100% հույս դնել և ստանալ իդեալական արդյունք:
+                                Best Printing, Design, Web Design company. Great customer service, I Had an experience to work with them and I'm still working. Recommend for 10000000%.
                             </p>
                         </div>
                     </div>
                     <div class="owl-item">
                         <div class="review-box">
-                            <h5>Իրինա Ֆլջյան 2</h5>
+                            <h5>David G.</h5>
                             <p class="dot-ellipsis dot-resize-update">
-                                Ես ներկայացնում եմ Gmarketing ընկերությունը, որը աշխատում է տարբեր ոլորտի ընկերությունների հետ: Համագործակցում ենք Platinumink-ի հետ արդեն մեկ տարուց ավել; Փորձը ցույց է տվել, որ Platinumink-ը վստահելի գործընկեր է, ով տրամադրում է որակի և գնի իդեալկան համադրություն, հաճախորդին անհրաժեշտ ժամկետներում; Կարելի է ասել, որ Platinumink-ը այն եզակի գործընկերներից է, ում վրա կարելի է 100% հույս դնել և ստանալ իդեալական արդյունք:
+                                I only have good things to say. It is one stop source for all my printing and marketing needs. Their rates are very competitive and they offer to help in the design process.I used Platinum Ink to print and design business cards, website, brochures.I will highly recommend Platinum ink design to all my business colleagues and friends. Thank you for good business.
                             </p>
                         </div>
                     </div>
                     <div class="owl-item">
                         <div class="review-box">
-                            <h5>Իրինա Ֆլջյան 3</h5>
+                            <h5>Tiffany R</h5>
                             <p class="dot-ellipsis dot-resize-update">
-                                Ես ներկայացնում եմ Gmarketing ընկերությունը, որը աշխատում է տարբեր ոլորտի ընկերությունների հետ: Համագործակցում ենք Platinumink-ի հետ արդեն մեկ տարուց ավել; Փորձը ցույց է տվել, որ Platinumink-ը վստահելի գործընկեր է, ով տրամադրում է որակի և գնի իդեալկան համադրություն, հաճախորդին անհրաժեշտ ժամկետներում; Կարելի է ասել, որ Platinumink-ը այն եզակի գործընկերներից է, ում վրա կարելի է 100% հույս դնել և ստանալ իդեալական արդյունք:
+                                PLATINUM INK DESIGN .. really practice customer service He/They returned all my phone calls. ("Gnel Chibukhcyan") really was INVOLVED with my project, he help in getting out my ideas, I was so Happy & excited over my finished design. He will come to You its Unaffordable.. check on this company first before going anywhere else Highly Recommended... Thanks Gnel
                             </p>
                         </div>
                     </div>
                     <div class="owl-item">
                         <div class="review-box">
-                            <h5>Իրինա Ֆլջյան 4</h5>
+                            <h5>David G.</h5>
                             <p class="dot-ellipsis dot-resize-update">
-                                Ես ներկայացնում եմ Gmarketing ընկերությունը, որը աշխատում է տարբեր ոլորտի ընկերությունների հետ: Համագործակցում ենք Platinumink-ի հետ արդեն մեկ տարուց ավել; Փորձը ցույց է տվել, որ Platinumink-ը վստահելի գործընկեր է, ով տրամադրում է որակի և գնի իդեալկան համադրություն, հաճախորդին անհրաժեշտ ժամկետներում; Կարելի է ասել, որ Platinumink-ը այն եզակի գործընկերներից է, ում վրա կարելի է 100% հույս դնել և ստանալ իդեալական արդյունք:
+                                I only have good things to say. It is one stop source for all my printing and marketing needs. Their rates are very competitive and they offer to help in the design process.I used Platinum Ink to print and design business cards, website, brochures.I will highly recommend Platinum ink design to all my business colleagues and friends. Thank you for good business.
                             </p>
                         </div>
                     </div>
                     <div class="owl-item">
                         <div class="review-box">
-                            <h5>Իրինա Ֆլջյան 5</h5>
+                            <h5>Tiffany R</h5>
                             <p class="dot-ellipsis dot-resize-update">
-                                Ես ներկայացնում եմ Gmarketing ընկերությունը, որը աշխատում է տարբեր ոլորտի ընկերությունների հետ: Համագործակցում ենք Platinumink-ի հետ արդեն մեկ տարուց ավել; Փորձը ցույց է տվել, որ Platinumink-ը վստահելի գործընկեր է, ով տրամադրում է որակի և գնի իդեալկան համադրություն, հաճախորդին անհրաժեշտ ժամկետներում; Կարելի է ասել, որ Platinumink-ը այն եզակի գործընկերներից է, ում վրա կարելի է 100% հույս դնել և ստանալ իդեալական արդյունք:
+                                PLATINUM INK DESIGN .. really practice customer service He/They returned all my phone calls. ("Gnel Chibukhcyan") really was INVOLVED with my project, he help in getting out my ideas, I was so Happy & excited over my finished design. He will come to You its Unaffordable.. check on this company first before going anywhere else Highly Recommended... Thanks Gnel
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
-
+        </div>
+        <div class="main-section">
         </div>
         <div class="content-area">
             <div class="main-inner inner-add-rev">
@@ -525,7 +539,6 @@
                     <div class="large-triangle7 triangles" id="triangle7"></div>
                     <div class="large-triangle10 triangles" id="triangle10"></div>
                     <div class="large-triangle9 triangles" id="triangle9"></div>
-
                     <div class="contacts-subsection">
                         <div class="section-title-place">
                             <div class="letter-divider">
@@ -535,7 +548,6 @@
                             <span class="vert-line"></span>
                         </div>
                     </div>
-
                     <div class="rating-place right-floated">
                         <ul class="right-floated">
                             <li class="stars rated"></li>
@@ -544,12 +556,12 @@
                             <li class="stars rated"></li>
                             <li class="stars"></li>
                         </ul>
-                        <p class="partners-opinion-p">Գործընկերների գնահատականը մեր մասին</p>
+                        <p class="partners-opinion-p">Our partners reviews</p>
                     </div>
                     <div class="partners-inner">
                         <div class="partners-left left-floated">
                             <p class="contact-us-p">
-                                Պատվերների և առաջարկությունների համար կարող եք ազատ կապ հաստատել մեզ հետ ստորև նշված կոնտակտներով՝
+                                For more information contact us
                             </p>
                             <div class="info-platinumink-am">
                                 <!-- Հասցե՝ Ք. Երևան, Արշակունյաց 44-->
@@ -557,7 +569,7 @@
                                 <br> Mobile +1(323)6004477
                             </div>
                             <div class="social-place">
-                                <p>Միացեք մեր էջերին</p>
+                                <p>Follow us </p>
                                 <ul class="footer-social-links">
                                     <li class="social-icons fb">
                                         <a href="https://www.facebook.com/PlatiniumInk/" class="fb-link"></a>
@@ -571,14 +583,14 @@
                                 </ul>
                             </div>
                             <p class="rights-info">
-                                Բոլոր հեղինակային իրավունքները պաշտպանված
-                                <br> են © 2010-2017 Platinum Ink Design.
+                                © all rights reserved by PLATINUM INK DESIGN
+                                <br> since 2010 powered by Platinum Ink Design
                             </p>
                         </div>
                         <div class="partners-right right-floated">
                             <div class="availability">
-                                Մենք հասանելի ենք
-                                <br>09:00 - 19:00
+                                Working hours
+                                <br> 9am - 7pm
                             </div>
                             <div class="form-place">
                                 <div class="form-container">

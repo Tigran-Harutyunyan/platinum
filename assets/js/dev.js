@@ -22,118 +22,121 @@ var triangle1 = $(".large-triangle1"),
     defaultTransform = "rotateY(0deg) rotateX(0deg)",
     contactsArea = $('.content-area'),
     windowWidth = $(window).width(),
-    windowHeight = $(window).height();
-/*function trackMouse(sliders) {
+    windowHeight = $(window).height(),
+    isLargeScreen = false,
+    minScreenWidth = 1150;
 
-    sliders.mousemove(function(e) {
-        if (allowdToGet) {
-            allowdToGet = false;
-            setTimeout(function() {
-                console.log(e.pageX - previousPosition);
-                allowdToGet = true;
-            }, 500);
-        }
-    });
-}*/
 
-if (windowWidth>1200){
+
+
+/////////////////// Handle touch events /////////////////////////////
+var updateSlider = _.debounce(function (ev) {
+   //console.log(ev.type + " gesture detected.");  
+}, 200); // Maximum run of once per 500 milliseconds
+var myElement = document.getElementById('landing-content1');
+
+// create a simple instance
+// by default, it only adds horizontal recognizers
+var mc = new Hammer(myElement);
+
+// listen to events...
+mc.on("panleft panright tap press", function (ev) {
+    updateSlider(ev)
+});
+
+////////////////////////////////////////////////////////////////////
+
+
+if (windowWidth > 1200) {
+    var updateTriangle = _.debounce(function (e,w, h) {
+        var Xmouse = e.pageX;
+        var Ymouse = e.pageY;
+        //calc perc
+        var Xperc = Xmouse / w;
+        var Yperc = Ymouse / h;
+        // triangle 1.
+        Xpos = Math.floor(Xperc * 20);
+        Ypos = Math.floor(Yperc * 20);
+        //console.info("X Axis : " + Xpos + " Y Axis : " + Ypos);
+        Xrev = 100 - Xpos;
+        Yrev = 100 - Ypos;
+        triangle1.css({
+            //perspectiveOrigin: Xpos + '% ' + Ypos + '%'
+            transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
+        });
+        // triangle 2
+        Xpos = -(Math.floor(Xperc * 20));
+        Ypos = Math.floor(Yperc * 30);
+        triangle2.css({
+            transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
+        });
+        // triangle 3
+        Xpos = Math.floor(Xperc * 50);
+        Ypos = -(Math.floor(Yperc * 20));
+        triangle3.css({
+            transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
+        });
+        // triangle 4
+        Xpos = -(Math.floor(Xperc * 22));
+        Ypos = Math.floor(Yperc * 30);
+        triangle4.css({
+            transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
+        });
+        // triangle 5
+        Xpos = Math.floor(Xperc * 16);
+        Ypos = Math.floor(Yperc * 16);
+        triangle5.css({
+            transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
+        });
+        // triangle 6
+        Xpos = -(Math.floor(Xperc * 16));
+        Ypos = Math.floor(Yperc * 20);
+
+        triangle6.css({
+            transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
+        });
+        // triangle 7
+        Xpos = Math.floor(Xperc * 20);
+        Ypos = Math.floor(Yperc * 20);
+        triangle7.css({
+            transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
+        });
+        // triangle 8
+        Xpos = Math.floor(Xperc * 20);
+        Ypos = Math.floor(Yperc * 20);
+        triangle8.css({
+            transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
+        });
+        // triangle 9
+        Xpos = -(Math.floor(Xperc * 10));
+        Ypos = (Math.floor(Yperc * 5));
+        triangle9.css({
+            transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
+        });
+        // triangle 10
+        Xpos = Math.floor(Xperc * 4);
+        Ypos = Math.floor(Yperc * 3);
+        triangle10.css({
+            transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
+        });
+        // triangle 11
+        Xpos = Math.floor(Xperc * 20);
+        Ypos = Math.floor(Yperc * 20);
+        triangle11.css({
+            transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
+        });
+
+    }, 25); // Maximum run of once per 500 milliseconds
     mousePerspective(windowWidth, windowHeight);
 }
-  
+
 
 function mousePerspective(w, h) {
     $('.content-area').mousemove(function (e) {
-        if (allowMouseMove) {
-            allowMouseMove = false;
-            setTimeout(function () {
-                allowMouseMove = true;
-                var Xmouse = e.pageX;
-                var Ymouse = e.pageY;
-                //calc perc
-                var Xperc = Xmouse / w;
-                var Yperc = Ymouse / h;
-                // triangle 1.
-                Xpos = Math.floor(Xperc * 20);
-                Ypos = Math.floor(Yperc * 20);
-                //console.info("X Axis : " + Xpos + " Y Axis : " + Ypos);
-                Xrev = 100 - Xpos;
-                Yrev = 100 - Ypos;
-                triangle1.css({
-                    //perspectiveOrigin: Xpos + '% ' + Ypos + '%'
-                    transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
-                });
-                // triangle 2
-                Xpos = -(Math.floor(Xperc * 20));
-                Ypos = Math.floor(Yperc * 30);
-                triangle2.css({
-                    transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
-                });
-                // triangle 3
-                Xpos = Math.floor(Xperc * 50);
-                Ypos = -(Math.floor(Yperc * 20));
-                triangle3.css({
-                    transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
-                });
-                // triangle 4
-                Xpos = -(Math.floor(Xperc * 22));
-                Ypos = Math.floor(Yperc * 30);
-                triangle4.css({
-                    transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
-                });
-                // triangle 5
-                Xpos = Math.floor(Xperc * 16);
-                Ypos = Math.floor(Yperc * 16);
-                triangle5.css({
-                    transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
-                });
-                // triangle 6
-                Xpos = -(Math.floor(Xperc * 16));
-                Ypos = Math.floor(Yperc * 20);
-
-                triangle6.css({
-                    transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
-                });
-                // triangle 7
-                Xpos = Math.floor(Xperc * 20);
-                Ypos = Math.floor(Yperc * 20);
-                triangle7.css({
-                    transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
-                });
-                // triangle 8
-                Xpos = Math.floor(Xperc * 20);
-                Ypos = Math.floor(Yperc * 20);
-                triangle8.css({
-                    transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
-                });
-                // triangle 9
-                Xpos = -(Math.floor(Xperc * 10));
-                Ypos = (Math.floor(Yperc * 5));
-                triangle9.css({
-                    transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
-                });
-                // triangle 10
-                Xpos = Math.floor(Xperc * 4);
-                Ypos = Math.floor(Yperc * 3);
-                triangle10.css({
-                    transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
-                });
-                // triangle 11
-                Xpos = Math.floor(Xperc * 20);
-                Ypos = Math.floor(Yperc * 20);
-                triangle11.css({
-                    transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
-                });
-            }, 200)
-        }
+        updateTriangle(e,w,h);
 
     });
-    /*  $('.content-area').on('mouseleave', function(e) {
-           triangles.css({ 
-              transform: defaultTransform
-          });
-
-      });*/
-}
+};
 $(document).ready(function () {
     var disabled = false,
         allowScrolling = true,
@@ -148,24 +151,57 @@ $(document).ready(function () {
         mobileMenuContainer.toggleClass('menu-opened')
     });
 
-    /* $('body.html').on('click',function(event){
-         event.stopPropagation();
-     })*/
+
+
+
+    if (_docWidth > minScreenWidth) {
+        isLargeScreen = true;
+
+        //*************  BANNER PARALLAX SCROLLING ********************************
+        var controllerBanner = new ScrollMagic.Controller({
+            globalSceneOptions: {
+                triggerHook: "onEnter",
+                duration: "200%"
+            }
+        });
+        var sceneBanner = new ScrollMagic.Scene({
+                triggerElement: "#main-section",
+            })
+            .setTween("#mainSlider", {
+                y: "-8%",
+                ease: Linear.easeNone
+            })
+            //.addIndicators()  
+            .addTo(controllerBanner);
+    }
+
+
     //************* HEADER SCROLLING **********************************
 
     var controller = new ScrollMagic.Controller();
-    var scene = new ScrollMagic.Scene({
-            triggerElement: "#appHeader",
-            triggerHook: 0,
-            duration: 86
+    var sceneHeader = new ScrollMagic.Scene({
+            triggerElement: "#main-section",
+            triggerHook: '0',
+            offset: -120
         })
         .addTo(controller);
-    scene.setClassToggle("#appHeader", "normal-header");
+    sceneHeader.setClassToggle("#appHeader", "normal-header");
+    //trackMouse(sliders);
+
+    //*************   SET BANNER Z-INDEX **********************************
+
+    var bannerController = new ScrollMagic.Controller();
+    var scene = new ScrollMagic.Scene({
+            triggerElement: "#main-section",
+            triggerHook: '0'
+        })
+        .addTo(bannerController);
+    scene.setClassToggle("#mainSlider", "changed-zindex");
     //trackMouse(sliders);
 
 
-    //*************  PARALLAX SCROLLING ********************************
-    var controller2 = new ScrollMagic.Controller({
+    //*************  REVIEWS PARALLAX SCROLLING ********************************
+    var reviewsController = new ScrollMagic.Controller({
         globalSceneOptions: {
             triggerHook: "onEnter",
             duration: "200%"
@@ -178,78 +214,10 @@ $(document).ready(function () {
             y: "10%",
             ease: Linear.easeNone
         })
-        .addTo(controller2);
+        .addTo(reviewsController);
 
-    //************* BIG SLIDER PARALLAX SCROLLING ********************************
-
-    /*  var controller3 = new ScrollMagic.Controller({
-        triggerElement: "#mainSlider",
-        triggerHook: 0
-    });
-    var scene3 = new ScrollMagic.Scene({
-            triggerElement: "#mainSlider"
-        })
-        .setTween("#mainSlider", {
-            y: "10%",
-            ease: Linear.easeNone
-        })
-        .addTo(controller3)
-        .addIndicators()
-*/
-    //*************  CONTACT US SECTIon ********************************
-    /*    var contactsController = new ScrollMagic.Controller({
-            globalSceneOptions: {
-                triggerHook: "onEnter",
-                duration: "200%"
-            }
-        });
-        var sceneContacts = new ScrollMagic.Scene({
-                triggerElement: "#area-contacts"
-            })
-            .addTo(contactsController);
-
-        sceneContacts.on("enter", function (event) {
-            console.log("Scene entered.");
-            contactsArea.mousemove(function (e) {
-                //allowMouseMove = false;
-                setTimeout(function () {
-                    allowMouseMove = true;
-                    //calc perc
-                    var Xperc = e.pageX / windowWidth;
-                    var Yperc = e.pageY / windowHeight;
-
-                    // triangle 7
-                    Xpos = Math.floor(Xperc * 20);
-                    Ypos = Math.floor(Yperc * 20);
-                    triangle7.css({
-                        transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
-                    });
-
-                    // triangle 9
-                    Xpos = -(Math.floor(Xperc * 10));
-                    Ypos = (Math.floor(Yperc * 5));
-                    triangle9.css({
-                        transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
-                    });
-                    // triangle 10
-                    Xpos = Math.floor(Xperc * 4);
-                    Ypos = Math.floor(Yperc * 3);
-                    triangle10.css({
-                        transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
-                    });
-
-                }, 200)
-            });
-
-        });
-        sceneContacts.on("leave", function (event) {
-            console.log("Scene left."); 
-            triangles.css({
-                transform: defaultTransform
-            }); 
-            contactsArea.unbind("mousemove");
-        });*/
     //**************** CONTENT SLIDER ********************************** 
+
     var velocity = 0,
         threshold = 300,
         maxVelocity = 10;
@@ -399,7 +367,7 @@ $(document).ready(function () {
     function calculateSlideInfo(event) {
         itemsCounter.text(event.item.count < 10 ? '/0' + (event.item.count) : '/' + event.item.count);
         currentSlide.text(event.item.index + 1 < 10 ? '0' + (event.item.index + 1) : event.item.index + 1);
-    }
+    };
 
 
     function createElements(currentIndex, slideCount) {
@@ -418,11 +386,11 @@ $(document).ready(function () {
                 }
             });
         }
-    }
+    };
     navElemContainerElements.on('click', function () {
-            bannersSlider.trigger('to.owl.carousel', $(this).data('nav'));
-        })
-        //==========PARTNERS SLIDER ====================================== 
+        bannersSlider.trigger('to.owl.carousel', $(this).data('nav'));
+    });
+    //==========PARTNERS SLIDER ====================================== 
 
     $('#partners-slider').owlCarousel({
         loop: true,
@@ -533,29 +501,36 @@ $(document).ready(function () {
         if (section_to_scroll) {
             var offsetTop = 0;
             switch (section_to_scroll) {
-            case '#section-home':
-                offsetTop = 0;
-                break;
-            case '#section-services':
-                offsetTop = 90;
-                break;
-            case '#section-about-us':
-                offsetTop = 90;
-                break;
-            case '#section-portfolio':
-                offsetTop = 0;
-                break;
-            case '#section-contact-us':
-                offsetTop = 0;
-                break;
+                case '#section-home':
+                    offsetTop = 0;
+                    break;
+                case '#section-services':
+                    offsetTop = 90;
+                    break;
+                case '#section-about-us':
+                    offsetTop = 90;
+                    break;
+                case '#section-portfolio':
+                    offsetTop = 0;
+                    break;
+                case '#section-contact-us':
+                    offsetTop = 0;
+                    break;
             }
         }
 
-        TweenMax.to(window, 0.5, {
-            scrollTo: {
-                y: newpos - offsetTop
-            }
-        });
+        if (isLargeScreen && offsetTop === 0) {
+            $('html,body').animate({
+                scrollTop: 0
+            }, 600, 'easeInOutQuad');
+        } else {
+            TweenMax.to(window, 0.5, {
+                scrollTo: {
+                    y: newpos - offsetTop
+                }
+            });
+        }
+
     });
     /* scene.setClassToggle("#top-nav", "section-services");*/
 
@@ -616,4 +591,30 @@ $(document).ready(function () {
         scrollTop: 0
     }, 400, 'easeInOutQuad');
 
+
+    // Opens popups in Patients and Medical services sections. 
+    $('.open-popup-link').magnificPopup({
+        type: 'image',
+        gallery: {
+            enabled: true
+        },
+        mainClass: 'mfp-with-zoom', // this class is for CSS animation below
+
+        zoom: {
+            enabled: true,
+            duration: 300 // don't foget to change the duration also in CSS
+        }
+    });
+
+    if (navigator.userAgent.match(/Trident\/7\./)) { // smooth scrolling for fixed bgs in  IE 
+        $('body').on("mousewheel", function () {
+            // remove default behavior
+            event.preventDefault();
+
+            //scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+    }
 });

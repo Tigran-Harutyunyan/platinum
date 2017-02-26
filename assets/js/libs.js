@@ -15,3 +15,5 @@
 //@prepros-append jquery.magnific-popup.min.js 
 //@prepros-append jquery.dotdotdot.min.js
 //@prepros-append cursometer.js 
+//@prepros-append underscore-min.js
+//@prepros-append hammer.min.js 

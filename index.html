@@ -7,12 +7,12 @@
     <title>Platinum Ink</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="Description" lang="en" content="Platinum Ink">
-    <meta name="author" content="ZenNoho">
+    <meta name="author" content="Platinum Ink">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
-<body id="section-home" onload="init();"> 
-    <header data-scroll-index="0" id="appHeader">
+<body id="section-home" onload="init();">
+    <header data-scroll-index="0" id="appHeader" class="normal-header">
         <nav class="nav-bar">
             <div class="container nav-container nav1">
                 <a href="javascript:void(0);" class="left-floated logo-link" data-scroll-nav="section-home">
@@ -24,7 +24,10 @@
                     <li><a class="menu-item" data-scroll-nav="section-about-us">Մեր մասին<span class="line-elem-menu"></span></a></li>
                     <li><a class="menu-item" data-scroll-nav="section-portfolio">Աշխատանքներ<span class="line-elem-menu"></span></a></li>
                     <li><a class="menu-item" data-scroll-nav="section-contact-us">Հետադարձ կապ<span class="line-elem-menu"></span></a></li>
-                    <li class="lang-toggler"><a class="menu-item-lang active-lang">ՀԱՅ</a><a class="menu-item-lang">ENG</a></li>
+                    <li class="lang-toggler">
+                        <a href="http://platinuminkdesign.com" class="menu-item-lang active-lang">ՀԱՅ</a>
+                        <a href="http://platinuminkdesign.com/english.html" class="menu-item-lang">ENG</a>
+                    </li>
                 </ul>
                 <content class="menu-toggler-container">
                     <menu>
@@ -37,7 +40,10 @@
                                     <li><a class="nav-item" data-scroll-nav="section-about-us">Մեր մասին </a></li>
                                     <li><a class="nav-item" data-scroll-nav="section-portfolio">Աշխատանքներ</a></li>
                                     <li><a class="nav-item" data-scroll-nav="section-contact-us">Հետադարձ կապ</a></li>
-                                    <li class="lang-selector"><a class="nav-item">ENG </a><a class="nav-item active-lang">ՀԱՅ</a></li>
+                                    <li class="lang-selector">
+                                        <a class="nav-item" href="http://platinuminkdesign.com/english.html">ENG </a>
+                                        <a class="nav-item active-lang" href="http://platinuminkdesign.com">ՀԱՅ</a>
+                                    </li>
                                 </ul>
                             </section>
                             <hamburger> <i></i>
@@ -48,11 +54,11 @@
                             </hamburger>
                         </label>
                     </menu>
-                </content> 
+                </content>
             </div>
         </nav>
     </header>
-    <div class="main-section">
+    <div class="main-section" id="main-section">
         <div class="banner" id="mainSlider">
             <!-- <div class="logo"></div> -->
             <div class="banner-nav-inner">
@@ -104,7 +110,7 @@
             </div>
             <!-- Home slider  -->
         </div>
-        <div class="content-area">
+        <div class="content-area content-area1">
             <div class="main-inner">
                 <!--                 
                 <div class="big-triangle swingimage1"></div>
@@ -277,34 +283,56 @@
                 <div class="landing-wrapper" id="landing1">
                     <div class="landing-inner-content" id="landing-content1">
                         <div class="box box-1">
-                            <div class="box-content">
-                            </div>
+                            <img class="open-popup-link" src="assets/img/portfolio/Avangard_thumb.jpg" data-mfp-src="assets/img/portfolio/Avangard_1200px_Card.jpg" alt="Avangard" magnific-popup>
                         </div>
                         <div class="box box-2">
                             <div class="box-content">
+                                <a href="assets/img/portfolio/Green_Art_1200px_BC.jpg" class="open-popup-link" magnific-popup>
+                                    <img src="assets/img/portfolio/Green_Art_thumb.jpg" alt="Green Art">
+                                </a>
                             </div>
                         </div>
                         <div class="box box-3">
                             <div class="box-content">
+                                <a draggable="true" href="assets/img/portfolio/Hay_Amerikyan_aroxjutyan_kentron_1200px_BC.jpg" 
+                                    class="open-popup-link" magnific-popup>
+                                    <img src="assets/img/portfolio/Hay_Amerikyan_aroxjutyan_kentron_thumb.jpg" alt="Hay Amerikyan aroxjutyan kentron">
+                                </a>
                             </div>
                         </div>
                         <div class="box box-4">
                             <div class="box-content">
+                                <a href="assets/img/portfolio/Lider_Class_1200px_BC.jpg" 
+                                    class="open-popup-link" magnific-popup>
+                                   <img src="assets/img/portfolio/Lider_Class_thumb.jpg" alt="Lider Class"> kentron">
+                                </a> 
                             </div>
                         </div>
                         <div class="box box-5">
                             <div class="box-content">
+                               <a href="assets/img/portfolio/Major_travel_1200px_BC.jpg" 
+                                    class="open-popup-link" magnific-popup>
+                                    <img src="assets/img/portfolio/Major_travel_thumb.jpg" alt="Major travel">
+                                </a>  
                             </div>
                         </div>
                         <div class="box box-6">
                             <div class="box-content">
+                                <a href="assets/img/portfolio/Majorica_1200px_BC.jpg" 
+                                    class="open-popup-link" magnific-popup>
+                                   <img src="assets/img/portfolio/Majorica_thumb.jpg" alt="Majorica">
+                                </a>   
                             </div>
                         </div>
                         <div class="box box-7">
                             <div class="box-content">
+                               <a href="assets/img/portfolio/Vaneni_1200px_BC.jpg" 
+                                    class="open-popup-link" magnific-popup>
+                                   <img src="assets/img/portfolio/Vaneni_thumb.jpg" alt="Vaneni">
+                                </a>   
                             </div>
                         </div>
-                        <div class="box box-8">
+                        <!--<div class="box box-8">
                             <div class="box-content">
                             </div>
                         </div>
@@ -315,7 +343,7 @@
                         <div class="box box-10">
                             <div class="box-content">
                             </div>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
                 <div class="landing-wrapper" id="landing2">
@@ -383,13 +411,22 @@
                 </section>
             </div>
         </div>
-        <div class="parallax-bg" id="parallax1">
-        </div>
+    </div>
+    <div class="parallax-bg" id="parallax1"> </div>
+    <div class="main-section">
         <div class="parallax-section" id="parallax-trigger">
             <!-- Reviews slider main container -->
             <div id="reviews-dots"> </div>
             <div class="owl-container reviews-slider-container">
                 <div class="owl-carousel owl-theme" id="reviews-slider">
+                    <div class="owl-item">
+                        <div class="review-box">
+                            <h5>«Ագրոինփուտ» ՍՊԸ տնօրեն Գայանե Դավթյան</h5>
+                            <p class="dot-ellipsis dot-resize-update">
+                                Մի քանի տարի է, ինչ «Ագրոինփուտ» ՍՊԸ-ն համգործակցում է «Պլատինում ինկ» տպագրատան հետ։ Իմ գոհունակությունն ու հիացմունքն եմ հայտնում «Պլատինում ինկ»-ի վերաբերյալ։ Առաջարկելով ընտրության մեծ հնարավորություն՝ տպագրատան աշխատակազմը բոլոր հաճախորդներին ցուցաբերում է անհատական մոտեցում, աշխատում մեծ պատասխանատվությամբ, պատվերները կատարում ճիշտ ժամանակին՝ ապահովելով տպագրության բարձր որակ։ Շնորհիվ նրանց բարեհամբույր ու պատրաստակամ վերաբերմունքի և որակյալ ծառայության այլևս այլ տպագրատուն չես ուզում փնտրել։ Շնորհակալություն։ Ձեզ երկար տարիների արգասաբեր աշխատանք։
+                            </p>
+                        </div>
+                    </div>
                     <div class="owl-item">
                         <div class="review-box">
                             <h5>Իրինա Ֆլջյան</h5>
@@ -400,7 +437,15 @@
                     </div>
                     <div class="owl-item">
                         <div class="review-box">
-                            <h5>Իրինա Ֆլջյան 2</h5>
+                            <h5>«Ագրոինփուտ» ՍՊԸ տնօրեն Գայանե Դավթյան</h5>
+                            <p class="dot-ellipsis dot-resize-update">
+                                Մի քանի տարի է, ինչ «Ագրոինփուտ» ՍՊԸ-ն համգործակցում է «Պլատինում ինկ» տպագրատան հետ։ Իմ գոհունակությունն ու հիացմունքն եմ հայտնում «Պլատինում ինկ»-ի վերաբերյալ։ Առաջարկելով ընտրության մեծ հնարավորություն՝ տպագրատան աշխատակազմը բոլոր հաճախորդներին ցուցաբերում է անհատական մոտեցում, աշխատում մեծ պատասխանատվությամբ, պատվերները կատարում ճիշտ ժամանակին՝ ապահովելով տպագրության բարձր որակ։ Շնորհիվ նրանց բարեհամբույր ու պատրաստակամ վերաբերմունքի և որակյալ ծառայության այլևս այլ տպագրատուն չես ուզում փնտրել։ Շնորհակալություն։ Ձեզ երկար տարիների արգասաբեր աշխատանք։
+                            </p>
+                        </div>
+                    </div>
+                    <div class="owl-item">
+                        <div class="review-box">
+                            <h5>Իրինա Ֆլջյան</h5>
                             <p class="dot-ellipsis dot-resize-update">
                                 Ես ներկայացնում եմ Gmarketing ընկերությունը, որը աշխատում է տարբեր ոլորտի ընկերությունների հետ: Համագործակցում ենք Platinumink-ի հետ արդեն մեկ տարուց ավել; Փորձը ցույց է տվել, որ Platinumink-ը վստահելի գործընկեր է, ով տրամադրում է որակի և գնի իդեալկան համադրություն, հաճախորդին անհրաժեշտ ժամկետներում; Կարելի է ասել, որ Platinumink-ը այն եզակի գործընկերներից է, ում վրա կարելի է 100% հույս դնել և ստանալ իդեալական արդյունք:
                             </p>
@@ -408,31 +453,14 @@
                     </div>
                     <div class="owl-item">
                         <div class="review-box">
-                            <h5>Իրինա Ֆլջյան 3</h5>
+                            <h5>«Ագրոինփուտ» ՍՊԸ տնօրեն Գայանե Դավթյան</h5>
                             <p class="dot-ellipsis dot-resize-update">
-                                Ես ներկայացնում եմ Gmarketing ընկերությունը, որը աշխատում է տարբեր ոլորտի ընկերությունների հետ: Համագործակցում ենք Platinumink-ի հետ արդեն մեկ տարուց ավել; Փորձը ցույց է տվել, որ Platinumink-ը վստահելի գործընկեր է, ով տրամադրում է որակի և գնի իդեալկան համադրություն, հաճախորդին անհրաժեշտ ժամկետներում; Կարելի է ասել, որ Platinumink-ը այն եզակի գործընկերներից է, ում վրա կարելի է 100% հույս դնել և ստանալ իդեալական արդյունք:
-                            </p>
-                        </div>
-                    </div>
-                    <div class="owl-item">
-                        <div class="review-box">
-                            <h5>Իրինա Ֆլջյան 4</h5>
-                            <p class="dot-ellipsis dot-resize-update">
-                                Ես ներկայացնում եմ Gmarketing ընկերությունը, որը աշխատում է տարբեր ոլորտի ընկերությունների հետ: Համագործակցում ենք Platinumink-ի հետ արդեն մեկ տարուց ավել; Փորձը ցույց է տվել, որ Platinumink-ը վստահելի գործընկեր է, ով տրամադրում է որակի և գնի իդեալկան համադրություն, հաճախորդին անհրաժեշտ ժամկետներում; Կարելի է ասել, որ Platinumink-ը այն եզակի գործընկերներից է, ում վրա կարելի է 100% հույս դնել և ստանալ իդեալական արդյունք:
-                            </p>
-                        </div>
-                    </div>
-                    <div class="owl-item">
-                        <div class="review-box">
-                            <h5>Իրինա Ֆլջյան 5</h5>
-                            <p class="dot-ellipsis dot-resize-update">
-                                Ես ներկայացնում եմ Gmarketing ընկերությունը, որը աշխատում է տարբեր ոլորտի ընկերությունների հետ: Համագործակցում ենք Platinumink-ի հետ արդեն մեկ տարուց ավել; Փորձը ցույց է տվել, որ Platinumink-ը վստահելի գործընկեր է, ով տրամադրում է որակի և գնի իդեալկան համադրություն, հաճախորդին անհրաժեշտ ժամկետներում; Կարելի է ասել, որ Platinumink-ը այն եզակի գործընկերներից է, ում վրա կարելի է 100% հույս դնել և ստանալ իդեալական արդյունք:
+                                Մի քանի տարի է, ինչ «Ագրոինփուտ» ՍՊԸ-ն համգործակցում է «Պլատինում ինկ» տպագրատան հետ։ Իմ գոհունակությունն ու հիացմունքն եմ հայտնում «Պլատինում ինկ»-ի վերաբերյալ։ Առաջարկելով ընտրության մեծ հնարավորություն՝ տպագրատան աշխատակազմը բոլոր հաճախորդներին ցուցաբերում է անհատական մոտեցում, աշխատում մեծ պատասխանատվությամբ, պատվերները կատարում ճիշտ ժամանակին՝ ապահովելով տպագրության բարձր որակ։ Շնորհիվ նրանց բարեհամբույր ու պատրաստակամ վերաբերմունքի և որակյալ ծառայության այլևս այլ տպագրատուն չես ուզում փնտրել։ Շնորհակալություն։ Ձեզ երկար տարիների արգասաբեր աշխատանք։
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
         <div class="content-area">
             <div class="main-inner inner-add-rev">

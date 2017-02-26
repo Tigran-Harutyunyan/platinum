@@ -90,15 +90,16 @@ Layout styles
 .nav-bar {
   margin: 0 auto;
   width: 100%;
-  background: url("../../assets/img/header-pattern.jpg") repeat;
+  background: transparent;
   z-index: 101;
   position: fixed;
+  top: 0;
   height: 70px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .normal-header .nav-bar {
-  background: transparent;
+  background: url("../../assets/img/header-pattern.jpg") repeat;
 }
 
 .content {
@@ -415,6 +416,7 @@ footer {
   position: relative;
 }
 .form-container textarea.def-input {
+  overflow: hidden;
   height: 100px;
   resize: none;
   padding-top: 11px;
@@ -591,13 +593,20 @@ footer {
   height: 370px !important;
 }
 
+#landing-content1 {
+  width: 1920px !important;
+}
+
 .banner {
   background-image: url("../../assets/img/banner.jpg");
-  height: 980px;
+  height: 902px;
   position: relative;
   background-size: cover;
   background-position: center;
   text-align: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
 }
 .banner .owl-container,
 .banner .banner-container,
@@ -614,6 +623,15 @@ footer {
 }
 .banner a {
   margin: 0 auto;
+}
+
+.content-area1 {
+  margin-top: 900px;
+  position: relative;
+}
+
+.changed-zindex {
+  z-index: -1;
 }
 
 .banner-dots {
@@ -705,7 +723,7 @@ footer {
 }
 
 .logo-transparent {
-  background-image: url("../../assets/img/PlatinumInk_bg.svg");
+  background-image: url("../../assets/img/PlatinumInk_bg.png");
   background-repeat: no-repeat;
   position: absolute;
   height: 107px;
@@ -815,6 +833,9 @@ footer {
   top: 0;
   left: 0;
   z-index: 999;
+}
+.sliders-place .box-content a {
+  display: block;
 }
 .sliders-place .box-content img {
   width: 100%;
@@ -993,7 +1014,7 @@ footer {
   left: 0;
 }
 .section-about-us-inner .founder-info-left figcaption {
-  width: 132px;
+  width: 136px;
   margin-left: 70px;
   margin-top: 37px;
 }
@@ -1238,10 +1259,10 @@ footer {
 }
 
 .link-type-2 {
-  float: right;
   color: #000000;
-  margin-right: 33px;
-  margin-top: -37px;
+  top: -37px;
+  position: absolute;
+  right: 33px;
 }
 .link-type-2:hover {
   color: white;
@@ -1428,7 +1449,7 @@ section.contact-us-section {
 }
 
 .english .counters-place .counter-box:last-child {
-  width: 94px;
+  width: 133px;
 }
 
 .slides-info-place {
@@ -1490,6 +1511,8 @@ menu input[type=checkbox] {
 menu input[type=checkbox]:checked + .drawer-list {
   transform: translatex(0);
   border-bottom-left-radius: 0;
+  box-shadow: -20px 0 40px rgba(0, 0, 0, 0.2);
+  transition: width 475ms ease-out 0.3s, transform 450ms ease 0.3s, border-radius 0.8s 0.1s ease, box-shadow 0ms linear 0.5x;
 }
 
 menu input[type=checkbox]:checked + .drawer-list li {
@@ -1733,10 +1756,9 @@ menu .drawer-list {
   box-sizing: border-box;
   pointer-events: none;
   padding-top: 98px;
-  transition: width 475ms ease-out, transform 450ms ease, border-radius .8s .1s ease;
+  transition: width 475ms ease-out, transform 750ms ease, border-radius .8s .1s ease;
   border-bottom-left-radius: 100vw;
   background-color: white;
-  box-shadow: -20px 0 40px rgba(0, 0, 0, 0.2);
 }
 
 menu .drawer-list ul {
@@ -1790,6 +1812,7 @@ menu .drawer-list li a {
 }
 menu .drawer-list li a:hover {
   cursor: pointer;
+  color: black;
 }
 
 menu hamburger {
@@ -1866,4 +1889,9 @@ menu hamburger > i:after {
 
 .nav-item.active-lang {
   color: #af995a;
+}
+
+.info-row {
+  width: 100%;
+  position: relative;
 }

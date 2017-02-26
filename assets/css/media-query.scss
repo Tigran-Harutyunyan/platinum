@@ -1,4 +1,32 @@
 @media only screen and (max-width: 1480px) {
+    #animation_container,
+    #canvas,
+    #dom_overlay_container {
+        width: 360px !important;  
+        height: 235px !important;
+    }
+    #animation_container {
+        top: 166px,
+    }
+    .banner-see-more-link {
+        bottom: 97px
+    }
+    .banner-line {display: none}
+    .nav-element-container {
+        top: 305px
+    }
+    .slider-social-btns {
+        top: 358px
+    }
+    .banner {
+        height: 608px;
+    }
+    .content-area1 {
+        margin-top: 600px;
+    }
+    .parallax-bg {
+        background: url("../../assets/img/parallax-bg1480.jpg") no-repeat;
+    }
     .main-inner {
         width: 100%;
         padding-left: 30px;
@@ -16,6 +44,7 @@
         margin-left: 0
     }
 }
+
 @media only screen and (max-width: 1250px) {
     .large-triangle9 {
         right: 169px;
@@ -34,7 +63,16 @@
         }
     }
 }
+
 @media only screen and (max-width: 1150px) {
+    .link-type-2  {right: 0}
+    .banner {
+        position: relative;
+        z-index: 0 !important;
+    }
+    .content-area1{
+         margin-top: -23px !important;
+    }
     .small-triangle1,
     .small-triangle2,
     .small-triangle3,
@@ -58,7 +96,7 @@
     }
     .english {
         .counters-place .counter-box:last-child {
-            width: 94px;
+            //width: 94px;
         }
     }
     .form-place {
@@ -85,7 +123,9 @@
         display: block
     }
 }
-@media only screen and (max-width: 1010px) {
+
+@media only screen and (max-width: 1010px) { 
+    
     .large-triangle7 {
         top: -59px;
         left: -292px;
@@ -164,6 +204,7 @@
         right: -117px;
     }
 }
+
 @media only screen and (max-width: 950px) {
     .services-inner {
         width: 570px;
@@ -182,10 +223,23 @@
         right: 61px;
     }
 }
+
 @media only screen and (max-width: 768px) {
+    .counters-place .counter-box {
+        margin-bottom: 20px
+    }
+    .content-area1 {
+        margin-top: 673px;
+    }
+    .parallax-bg {
+        background: url("../../assets/img/768/parallax-bg.jpg") no-repeat;
+    }
     .slider-social-btns {
         left: 30px;
         top: 405px;
+    }
+    .english .counters-place .counter-box:last-child {
+        width: 199px;
     }
     .section-about-us-inner {
         .founder-info-left {
@@ -277,16 +331,25 @@
             width: 199px;
         }
     }
-    .counter-info.ci-1 {
+    .counter-box .counter-info {
+        margin-left: 0
+    }
+    .counter-box .counter-nums {
+        font-size: 50px;
+        padding-bottom: 1px;
+        padding-top: 8px;
+    }
+    /*.counter-info.ci-1 {
         display: none
     }
     .counter-info.ci-2 {
         display: block
-    }
+    }*/
     .banner-see-more-link {
         bottom: 96px
     }
 }
+
 @media only screen and (max-width: 650px) {
     .large-triangle1 {
         top: 189px;
@@ -367,6 +430,7 @@
         }
     }
 }
+
 @media only screen and (max-width: 600px) {
     .partners-inner,
     .form-place,
@@ -398,6 +462,7 @@
         display: none
     }
 }
+
 @media only screen and (max-width: 550px) {
     .services-inner {
         width: 280px;
@@ -411,7 +476,11 @@
         }
     }
 }
+
 @media only screen and (max-width: 480px) {
+    .parallax-bg {
+        background: url("../../assets/img/480/parallax-bg.jpg") no-repeat;
+    }
     .foundation {
         width: 100%;
         margin-top: 2px;
@@ -419,12 +488,12 @@
     .himnadrman-tari {
         line-height: 16px;
     }
-    .parallax-bg {
+    /* .parallax-bg {
         display: none
-    }
-    .reviews-slider-container {
+    }*/
+    /*.reviews-slider-container {
         background: url(../../assets/img/pattern-footer2.png) repeat;
-    }
+    }*/
     #reviews-slider p {
         height: 100px;
     }
@@ -496,22 +565,23 @@
         right: -63px;
     }
     .counters-place {
-        width: 180px;
+        width: 190px;
         padding-top: 40px;
         padding-bottom: 0;
         padding-left: 29px;
+        .counter-box {
+            padding-bottom: 13px;
+            width: 200px;
+            .counter-info {
+                font-size: 13px;
+                margin-bottom: 4px;
+            }
+        }
     }
     .portfolio-section {
         padding-top: 22px;
         .section-title-place {
             margin-bottom: 18px
-        }
-    }
-    .counter-box {
-        padding-bottom: 13px;
-        .counter-info {
-            font-size: 13px;
-            margin-bottom: 4px;
         }
     }
     .section-about-us-inner {
@@ -564,6 +634,7 @@
         transform: translate(-160px, 170px);
     }
 }
+
 @media only screen and (max-width: 420px) {
     #reviews-dots {
         transform: translate(-50%, 0%);
@@ -571,6 +642,7 @@
         left: 50%;
     }
 }
+
 @media only screen and (max-width: 370px) {
     #animation_container,
     #canvas,
@@ -583,7 +655,14 @@
         width: 51px
     }
 }
+
 @media only screen and (max-width: 320px) {
+    .content-area1 {
+        margin-top: 474px;
+    }
+    .parallax-bg {
+        background: url("../../assets/img/320/parallax-bg.jpg") no-repeat;
+    }
     .banner {
         background-image: url(../../assets/img/320/banner.jpg);
         height: 480px;
