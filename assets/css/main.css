@@ -593,10 +593,7 @@ footer {
   height: 370px !important;
 }
 
-#landing-content1 {
-  width: 1920px !important;
-}
-
+/*#landing-content1 {width:1920px !important}*/
 .banner {
   background-image: url("../../assets/img/banner.jpg");
   height: 902px;
@@ -808,8 +805,11 @@ footer {
   cursor: pointer;
   z-index: 1;
 }
+.sliders-place #landing-content2 {
+  width: 1920px !important;
+}
 .sliders-place .landing-inner-content {
-  width: 2450px;
+  width: 5960px;
   height: 280px;
 }
 .sliders-place .box {

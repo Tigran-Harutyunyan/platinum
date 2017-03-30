@@ -10,3 +10,27 @@ http://jsfiddle.net/6gbhfxrx/2/
 http://jsfiddle.net/mayankcpdixit/bx9ccqk9/
 
 RING account credentials  - tigran@mail.ru : tigran
+
+#Tigran: If possible please change url "category" to "shop" and keep SHOP menu underlined when you in "all products" or "product details" page 
+#Tigran: Product details page, I think we can move "Related products" a bit up, if no review, also please try to do 2 or more review on one product, to see how it will looks like in product details page.
+#Tigran, #bug: I have added http://beta.zen-noho.com/#/product/33 product, and selected 3 items, but in shopping bug I see "items: 1", but price was correct one
+#Tigran: When I click "Check Out now", nothings happen, I guess some request going in background, but user waiting and don't see any loader, I think better to show some loader in shopping bag instead of closing it immediately.
+#Gor: Not possible to update customer profile, message is "Method not allowed" when i click update button.
+#Tigran, #Gor: Order history on customer page, now it is showing "Coming soon", Gor you have to create request so Tigran can show current logged in customer all orders, sorted by date descending. Tigran dosing should be the same as in admin. Use pagination...
+ 
+#Gor, #Tigran, #bug: I am not able to see new specials when I just login as customer, but when I login as admin, i see all specials in website
+#Tigran: Please add left-right arrow for testimonials in website
+#Tigran, #bug: Mobile view, the menu is not working properly, I am not able to click on item, no action happens, something is covering click action 
+#Tigran, #bug: Safari, just from home page trying to click on "LOGIN" button and no action happens, just see that URL normally changed, but no login page appears. Actually the same thing happens for all menu buttons ("Shop" etc...)
+#Tigran, #admin: Remove admin profile, as we don't have any implementation here
+#Tigran, #admin: Admin default page should be orders page.
+#Tigran, #Gor, #admin, #orders: About fields, I want we use only one date field and call it just date (by the way, now they are both showing null). We don't need update date, Tigran don't show it anymore, Gor all filters are going to used with created_dt (which is become "date" in UI).
+#Tigran, #admin, #orders: In total price, show before price if needed (the same logic as for shopping bag). Please use colors for statuses (pending: yellow, ready: blue, completed: green, canceled: red). We need 3 buttons in "Action" column: "Ready", "Complete", "Cancel".
+#Tigran, #Gor, #admin, #orders. The filters we have on top, I think we need to tun up them a slightly. Remove "Filter by customer" and make search by customer name really to work as it's not working now. Date filter need to work on created_dt, this means no need "sort by created date", "sort by update date" drop down box. It will be good to have filter with status drop-down. Also, when I click reset, please refresh the page.
+#Tigran, #Gor, #admin, #products, #bug: Filter sucks, infinity waiting.... Choose "Edible" and click filter, I can see 19 pages, some pagination bug. What is a "sort by property" REMVOE it. Asc/Desc takes no action. Please go over this, make this filter more intuitive for admin users.
+#Tigran, #admin, #products: Product view open in new tab, keep the same for all thing in admin, when you navigate to website from admin, use the new tab.
+#Tigran, #Gor, #admin, #products: For the measurement client really asked me (begging me) to add 3 more grams (3Gram, 5Gram and 9Gram), so it will looks like  1Gram, 2Gram, 3Gram, 1/8, 5Gram, 1/4, 9Gram, 1/2, 0Z
+#Tigran, #Gor, #admin, #categories, #bug: There are some bug here, sub-categories goes under another parent, but I have selected other parent, please fix this issue together.
+#Tigran, #Gor, #admin, #customers: Show last registered as the first in list. Remove email button for now. Gor, remove all customers from admin that has not uploaded the doc, this case should be prevent (no doc, no customer). Gor jan, add here one more status "pending". Tigran jan, show customer status in new column (the same thins like in order). The status colors should be pending: yellow, active: green, deactivated: red. Lock button "title" on hover make a bit intuitive, for example "Approve customer account" if pending or "Deactivate customer account" or "Activate customer account".
+#Tigran, #Gor, #admin, #testimonials: Again status problem, I am not able to understand current status of review, add status field approved: green, disapproved: red.
+#Tigran, #Gor, #admin, #specials: Sort by id desc by default, so the last on is showing as firs (the same for website) 

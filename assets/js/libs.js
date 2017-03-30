@@ -12,7 +12,7 @@
 //@prepros-append owl.carousel.min.js   
 //@prepros-append jquery.inview.js
 //@prepros-append countUp.min.js  
-//@prepros-append jquery.magnific-popup.min.js 
+ 
 //@prepros-append jquery.dotdotdot.min.js
 //@prepros-append cursometer.js 
 //@prepros-append underscore-min.js

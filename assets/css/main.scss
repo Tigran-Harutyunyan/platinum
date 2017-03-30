@@ -530,7 +530,8 @@ footer {
     ul li:last-child {
         margin-right: 0
     }
-} 
+}
+
 .testimonials-section {
     padding-bottom: 13px;
     padding-top: 45px;
@@ -611,7 +612,7 @@ footer {
     width: 566px !important;
     height: 370px !important
 }
-#landing-content1 {width:1920px !important}
+/*#landing-content1 {width:1920px !important}*/
 .banner {
     background-image: url("../../assets/img/banner.jpg");
     height: 902px;
@@ -824,8 +825,11 @@ footer {
         cursor: pointer;
         z-index: 1
     }
+   /*  #landing-content2 {
+       width : 1920px !important
+   } */
     .landing-inner-content {
-        width: 2450px;
+        width: 5960px;
         height: 280px;
     }
     .box {

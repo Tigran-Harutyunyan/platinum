@@ -27,11 +27,9 @@ var triangle1 = $(".large-triangle1"),
     minScreenWidth = 1150;
 
 
-
-
 /////////////////// Handle touch events /////////////////////////////
-var updateSlider = _.debounce(function (ev) {
-   //console.log(ev.type + " gesture detected.");  
+var updateSlider = _.debounce(function(ev) {
+    //console.log(ev.type + " gesture detected.");  
 }, 200); // Maximum run of once per 500 milliseconds
 var myElement = document.getElementById('landing-content1');
 
@@ -40,7 +38,7 @@ var myElement = document.getElementById('landing-content1');
 var mc = new Hammer(myElement);
 
 // listen to events...
-mc.on("panleft panright tap press", function (ev) {
+mc.on("panleft panright tap press", function(ev) {
     updateSlider(ev)
 });
 
@@ -48,7 +46,7 @@ mc.on("panleft panright tap press", function (ev) {
 
 
 if (windowWidth > 1200) {
-    var updateTriangle = _.debounce(function (e,w, h) {
+    var updateTriangle = _.debounce(function(e, w, h) {
         var Xmouse = e.pageX;
         var Ymouse = e.pageY;
         //calc perc
@@ -132,27 +130,28 @@ if (windowWidth > 1200) {
 
 
 function mousePerspective(w, h) {
-    $('.content-area').mousemove(function (e) {
-        updateTriangle(e,w,h);
+    $('.content-area').mousemove(function(e) {
+        updateTriangle(e, w, h);
 
     });
 };
-$(document).ready(function () {
+$(document).ready(function() {
     var disabled = false,
         allowScrolling = true,
         _docWidth = $(window).width(),
         sliders = $('.sliders-place'),
         menuToggler = $('#menu-toggler'),
         mobileMenuContainer = $('.mobile-menu-container');
-
-    menuToggler.click(function (event) {
+    var landWidth1 = ($("#landing-content1 .box").length) * 270 + 20;
+    $("#landing-content1").width(landWidth1);
+    var landWidth2 = ($("#landing-content2 .box").length) * 270 + 20;
+    $("#landing-content2").width(landWidth2);
+    menuToggler.click(function(event) {
         event.stopPropagation()
         $(this).toggleClass("opened-menubar");
         mobileMenuContainer.toggleClass('menu-opened')
     });
-
-
-
+ 
 
     if (_docWidth > minScreenWidth) {
         isLargeScreen = true;
@@ -235,12 +234,12 @@ $(document).ready(function () {
     var _docWidth = $(document).width();
     var land_width = $landingWrapper.width();
     var land_width2 = $landingWrapper2.width();
-    $landingInnerContent.on("mousemove touchmove", function (e) {
+    $landingInnerContent.on("mousemove touchmove", function(e) {
         if (allowScroll) {
             land_width = $landingWrapper.width();
             if ((e.clientX < land_width / 4) || (e.clientX > land_width * 3 / 4)) {
                 allowScroll = false;
-                setTimeout(function () {
+                setTimeout(function() {
                     var difference = _docWidth - e.clientX;
                     var currentVelocity = Math.round(Math.abs(calculateVelocity(e.clientX, difference)));
                     if (e.clientX > land_width / 2) {
@@ -270,12 +269,12 @@ $(document).ready(function () {
             }
         }
     });
-    $landingInnerContent2.on("mousemove touchmove", function (e) {
+    $landingInnerContent2.on("mousemove touchmove", function(e) {
         if (allowScroll2) {
             land_width2 = $landingWrapper2.width();
             if ((e.clientX < land_width2 / 4) || (e.clientX > land_width2 * 3 / 4)) {
                 allowScroll2 = false;
-                setTimeout(function () {
+                setTimeout(function() {
                     var difference = _docWidth - e.clientX;
                     var currentVelocity = Math.round(Math.abs(calculateVelocity(e.clientX, difference)));
                     if (e.clientX > land_width2 / 2) {
@@ -305,7 +304,7 @@ $(document).ready(function () {
             }
         }
     });
-    var calculateVelocity = function (clientX, difference) {
+    var calculateVelocity = function(clientX, difference) {
         return clientX < threshold ? (threshold - clientX) / threshold * -maxVelocity : difference < threshold ? (threshold - difference) / threshold * maxVelocity : 0;
     };
 
@@ -326,10 +325,10 @@ $(document).ready(function () {
         mouseDrag: false,
         //touchDrag:false,
         dotsContainer: "#reviews-dots",
-        onResized: function () {
+        onResized: function() {
 
         },
-        onInitialized: function () {
+        onInitialized: function() {
 
         }
     });
@@ -354,11 +353,11 @@ $(document).ready(function () {
         animateIn: 'fadeIn',
         //touchDrag:false,
         dotsContainer: ".banner-dots",
-        onInitialized: function (event) {
+        onInitialized: function(event) {
             calculateSlideInfo(event);
             createElements(event.item.index, event.item.count);
         },
-        onTranslated: function (event) {
+        onTranslated: function(event) {
             calculateSlideInfo(event);
             createElements(event.item.index);
         }
@@ -378,7 +377,7 @@ $(document).ready(function () {
             navElemContainerElements = $(".nav-element-container span");
         } else {
             console.log(currentIndex);
-            navElemContainerElements.each(function (index) {
+            navElemContainerElements.each(function(index) {
                 if (currentIndex != $(this).data('nav')) {
                     $(this).removeClass('active-nav');
                 } else {
@@ -387,7 +386,7 @@ $(document).ready(function () {
             });
         }
     };
-    navElemContainerElements.on('click', function () {
+    navElemContainerElements.on('click', function() {
         bannersSlider.trigger('to.owl.carousel', $(this).data('nav'));
     });
     //==========PARTNERS SLIDER ====================================== 
@@ -422,36 +421,35 @@ $(document).ready(function () {
     $(".contact-form").validate({
         rules: {
             contact_subject: "required",
-            contact_email: "required",
+            contact_email: "required email",
             contact_message: "required"
         },
-        submitHandler: function () {
+        submitHandler: function() {
             if (!disabled) {
                 var button = $(".btn-submit");
                 button.disabled = true;
                 button.val("Sending...");
                 var data = $(this.currentForm).serialize();
-                $.ajax('http://jsonplaceholder.typicode.com/posts', {
-                    method: 'POST',
-                    data: data
-                }).done(function (success) {
-                    $("#contact_subject").val("");
-                    $("#contact_email").val("");
-                    $("#contact_message").val("");
-                    toastr.success("Success!")
-                }).fail(function (error) {
-                    toastr.error("An error occured.")
-                }).always(function () {
+                $.post('mailer/', data, function(response) {
                     disabled = false;
                     button.val("Send");
-                });
+                    if (response.error) {
+                        toastr.error(response.message)
+                    } else {
+                        toastr.success(response.message)
+                        $("#contact_subject").val("");
+                        $("#contact_email").val("");
+                        $("#contact_message").val("");
+                    }
+                }, 'json');
             }
+            disabled = true;
         }
     });
     // ***************COUNTER****************************
     var sectionContainer = $('.section-counters');
     var allowCounting = true;
-    $('#counters').bind('inview', function (event, visible) {
+    $('#counters').bind('inview', function(event, visible) {
         if (visible) {
             if (allowCounting) {
                 var startValues = [0, 100, 0, 0];
@@ -459,11 +457,11 @@ $(document).ready(function () {
                 for (var i = 0; i < 4; i++) {
                     var element = document.getElementById("counter" + (i + 1));
                     var numAnim = new CountUp(element, startValues[i], endValues[i]);
-                    numAnim.start(function () {});
+                    numAnim.start(function() {});
                 }
                 allowCounting = false;
             }
-            $(window).scroll(function () {
+            $(window).scroll(function() {
                 var scrollPosition = $(window).scrollTop();
                 if (_docWidth > 1150 && _docWidth < 1250) {
                     sectionContainer.css('background-position', '50% ' + (-Math.round(scrollPosition * 0.04)) + 'px');
@@ -491,13 +489,13 @@ $(document).ready(function () {
         })
         .addTo(sectionsController)
         //.addIndicators()
-        .on("enter", function (e) {
+        .on("enter", function(e) {
             console.log("enter");
         })
     sceneNav.setClassToggle("#top-nav", "section-services");
     sceneNav.setClassToggle("#service-boxes", "active-services");
 
-    sectionsController.scrollTo(function (newpos) {
+    sectionsController.scrollTo(function(newpos) {
         if (section_to_scroll) {
             var offsetTop = 0;
             switch (section_to_scroll) {
@@ -519,7 +517,7 @@ $(document).ready(function () {
             }
         }
 
-        if (isLargeScreen && offsetTop === 0) {
+        if (isLargeScreen && section_to_scroll === "#section-home") {
             $('html,body').animate({
                 scrollTop: 0
             }, 600, 'easeInOutQuad');
@@ -536,19 +534,19 @@ $(document).ready(function () {
 
 
 
-    $(".menu-item, .logo-link, .nav-item").bind('click', function (event) {
+    $(".menu-item, .logo-link, .nav-item").bind('click', function(event) {
         var param = event.currentTarget.attributes['data-scroll-nav'];
         if (param && param.value) {
             section_to_scroll = "#" + param.value;
             var currentElement = $(this);
-            $(".menu-item").each(function (index) {
+            $(".menu-item").each(function(index) {
                 $(this).removeClass('active-menu');
             });
-            $(".nav-item").each(function (index) {
+            $(".nav-item").each(function(index) {
                 $(this).removeClass('active-menu');
             });
             currentElement.addClass('active-menu');
-            setTimeout(function () {
+            setTimeout(function() {
                 sectionsController.scrollTo(section_to_scroll);
             }, 400)
         }
@@ -607,7 +605,7 @@ $(document).ready(function () {
     });
 
     if (navigator.userAgent.match(/Trident\/7\./)) { // smooth scrolling for fixed bgs in  IE 
-        $('body').on("mousewheel", function () {
+        $('body').on("mousewheel", function() {
             // remove default behavior
             event.preventDefault();
 
