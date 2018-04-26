@@ -1,0 +1,97 @@
+<div class="products-main">
+  <div class="bordered-block">
+    <h3 class="product-category-title">այցեքարտեր</h3>
+    <div class="product-details-inner">
+      <el-carousel :autoplay="false" trigger="click" indicator-position="outside" height="300px" arrow="never" class="product-slider">
+        <el-carousel-item v-for="item in 3" :key="item">
+           <img src="../../assets/img/slider-img.png" alt="">
+        </el-carousel-item>
+      </el-carousel>
+      <div class="product-detail-info">
+        <p>Այցեքարտ, մարդու կամ կազմակերպության մասին կոնտակտային տեղեկատվության կրիչ: Պատրաստվում է ոչ մեծ ստվարաթղթից կամ
+          պլաստմասսայից:
+          <br> Այցեքարտը ներառում է տիրոջ անունը, ընկերությունը (սովորաբար պատկերանիշի հետ միասին) և կոնտակտային ինֆորմացիա (հասցե,
+          հեռախոսահամար և/կամ էլեկտրոնային հասցե):
+        </p>
+        <div class="choices">
+          <!-- <a href="" class="btn-link btn-bright">բեռնել ձեր ֆայլը</a> -->
+          <el-upload
+            class="upload-demo"
+            action="https://jsonplaceholder.typicode.com/posts/"
+            :on-change="handleChange"
+            :auto-upload="false" :on-remove="handleRemove">
+            <el-button size="small" type="primary" class="btn-submit btn-invert">բեռնել ձեր ֆայլը</el-button>
+         </el-upload>
+          <span>կամ</span>
+          <a class="btn-link">մենք կպատրաստենք </a>
+        </div>
+      </div>
+    </div>
+  </div> 
+  <div class="product-details-inner2">
+    <div class="left-block">
+      <div class="upload-img" v-bind:style='styleObject'>
+        
+      </div>
+      <!-- <a  class="btn-submit btn-invert">բեռնել ֆայլ </a> -->
+      <el-upload
+        class="upload-demo"
+        accept="image/*"
+        action="https://jsonplaceholder.typicode.com/posts/"
+        :on-change="handleChange"
+        :file-list="fileList"  :auto-upload="false" :on-remove="handleRemove">
+        <el-button size="small" type="primary" class="btn-submit btn-invert">բեռնել ֆայլ</el-button>
+        <div slot="tip" class="el-upload__tip">files with a size less than 25mb</div>
+      </el-upload>
+    </div>
+    <div class="right-block">
+      <div class="parameters-item">
+        <h3 class="param-label">չափը</h3>
+        <el-select v-model="value" placeholder="Select">
+          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+          </el-option>
+        </el-select>
+      </div>
+      <div class="parameters-item">
+        <h3 class="param-label">թղթի տեսակը</h3>
+        <el-select v-model="value" placeholder="Select">
+          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+          </el-option>
+        </el-select> 
+      </div>
+      <div class="parameters-item">
+        <h3 class="param-label">տպագրվող կողմեր</h3>
+        <el-select v-model="value" placeholder="Select">
+          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+          </el-option>
+        </el-select>
+      </div>
+      <div class="parameters-item">
+        <h3 class="param-label">կլորացված եզրեր</h3>
+        <el-select v-model="value" placeholder="Select">
+          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+          </el-option>
+        </el-select>
+      </div>
+      <div class="parameters-item">
+        <h3 class="param-label">քանակ</h3>
+        <el-select v-model="value" placeholder="Select">
+          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+          </el-option>
+        </el-select>
+      </div>
+      <div class="parameters-item">
+        <h3 class="param-label">տպագրման ժամկետ</h3>
+        <el-select v-model="value" placeholder="Select">
+          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+          </el-option>
+        </el-select>
+      </div>
+      <div class="summary-block">
+        <h3 class="param-label">Տպագրման արժեք:</h3> 
+        <p></p>
+      </div>
+      <a class="btn-submit btn-invert">շարունակել</a>
+    </div>
+  </div>
+</div>

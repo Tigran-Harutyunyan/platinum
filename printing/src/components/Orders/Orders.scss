@@ -1,0 +1,130 @@
+.product-type {
+    font-size: 16px;
+    color: #666666;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding-right: 88px;
+}
+.cart-images {
+    display: flex;
+    .cart-img-container:first-child {
+        margin-right: 25px
+    }
+}
+.cart-img-container {
+    text-align: center;
+    h5 {
+        font-size: 16px;
+        text-transform: uppercase;
+        color: #666666;
+        padding-top: 3px
+    }
+}
+.cart-top{
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-around;
+    width: 100%;
+    padding-bottom: 58px;
+    border-bottom: 1px solid #af995a;
+}
+.cart-products {
+    margin-left: auto;
+    display: flex;
+}
+td {
+    line-height: 36px;
+}
+
+.action-btns {
+    color: #af995a;
+    line-height: 30px;
+    text-align: right;
+    margin-left: 50px;
+    li{
+        font-weight: bold;
+        font-size: 16px; 
+    }
+    .price-bold {
+        font-family: "Myriad Pro";
+        font-weight: bold;
+        font-size: 24px
+    } 
+} 
+.btn-submit {
+    margin-top: 30px;
+}
+.btn-links {
+    cursor: pointer;
+}
+.cart-bottom {
+    display: flex;
+    justify-content: right;
+    width: 100%;
+    padding-top: 43px; 
+    .product-type {
+        text-transform: initial
+    }
+    .cart-products { 
+        flex-wrap: wrap;
+        width: 336px; 
+    }
+    table {
+        width: 100%;
+    }
+}
+tr td:last-child {
+    text-align: right
+}
+.table-1 {
+    border-bottom: 1px solid #af995a;
+    margin-bottom: 16px;
+    tr:last-child td {
+        padding-bottom: 17px;
+    }
+}
+.table-2 { 
+    td{
+        color: #af995a;
+    }
+    tr  {
+        td:first-child{
+            font-size: 20px; 
+        }
+        td:last-child{
+            font-size: 24px;
+            font-weight: bold
+        }
+    }
+}
+.pricing-cell {
+    display: flex;
+    margin-left: auto;
+    padding-top: 66px;
+    .btn-submit {
+        margin-top: 0;
+        font-size: 24px;
+        width: 220px
+    }
+    .link {
+        font-size: 17px;
+        color: #747474;
+        text-transform: uppercase;
+        padding-top: 12px;
+        margin-right: 20px;
+    }
+}
+.product-details-inner {
+    padding-bottom: 160px;
+}
+.el-tabs {
+    width: 760px
+}
+.table-container {
+    padding: 70px 120px 30px;
+    background: white;
+}
+.table-link {
+    color: #af995a;
+    text-decoration: underline
+}
