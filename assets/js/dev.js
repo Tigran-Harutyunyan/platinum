@@ -3,6 +3,7 @@
  * author: Tigran Harutyunyan.
  * 2017.
  **/
+
 var allowdToGet = true;
 var previousPosition = 0;
 var section_to_scroll;
@@ -24,11 +25,12 @@ var triangle1 = $(".large-triangle1"),
     windowWidth = $(window).width(),
     windowHeight = $(window).height(),
     isLargeScreen = false,
-    minScreenWidth = 1150;
+    minScreenWidth = 1150,
+    currentTabID;
 
 
 /////////////////// Handle touch events /////////////////////////////
-var updateSlider = _.debounce(function(ev) {
+/*var updateSlider = _.debounce(function (ev) {
     //console.log(ev.type + " gesture detected.");  
 }, 200); // Maximum run of once per 500 milliseconds
 var myElement = document.getElementById('landing-content1');
@@ -38,11 +40,11 @@ var myElement = document.getElementById('landing-content1');
 var mc = new Hammer(myElement);
 
 // listen to events...
-mc.on("panleft panright tap press", function(ev) {
+mc.on("panleft panright tap press", function (ev) {
     updateSlider(ev)
-});
+});*/
 
-////////////////////////////////////////////////////////////////////
+
 
 
 if (windowWidth > 1200) {
@@ -58,71 +60,71 @@ if (windowWidth > 1200) {
         //console.info("X Axis : " + Xpos + " Y Axis : " + Ypos);
         Xrev = 100 - Xpos;
         Yrev = 100 - Ypos;
-        triangle1.css({
-            //perspectiveOrigin: Xpos + '% ' + Ypos + '%'
-            transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
-        });
-        // triangle 2
-        Xpos = -(Math.floor(Xperc * 20));
-        Ypos = Math.floor(Yperc * 30);
-        triangle2.css({
-            transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
-        });
-        // triangle 3
+        /*       triangle1.css({
+                   //perspectiveOrigin: Xpos + '% ' + Ypos + '%'
+                   transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
+               });
+              
+               Xpos = -(Math.floor(Xperc * 20));
+               Ypos = Math.floor(Yperc * 30);
+               triangle2.css({
+                   transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
+               });*/
+
         Xpos = Math.floor(Xperc * 50);
         Ypos = -(Math.floor(Yperc * 20));
         triangle3.css({
             transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
         });
-        // triangle 4
-        Xpos = -(Math.floor(Xperc * 22));
-        Ypos = Math.floor(Yperc * 30);
-        triangle4.css({
-            transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
-        });
-        // triangle 5
-        Xpos = Math.floor(Xperc * 16);
-        Ypos = Math.floor(Yperc * 16);
-        triangle5.css({
-            transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
-        });
-        // triangle 6
-        Xpos = -(Math.floor(Xperc * 16));
-        Ypos = Math.floor(Yperc * 20);
 
-        triangle6.css({
-            transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
-        });
-        // triangle 7
-        Xpos = Math.floor(Xperc * 20);
-        Ypos = Math.floor(Yperc * 20);
-        triangle7.css({
-            transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
-        });
-        // triangle 8
-        Xpos = Math.floor(Xperc * 20);
-        Ypos = Math.floor(Yperc * 20);
-        triangle8.css({
-            transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
-        });
-        // triangle 9
-        Xpos = -(Math.floor(Xperc * 10));
-        Ypos = (Math.floor(Yperc * 5));
-        triangle9.css({
-            transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
-        });
-        // triangle 10
-        Xpos = Math.floor(Xperc * 4);
-        Ypos = Math.floor(Yperc * 3);
-        triangle10.css({
-            transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
-        });
-        // triangle 11
-        Xpos = Math.floor(Xperc * 20);
-        Ypos = Math.floor(Yperc * 20);
-        triangle11.css({
-            transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
-        });
+        /* Xpos = -(Math.floor(Xperc * 22));
+         Ypos = Math.floor(Yperc * 30);
+         triangle4.css({
+             transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
+         });
+         
+         Xpos = Math.floor(Xperc * 16);
+         Ypos = Math.floor(Yperc * 16);
+         triangle5.css({
+             transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
+         });
+       
+         Xpos = -(Math.floor(Xperc * 16));
+         Ypos = Math.floor(Yperc * 20);
+
+         triangle6.css({
+             transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
+         });
+         
+         Xpos = Math.floor(Xperc * 20);
+         Ypos = Math.floor(Yperc * 20);
+         triangle7.css({
+             transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
+         });
+          
+         Xpos = Math.floor(Xperc * 20);
+         Ypos = Math.floor(Yperc * 20);
+         triangle8.css({
+             transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
+         });
+         
+         Xpos = -(Math.floor(Xperc * 10));
+         Ypos = (Math.floor(Yperc * 5));
+         triangle9.css({
+             transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
+         });
+         
+         Xpos = Math.floor(Xperc * 4);
+         Ypos = Math.floor(Yperc * 3);
+         triangle10.css({
+             transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
+         });
+       
+         Xpos = Math.floor(Xperc * 20);
+         Ypos = Math.floor(Yperc * 20);
+         triangle11.css({
+             transform: "rotateY(" + Ypos + "deg)" + "rotateX(" + Xpos + "deg)"
+         });*/
 
     }, 25); // Maximum run of once per 500 milliseconds
     mousePerspective(windowWidth, windowHeight);
@@ -132,7 +134,6 @@ if (windowWidth > 1200) {
 function mousePerspective(w, h) {
     $('.content-area').mousemove(function(e) {
         updateTriangle(e, w, h);
-
     });
 };
 $(document).ready(function() {
@@ -141,38 +142,15 @@ $(document).ready(function() {
         _docWidth = $(window).width(),
         sliders = $('.sliders-place'),
         menuToggler = $('#menu-toggler'),
-        mobileMenuContainer = $('.mobile-menu-container');
-    var landWidth1 = ($("#landing-content1 .box").length) * 270 + 20;
-    $("#landing-content1").width(landWidth1);
-    var landWidth2 = ($("#landing-content2 .box").length) * 270 + 20;
-    $("#landing-content2").width(landWidth2);
+        mobileMenuContainer = $('.mobile-menu-container'),
+        bodyDataId = $("body").data("id");
+
     menuToggler.click(function(event) {
         event.stopPropagation()
         $(this).toggleClass("opened-menubar");
         mobileMenuContainer.toggleClass('menu-opened')
     });
- 
 
-    if (_docWidth > minScreenWidth) {
-        isLargeScreen = true;
-
-        //*************  BANNER PARALLAX SCROLLING ********************************
-        var controllerBanner = new ScrollMagic.Controller({
-            globalSceneOptions: {
-                triggerHook: "onEnter",
-                duration: "200%"
-            }
-        });
-        var sceneBanner = new ScrollMagic.Scene({
-                triggerElement: "#main-section",
-            })
-            .setTween("#mainSlider", {
-                y: "-8%",
-                ease: Linear.easeNone
-            })
-            //.addIndicators()  
-            .addTo(controllerBanner);
-    }
 
 
     //************* HEADER SCROLLING **********************************
@@ -196,145 +174,44 @@ $(document).ready(function() {
         })
         .addTo(bannerController);
     scene.setClassToggle("#mainSlider", "changed-zindex");
-    //trackMouse(sliders);
+    //trackMouse(sliders); 
 
+    if (bodyDataId == 'home') {
 
-    //*************  REVIEWS PARALLAX SCROLLING ********************************
-    var reviewsController = new ScrollMagic.Controller({
-        globalSceneOptions: {
-            triggerHook: "onEnter",
-            duration: "200%"
-        }
-    });
-    var scene2 = new ScrollMagic.Scene({
-            triggerElement: "#parallax-trigger"
-        })
-        .setTween("#parallax1", {
-            y: "10%",
-            ease: Linear.easeNone
-        })
-        .addTo(reviewsController);
-
-    //**************** CONTENT SLIDER ********************************** 
-
-    var velocity = 0,
-        threshold = 300,
-        maxVelocity = 10;
-    var $landingWrapper = $("#landing1"),
-        $landingInnerContent = $("#landing-content1");
-    var $landingWrapper2 = $("#landing2"),
-        $landingInnerContent2 = $("#landing-content2");
-    // set initial container to half of .landing-inner-content width
-    //TweenMax.set($landingWrapper, {scrollTo: {x: $landingInnerContent.width()/4}, ease: Power2.easeOut});
-
-    // scroll left and right
-    var latestPosition;
-    var allowScroll = true;
-    var allowScroll2 = true;
-    var _docWidth = $(document).width();
-    var land_width = $landingWrapper.width();
-    var land_width2 = $landingWrapper2.width();
-    $landingInnerContent.on("mousemove touchmove", function(e) {
-        if (allowScroll) {
-            land_width = $landingWrapper.width();
-            if ((e.clientX < land_width / 4) || (e.clientX > land_width * 3 / 4)) {
-                allowScroll = false;
-                setTimeout(function() {
-                    var difference = _docWidth - e.clientX;
-                    var currentVelocity = Math.round(Math.abs(calculateVelocity(e.clientX, difference)));
-                    if (e.clientX > land_width / 2) {
-                        TweenMax.to($landingWrapper, 2, {
-                            scrollTo: {
-                                x: "+=" + 20 * currentVelocity
-                            },
-                            ease: Power2.easeOut
-                        });
-                    } else {
-                        TweenMax.to($landingWrapper, 2, {
-                            scrollTo: {
-                                x: "-=" + 20 * currentVelocity
-                            },
-                            ease: Power2.easeOut
-                        });
-                    }
-                    allowScroll = true;
-                }, 100);
-            } else {
-                TweenMax.to($landingWrapper, 2, {
-                    scrollTo: {
-                        x: "+=0"
-                    },
-                    ease: Power2.easeOut
-                });
+        var reviewsController = new ScrollMagic.Controller({
+            globalSceneOptions: {
+                triggerHook: "onEnter",
+                duration: "200%"
             }
-        }
-    });
-    $landingInnerContent2.on("mousemove touchmove", function(e) {
-        if (allowScroll2) {
-            land_width2 = $landingWrapper2.width();
-            if ((e.clientX < land_width2 / 4) || (e.clientX > land_width2 * 3 / 4)) {
-                allowScroll2 = false;
-                setTimeout(function() {
-                    var difference = _docWidth - e.clientX;
-                    var currentVelocity = Math.round(Math.abs(calculateVelocity(e.clientX, difference)));
-                    if (e.clientX > land_width2 / 2) {
-                        TweenMax.to($landingWrapper2, 2, {
-                            scrollTo: {
-                                x: "+=" + 20 * currentVelocity
-                            },
-                            ease: Power2.easeOut
-                        });
-                    } else {
-                        TweenMax.to($landingWrapper2, 2, {
-                            scrollTo: {
-                                x: "-=" + 20 * currentVelocity
-                            },
-                            ease: Power2.easeOut
-                        });
-                    }
-                    allowScroll2 = true;
-                }, 100);
-            } else {
-                TweenMax.to($landingWrapper2, 2, {
-                    scrollTo: {
-                        x: "+=0"
-                    },
-                    ease: Power2.easeOut
-                });
-            }
-        }
-    });
-    var calculateVelocity = function(clientX, difference) {
-        return clientX < threshold ? (threshold - clientX) / threshold * -maxVelocity : difference < threshold ? (threshold - difference) / threshold * maxVelocity : 0;
-    };
+        });
+        var scene2 = new ScrollMagic.Scene({
+                triggerElement: "#parallax-trigger"
+            })
+            .setTween("#parallax1", {
+                y: "10%",
+                ease: Linear.easeNone
+            })
+            .addTo(reviewsController);
 
+        initBannerPralaxScroller();
+        initPartnersSlider();
+        tabManipulations();
+        initReviewsSlider();
+        initFormValidator();
+        initCounters();
+        initPopups();
+            
+        //**************** PORTFOLIO SLIDERS ********************************** 
 
-    //**********REVIES SLIDER****************************************
-
-    $('#reviews-slider').owlCarousel({
-        loop: false,
-        smartSpeed: 400,
-        animateOut: 'fadeOut',
-        animateIn: 'fadeIn',
-
-        margin: 0,
-        nav: true,
-        dots: true,
-        items: 1,
-        autoHeight: true,
-        mouseDrag: false,
-        //touchDrag:false,
-        dotsContainer: "#reviews-dots",
-        onResized: function() {
-
-        },
-        onInitialized: function() {
-
-        }
-    });
+        $("#graphics_slider, #web_slider").mThumbnailScroller({
+            theme: "hover-classic", //"hover-precise", //theme:"hover-classic"
+            speed: 15
+        });
+    }
 
 
     //**********HOME SLIDER****************************************
+
     var itemsCounter = $('#items-counter'),
         currentSlide = $('#current-slide'),
         navElemContainer = $(".nav-element-container"),
@@ -389,95 +266,179 @@ $(document).ready(function() {
     navElemContainerElements.on('click', function() {
         bannersSlider.trigger('to.owl.carousel', $(this).data('nav'));
     });
-    //==========PARTNERS SLIDER ====================================== 
 
-    $('#partners-slider').owlCarousel({
-        loop: true,
-        autoplay: true,
-        margin: 0,
-        smartSpeed: 450,
-        dots: false,
-        nav: false,
-        items: 5,
-        autoHeight: false,
-        mouseDrag: true
-            /*    ,responsive: {
-                    0: {
-                        items: 4,
-                        margin:0
-                         
-                    }, 
-                    950: {
-                        items: 5,
-                        margin:0
-                    },
-                    1200: {
-                        items: 5
-                    }  
-                }*/
-    });
+    function initReviewsSlider() {
 
-    //==========CONTACT FORM ====================================== 
-    $(".contact-form").validate({
-        rules: {
-            contact_subject: "required",
-            contact_email: "required email",
-            contact_message: "required"
-        },
-        submitHandler: function() {
-            if (!disabled) {
-                var button = $(".btn-submit");
-                button.disabled = true;
-                button.val("Sending...");
-                var data = $(this.currentForm).serialize();
-                $.post('mailer/', data, function(response) {
-                    disabled = false;
-                    button.val("Send");
-                    if (response.error) {
-                        toastr.error(response.message)
+        //**********REVIEWS SLIDER*************************************
+
+        $('#reviews-slider').owlCarousel({
+            loop: false,
+            smartSpeed: 400,
+            animateOut: 'fadeOut',
+            animateIn: 'fadeIn',
+            margin: 0,
+            nav: true,
+            dots: true,
+            items: 1,
+            autoHeight: true,
+            mouseDrag: false,
+            //touchDrag:false,
+            dotsContainer: "#reviews-dots",
+            onResized: function() {},
+            onInitialized: function() {}
+        });
+    }
+
+    function tabManipulations() {
+
+        // ==================Projects tabs ======================
+
+        var projectTabLinks = $('.portfolio-links a');
+        var tabsContainer = $('.sliders-place');
+        var tabs = $('.sliders-place .landing-wrapper');
+        projectTabLinks.on('click', function() {
+
+            if ($(this).attr("data-id") === currentTabID) {
+                return;
+            }
+
+            if ($(this).attr("data-id") === 'graphicsTab' || $(this).attr("data-id") === 'webDesignTab') {
+
+                projectTabLinks.each(function(element) {
+                    $(this).removeClass('active');
+                    tabs.fadeOut();
+                });
+                currentTabID = $(this).attr("data-id");
+                tabs.each(function(element) {
+                    if ($(this).attr('data-tabId') == currentTabID) {
+                        $(this).fadeIn();
                     } else {
-                        toastr.success(response.message)
-                        $("#contact_subject").val("");
-                        $("#contact_email").val("");
-                        $("#contact_message").val("");
+                        $(this).hide();
                     }
-                }, 'json');
+                });
+                $(this).addClass('active');
+
+            } else {
+                toastr.info('Comming soon')
             }
-            disabled = true;
-        }
-    });
-    // ***************COUNTER****************************
-    var sectionContainer = $('.section-counters');
-    var allowCounting = true;
-    $('#counters').bind('inview', function(event, visible) {
-        if (visible) {
-            if (allowCounting) {
-                var startValues = [0, 100, 0, 0];
-                var endValues = [11, 225, 155, 7];
-                for (var i = 0; i < 4; i++) {
-                    var element = document.getElementById("counter" + (i + 1));
-                    var numAnim = new CountUp(element, startValues[i], endValues[i]);
-                    numAnim.start(function() {});
-                }
-                allowCounting = false;
-            }
-            $(window).scroll(function() {
-                var scrollPosition = $(window).scrollTop();
-                if (_docWidth > 1150 && _docWidth < 1250) {
-                    sectionContainer.css('background-position', '50% ' + (-Math.round(scrollPosition * 0.04)) + 'px');
-                } else if (_docWidth < 1149 && _docWidth > 750) {
-                    sectionContainer.css('background-position', '50% ' + (Math.round(scrollPosition / 30)) + 'px');
-                } else if (_docWidth > 1250) {
-                    sectionContainer.css('background-position', '50% ' + (-Math.round(scrollPosition * 0.08)) + 'px');
+
+
+        })
+    }
+
+    function initPartnersSlider() {
+
+        //==========PARTNERS SLIDER ====================================== 
+
+        $('#partners-slider').owlCarousel({
+            loop: true,
+            autoplay: true,
+            margin: 0,
+            smartSpeed: 450,
+            dots: false,
+            nav: false,
+            items: 5,
+            autoHeight: false,
+            mouseDrag: true
+        });
+    }
+
+
+    function initBannerPralaxScroller() {
+
+        //*************  BANNER PARALLAX SCROLLING ********************************
+
+        if (_docWidth > minScreenWidth) {
+            isLargeScreen = true;
+            var controllerBanner = new ScrollMagic.Controller({
+                globalSceneOptions: {
+                    triggerHook: "onEnter",
+                    duration: "200%"
                 }
             });
-
-        } else {
-            scrollCounter = 0;
-            sectionContainer.css('background-position', '50% 0');
+            var sceneBanner = new ScrollMagic.Scene({
+                    triggerElement: "#main-section",
+                })
+                .setTween("#mainSlider", {
+                    y: "-8%",
+                    ease: Linear.easeNone
+                })
+                //.addIndicators()  
+                .addTo(controllerBanner);
         }
-    });
+    }
 
+    function initFormValidator() {
+
+        //==========CONTACT FORM ====================================== 
+
+        $(".contact-form").validate({
+            rules: {
+                contact_subject: "required",
+                contact_email: "required email",
+                contact_message: "required"
+            },
+            submitHandler: function() {
+                if (!disabled) {
+                    var button = $(".btn-submit");
+                    button.disabled = true;
+                    button.val("Sending...");
+                    var data = $(this.currentForm).serialize();
+                    $.post('mailer/', data, function(response) {
+                        disabled = false;
+                        button.val("Send");
+                        if (response.error) {
+                            toastr.error(response.message)
+                        } else {
+                            toastr.success(response.message)
+                            $("#contact_subject").val("");
+                            $("#contact_email").val("");
+                            $("#contact_message").val("");
+                        }
+                    }, 'json');
+                }
+                disabled = true;
+            }
+        });
+
+    }
+
+    function initCounters() {
+
+        // ***************COUNTER****************************
+
+        var sectionContainer = $('.section-counters');
+        var allowCounting = true;
+        $('#counters').bind('inview', function(event, visible) {
+            if (visible) {
+                if (allowCounting) {
+                    var startValues = [0, 100, 0, 0];
+                    var endValues = [11, 225, 155, 7];
+                    for (var i = 0; i < 4; i++) {
+                        var element = document.getElementById("counter" + (i + 1));
+                        var numAnim = new CountUp(element, startValues[i], endValues[i]);
+                        numAnim.start(function() {});
+                    }
+                    allowCounting = false;
+                }
+                $(window).scroll(function() {
+                    var scrollPosition = $(window).scrollTop();
+                    if (_docWidth > 1150 && _docWidth < 1250) {
+                        sectionContainer.css('background-position', '50% ' + (-Math.round(scrollPosition * 0.04)) + 'px');
+                    } else if (_docWidth < 1149 && _docWidth > 750) {
+                        sectionContainer.css('background-position', '50% ' + (Math.round(scrollPosition / 30)) + 'px');
+                    } else if (_docWidth > 1250) {
+                        sectionContainer.css('background-position', '50% ' + (-Math.round(scrollPosition * 0.08)) + 'px');
+                    }
+                });
+
+            } else {
+                scrollCounter = 0;
+                sectionContainer.css('background-position', '50% 0');
+            }
+        });
+
+    }
 
     // ============TOP NAVIGATION ===========================================
 
@@ -530,8 +491,6 @@ $(document).ready(function() {
         }
 
     });
-    /* scene.setClassToggle("#top-nav", "section-services");*/
-
 
 
     $(".menu-item, .logo-link, .nav-item").bind('click', function(event) {
@@ -551,58 +510,32 @@ $(document).ready(function() {
             }, 400)
         }
     });
-    //********************DRAGGBLE*********************
-    Draggable.create("#landing-content1", {
-        bounds: $("#landing1"),
-        edgeResistance: .65,
-        cursor: "pointer",
-        type: "x",
-        throwProps: true
-    });
-    Draggable.create("#landing-content2", {
-        bounds: $("#landing2"),
-        edgeResistance: .65,
-        cursor: "pointer",
-        type: "x",
-        throwProps: true
-    });
-    //********************TOASTER *********************
-    toastr.options = {
-            "closeButton": false,
-            "debug": false,
-            "newestOnTop": false,
-            "progressBar": false,
-            "positionClass": "toast-bottom-right",
-            "preventDuplicates": false,
-            "onclick": null,
-            "showDuration": "30000",
-            "hideDuration": "1000",
-            "timeOut": "5000",
-            "extendedTimeOut": "1000",
-            "showEasing": "swing",
-            "hideEasing": "linear",
-            "showMethod": "fadeIn",
-            "hideMethod": "fadeOut"
-        }
-        //*****************************************************************
+
+
+    //*****************************************************************
     $('html,body').animate({
         scrollTop: 0
     }, 400, 'easeInOutQuad');
 
 
-    // Opens popups in Patients and Medical services sections. 
-    $('.open-popup-link').magnificPopup({
-        type: 'image',
-        gallery: {
-            enabled: true
-        },
-        mainClass: 'mfp-with-zoom', // this class is for CSS animation below
+    function initPopups() {
 
-        zoom: {
-            enabled: true,
-            duration: 300 // don't foget to change the duration also in CSS
-        }
-    });
+        // ======================= OPEN LIGHTBOX for galleries ===================
+
+        $('.open-popup-link').magnificPopup({
+            type: 'image',
+            gallery: {
+                enabled: true
+            },
+            mainClass: 'mfp-with-zoom',
+
+            zoom: {
+                enabled: true,
+                duration: 300
+            }
+        });
+
+    }
 
     if (navigator.userAgent.match(/Trident\/7\./)) { // smooth scrolling for fixed bgs in  IE 
         $('body').on("mousewheel", function() {
@@ -614,5 +547,23 @@ $(document).ready(function() {
             var currentScrollPosition = window.pageYOffset;
             window.scrollTo(0, currentScrollPosition - wheelDelta);
         });
+    }
+    //********************TOASTER *********************
+    toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": false,
+        "positionClass": "toast-bottom-right",
+        "preventDuplicates": true,
+        "onclick": null,
+        "showDuration": "3000",
+        "hideDuration": "1000",
+        "timeOut": "3000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
     }
 });

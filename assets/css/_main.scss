@@ -4,7 +4,7 @@
     src: url("../fonts/Glamor-BoldExtended.eot?#iefix") format("embedded-opentype"), url("../fonts/Glamor-BoldExtended.woff") format("woff"), url("../fonts/Glamor-BoldExtended.ttf") format("truetype"), url("../fonts/Glamor-BoldExtended.svg#Glamor-BoldExtended") format("svg");
     font-weight: normal;
 }
-
+ 
 .tahoma {
     font-family: 'Tahoma', sans-serif;
 }
@@ -48,11 +48,7 @@ a {
     -icab-transition: all 0.3s ease-in-out
 }
 
-.vert1 {
-    background-image: url(../../assets/img/vert-1.svg);
-    background-repeat: no-repeat;
-    background-size: 157px 720px;
-}
+ 
 
 * {
     box-sizing: border-box;
@@ -132,6 +128,19 @@ Navigation
     margin-top: 23px;
     opacity: 1;
     transition: margin-top 0.25s ease-in-out 0.3s, opacity ease-in-out 0.3s;
+    .btn-link {
+        margin-top: -11px;
+        &:hover {
+            color: #0f0f0f;
+        }
+    }
+    .btn-link.btn-bright {
+        background: #af995a;
+        color: #f5f5f5;
+        &:hover {
+            color: #f5f5f5;
+        }
+    }
     li {
         display: inline;
         float: left;
@@ -612,7 +621,10 @@ footer {
     width: 566px !important;
     height: 370px !important
 }
+
+
 /*#landing-content1 {width:1920px !important}*/
+
 .banner {
     background-image: url("../../assets/img/banner.jpg");
     height: 902px;
@@ -818,14 +830,14 @@ footer {
     .landing-wrapper {
         width: 99.9%;
         height: 270px;
-        margin: 42px auto 0;
+        margin: 42px auto 70px;
         padding: 0;
         position: relative;
         overflow: hidden;
         cursor: pointer;
         z-index: 1
     }
-   /*  #landing-content2 {
+    /*  #landing-content2 {
        width : 1920px !important
    } */
     .landing-inner-content {
@@ -853,7 +865,9 @@ footer {
         top: 0;
         left: 0;
         z-index: 999;
-        a {display: block}
+        a {
+            display: block
+        }
     }
     .box-content img {
         width: 100%;
@@ -1043,6 +1057,7 @@ footer {
             width: 136px;
             margin-left: 70px;
             margin-top: 37px;
+            text-align: left
         }
         .tnoren-title {
             font-size: 12px;
@@ -1290,9 +1305,9 @@ footer {
     }
 }
 
-.link-type-2 { 
+.link-type-2 {
     color: #000000;
-    top: -37px; 
+    top: -37px;
     position: absolute;
     right: 33px;
     &:hover {
@@ -1557,242 +1572,242 @@ menu input[type=checkbox] {
     display: none;
 }
 
-menu input[type=checkbox]:checked + .drawer-list {
+menu input[type=checkbox]:checked+.drawer-list {
     transform: translatex(0);
     border-bottom-left-radius: 0;
     box-shadow: -20px 0 40px rgba(0, 0, 0, 0.2);
     transition: width 475ms ease-out 0.3s, transform 450ms ease 0.3s, border-radius .8s .1s ease, box-shadow 0ms linear 0.5x
 }
 
-menu input[type=checkbox]:checked + .drawer-list li {
+menu input[type=checkbox]:checked+.drawer-list li {
     transform: translatex(0);
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(1) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(1) {
     transition: transform 0.5s 0.02s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(2) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(2) {
     transition: transform 0.5s 0.04s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(3) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(3) {
     transition: transform 0.5s 0.06s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(4) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(4) {
     transition: transform 0.5s 0.08s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(5) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(5) {
     transition: transform 0.5s 0.1s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(6) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(6) {
     transition: transform 0.5s 0.12s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(7) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(7) {
     transition: transform 0.5s 0.14s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(8) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(8) {
     transition: transform 0.5s 0.16s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(9) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(9) {
     transition: transform 0.5s 0.18s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(10) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(10) {
     transition: transform 0.5s 0.2s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(11) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(11) {
     transition: transform 0.5s 0.22s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(12) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(12) {
     transition: transform 0.5s 0.24s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(13) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(13) {
     transition: transform 0.5s 0.26s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(14) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(14) {
     transition: transform 0.5s 0.28s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(15) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(15) {
     transition: transform 0.5s 0.3s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(16) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(16) {
     transition: transform 0.5s 0.32s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(17) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(17) {
     transition: transform 0.5s 0.34s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(18) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(18) {
     transition: transform 0.5s 0.36s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(19) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(19) {
     transition: transform 0.5s 0.38s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(20) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(20) {
     transition: transform 0.5s 0.4s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(21) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(21) {
     transition: transform 0.5s 0.42s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(22) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(22) {
     transition: transform 0.5s 0.44s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(23) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(23) {
     transition: transform 0.5s 0.46s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(24) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(24) {
     transition: transform 0.5s 0.48s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(25) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(25) {
     transition: transform 0.5s 0.5s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(26) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(26) {
     transition: transform 0.5s 0.52s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(27) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(27) {
     transition: transform 0.5s 0.54s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(28) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(28) {
     transition: transform 0.5s 0.56s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(29) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(29) {
     transition: transform 0.5s 0.58s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(30) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(30) {
     transition: transform 0.5s 0.6s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(31) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(31) {
     transition: transform 0.5s 0.62s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(32) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(32) {
     transition: transform 0.5s 0.64s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(33) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(33) {
     transition: transform 0.5s 0.66s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(34) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(34) {
     transition: transform 0.5s 0.68s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(35) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(35) {
     transition: transform 0.5s 0.7s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(36) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(36) {
     transition: transform 0.5s 0.72s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(37) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(37) {
     transition: transform 0.5s 0.74s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(38) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(38) {
     transition: transform 0.5s 0.76s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(39) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(39) {
     transition: transform 0.5s 0.78s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(40) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(40) {
     transition: transform 0.5s 0.8s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(41) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(41) {
     transition: transform 0.5s 0.82s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(42) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(42) {
     transition: transform 0.5s 0.84s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(43) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(43) {
     transition: transform 0.5s 0.86s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(44) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(44) {
     transition: transform 0.5s 0.88s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(45) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(45) {
     transition: transform 0.5s 0.9s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(46) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(46) {
     transition: transform 0.5s 0.92s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(47) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(47) {
     transition: transform 0.5s 0.94s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(48) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(48) {
     transition: transform 0.5s 0.96s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(49) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(49) {
     transition: transform 0.5s 0.98s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li:nth-child(50) {
+menu input[type=checkbox]:checked+.drawer-list li:nth-child(50) {
     transition: transform 0.5s 1s ease;
 }
 
-menu input[type=checkbox]:checked + .drawer-list li a {
+menu input[type=checkbox]:checked+.drawer-list li a {
     //padding-right: 15px;
 }
 
-menu input[type=checkbox]:checked ~ hamburger > i {
+menu input[type=checkbox]:checked~hamburger>i {
     background-color: transparent;
     transform: rotate(90deg);
 }
 
-menu input[type=checkbox]:checked ~ hamburger > i:before {
+menu input[type=checkbox]:checked~hamburger>i:before {
     transform: translate(-50%, -50%) rotate(315deg);
     background-color: #b8a56e;
 }
 
-menu input[type=checkbox]:checked ~ hamburger > i:after {
+menu input[type=checkbox]:checked~hamburger>i:after {
     transform: translate(-50%, -50%) rotate(-315deg);
     background-color: #b8a56e;
 }
 
-menu input[type=checkbox]:checked ~ hamburger close {
+menu input[type=checkbox]:checked~hamburger close {
     color: #FEFEFE;
     width: 100%;
 }
 
-menu input[type=checkbox]:checked ~ hamburger open {
+menu input[type=checkbox]:checked~hamburger open {
     color: transparent;
     width: 0;
 }
@@ -1905,7 +1920,7 @@ menu hamburger text open {
     width: 100%;
 }
 
-menu hamburger > i {
+menu hamburger>i {
     position: absolute;
     width: 100%;
     height: 2px;
@@ -1916,8 +1931,8 @@ menu hamburger > i {
     transition-delay: .35s;
 }
 
-menu hamburger > i:before,
-menu hamburger > i:after {
+menu hamburger>i:before,
+menu hamburger>i:after {
     position: absolute;
     display: block;
     width: 100%;
@@ -1929,11 +1944,11 @@ menu hamburger > i:after {
     transform-origin: 50% 50%;
 }
 
-menu hamburger > i:before {
+menu hamburger>i:before {
     transform: translate(-50%, -7px);
 }
 
-menu hamburger > i:after {
+menu hamburger>i:after {
     transform: translate(-50%, 7px);
 }
 
@@ -1944,5 +1959,25 @@ menu hamburger > i:after {
 .nav-item.active-lang {
     color: #af995a
 }
-.info-row {width: 100%; position: relative;}
+
+.info-row {
+    width: 100%;
+    position: relative;
+}
+
+#graphics_slider,
+#web_slider {
+    overflow: auto;
+    width: 100%;
+    height: 500px;
+}
+
+
+#webDesignTab {
+    display: none
+} 
+.noselect {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
 ////////////////////////

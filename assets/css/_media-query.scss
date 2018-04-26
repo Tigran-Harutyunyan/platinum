@@ -1,4 +1,10 @@
 @media only screen and (max-width: 1480px) {
+    .products-inner, .footer-inner {
+        width: 100%
+    }
+    .footer-inner  {
+        padding: 0 30px
+    }
     #animation_container,
     #canvas,
     #dom_overlay_container {
@@ -44,7 +50,11 @@
         margin-left: 0
     }
 }
-
+@media only screen and (max-width: 1460px) {
+    .product-items > a:nth-child(4n) {
+        margin-right: 36px;
+    }
+}
 @media only screen and (max-width: 1250px) {
     .large-triangle9 {
         right: 169px;
@@ -71,7 +81,7 @@
         z-index: 0 !important;
     }
     .content-area1{
-         margin-top: -23px !important;
+         margin-top: 0 !important;
     }
     .small-triangle1,
     .small-triangle2,
@@ -116,14 +126,24 @@
             }
         }
     }
+
+}
+@media only screen and (max-width: 1250px) { 
     .sidemenu {
         display: none
     }
     .menu-toggler-container {
         display: block
     }
+ }
+@media only screen and (max-width: 1080px) { 
+    .tabs {
+        width:100%;
+    }
+    .tab-item {
+        width: 33.333333333333336%
+    }
 }
-
 @media only screen and (max-width: 1010px) { 
     
     .large-triangle7 {
@@ -654,6 +674,7 @@
     .logo-place {
         width: 51px
     }
+    .services-box .box-title {font-size:10px}
 }
 
 @media only screen and (max-width: 320px) {
@@ -724,5 +745,8 @@
                 }
             }
         }
+    }
+    .info-platinumink-am { 
+        margin-top: 75px;
     }
 }

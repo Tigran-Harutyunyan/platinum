@@ -12,8 +12,8 @@
 //@prepros-append owl.carousel.min.js   
 //@prepros-append jquery.inview.js
 //@prepros-append countUp.min.js  
- 
+//@prepros-append jquery.mThumbnailScroller.min.js 
 //@prepros-append jquery.dotdotdot.min.js
 //@prepros-append cursometer.js 
 //@prepros-append underscore-min.js
-//@prepros-append hammer.min.js 
+//@prepros-append hammer.min.js
