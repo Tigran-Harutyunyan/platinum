@@ -63,7 +63,7 @@ export default new Vuex.Store({
             receive_promotions,
             recaptcha
         }) {
-            return new Promise((resolve, reject) => { 
+            return new Promise((resolve, reject) => {
                 axios({
                     url: `${this.state.apiPath}/login`,
                     method: 'post',
@@ -79,7 +79,7 @@ export default new Vuex.Store({
                 }).catch(function(error) {
                     reject(error);
                 })
-            }); 
+            });
         },
         requestSignup({
             commit
@@ -92,7 +92,7 @@ export default new Vuex.Store({
             receive_promotions,
             recaptcha
         }) {
-            return new Promise((resolve, reject) => { 
+            return new Promise((resolve, reject) => {
                 axios({
                     url: `${this.state.apiPath}/register`,
                     method: 'post',
@@ -113,7 +113,23 @@ export default new Vuex.Store({
                 }).catch(function(error) {
                     reject(error);
                 })
-            }); 
+            });
+        },
+        getProductById({
+            commit
+        }, {
+            id
+        }) {
+            return new Promise((resolve, reject) => {
+                axios({
+                    url: `${this.state.apiPath}/getProductById?id=${id}`,
+                    method: 'get',
+                }).then(response => {
+                    resolve(response.data);
+                }).catch(function(error) {
+                    reject(error);
+                })
+            });
         }
     }
 })

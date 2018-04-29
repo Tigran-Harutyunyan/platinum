@@ -7,7 +7,7 @@
                     <br> Ավարտվելուց հետո դուք կստանաք հաստատման նամակ:
                 </p>
             </div>
-            <form v-on:submit.prevent="onSubmitSignup" @submit="$v.first_name.$touch();$v.last_name.$touch();   $v.email.$touch();$v.password.$touch();$v.passwordConfirm.$touch();">
+            <form v-on:submit.prevent="onSubmitSignup" @submit="$v.first_name.$touch();$v.last_name.$touch();$v.email.$touch();$v.password.$touch();$v.passwordConfirm.$touch();">
                     <div class="sign-up-bottom">
                     <div class="left">
                         <table class="table-2">
@@ -38,13 +38,13 @@
                             <tr>
                                 <td>գաղտնաբառ</td>
                                 <td>
-                                    <el-input v-model="password" :class="{'has-error': $v.password.$error}"></el-input>
+                                    <el-input placeholder="մինիմում 6 սիմվոլ" type="password" v-model="password" :class="{'has-error': $v.password.$error}"></el-input>
                                 </td>
                             </tr>
                             <tr>
-                                <td>հաստատել գաղտնաբառը(6)</td>
+                                <td>հաստատել գաղտնաբառը</td>
                                 <td>
-                                    <el-input v-model="passwordConfirm" :class="{'has-error': $v.passwordConfirm.$error}"></el-input>
+                                    <el-input type="password" v-model="passwordConfirm" :class="{'has-error': $v.passwordConfirm.$error}"></el-input>
                                 </td>
                             </tr>
                         </table>
@@ -70,7 +70,7 @@
                         </table>
                         <p class="agreement-text">Անձնական էջ ստեղծելով դուք համաձայնվում եք <i>Platinum ink design-ի</i> Ընդհանուր դրույթներին եւ պայմաններին ինչպես նաեվ համաձայնվում եք ստանալ էլեկտրոնային հաղորդագրություն նոր առաջարկների եվ ակցիաների վերաբերյալ
                         </p> 
-                        <input type="submit"  class="btn-submit btn-invert" value="ստեղծել էջ">
+                        <input type="submit" :disabled="!isFormValid" class="btn-submit btn-invert" value="ստեղծել էջ">
 
                         <!-- 6LcGJ1YUAAAAADpdWmMs-BHTYtGI5iqcxvI5A7wc -->
                     </div>

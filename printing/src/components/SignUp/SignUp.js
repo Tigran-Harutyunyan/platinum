@@ -14,23 +14,31 @@ export default {
             receive_promotions: false,
             recaptcha: '',
             passwordConfirm: '',
+            isLoading: false
+        }
+    },
+    computed: {
+        isFormValid(){
+            return !this.$v.$invalid  && this.agree && this.recaptchaResponse.length;
         }
     },
     methods: {
-        onSubmitSignup() {
-            if (this.agree) {
+        onSubmitSignup() { 
+            if (!this.isLoading) {
+                this.isLoading = true;
                 this.$store.dispatch('requestSignup', {
                     email: this.email,
                     password: this.password,
+                    first_name: this.first_name,
                     last_name: this.last_name,
                     company_name: this.company_name,
                     receive_promotions: this.receive_promotions,
                     recaptcha: this.recaptchaResponse
                 }).then((response) => {
-                    console.log(response)
-
+                    this.isLoading = false
+                    console.log(response); 
                 }).catch((error) => {
-
+                    this.isLoading = false
                 });
             }
         },
@@ -38,7 +46,7 @@ export default {
             this.recaptchaResponse = response
         },
         onExpired() {
-            console.log('Expired')
+            this.$refs.recaptcha.reset();
         },
         resetRecaptcha() {
             this.$refs.recaptcha.reset(); // Direct call reset method
