@@ -7,75 +7,75 @@
                     <br> Ավարտվելուց հետո դուք կստանաք հաստատման նամակ:
                 </p>
             </div>
-            <div class="sign-up-bottom">
-                <div class="left">
-                    <table class="table-2">
-                        <tr>
-                            <td>անուն</td>
-                            <td>
-                                <el-input v-model="formData.firstName"></el-input>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>ազգանուն</td>
-                            <td>
-                                <el-input v-model="formData.lastName"></el-input>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>ընկերություն</td>
-                            <td>
-                                <el-input v-model="formData.company"></el-input>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>էլ-փոստ</td>
-                            <td>
-                                <el-input v-model="formData.email"></el-input>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>գաղտնաբառ</td>
-                            <td>
-                                <el-input v-model="formData.password"></el-input>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>հաստատել գաղտնաբառը</td>
-                            <td>
-                                <el-input v-model="formData.passwordConfirm"></el-input>
-                            </td>
-                        </tr>
-                    </table>
+            <form v-on:submit.prevent="onSubmitSignup" @submit="$v.first_name.$touch();$v.last_name.$touch();   $v.email.$touch();$v.password.$touch();$v.passwordConfirm.$touch();">
+                    <div class="sign-up-bottom">
+                    <div class="left">
+                        <table class="table-2">
+                            <tr>
+                                <td>անուն</td>
+                                <td>
+                                    <el-input v-model="first_name" :class="{'has-error': $v.first_name.$error}"></el-input>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>ազգանուն</td>
+                                <td>
+                                    <el-input v-model="last_name" :class="{'has-error': $v.last_name.$error}"></el-input>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>ընկերություն</td>
+                                <td>
+                                    <el-input v-model="company_name"></el-input>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>էլ-փոստ</td>
+                                <td>
+                                    <el-input v-model="email" :class="{'has-error': $v.email.$error}"></el-input>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>գաղտնաբառ</td>
+                                <td>
+                                    <el-input v-model="password" :class="{'has-error': $v.password.$error}"></el-input>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>հաստատել գաղտնաբառը(6)</td>
+                                <td>
+                                    <el-input v-model="passwordConfirm" :class="{'has-error': $v.passwordConfirm.$error}"></el-input>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="right">
+                        <table class="table-2">
+                            <tr>
+                                <td>Հայտեր ստանալ</td>
+                                <td class="checked-input">
+                                    <el-checkbox v-model="receive_promotions">Այո, ես ուզում եմ զեղչեր եւ ամենավերջին ապրանքի մասին էլեկտրոնային փոստով:</el-checkbox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Պայմաններ եւ դրույթներ</td>
+                                <td class="checked-input">
+                                    <el-checkbox v-model="agree">Այո, համաձայն եմ պայմաններին:</el-checkbox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <vue-recaptcha class="recaptcha-element" sitekey="6LcGJ1YUAAAAAJ2-9OwJPxB8KY1Jtc0OpXwFjglL" ref="recaptcha" @verify="onVerify" @expired="onExpired">
+                                </vue-recaptcha>
+                            </tr>
+                        </table>
+                        <p class="agreement-text">Անձնական էջ ստեղծելով դուք համաձայնվում եք <i>Platinum ink design-ի</i> Ընդհանուր դրույթներին եւ պայմաններին ինչպես նաեվ համաձայնվում եք ստանալ էլեկտրոնային հաղորդագրություն նոր առաջարկների եվ ակցիաների վերաբերյալ
+                        </p> 
+                        <input type="submit"  class="btn-submit btn-invert" value="ստեղծել էջ">
+
+                        <!-- 6LcGJ1YUAAAAADpdWmMs-BHTYtGI5iqcxvI5A7wc -->
+                    </div>
                 </div>
-                <div class="right">
-                    <table class="table-2">
-                        <tr>
-                            <td>Հայտեր ստանալ</td>
-                            <td class="checked-input">
-                                <el-checkbox v-model="formData.subscribe">Այո, ես ուզում եմ զեղչեր եւ ամենավերջին ապրանքի մասին էլեկտրոնային փոստով:</el-checkbox> 
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Պայմաններ եւ դրույթներ</td>
-                            <td class="checked-input">
-                                <el-checkbox v-model="formData.agree">Այո, համաձայն եմ պայմաններին:</el-checkbox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Խնդրում ենք գրել թվերը</td>
-                            <td style="position:relative">
-                                <el-input v-model="formData.captcha"></el-input>
-                                <span class="captcha-data">54hyk856</span>
-                            </td>
-                        </tr>
-                    </table>
-                    <p class="agreement-text">Անձնական էջ ստեղծելով դուք համաձայնվում եք  <i>Platinum ink design-ի</i>  Ընդհանուր դրույթներին եւ պայմաններին 
-                        ինչպես նաեվ համաձայնվում եք ստանալ էլեկտրոնային հաղորդագրություն նոր առաջարկների եվ ակցիաների վերաբերյալ
-                    </p>
-                    <a href="" class="btn-submit btn-invert">ստեղծել էջ</a>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>

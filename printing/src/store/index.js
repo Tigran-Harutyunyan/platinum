@@ -40,17 +40,80 @@ export default new Vuex.Store({
         },
         getProducts({
             commit
-        }, data) { 
-            axios.get(`${this.state.apiPath}/getProductsList?lang=am`).then((response) => { 
-                commit('updateProducts', response.data) 
+        }, data) {
+            axios.get(`${this.state.apiPath}/getProductsList?lang=am`).then((response) => {
+                commit('updateProducts', response.data)
             })
         },
         getCategories({
             commit
         }, data) {
-            axios.get(`${this.state.apiPath}/getCategories?lang=am`).then((response) => { 
-                commit('updateCategories', response.data) 
+            axios.get(`${this.state.apiPath}/getCategories?lang=am`).then((response) => {
+                commit('updateCategories', response.data)
             })
         },
+        requestLogin({
+            commit
+        }, {
+            first_name,
+            last_name,
+            company_name,
+            email,
+            password,
+            receive_promotions,
+            recaptcha
+        }) {
+            return new Promise((resolve, reject) => { 
+                axios({
+                    url: `${this.state.apiPath}/login`,
+                    method: 'post',
+                    params: {
+                        email,
+                        password
+                    },
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+                    }
+                }).then(response => {
+                    resolve(response.data);
+                }).catch(function(error) {
+                    reject(error);
+                })
+            }); 
+        },
+        requestSignup({
+            commit
+        }, {
+            first_name,
+            last_name,
+            company_name,
+            email,
+            password,
+            receive_promotions,
+            recaptcha
+        }) {
+            return new Promise((resolve, reject) => { 
+                axios({
+                    url: `${this.state.apiPath}/register`,
+                    method: 'post',
+                    params: {
+                        first_name,
+                        last_name,
+                        company_name,
+                        email,
+                        password,
+                        receive_promotions,
+                        recaptcha
+                    },
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+                    }
+                }).then(response => {
+                    resolve(response.data);
+                }).catch(function(error) {
+                    reject(error);
+                })
+            }); 
+        }
     }
 })

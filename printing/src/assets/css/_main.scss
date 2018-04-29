@@ -2075,3 +2075,6 @@ menu hamburger>i:after {
     border-right: 1px solid #af995a;
     line-height: 44px;
 }
+.el-input.has-error .el-input__inner {
+    border-color: red;
+}

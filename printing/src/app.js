@@ -24,7 +24,9 @@ import {
     Table,
     TableColumn,
     Tabs,
-    TabPane
+    TabPane,
+    Form,
+    FormItem
 } from "element-ui";
 Vue.use(Carousel);
 Vue.use(CarouselItem);
@@ -38,6 +40,8 @@ Vue.use(Table);
 Vue.use(TableColumn);
 Vue.use(Tabs);
 Vue.use(TabPane);
+Vue.use(Form);
+Vue.use(FormItem);
 Vue.prototype.$confirm = MessageBox.confirm;
 Vue.prototype.$notify = Notification;
 import lang from 'element-ui/lib/locale/lang/en'

@@ -3,8 +3,7 @@ export default {
         return {
             productList: {}  
         }
-    },
-   
+    }, 
     watch: {
         products: function(newVal, oldVal) {
             let products = newVal;

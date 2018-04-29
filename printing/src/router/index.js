@@ -4,6 +4,7 @@ import Products from '../components/Products/Products.vue'
 import ProductDetails from '../components/ProductDetails/ProductDetails.vue'
 import Cart from '../components/Cart/Cart.vue'
 import SignUp from '../components/SignUp/SignUp.vue'
+import Login from '../components/Login/Login.vue'
 import Orders from '../components/Orders/Orders.vue'
 Vue.use(Router)
 
@@ -30,9 +31,14 @@ export default new Router({
       component: Cart
     },
     {
-      path: '/signUp',
+      path: '/SignUp',
       name: 'SignUp',
       component: SignUp
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
     },
     {
       path: '/orders',

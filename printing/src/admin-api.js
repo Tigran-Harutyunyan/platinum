@@ -7,6 +7,6 @@ exports.install = function (Vue) {
         getCategories() {
             let endpoint = `http://api.platinuminkdesign.com/api/getCategories?lang=am`; 
             return Vue.http.get(endpoint);
-        }  
+        } 
     };  
 };
