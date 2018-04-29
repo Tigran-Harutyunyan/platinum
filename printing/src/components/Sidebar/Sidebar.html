@@ -1,48 +1,56 @@
 <div class="products-sidebar">
     <h2 class="sidebar-title">ապրանքներ</h2>
     <div class="subsection-container">
-        <div class="sidebar-subsection">
-            <h3>Թվային եվ օֆսեթ տպագրություն</h3>
+        <div class="sidebar-subsection" v-for="group in productList">
+            <a :href="group[0].categoryHref"><h3> {{  group[0].categoryName }} </h3></a>
             <ul>
-                <li><a href="">Այցեքարտեր</a></li>
-                <li><a href="">Թռուցիկներ</a></li>
-                <li><a href="">Նոթատետրեր</a></li>
-                <li><a href="">Օրացույցներ</a></li>
-                <li><a href="">Թղթե տոպրակներ</a></li>
-                <li><a href="">Հրավիրատոմսեր</a></li>
-                <li><a href="">Պլաստիկ քարտեր</a></li>
-                <li><a href="">Կատալոգներ</a></li>
-                <li><a href="">Ծրարներ</a></li>
-                <li><a href="">Թղթապանակներ</a></li>
-                <li><a href="">պիտակներ</a></li>
-                <li><a href="">թղթից տուփեր</a></li>
-                <li><a href="">գրքեր</a></li>
-                <li><a href="">մենյուներ</a></li>
-            </ul>
-        </div>
-        <div class="sidebar-subsection">
-            <h3>Լայնաֆորմատ տպագրություն</h3>
-            <ul>
-                <li><a href="">Բաներներ</a></li>
-                <li><a href="">Ինքնակպչուն</a></li>
-                <li><a href="">Ցանց ինքնակպչուն</a></li>
-                <li><a href="">ՊՎՔ</a></li>
-                <li><a href="">Կտավ</a></li>
-                <li><a href="">Ֆիլմ</a></li>
-                <li><a href="">Թուղթ</a></li>
-                <li><a href="">Դրոշ</a></li>
-                <li><a href="">այլ</a></li>
-            </ul>
-        </div>
-        <div class="sidebar-subsection">
-            <h3>այլ տպագրություն</h3>
-            <ul>
-                <li><a href="">CD/DVD</a></li>
-                <li><a href="">Շապիկ</a></li>
-                <li><a href="">Բաժակ</a></li>
-                <li><a href="">Գրիչ</a></li>
-                <li><a href="">Կրակայրիչ</a></li>
+                <li v-for="item in group"><a :href="item.href" >{{ item.name }}</a></li>
             </ul>
         </div>
     </div>
 </div>
+<!--   
+    <div class="sidebar-subsection">
+        <h3>Թվային եվ օֆսեթ տպագրություն</h3>
+        <ul>
+            <li><a href="">Այցեքարտեր</a></li>
+            <li><a href="">Թռուցիկներ</a></li>
+            <li><a href="">Նոթատետրեր</a></li>
+            <li><a href="">Օրացույցներ</a></li>
+            <li><a href="">Թղթե տոպրակներ</a></li>
+            <li><a href="">Հրավիրատոմսեր</a></li>
+            <li><a href="">Պլաստիկ քարտեր</a></li>
+            <li><a href="">Կատալոգներ</a></li>
+            <li><a href="">Ծրարներ</a></li>
+            <li><a href="">Թղթապանակներ</a></li>
+            <li><a href="">պիտակներ</a></li>
+            <li><a href="">թղթից տուփեր</a></li>
+            <li><a href="">գրքեր</a></li>
+            <li><a href="">մենյուներ</a></li>
+        </ul>
+    </div>
+    <div class="sidebar-subsection">
+        <h3>Լայնաֆորմատ տպագրություն</h3>
+        <ul>
+            <li><a href="">Բաներներ</a></li>
+            <li><a href="">Ինքնակպչուն</a></li>
+            <li><a href="">Ցանց ինքնակպչուն</a></li>
+            <li><a href="">ՊՎՔ</a></li>
+            <li><a href="">Կտավ</a></li>
+            <li><a href="">Ֆիլմ</a></li>
+            <li><a href="">Թուղթ</a></li>
+            <li><a href="">Դրոշ</a></li>
+            <li><a href="">այլ</a></li>
+        </ul>
+    </div>
+    <div class="sidebar-subsection">
+        <h3>այլ տպագրություն</h3>
+        <ul>
+            <li><a href="">CD/DVD</a></li>
+            <li><a href="">Շապիկ</a></li>
+            <li><a href="">Բաժակ</a></li>
+            <li><a href="">Գրիչ</a></li>
+            <li><a href="">Կրակայրիչ</a></li>
+        </ul>
+    </div>
+-->

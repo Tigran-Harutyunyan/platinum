@@ -9,9 +9,14 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-    {
+ /*    {
       path: '/',
       name: 'Products',
+      component: Products
+    }, */
+    {
+      path: '/category/:id',
+      name: 'Categories',
       component: Products
     },
     {
