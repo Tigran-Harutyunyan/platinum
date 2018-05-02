@@ -2078,8 +2078,9 @@ menu hamburger>i:after {
 .el-input.has-error .el-input__inner {
     border-color: red;
 }
-.btn-submit[disabled]{
+.btn-submit[disabled], .btn-submit.disabled{
     background: #fbfbfb !important;
     color: #b1b0ad !important;
     border-color: #fbfbfb  !important;
+    cursor: initial;
 }

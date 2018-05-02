@@ -42,14 +42,23 @@
       </el-upload>
     </div>
     <div class="right-block">
-      <div class="parameters-item" v-if="sizes.length">
-        <h3 class="param-label">չափը</h3>
-        <el-select v-model="value" placeholder="Select">
-          <el-option v-for="item in sizes" :key="item.price" :label="item.name" :value="item.price">
+      <div class="parameters-item" v-for="(value, key) in product.properties">
+        <h3 class="param-label">{{ key }}</h3> 
+        <el-select v-model="value.selected" placeholder="Select"> 
+          <el-option v-for="(item, key) in value.options" :key="key" :label="item.name" :value="item.price">
           </el-option>
         </el-select>
-      </div>
-      <div class="parameters-item" v-if="paperType.length">
+      </div> 
+      <div class="summary-block" v-show="isThereProperties">
+        <h3 class="param-label">Տպագրման արժեք:</h3> 
+        <p>{{ totalPrice }} </p> 
+      </div>  
+      <a class="btn-submit btn-invert" v-show="isThereProperties && isDirty" @click="reset"  style="margin-left:20px">cancel</a>
+      <a class="btn-submit btn-invert" v-show="isThereProperties" :class="{disabled: !isDirty}">շարունակել</a>
+    </div>
+  </div>
+</div>
+ <!--   <div class="parameters-item">
         <h3 class="param-label">թղթի տեսակը</h3>
         <el-select v-model="value" placeholder="Select">
           <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
@@ -83,12 +92,4 @@
           <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
           </el-option>
         </el-select>
-      </div>
-      <div class="summary-block">
-        <h3 class="param-label">Տպագրման արժեք:</h3> 
-        <p></p>
-      </div>
-      <a class="btn-submit btn-invert">շարունակել</a>
-    </div>
-  </div>
-</div>
+      </div> -->

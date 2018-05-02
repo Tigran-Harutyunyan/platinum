@@ -2,9 +2,11 @@
     <h2 class="sidebar-title">ապրանքներ</h2>
     <div class="subsection-container">
         <div class="sidebar-subsection" v-for="group in productList">
-            <a :href="group[0].categoryHref"><h3> {{  group[0].categoryName }} </h3></a>
+            <a @click="selectCategory(group[0])"><h3> {{  group[0].categoryName }} </h3></a>
             <ul>
-                <li v-for="item in group"><a :href="item.href" >{{ item.name }}</a></li>
+                <li v-for="item in group">
+                    <a :href="item.href" v-bind:class="{'active-product-list' : item.isActive}" @click="selectProduct(item)">{{ item.name }}</a>
+                </li>
             </ul>
         </div>
     </div>

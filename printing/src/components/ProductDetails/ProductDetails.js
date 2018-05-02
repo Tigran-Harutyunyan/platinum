@@ -2,22 +2,32 @@ export default {
     data() {
         return {
             fileList: [],
-            sizes: [],
             value: '',
             styleObject: null,
             product: {},
+            copyOfProduct: {},
             productInfo: {},
-            paperType: [],
-            options: [{
-              value: 'Option1',
-              label: 'Option1'
-            }, {
-              value: 'Option2',
-              label: 'Option2'
-            }, {
-              value: 'Option3',
-              label: 'Option3'
-            }] 
+            isDirty: false,
+            isThereProperties: false
+        }
+    },
+    computed: {
+        totalPrice() {
+            let properties = this.product.properties;
+            let sum = 0;
+            for (const key in properties) {
+                if (properties.hasOwnProperty(key)) {
+                    if (properties[key].selected) {
+                        sum += (+properties[key].selected);
+                    }
+                }
+            }
+            if (sum == 0) {
+                return "";
+            } else {
+                this.isDirty = true;
+                return sum;
+            }
         }
     },
     watch: {
@@ -53,17 +63,29 @@ export default {
             this.$store.dispatch('getProductById', {
                 id: this.$route.params.id
             }).then((response) => {
-                this.product = response;
-                this.productInfo = response[0]; 
-                if (this.product.properties.Size.length){
-                  this.sizes = this.product.properties.Size;
-                } 
-                
-                if (this.product.properties.Size.length){
-                  this.paperType = this.product.properties.Size;
-                } 
-            }).catch((error) => { 
-            });
+                if (response[0]) {
+                    let object = response.properties;
+                    let countProperties = 0;
+                    for (const key in object) {
+                        if (object.hasOwnProperty(key)) {
+                            const element = object[key];
+                            object[key] = {};
+                            object[key].selected = "";
+                            object[key].options = element;
+                            countProperties++
+                        }
+                    }
+                    this.product = response;
+                    this.productInfo = response[0];
+                    this.isThereProperties = countProperties > 0;
+                    this.copyOfProduct = JSON.parse(JSON.stringify(this.product));
+                    this.isDirty = false;
+                }
+            }).catch((error) => {});
+        },
+        reset() {
+            this.product = JSON.parse(JSON.stringify(this.copyOfProduct));
+            this.isDirty = false;
         }
     },
     created() {
