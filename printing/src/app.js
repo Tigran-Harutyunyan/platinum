@@ -3,12 +3,6 @@ import VueResource from 'vue-resource';
 Vue.use(VueResource);
 import "element-ui/lib/theme-chalk/index.css";
 
-import Header from "./components/Header/Header.vue";
-import Footer from "./components/Footer/Footer.vue";
-import Slider from "./components/Slider/Slider.vue";
-import Sidebar from "./components/Sidebar/Sidebar.vue";
-import HelperLinks from "./components/HelperLinks/HelperLinks.vue";
-import HelpTabs from "./components/HelpTabs/HelpTabs.vue";
 import styles from "./assets/css/styles.scss";
 import {
     Carousel,
@@ -53,33 +47,17 @@ const AdminApi = require('./admin-api');
 Vue.use(AdminApi);
 
 export default {
-    name: "App",
-    components: {
-        "pl-header": Header,
-        slider: Slider,
-        "pl-footer": Footer,
-        sidebar: Sidebar,
-        "helper-links": HelperLinks,
-        "help-tabs": HelpTabs
-    },
+    name: "App", 
     data() {
-        return {
-            showSidebar: false
-        };
+        return {};
     },
-    watch: {
-        $route(to, from) {
-            this.checkRoute(to.name);
-        }
-    },
+   /*  watch: {
+        $route(to, from) {}
+    }, */
     methods: {
-        checkRoute(route) {
-            this.showSidebar =
-                route == "Categories" || route == "ProductDetail" ? true : false;
-        }
+        
     },
-    created() {
-        this.checkRoute(this.$route.name);
+    created() { 
         this.$store.dispatch('getCategories');
     }
 };

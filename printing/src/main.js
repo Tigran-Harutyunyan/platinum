@@ -9,10 +9,20 @@ import { EventBus } from './event-bus.js';
 import Vuelidate from 'vuelidate';
 Vue.config.productionTip = false
 Vue.use(Vuelidate); 
+import VueI18n from 'vue-i18n'; 
+import messages from './locales';
+Vue.use(VueI18n);  
+
+// Create VueI18n instance with options
+const i18n = new VueI18n({
+  locale: 'en', // set locale
+  messages, // set locale messages
+})
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  i18n,
   store,
   components: { App },
   template: '<App/>'
