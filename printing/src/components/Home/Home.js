@@ -1,6 +1,10 @@
+import Header from "../Header/Header.vue";
 export default {
     data() {
         return {}
     },
-    methods: {}
+    methods: {},
+    components: {
+        "pl-header": Header
+    }
 }

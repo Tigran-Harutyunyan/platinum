@@ -13,8 +13,7 @@
                 <li><a class="btn-link" style="margin-right: -13px;" href="/#/login">Մուտք</a></li>
                 <li><a class="btn-link btn-bright" href="/#/signup">Գրանցվել</a></li>
                 <li class="lang-toggler">
-                    <a href="http://platinuminkdesign.com/hy.html" class="menu-item-lang active-lang">ՀԱՅ</a>
-                    <a href="http://platinuminkdesign.com/en.html" class="menu-item-lang">ENG</a>
+                    <a href="javascript:void(0)" v-for="item in locales" @click="toggleLang(item.locale)" :class="{'active-lang':item.activeLocale}" class="menu-item-lang">{{ item.localeName }}</a> 
                 </li>
             </ul>
             <content class="menu-toggler-container">

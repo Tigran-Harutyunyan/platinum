@@ -19,6 +19,14 @@ const i18n = new VueI18n({
   messages, // set locale messages
 })
 /* eslint-disable no-new */
+Object.defineProperty(Vue.prototype, '$locale', {
+  get: function () {
+    return App.i18n.locale
+  },
+  set: function (locale) {
+    App.i18n.locale = locale
+  }
+})
 new Vue({
   el: '#app',
   router,
