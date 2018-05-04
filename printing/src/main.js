@@ -3,19 +3,21 @@
 import Vue from 'vue'
 import App from './App.vue' //Use App.vue if the templates and scripts are separated.
 // ATTENTION. Forgetting .vue extension next to App will cause "Failed to mount component: template or render function not defined" error
-import router from './router' 
+import router from './router'
 import store from './store/index';
 import { EventBus } from './event-bus.js';
 import Vuelidate from 'vuelidate';
 Vue.config.productionTip = false
-Vue.use(Vuelidate); 
-import VueI18n from 'vue-i18n'; 
+Vue.use(Vuelidate);
+import VueI18n from 'vue-i18n';
 import messages from './locales';
-Vue.use(VueI18n);  
+Vue.use(VueI18n);
+
 
 // Create VueI18n instance with options
+
 const i18n = new VueI18n({
-  locale: 'en', // set locale
+  locale: localStorage.getItem("platinumLocale") ? localStorage.getItem("platinumLocale") : 'en', // set locale
   messages, // set locale messages
 })
 /* eslint-disable no-new */
