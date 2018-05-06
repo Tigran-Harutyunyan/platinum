@@ -2,7 +2,7 @@
     <h3 class="product-category-title">{{ categoryName }}</h3>
     <div class="product-items">
         <a class="product-item" :href="product.href" v-for="product in productList">
-            <img src="../../assets/img/products/1.png" alt="">
+            <img :src="product.image">
             <div class="product-descr">
                 <span class="product-name">{{ product.name }}</span>
                 <span class="size">{{ product.size }}</span>
@@ -10,113 +10,4 @@
             </div>
         </a> 
     </div> 
-</div> 
-
-<!-- <a class="product-item" href="/#/product/4">
-    <img src="../../assets/img/products/2.png" alt="">
-    <div class="product-descr">
-        <span class="product-name">թռուցիկներ</span>
-        <span class="size">99x210 մմ</span>
-        <span class="product-pricing">100 հատը սկսած <i>6000</i> դրամից</span>
-    </div>
-</a>
-<a class="product-item" href="/#/product/4">
-    <img src="../../assets/img/products/3.png" alt="">
-    <div class="product-descr">
-        <span class="product-name">Բուկլետներ</span>
-        <span class="size">210x300 մմ</span>
-        <span class="product-pricing">1000 հատը սկսած <i>45000</i> դրամից</span>
-    </div>
-</a>
-<a class="product-item" href="/#/product/4">
-    <img src="../../assets/img/products/4.png" alt="">
-    <div class="product-descr">
-        <span class="product-name">նոթատետրեր</span>
-        <span class="size">148x210մմ</span>
-        <span class="product-pricing">սկսած <i>1000</i> դրամից</span>
-    </div>
-</a>
-<a class="product-item" href="/#/product/4">
-    <img src="../../assets/img/products/5.png" alt="">
-    <div class="product-descr">
-        <span class="product-name">օրացույցներ</span>
-        <span class="size">210x99 մմ</span>
-        <span class="product-pricing">սկսած <i>350</i> դրամից</span>
-    </div>
-</a>
-<a class="product-item" href="/#/product/4">
-    <img src="../../assets/img/products/6.png" alt="">
-    <div class="product-descr">
-        <span class="product-name">Թղթե տոպրակներ</span>
-        <span class="size">105x148 մմ</span>
-        <span class="product-pricing">սկսած <i>600</i> դրամից</span>
-    </div>
-</a>
-<a class="product-item" href="/#/product/4">
-    <img src="../../assets/img/products/7.png" alt="">
-    <div class="product-descr">
-        <span class="product-name">Հրավիրատոմսեր</span>
-        <span class="size">148x210 մմ</span>
-        <span class="product-pricing">սկսած <i>150</i> դրամից</span>
-    </div>
-</a>
-<a class="product-item" href="/#/product/4">
-    <img src="../../assets/img/products/8.png" alt="">
-    <div class="product-descr">
-        <span class="product-name">պլաստիկ քարտեր</span>
-        <span class="size">86x54 մմ</span>
-        <span class="product-pricing">սկսած <i>90</i> դրամից</span>
-    </div>
-</a>
-<a class="product-item" href="/#/product/4">
-    <img src="../../assets/img/products/9.png" alt="">
-    <div class="product-descr">
-        <span class="product-name">կատալոգներ</span>
-        <span class="size">210x300 մմ</span>
-        <span class="product-pricing">սկսած <i>700</i> դրամից</span>
-    </div>
-</a>
-<a class="product-item" href="/#/product/4">
-    <img src="../../assets/img/products/10.png" alt="">
-    <div class="product-descr">
-        <span class="product-name">ծրարներ</span>
-        <span class="size">110x220մմ</span>
-        <span class="product-pricing">սկսած <i>90</i> դրամից</span>
-    </div>
-</a>
-<a class="product-item" href="/#/product/4">
-    <img src="../../assets/img/products/11.png" alt="">
-    <div class="product-descr">
-        <span class="product-name">թղթապանակներ</span>
-        <span class="size">220x320 մմ</span>
-        <span class="product-pricing">սկսած <i>600</i> դրամից</span>
-    </div>
-</a>
-<a class="product-item" href="/#/product/4">
-    <img src="../../assets/img/products/12.png" alt="">
-    <div class="product-descr">
-        <span class="product-name">Պիտակներ</span>
-        <span class="product-pricing">սկսած <i>10</i> դրամից</span>
-    </div>
-</a>
-<a class="product-item" href="/#/product/4">
-    <img src="../../assets/img/products/13.png" alt="">
-    <div class="product-descr">
-        <span class="product-name">թղթից տուփեր</span>
-        <span class="product-pricing">սկսած <i>150</i> դրամից</span>
-    </div>
-</a>
-<a class="product-item" href="/#/product/4">
-    <img src="../../assets/img/products/14.png" alt="">
-    <div class="product-descr">
-        <span class="product-name">գրքեր</span>
-        <span class="product-pricing">սկսած <i>150</i> դրամից</span>
-    </div>
-</a>
-<a class="product-item" href="/#/product/4">
-    <img src="../../assets/img/products/15.png" alt="">
-    <div class="product-descr">
-        <span class="product-name">Մենյուներ</span>
-        <span class="product-pricing">սկսած <i>1200</i> դրամից</span>
-    </div>
-</a> -->
+</div>

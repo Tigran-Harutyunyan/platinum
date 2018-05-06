@@ -15,9 +15,11 @@ Vue.use(VueI18n);
 
 
 // Create VueI18n instance with options
-
+ 
+let availableLocale = localStorage.getItem("platinumLocale") ? localStorage.getItem("platinumLocale") : 'en';
+store.dispatch('setLocale', availableLocale);
 const i18n = new VueI18n({
-  locale: localStorage.getItem("platinumLocale") ? localStorage.getItem("platinumLocale") : 'en', // set locale
+  locale: availableLocale, // set locale
   messages, // set locale messages
 })
 /* eslint-disable no-new */

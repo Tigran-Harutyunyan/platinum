@@ -32,6 +32,9 @@ export default {
         products() {
             return this.$store.getters.products;
         },
+        apiPath() {
+            return this.$store.getters.getApiPath;
+        },
         categories: {
             get: function() {
                 return this.$store.getters.categories;
@@ -50,6 +53,11 @@ export default {
                         element[0].categoryHref = "/#/category/" + element[0].category_id;
                         element.forEach(product => {
                             product.href = "/#/product/" + product.id;
+                            if (product.images.length){
+                                product.image = `${this.apiPath}${product.images[0].image}` 
+                            } else {
+                                product.image =  '../../assets/img/products/1.png'
+                            }
                         });
                         this.productList = element;
                     }

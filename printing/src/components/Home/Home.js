@@ -1,49 +1,82 @@
 import Header from "../Header/Header.vue";
-
+import services from "./Services/Services.vue";
+import about from "./About/About.vue";
+import Projects from "./Projects/Projects.vue";
+import ProjectsSlider from "./ProjectsSlider/ProjectsSlider.vue";
+import reasons from "./Reasons/Reasons.vue"; 
+import contact from "./Contact/Contact.vue"; 
+import BigSlider from "./BigSlider/BigSlider.vue";
 export default {
     data() {
-        return {
-            itemsCounter: {},
-            currentSlide: {},
-            navElemContainerElements: {},
-            bannersSlider: {},
+        return { 
             minScreenWidth: 1150,
-            canvas:{},
-            stage: {}, 
+            canvas: {},
+            stage: {},
             exportRoot: {},
-            anim_container: {}, 
-            dom_overlay_container: {}   
+            anim_container: {},
+            dom_overlay_container: {},
+            swiperOption: {
+                slidesPerView: 2,
+                spaceBetween: 30,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true
+                }
+            },
+            staff: [{
+                    name: 'Գնել Չիբուխչյան',
+                    position: 'Հիմնադիր տնօրեն',
+                    avatar: '../../../static/img/staff/img1.jpg',
+                    text: `
+                    Ես ներկայացնում եմ  որը աշխատում է տարբեր ոլորտի 
+                    ընկերությունների հետ: Համագործակցում ենք Platinumink-ի հետ արդեն մեկ տարուց ավել; Փորձը 
+                    ցույց է տվել, որ Platinumink-ը վստահելի գործընկեր է, ով տրամադրում է որակի և գնի իդեալկան 
+                    համադրություն, հաճախորդին անհրաժեշտ ժամկետներում; Կարելի է ասել, որ Platinumink-ը այն եզակի 
+                    գործընկերներից է, ում վրա կարելի է 100% հույս դնել և ստանալ իդեալական արդյունք:`
+                },
+                {
+                    name: 'Արմինե Կագարյան',
+                    position: 'Փոխտնօրեն',
+                    avatar: '../../../static/img/staff/img2.jpg',
+                    text: `Ես ներկայացնում եմ  որը աշխատում է տարբեր ոլորտի 
+                    ընկերությունների հետ: Համագործակցում ենք Platinumink-ի հետ արդեն մեկ տարուց ավել; Փորձը 
+                    ցույց է տվել, որ Platinumink-ը վստահելի գործընկեր է, ով տրամադրում է որակի և գնի իդեալկան 
+                    համադրություն, հաճախորդին անհրաժեշտ ժամկետներում; Կարելի է ասել, որ Platinumink-ը այն եզակի 
+                    գործընկերներից է, ում վրա կարելի է 100% հույս դնել և ստանալ իդեալական արդյունք:`
+                },
+                {
+                    name: 'Գնել Չիբուխչյան',
+                    position: 'Հիմնադիր տնօրեն',
+                    avatar: '../../../static/img/staff/img1.jpg',
+                    text: `
+                    Ես ներկայացնում եմ  որը աշխատում է տարբեր ոլորտի 
+                    ընկերությունների հետ: Համագործակցում ենք Platinumink-ի հետ արդեն մեկ տարուց ավել; Փորձը 
+                    ցույց է տվել, որ Platinumink-ը վստահելի գործընկեր է, ով տրամադրում է որակի և գնի իդեալկան 
+                    համադրություն, հաճախորդին անհրաժեշտ ժամկետներում; Կարելի է ասել, որ Platinumink-ը այն եզակի 
+                    գործընկերներից է, ում վրա կարելի է 100% հույս դնել և ստանալ իդեալական արդյունք:`
+                }
+            ]
+        }
+    }, 
+    computed: {
+        locale() {
+            return this.$store.getters.locale
         }
     },
-    methods: {
-        createElements(currentIndex, slideCount) {
-            if (slideCount) {
-                for (var i = 0; i < slideCount - 1; i++) {
-                    this.navElemContainer.append("<span class='' data-nav=" + (i + 1) + "></span>");
-                }
-                this.navElemContainerElements = $(".nav-element-container span");
-            } else {
-                this.navElemContainerElements.each(function (index) {
-                    if (currentIndex != $(this).data('nav')) {
-                        $(this).removeClass('active-nav');
-                    } else {
-                        $(this).addClass('active-nav');
-                    }
-                });
-            }
-            this.navElemContainerElements.on('click', () => {
-                this.bannersSlider.trigger('to.owl.carousel', $(this).data('nav'));
-            });
+    methods: {  
+        setZindex() {
+            //*************   SET BANNER Z-INDEX **********************************
 
+            var bannerController = new ScrollMagic.Controller();
+            var scene = new ScrollMagic.Scene({
+                    triggerElement: "#main-section",
+                    triggerHook: '0'
+                })
+                .addTo(bannerController);
+            scene.setClassToggle("#mainSlider", "changed-zindex");
+            //trackMouse(sliders); 
         },
-        calculateSlideInfo(event) {
-            this.itemsCounter.text(event.item.count < 10 ? '/0' + (event.item.count) : '/' + event.item.count);
-            this.currentSlide.text(event.item.index + 1 < 10 ? '0' + (event.item.index + 1) : event.item.index + 1);
-        },
-        initBannerParallaxScroller() {
-
-            //*************  BANNER PARALLAX SCROLLING ********************************
-
+        initBannerParallaxScroller() {  
             if ($(window).width() > this.minScreenWidth) {
                 var controllerBanner = new ScrollMagic.Controller({
                     globalSceneOptions: {
@@ -52,8 +85,8 @@ export default {
                     }
                 });
                 var sceneBanner = new ScrollMagic.Scene({
-                    triggerElement: "#main-section",
-                })
+                        triggerElement: "#main-section",
+                    })
                     .setTween("#mainSlider", {
                         y: "-8%",
                         ease: Linear.easeNone
@@ -62,102 +95,54 @@ export default {
                     .addTo(controllerBanner);
             }
         },
-        initHomeSlider() { 
-
-            //**********HOME SLIDER****************************************   
-
-            this.itemsCounter = $('#items-counter');
-            this.currentSlide = $('#current-slide');
-            this.navElemContainer = $(".nav-element-container");
-            this.navElemContainerElements;
-            this.bannersSlider = $('#banners-slider');
-            this.bannersSlider.owlCarousel({
-                loop: false,
-                smartSpeed: 250,
-                margin: 0,
-                //nav: true,
-                dots: true,
-                items: 1,
-                autoHeight: true,
-                mouseDrag: false,
-                animateOut: 'fadeOut',
-                animateIn: 'fadeIn',
-                //touchDrag:false,
-                dotsContainer: ".banner-dots",
-                onInitialized: (event) => {
-                    this.calculateSlideInfo(event);
-                    this.createElements(event.item.index, event.item.count);
-                },
-                onTranslated: (event) => {
-                    this.calculateSlideInfo(event);
-                    this.createElements(event.item.index);
+    
+        initReviews() {
+            var reviewsController = new ScrollMagic.Controller({
+                globalSceneOptions: {
+                    triggerHook: "onEnter",
+                    duration: "200%"
                 }
             });
+            var scene2 = new ScrollMagic.Scene({
+                    triggerElement: "#parallax-trigger"
+                })
+                .setTween("#parallax1", {
+                    y: "10%",
+                    ease: Linear.easeNone
+                })
+                .addTo(reviewsController);
         },
-        initLogo() { 
-            this.canvas = document.getElementById("canvas");
-            this.anim_container = document.getElementById("animation_container");
-            this.dom_overlay_container = document.getElementById("dom_overlay_container");
-            this.handleComplete();
-        },
-        handleComplete() {
-            //This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
-            this.exportRoot = new lib.Logo_animation();
-            this.stage = new createjs.Stage(this.canvas);
-            this.stage.addChild(this.exportRoot);
-            //Registers the "tick" event listener.
-            var fnStartAnimation =   () =>{
-                createjs.Ticker.setFPS(lib.properties.fps);
-                createjs.Ticker.addEventListener("tick", this.stage);
-            }
-            //Code to support hidpi screens and responsive scaling.
-
-            this.makeResponsive(true, 'both', false, 1);
-            fnStartAnimation();
-        },
-        makeResponsive(isResp, respDim, isScale, scaleType) {
-            var lastW, lastH, lastS = 1;
-            window.addEventListener('resize', this.resizeCanvas);
-            function resizeCanvas() {
-                var w = lib.properties.width,
-                    h = lib.properties.height;
-                var iw = window.innerWidth,
-                    ih = window.innerHeight;
-                var pRatio = window.devicePixelRatio || 1,
-                    xRatio = iw / w,
-                    yRatio = ih / h,
-                    sRatio = 1;
-                if (isResp) {
-                    if ((respDim == 'width' && lastW == iw) || (respDim == 'height' && lastH == ih)) {
-                        sRatio = lastS;
-                    } else if (!isScale) {
-                        if (iw < w || ih < h)
-                            sRatio = Math.min(xRatio, yRatio);
-                    } else if (scaleType == 1) {
-                        sRatio = Math.min(xRatio, yRatio);
-                    } else if (scaleType == 2) {
-                        sRatio = Math.max(xRatio, yRatio);
-                    }
-                }
-                this.canvas.width = w * pRatio * sRatio;
-                this.canvas.height = h * pRatio * sRatio;
-                this.canvas.style.width = dom_overlay_container.style.width = anim_container.style.width = w * sRatio + 'px';
-                this.canvas.style.height = anim_container.style.height = dom_overlay_container.style.height = h * sRatio + 'px';
-                stage.scaleX = pRatio * sRatio;
-                stage.scaleY = pRatio * sRatio;
-                lastW = iw;
-                lastH = ih;
-                lastS = sRatio;
-            }
-        } 
+       
+        initPartnersSlider() {  
+            $('#partners-slider').owlCarousel({
+                loop: true,
+                autoplay: true,
+                margin: 0,
+                smartSpeed: 450,
+                dots: false,
+                nav: false,
+                items: 5,
+                autoHeight: false,
+                mouseDrag: true
+            });
+        }
     },
-    components: {
-        "pl-header": Header
+    components: { 
+        services,
+        about,
+        contact,
+        reasons,
+        projects: Projects,
+        "pl-header": Header,
+        'projects-slider': ProjectsSlider,
+        'big-slider': BigSlider 
+         
     },
-    mounted() {
-        this.initHomeSlider();
-        this.initBannerParallaxScroller();
-        this.initLogo();
+    mounted() { 
+        this.initBannerParallaxScroller(); 
+        this.initReviews(); 
+        this.initPartnersSlider();
+        this.setZindex();
         $("#graphics_slider, #web_slider").mThumbnailScroller({
             theme: "hover-classic", //"hover-precise", //theme:"hover-classic"
             speed: 15

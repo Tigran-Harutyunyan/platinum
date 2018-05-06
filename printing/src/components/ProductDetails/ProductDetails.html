@@ -1,10 +1,10 @@
 <div class="products-main">
   <div class="bordered-block" v-if="product.properties">
     <h3 class="product-category-title">{{ productInfo.name }}</h3>
-    <div class="product-details-inner">
-      <el-carousel :autoplay="false" trigger="click" indicator-position="outside" height="300px" arrow="never" class="product-slider">
-        <el-carousel-item v-for="item in 3" :key="item">
-           <img src="../../assets/img/slider-img.png" alt="">
+    <div class="product-details-inner" :class="{'single-image': product.images.length==1}">
+      <el-carousel v-if="product.images" :autoplay="false" trigger="click" indicator-position="outside"  arrow="never" class="product-slider">
+        <el-carousel-item v-for="(item, index) in product.images" :key="index">
+           <img :src="item.image" alt="">
         </el-carousel-item>
       </el-carousel>
       <div class="product-detail-info">

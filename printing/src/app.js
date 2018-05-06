@@ -20,7 +20,8 @@ import {
     Tabs,
     TabPane,
     Form,
-    FormItem
+    FormItem,
+    DatePicker
 } from "element-ui";
 Vue.use(Carousel);
 Vue.use(CarouselItem);
@@ -36,12 +37,18 @@ Vue.use(Tabs);
 Vue.use(TabPane);
 Vue.use(Form);
 Vue.use(FormItem);
+Vue.use(DatePicker);
 Vue.prototype.$confirm = MessageBox.confirm;
 Vue.prototype.$notify = Notification;
 import lang from 'element-ui/lib/locale/lang/en'
 import locale from 'element-ui/lib/locale'
 
 locale.use(lang);
+
+import VueAwesomeSwiper from 'vue-awesome-swiper'; 
+// require styles
+import 'swiper/dist/css/swiper.css'; 
+Vue.use(VueAwesomeSwiper, /* { default global options } */)
 
 const AdminApi = require('./admin-api');
 Vue.use(AdminApi);

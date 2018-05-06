@@ -8,14 +8,17 @@ export default new Vuex.Store({
         userInfo: {},
         products: {},
         categories: [],
-        apiPath: "http://api.platinuminkdesign.com/api"
+        apiPath: "http://api.platinuminkdesign.com/",
+        locale: ''
     },
     getters: {
         appData: state => state.data,
         getUserInfo: state => state.userInfo,
         getApiPath: state => state.apiPath,
         products: state => state.products,
-        categories: state => state.categories
+        categories: state => state.categories,
+        locale: state => state.locale,
+        getApiPath: state => state.apiPath
     },
     mutations: {
         SET_DATA(state, payload) {
@@ -29,9 +32,15 @@ export default new Vuex.Store({
         },
         updateCategories(state, categories) {
             state.categories = categories;
-        }
+        },
+        SET_LOCALE(state, payload) {
+            state.locale = payload;
+        },
     },
     actions: {
+        setLocale({ commit }, payload) {
+            commit('SET_LOCALE', payload)
+        },
         setData({ commit }, payload) {
             commit('SET_DATA', payload)
         },
@@ -41,14 +50,14 @@ export default new Vuex.Store({
         getProducts({
             commit
         }, data) {
-            axios.get(`${this.state.apiPath}/getProductsList?lang=am`).then((response) => {
+            axios.get(`${this.state.apiPath}/api/getProductsList?lang=am`).then((response) => {
                 commit('updateProducts', response.data)
             })
         },
         getCategories({
             commit
         }, data) {
-            axios.get(`${this.state.apiPath}/getCategories?lang=am`).then((response) => {
+            axios.get(`${this.state.apiPath}/api/getCategories?lang=am`).then((response) => {
                 commit('updateCategories', response.data)
             })
         },
@@ -65,7 +74,7 @@ export default new Vuex.Store({
         }) {
             return new Promise((resolve, reject) => {
                 axios({
-                    url: `${this.state.apiPath}/login`,
+                    url: `${this.state.apiPath}/api/login`,
                     method: 'post',
                     params: {
                         email,
@@ -94,7 +103,7 @@ export default new Vuex.Store({
         }) {
             return new Promise((resolve, reject) => {
                 axios({
-                    url: `${this.state.apiPath}/register`,
+                    url: `${this.state.apiPath}/api/register`,
                     method: 'post',
                     params: {
                         first_name,
@@ -122,7 +131,7 @@ export default new Vuex.Store({
         }) {
             return new Promise((resolve, reject) => {
                 axios({
-                    url: `${this.state.apiPath}/getProductById?id=${id}`,
+                    url: `${this.state.apiPath}/api/getProductById?id=${id}`,
                     method: 'get',
                 }).then(response => {
                     resolve(response.data);

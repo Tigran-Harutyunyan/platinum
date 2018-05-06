@@ -21,7 +21,7 @@ export default {
             this.$root._i18n.locale = locale;
 
             localStorage.setItem('platinumLocale', locale);
-
+            this.$store.dispatch('setLocale', locale);
             this.locales.forEach(item => {
                 item.activeLocale = item.locale == locale;
             })

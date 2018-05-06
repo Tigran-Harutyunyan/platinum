@@ -23,11 +23,38 @@ export default {
         partners: 'Partners',
         yearsOfExperience: 'Years of experience'
       },
+      contacts: {
+        title: "contact us",
+        toContact: "For more information contact us",
+        join: "Follow us",
+        copywriteText1:"© All rights reserved by PLATINUM INK DESIGN ",
+        copywriteText2:"since 2010 powered by Platinum Ink Design." 
+      },
       readMore: 'Read more',
+      form: {
+        send: 'Send',
+        subject: 'Subject',
+        email: 'Email',
+        message: 'Message',
+      },
+      address: {
+        part1: '',
+        part2: 'Email: info@platinumink.am',
+        part3: '',
+        part4: 'Mobile +1(323)6004477'
+      },
       seeMore: 'See more',
       more:'More',
       comments: 'Comments',
+      staff: 'our staff',
       addComment: 'Add a comment',
+      ratingInfo: 'Our partners reviews',
+      workingHoursInfo:'Working hours ',
+      workingHours: '9am - 7pm',
+      orderOnline: 'Online order',
+      why: {
+        title: "ինչու՞ աշխատել մեզ հետ"
+      },
       projects:{
         title: "Projects",
         tab1: "Graphic Design",
@@ -40,37 +67,48 @@ export default {
       },
       services: {
         title: "Services",
+        design: "Design",
+        advertising: 'Advertising',
+        printing: 'Printing',
         graphicService: {
           word1: "Graphic",
-          word2: "Design"
+          word2: "Design",
+          text: ""
         },
         webDesign: {
           word1: "Web",
-          word2: "Design"
+          word2: "Design",
+          text: ""
         },
         outdoor: {
           word1: "Outdoor",
-          word2: "Advertising"
+          word2: "Advertising",
+          text: ""
         },
         promo: {
           word1: "Promo",
-          word2: "Services"
+          word2: "Services",
+          text: ""
         },
         digitalPrinting: {
           word1: "Digital",
-          word2: "Printing"
+          word2: "Printing",
+          text: ""
         },
         offsetPrinting: {
           word1: "Offset",
-          word2: "Printing"
+          word2: "Printing",
+          text: ""
         },
         largePrinting: {
           word1: "Large Format",
-          word2: "Printing"
+          word2: "Printing",
+          text: ""
         },
         otherServices: {
           word1: "Other",
-          word2: "Services"
+          word2: "Services",
+          text: ""
         }
       }
     }
@@ -88,7 +126,7 @@ export default {
         par4: `Կայուն բիզնես սկզբունքների շնորհիվ իր գոյության տարիների ընթացքում «Պլատինում Ինկ»-ը հասցրել է ձեռք բերել հավատարիմ հաճախորդների մեծ բանակ:`
       },
       projects:{
-        title: "Արձագանքներ",
+        title: "ԱՇԽԱՏԱՆՔՆԵՐ",
         tab1: "Գրաֆիկական Դիզայն",
         tab2: "Վեբ Դիզայն",
         tab3: "Արտաքին Գովազդ",   
@@ -103,44 +141,81 @@ export default {
         partners: 'Գործընկերներ',
         yearsOfExperience: 'Տարվա Փորձ'
       },
+      contacts: {
+        title: 'Հետադարձ կապ',
+        toContact: "Պատվերների և առաջարկությունների համար կարող եք ազատ կապ հաստատել մեզ հետ ստորև նշված կոնտակտներով՝",
+        join: "Միացեք մեր էջերին",
+        copywriteText1:"Բոլոր հեղինակային իրավունքները պաշտպանված",
+        copywriteText2:"են © 2010-2017 Platinum Ink Design."
+      },
       readMore: 'Կարդալ ավելին',
       seeMore: 'Դիտել բոլորը',
-      comments: 'Արձագանքներ',
+      form: {
+        send: 'Ուղարկել',
+        subject: 'Նյութ',
+        email: 'Էլ. հասցե',
+        message: 'Նամակ',
+      },
+      address: {
+        part1: 'Հասցե՝ Ք. Երևան, Արշակունյաց 44',
+        part2: 'Էլ-փոստ՝ info@platinumink.am',
+        part3: 'Աշխ.՝ +374 10 444921',
+        part4: 'Բջջ.՝ +374 99 766664'
+      },
+      why: {
+        title: "ինչու՞ աշխատել մեզ հետ"
+      },
+      staff: 'մեր թիմը',
       more:'Ավելին',
+      orderOnline: 'Պատվիրել օնլայն',
       addComment: 'Ավելացնել գրառում',
+      ratingInfo: 'Գործընկերների գնահատականը մեր մասին',
+      workingHoursInfo:'Մենք հասանելի ենք',
+      workingHours:'09:00 - 19:00',
       services: {
         title: "ԾԱՌԱՅՈՒԹՅՈՒՆՆԵՐ",
+        design: "Դիզայն",
+        advertising: 'Գովազդ',
+        printing: 'Տպագրություն',
         graphicService: {
           word1: "Գրաֆիկական",
-          word2: "Դիզայն"
+          word2: "Դիզայն",
+          text: `Մենք կստեղծենք ձեր ընկերության կորպորատիվ ոճը, որը թույլ կտա ձեզ դառնալ ավելի յուրահատուկ,ավելի մրցունակ և հեշտությամբ ճանաչելի:`
         },
         webDesign: {
           word1: "Վեբ",
-          word2: "Դիզայն"
+          word2: "Դիզայն",
+          text: `Վստահեք մեզ ձեր վեբ կայքի նախագծումը, պատրաստումն ու առաջխաղացումը և մեր մասնագետները հոգ կտանեն նրբաճաշակ դիզայնի և հարմարավետության մասին:`
         },
         outdoor: {
           word1: "Արտաքին",
-          word2: "Գովազդ"
+          word2: "Գովազդ",
+          text:`Արտաքին գովազդի պատրաստում և տեղադրում տարատեսակ նյութերով\`ծավալային տառեր,լուսավորվող վահանակներ,ցուցանակներ և այլն:`
         },
         promo: {
           word1: "Գովազդային",
-          word2: "Ակցիաներ"
+          word2: "Ակցիաներ",
+          text:`Գովազդային ակցիաների կազմակերպումը ենթադրում է որոշակի գործողություններ, որոնք ուղղված են ընկերության և սպառողների միջև անմիջական կապի ձևավորմանը:`
         },
         digitalPrinting: {
           word1: "Թվային",
-          word2: "Տպագրություն"
+          word2: "Տպագրություն",
+          text: `Այս եղանակը թույլ է տալիս արագ և որակյալ տպագրել փոքր և միջին քանակ ունեցող այցեքարտեր, բուկլետներ և այլ տպագիր նյութեր:`
         },
         offsetPrinting: {
           word1: "Օֆսեթ",
-          word2: "Տպագրություն"
+          word2: "Տպագրություն",
+          text: `Այս եղանակը ամենահարմարն է մեծաքանակ տպագրության համար, քանի որ ապահովում է արտադրության բարձր որակ և մատչելի գին:`
         },
         largePrinting: {
           word1: "Լայնաֆորմատ",
-          word2: "Տպագրություն"
+          word2: "Տպագրություն",
+          text: `Այս եղանակը թույլ է տալիս ստանալ մեծ չափսերի տպագիր նյութեր,որոնք կիրառվում են ինտերյերի ձևաորման և արտաքին գովազդի մեջ:`
         },
         otherServices: {
           word1: "Այլ",
-          word2: "Ծառայություններ"
+          word2: "Ծառայություններ",
+          text: `Ծառայության տեսակներ,որոնք փոքր ինչ բազմազան են, այդ իսկ պատճառով խմբագրվելեն մեկ ընդհանուր վերնագրով:`
         }
       }
     }

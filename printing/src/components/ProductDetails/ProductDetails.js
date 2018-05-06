@@ -11,7 +11,11 @@ export default {
             isThereProperties: false
         }
     },
+    
     computed: {
+        apiPath() {
+            return this.$store.getters.getApiPath;
+        },
         totalPrice() {
             let properties = this.product.properties;
             let sum = 0;
@@ -76,6 +80,11 @@ export default {
                         }
                     }
                     this.product = response;
+                    if (this.product.images){
+                        this.product.images.forEach(element => { 
+                            element.image = `${this.apiPath}${element.image}`;
+                        });
+                    }
                     this.productInfo = response[0];
                     this.isThereProperties = countProperties > 0;
                     this.copyOfProduct = JSON.parse(JSON.stringify(this.product));
