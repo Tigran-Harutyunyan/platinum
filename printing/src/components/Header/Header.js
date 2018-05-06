@@ -1,9 +1,16 @@
+import { required, minLength, email, sameAs } from 'vuelidate/lib/validators';
 export default {
     name: 'pl-header',
     data() {
         return {
-            locales: [
-                {
+            loginMode: true,
+            showLoginDropdown: false,
+            email: "admin@mplatinumInc.com",
+            password: "1",
+            recoveryMail: "",
+            isAuthenticated: false,
+            user: {}, 
+            locales: [{
                     localeName: 'ՀԱՅ',
                     activeLocale: false,
                     locale: 'hy'
@@ -17,32 +24,74 @@ export default {
         }
     },
     methods: {
+        logout(){ 
+            debugger
+            this.$store.dispatch('requestLogOut', {
+                token: this.user.token 
+            }).then((response) => {
+                debugger
+                if (response.error) {
+                    this.$notify({
+                        title: 'Logout',
+                        message: response.message ? response.message : 'Failed to logout',
+                        position: "top-right",
+                        type: "error"
+                    });
+                }
+                if (response.success) {
+                    let storage = localStorage.getItem('platinumInk') ? JSON.parse(localStorage.getItem("platinumInk")) : {};
+                    delete storage.user ;
+                    localStorage.setItem('platinumInk', JSON.stringify(storage));
+                    this.$store.dispatch('SET_STORAGE', storage); 
+                    this.isAuthenticated = false;
+                }
+            }).catch((error) => {
+                this.$notify({
+                    title: 'Login',
+                    message: error ? error : 'Failed to login',
+                    position: "top-right",
+                    type: "error"
+                });
+            });
+        },
+        toSignupPage() {
+            this.showLoginDropdown = false;
+            this.loginMode = true;
+            this.$router.push({ name: 'SignUp' });
+        },
+        hideLoginDropdown() {
+            this.showLoginDropdown = false;
+            this.loginMode = true
+        },
+        onPassRecovery() {
+
+        },
         toggleLang(locale) {
             this.$root._i18n.locale = locale;
-
-            localStorage.setItem('platinumLocale', locale);
-            this.$store.dispatch('setLocale', locale);
+            let storage = localStorage.getItem('platinumInk') ? JSON.parse(localStorage.getItem("platinumInk")) : {};
+            storage.locale = locale;
+            localStorage.setItem('platinumInk', JSON.stringify(storage));
+            this.$store.dispatch('SET_STORAGE', storage);
             this.locales.forEach(item => {
                 item.activeLocale = item.locale == locale;
             })
         },
         initScroller() {
-
             var sectionsController = new ScrollMagic.Controller();
             var sceneNav = new ScrollMagic.Scene({
-                triggerElement: "#section-services",
-                triggerHook: 'onEnter',
-                offset: 203
-            })
+                    triggerElement: "#section-services",
+                    triggerHook: 'onEnter',
+                    offset: 203
+                })
                 .addTo(sectionsController)
                 //.addIndicators()
-                .on("enter", function (e) {
+                .on("enter", function(e) {
                     console.log("enter");
                 })
             sceneNav.setClassToggle("#top-nav", "section-services");
             sceneNav.setClassToggle("#service-boxes", "active-services");
 
-            sectionsController.scrollTo(function (newpos) {
+            sectionsController.scrollTo(function(newpos) {
                 if (section_to_scroll) {
                     var offsetTop = 0;
                     switch (section_to_scroll) {
@@ -77,13 +126,63 @@ export default {
                 }
 
             });
+        },
+        onLogin() {
+            if (!this.$v.$invalid) {
+                this.$store.dispatch('requestLogin', {
+                    email: this.email,
+                    password: this.password
+                }).then((response) => {
+                    console.log(response)
+                    if (response.error) {
+                        this.$notify({
+                            title: 'Login',
+                            message: response.message ? response.message : 'Failed to login',
+                            position: "top-right",
+                            type: "error"
+                        });
+                    }
+                    if (response.success) {
+                        let storage = localStorage.getItem('platinumInk') ? JSON.parse(localStorage.getItem("platinumInk")) : {};
+                        storage.user = response;
+                        localStorage.setItem('platinumInk', JSON.stringify(storage));
+                        this.$store.dispatch('SET_STORAGE', storage);
+                        this.showLoginDropdown = false;
+                        this.loginMode = true;
+                        this.isAuthenticated = true;
+                    }
+                }).catch((error) => {
+                    this.$notify({
+                        title: 'Login',
+                        message: error ? error : 'Failed to login',
+                        position: "top-right",
+                        type: "error"
+                    });
+                });
+            }
         }
     },
     mounted() {
-        let currentLocale = localStorage.getItem("platinumLocale") ? localStorage.getItem("platinumLocale") : 'en';
+        let storage = localStorage.getItem("platinumInk") ? JSON.parse(localStorage.getItem("platinumInk")) : {};
+        this.user = storage.user; 
+        this.isAuthenticated = storage.user ? true : falses;
+        let currentLocale = storage.locale ? storage.locale : "en";
         this.locales.forEach(item => {
             item.activeLocale = item.locale == currentLocale;
         });
-        this.initScroller(); 
+        this.initScroller();
+    },
+    validations: {
+        email: {
+            required,
+            email
+        },
+        /*   recoveryMail: {
+              required,
+              email
+          }, */
+        password: {
+            required
+        }
     }
 }

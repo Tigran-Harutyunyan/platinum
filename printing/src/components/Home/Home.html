@@ -4,6 +4,7 @@
     <div class="main-section" id="main-section">
        <big-slider></big-slider>
         <div class="content-area content-area1">
+            <!-- <div class="large-triangle11" id="triangle11"></div> -->
             <div class="main-inner"> 
                 <div class="large-triangle1 triangles"></div>
                 <div class="large-triangle2 triangles"></div>
@@ -23,7 +24,7 @@
             </div>
             <span class="vert-line"></span>
             <div class="order-stripe">
-                    <a href="javascript:void(0)" class="btn-link link-type-2 see-all-link-portfolio2">{{ $t('message.orderOnline') }}</a> 
+                <a href="/#/category/1" class="btn-link">{{ $t('message.orderOnline') }}</a> 
             </div>
             <div class="main-inner inner-reviews">
                 <reasons></reasons>
@@ -43,24 +44,8 @@
     </div>
     <div class="parallax-bg" id="parallax1"></div>
     <div class="main-section"> 
-        <div class="parallax-section" id="parallax-trigger">
-            <!-- STAFF SECTION -->
-            <swiper :options="swiperOption" class="staff-slider">
-                <swiper-slide v-for="(item, index) in staff" :key="index">
-                    <figure class="a-info-left">
-                        <img :src="item.avatar" :alt="item.name">
-                        <figcaption>
-                            <span class="staff-name">{{ item.name }}</span>
-                            <br>
-                            <span class="staff-position">{{ item.position }}</span>
-                        </figcaption>
-                    </figure>
-                    <p>{{ item.text }}</p>
-                </swiper-slide>
-                <div class="swiper-pagination" slot="pagination"></div>
-            </swiper>
-        </div> 
-        <contact locale="locale"></contact> 
+        <staff></staff>
+        <contact locale="storage.locale"></contact> 
         <footer class="footer">
         </footer>
     </div>

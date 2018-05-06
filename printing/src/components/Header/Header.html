@@ -10,10 +10,35 @@
                 <li><a class="menu-item" data-scroll-nav="section-about-us">Մեր մասին<span class="line-elem-menu"></span></a></li>
                 <li><a class="menu-item" data-scroll-nav="section-portfolio">Աշխատանքներ<span class="line-elem-menu"></span></a></li>
                 <li><a class="menu-item" data-scroll-nav="section-contact-us">Հետադարձ կապ<span class="line-elem-menu"></span></a></li>
-                <li><a class="btn-link" style="margin-right: -13px;" href="/#/login">Մուտք</a></li>
-                <li><a class="btn-link btn-bright" href="/#/signup">Գրանցվել</a></li>
+                <li v-show="!isAuthenticated">
+                    <a class="btn-link" style="margin-right: -13px;" @click="showLoginDropdown=true">Մուտք
+                        <div class="login-dropdown-content" v-show="showLoginDropdown">
+                            <i class="el-icon-close" @click.stop="hideLoginDropdown"></i>
+                            <div class="login-block" v-if="loginMode">
+                            <form v-on:submit.prevent="onLogin" 
+                                 @submit="$v.email.$touch();$v.password.$touch();"> 
+                                <el-input v-model="email" :placeholder="$t('message.form.email')" :class="{'has-error': $v.email.$error}"></el-input>
+                                <div class="spacer-1"></div>
+                                <el-input v-model="password" :placeholder="$t('message.form.password')" :class="{'has-error': $v.password.$error}"></el-input>
+                                <a class="forgot-pass-link" @click="loginMode=false">{{ $t('message.form.forgotPassword') }}</a> 
+                                <input type="submit" class="btn-submit btn-invert" :value="$t('message.form.login')">
+                            </form>
+                            </div>
+                            <div class="forgot-pass-block" v-else>
+                               <el-input v-model="email" :placeholder="$t('message.form.email')"></el-input>
+                               <a class="forgot-pass-link" @click="loginMode=true">{{ $t('message.form.back') }}</a> 
+                               <button class="btn-submit btn-invert" @click="onPassRecovery">Submit</button>
+                            </div>
+                            <h5 class="on-signup">{{ $t('message.form.noProfile') }}</h5>
+                            <a href="javascript:void(0)" @click="toSignupPage" class="create-link">{{ $t('message.form.createPage') }}</a>
+                        </div>
+                    </a>
+                </li>
+                <li v-show="!isAuthenticated"><a class="btn-link btn-bright" href="javascript:void(0)" @click="toSignupPage">Գրանցվել</a></li>
+                <li v-show="isAuthenticated"><a class="btn-link btn-bright" href="javascript:void(0)" @click="logout">ելք</a></li>
+                <!-- LOCALE TOGGLER -->
                 <li class="lang-toggler">
-                    <a href="javascript:void(0)" v-for="item in locales" @click="toggleLang(item.locale)" :class="{'active-lang':item.activeLocale}" class="menu-item-lang">{{ item.localeName }}</a> 
+                    <a href="javascript:void(0)" v-for="item in locales" @click="toggleLang(item.locale)" :class="{'active-lang':item.activeLocale}" class="menu-item-lang">{{ item.localeName }}</a>
                 </li>
             </ul>
             <content class="menu-toggler-container">

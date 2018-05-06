@@ -1,0 +1,17 @@
+<div class="parallax-section" id="parallax-trigger">
+    <!-- STAFF SECTION -->
+    <swiper :options="swiperOption" class="staff-slider">
+        <swiper-slide v-for="(item, index) in staff" :key="index">
+            <figure class="a-info-left">
+                <img :src="item.avatar" :alt="item.name">
+                <figcaption>
+                    <span class="staff-name">{{ item.name }}</span>
+                    <br>
+                    <span class="staff-position">{{ item.position }}</span>
+                </figcaption>
+            </figure>
+            <p>{{ item.text }}</p>
+        </swiper-slide>
+        <div class="swiper-pagination" slot="pagination"></div>
+    </swiper>
+</div>

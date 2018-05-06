@@ -6,13 +6,7 @@
         </div>
         <h5>{{ $t('message.projects.title') }}</h5>
         <div class="portfolio-links">
-            <a data-id="graphicsTab" href="javascript:void(0)" class="active">{{ $t('message.projects.tab1') }}</a>
-            <a data-id="webDesignTab" href="javascript:void(0)">{{ $t('message.projects.tab2') }}</a>
-            <a data-id="outdoorTab" href="javascript:void(0)">{{ $t('message.projects.tab3') }}</a>
-            <a data-id="digitalTab" href="javascript:void(0)">{{ $t('message.projects.tab4') }}</a>
-            <a data-id="offsetTab" href="javascript:void(0)">{{ $t('message.projects.tab5') }}</a>
-            <a data-id="largeTab" href="javascript:void(0)">{{ $t('message.projects.tab6') }}</a>
-            <a data-id="othersTab" href="javascript:void(0)">{{ $t('message.projects.tab7') }}</a>
+            <a @click="onTabChange(tab.id)" v-for="(tab,index) in tabs" :key="index" href="javascript:void(0)" :class="{'active': tab.isActive}">{{  tab.tabText }}</a> 
         </div>
         <a href="javascript:void(0)" class="btn-link link-type-2 see-all-link-portfolio1">{{ $t('message.seeMore') }}</a>
         <span class="vert-line"></span>

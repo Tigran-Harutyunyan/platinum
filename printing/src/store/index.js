@@ -9,7 +9,7 @@ export default new Vuex.Store({
         products: {},
         categories: [],
         apiPath: "http://api.platinuminkdesign.com/",
-        locale: ''
+        storage: {}
     },
     getters: {
         appData: state => state.data,
@@ -17,7 +17,7 @@ export default new Vuex.Store({
         getApiPath: state => state.apiPath,
         products: state => state.products,
         categories: state => state.categories,
-        locale: state => state.locale,
+        getStorage: state => state.storage,
         getApiPath: state => state.apiPath
     },
     mutations: {
@@ -33,13 +33,13 @@ export default new Vuex.Store({
         updateCategories(state, categories) {
             state.categories = categories;
         },
-        SET_LOCALE(state, payload) {
-            state.locale = payload;
+        SET_STORAGE(state, payload) {
+            state.storage = payload;
         },
     },
     actions: {
-        setLocale({ commit }, payload) {
-            commit('SET_LOCALE', payload)
+        setStorage({ commit }, payload) {
+            commit('SET_STORAGE', payload)
         },
         setData({ commit }, payload) {
             commit('SET_DATA', payload)
@@ -79,6 +79,28 @@ export default new Vuex.Store({
                     params: {
                         email,
                         password
+                    },
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+                    }
+                }).then(response => {
+                    resolve(response.data);
+                }).catch(function(error) {
+                    reject(error);
+                })
+            });
+        },
+        requestLogOut({
+            commit
+        }, {
+            token
+        }) {
+            return new Promise((resolve, reject) => {
+                axios({
+                    url: `${this.state.apiPath}api/logout`,
+                    method: 'post',
+                    params: {
+                        token 
                     },
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'

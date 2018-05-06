@@ -7,7 +7,7 @@ import router from './router'
 import store from './store/index';
 import { EventBus } from './event-bus.js';
 import Vuelidate from 'vuelidate';
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 Vue.use(Vuelidate);
 import VueI18n from 'vue-i18n';
 import messages from './locales';
@@ -15,9 +15,9 @@ Vue.use(VueI18n);
 
 
 // Create VueI18n instance with options
- 
-let availableLocale = localStorage.getItem("platinumLocale") ? localStorage.getItem("platinumLocale") : 'en';
-store.dispatch('setLocale', availableLocale);
+let storage = localStorage.getItem('platinumInk') ? JSON.parse(localStorage.getItem("platinumInk")) : {}; 
+let availableLocale = storage.locale ? storage.locale: 'en'; 
+store.dispatch('setStorage', storage);
 const i18n = new VueI18n({
   locale: availableLocale, // set locale
   messages, // set locale messages

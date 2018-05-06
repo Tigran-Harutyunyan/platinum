@@ -1,6 +1,7 @@
 import Header from "../Header/Header.vue";
 import services from "./Services/Services.vue";
 import about from "./About/About.vue";
+import staff from "./Staff/Staff.vue";
 import Projects from "./Projects/Projects.vue";
 import ProjectsSlider from "./ProjectsSlider/ProjectsSlider.vue";
 import reasons from "./Reasons/Reasons.vue"; 
@@ -14,53 +15,12 @@ export default {
             stage: {},
             exportRoot: {},
             anim_container: {},
-            dom_overlay_container: {},
-            swiperOption: {
-                slidesPerView: 2,
-                spaceBetween: 30,
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true
-                }
-            },
-            staff: [{
-                    name: 'Գնել Չիբուխչյան',
-                    position: 'Հիմնադիր տնօրեն',
-                    avatar: '../../../static/img/staff/img1.jpg',
-                    text: `
-                    Ես ներկայացնում եմ  որը աշխատում է տարբեր ոլորտի 
-                    ընկերությունների հետ: Համագործակցում ենք Platinumink-ի հետ արդեն մեկ տարուց ավել; Փորձը 
-                    ցույց է տվել, որ Platinumink-ը վստահելի գործընկեր է, ով տրամադրում է որակի և գնի իդեալկան 
-                    համադրություն, հաճախորդին անհրաժեշտ ժամկետներում; Կարելի է ասել, որ Platinumink-ը այն եզակի 
-                    գործընկերներից է, ում վրա կարելի է 100% հույս դնել և ստանալ իդեալական արդյունք:`
-                },
-                {
-                    name: 'Արմինե Կագարյան',
-                    position: 'Փոխտնօրեն',
-                    avatar: '../../../static/img/staff/img2.jpg',
-                    text: `Ես ներկայացնում եմ  որը աշխատում է տարբեր ոլորտի 
-                    ընկերությունների հետ: Համագործակցում ենք Platinumink-ի հետ արդեն մեկ տարուց ավել; Փորձը 
-                    ցույց է տվել, որ Platinumink-ը վստահելի գործընկեր է, ով տրամադրում է որակի և գնի իդեալկան 
-                    համադրություն, հաճախորդին անհրաժեշտ ժամկետներում; Կարելի է ասել, որ Platinumink-ը այն եզակի 
-                    գործընկերներից է, ում վրա կարելի է 100% հույս դնել և ստանալ իդեալական արդյունք:`
-                },
-                {
-                    name: 'Գնել Չիբուխչյան',
-                    position: 'Հիմնադիր տնօրեն',
-                    avatar: '../../../static/img/staff/img1.jpg',
-                    text: `
-                    Ես ներկայացնում եմ  որը աշխատում է տարբեր ոլորտի 
-                    ընկերությունների հետ: Համագործակցում ենք Platinumink-ի հետ արդեն մեկ տարուց ավել; Փորձը 
-                    ցույց է տվել, որ Platinumink-ը վստահելի գործընկեր է, ով տրամադրում է որակի և գնի իդեալկան 
-                    համադրություն, հաճախորդին անհրաժեշտ ժամկետներում; Կարելի է ասել, որ Platinumink-ը այն եզակի 
-                    գործընկերներից է, ում վրա կարելի է 100% հույս դնել և ստանալ իդեալական արդյունք:`
-                }
-            ]
+            dom_overlay_container: {} 
         }
     }, 
     computed: {
-        locale() {
-            return this.$store.getters.locale
+        storage() {
+            return this.$store.getters.getStorage
         }
     },
     methods: {  
@@ -132,6 +92,7 @@ export default {
         about,
         contact,
         reasons,
+        staff,
         projects: Projects,
         "pl-header": Header,
         'projects-slider': ProjectsSlider,
