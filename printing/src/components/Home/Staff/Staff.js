@@ -7,7 +7,12 @@ export default {
                 pagination: {
                     el: '.swiper-pagination',
                     clickable: true
-                }
+                },
+                breakpoints: { 
+                    1250: {
+                      slidesPerView: 1, 
+                    } 
+                  }
             },
             staff: [{
                     name: 'Գնել Չիբուխչյան',
@@ -44,5 +49,10 @@ export default {
             ]
         }
     },
-
+    computed: {
+        swiper() {
+            return this.$refs.mySwiper.swiper
+        }
+    } 
+    
 }

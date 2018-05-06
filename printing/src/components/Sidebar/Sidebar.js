@@ -78,5 +78,15 @@ export default {
             });
             return categoryName;
         }
+    },
+    mounted(){ 
+        let categories = this.$store.getters.categories;
+        
+        if (!categories) {
+            this.$store.dispatch('getCategories');
+        } else {
+            this.categories = categories;
+            this.$store.dispatch('getProducts');
+        }
     }
 }

@@ -2183,7 +2183,7 @@ menu hamburger>i:after {
     }
    
     .swiper-pagination-bullets {
-        bottom: 21px;
+        bottom: 21px !important;
     }
     .swiper-pagination-bullet {
         @extend .sprite;

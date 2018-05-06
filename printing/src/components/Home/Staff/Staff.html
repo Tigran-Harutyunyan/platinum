@@ -1,6 +1,6 @@
 <div class="parallax-section" id="parallax-trigger">
     <!-- STAFF SECTION -->
-    <swiper :options="swiperOption" class="staff-slider">
+    <swiper :options="swiperOption" class="staff-slider" ref="mySwiper">
         <swiper-slide v-for="(item, index) in staff" :key="index">
             <figure class="a-info-left">
                 <img :src="item.avatar" :alt="item.name">
