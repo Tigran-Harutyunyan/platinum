@@ -10,18 +10,20 @@
     ul {
         position: absolute;
         top: 55px;
-        left: 0;
+        left: -1px;
         width: 400px;
+        display: none;
         li {
             background-color: rgba(255,255,255, 0.5);
             padding: 7px 11px 5px;
             text-transform: initial;
             border-left: 1px solid rgba(255,255,255, 0.5);
+            &:hover {
+                border-left: 1px solid #af995a;
+                background-color: #ebebeb;
+            }
         }
-        li.active-link{
-            border-left: 1px solid #af995a;
-            background-color: #ebebeb;
-        }
+        
         a {
             color: #666666;
             font-size: 16px;
@@ -96,4 +98,7 @@
             background-position: -389px -126px;
         }
     }
+}
+#personal-page:hover   ul   {
+    display: block;
 }

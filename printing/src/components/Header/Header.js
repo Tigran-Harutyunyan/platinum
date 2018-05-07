@@ -5,8 +5,8 @@ export default {
         return {
             loginMode: true,
             showLoginDropdown: false,
-            email: "admin@mplatinumInc.com",
-            password: "1",
+            email: "tigran3@mail.ru",
+            password: "tigran",
             recoveryMail: "",
             isAuthenticated: false,
             user: {}, 
@@ -24,27 +24,11 @@ export default {
         }
     },
     methods: {
-        logout(){ 
-            debugger
+        logout(){  
             this.$store.dispatch('requestLogOut', {
                 token: this.user.token 
-            }).then((response) => {
-                debugger
-                if (response.error) {
-                    this.$notify({
-                        title: 'Logout',
-                        message: response.message ? response.message : 'Failed to logout',
-                        position: "top-right",
-                        type: "error"
-                    });
-                }
-                if (response.success) {
-                    let storage = localStorage.getItem('platinumInk') ? JSON.parse(localStorage.getItem("platinumInk")) : {};
-                    delete storage.user ;
-                    localStorage.setItem('platinumInk', JSON.stringify(storage));
-                    this.$store.dispatch('SET_STORAGE', storage); 
-                    this.isAuthenticated = false;
-                }
+            }).then((response) => { 
+                this.removeUser()
             }).catch((error) => {
                 this.$notify({
                     title: 'Login',
@@ -54,24 +38,31 @@ export default {
                 });
             });
         },
+        removeUser(){
+            let storage = localStorage.getItem('platinumInk') ? JSON.parse(localStorage.getItem("platinumInk")) : {};
+            delete storage.user ;
+            localStorage.setItem('platinumInk', JSON.stringify(storage));
+            this.$store.dispatch('SET_STORAGE', storage); 
+            this.isAuthenticated = false;
+        },
         toSignupPage() {
             this.showLoginDropdown = false;
             this.loginMode = true;
             this.$router.push({ name: 'SignUp' });
         },
-        hideLoginDropdown() {
+        hideLoginDropdown() {2
             this.showLoginDropdown = false;
             this.loginMode = true
         },
         onPassRecovery() {
 
-        },
+        }, 
         toggleLang(locale) {
             this.$root._i18n.locale = locale;
             let storage = localStorage.getItem('platinumInk') ? JSON.parse(localStorage.getItem("platinumInk")) : {};
             storage.locale = locale;
             localStorage.setItem('platinumInk', JSON.stringify(storage));
-            this.$store.dispatch('SET_STORAGE', storage);
+            this.$store.dispatch('SET_S2TORAGE', storage);
             this.locales.forEach(item => {
                 item.activeLocale = item.locale == locale;
             })
@@ -145,6 +136,7 @@ export default {
                     if (response.success) {
                         let storage = localStorage.getItem('platinumInk') ? JSON.parse(localStorage.getItem("platinumInk")) : {};
                         storage.user = response;
+                        this.user = response;
                         localStorage.setItem('platinumInk', JSON.stringify(storage));
                         this.$store.dispatch('SET_STORAGE', storage);
                         this.showLoginDropdown = false;
@@ -165,7 +157,7 @@ export default {
     mounted() {
         let storage = localStorage.getItem("platinumInk") ? JSON.parse(localStorage.getItem("platinumInk")) : {};
         this.user = storage.user; 
-        this.isAuthenticated = storage.user ? true : falses;
+        this.isAuthenticated = storage.user;
         let currentLocale = storage.locale ? storage.locale : "en";
         this.locales.forEach(item => {
             item.activeLocale = item.locale == currentLocale;

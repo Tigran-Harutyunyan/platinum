@@ -6,7 +6,7 @@
         </div>
         <h5>{{ $t('message.projects.title') }}</h5>
         <div class="portfolio-links">
-            <a @click="onTabChange(tab.id)" v-for="(tab,index) in tabs" :key="index" href="javascript:void(0)" :class="{'active': tab.isActive}">{{  tab.tabText }}</a> 
+            <a @click="onTabChange(tab.id)" v-for="(tab,index) in tabs" :key="index" href="javascript:void(0)" :class="{'active': tab.isActive}">{{  $t(tab.tabText )}}</a> 
         </div>
         <a href="javascript:void(0)" class="btn-link link-type-2 see-all-link-portfolio1">{{ $t('message.seeMore') }}</a>
         <span class="vert-line"></span>

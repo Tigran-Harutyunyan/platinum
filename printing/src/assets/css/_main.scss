@@ -2239,3 +2239,7 @@ menu hamburger>i:after {
         height: 0;
     }
 }
+.el-checkbox__input.is-checked .el-checkbox__inner, .el-checkbox__input.is-indeterminate .el-checkbox__inner {
+    background-color: #b09263;
+    border-color: #b09263;
+}
