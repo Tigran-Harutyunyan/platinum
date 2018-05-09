@@ -4,8 +4,7 @@ import Products from '../components/Products/Products.vue'
 import ProductDetails from '../components/ProductDetails/ProductDetails.vue'
 import Cart from '../components/Cart/Cart.vue'
 import SignUp from '../components/SignUp/SignUp.vue'
-import Login from '../components/Login/Login.vue'
-import Orders from '../components/Orders/Orders.vue'
+ import Orders from '../components/Orders/Orders.vue'
 import Home from '../components/Home/Home.vue'
 import Shopping from '../components/Shopping/Shopping.vue'
 
@@ -35,12 +34,7 @@ export default new Router({
                     path: '/SignUp',
                     name: 'SignUp',
                     component: SignUp
-                },
-                {
-                    path: '/login',
-                    name: 'Login',
-                    component: Login
-                },
+                }, 
                 {
                     path: '/orders',
                     name: 'Orders',

@@ -9,7 +9,8 @@ export default new Vuex.Store({
         products: {},
         categories: [],
         apiPath: "http://api.platinuminkdesign.com/",
-        storage: {}
+        storage: {},
+        customData: {}
     },
     getters: {
         appData: state => state.data,
@@ -18,7 +19,8 @@ export default new Vuex.Store({
         products: state => state.products,
         categories: state => state.categories,
         getStorage: state => state.storage,
-        getApiPath: state => state.apiPath
+        getApiPath: state => state.apiPath,
+        getCustomData: state => state.customData
     },
     mutations: {
         SET_DATA(state, payload) {
@@ -36,6 +38,9 @@ export default new Vuex.Store({
         SET_STORAGE(state, payload) {
             state.storage = payload;
         },
+        SET_CUSTOM_DATA(state, payload) {
+            state.customData = payload;
+        }
     },
     actions: {
         setStorage({ commit }, payload) {
@@ -100,7 +105,7 @@ export default new Vuex.Store({
                     url: `${this.state.apiPath}api/logout`,
                     method: 'post',
                     params: {
-                        token 
+                        token
                     },
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
@@ -146,6 +151,54 @@ export default new Vuex.Store({
                 })
             });
         },
+        requestContact({
+            commit
+        }, {
+            contact_email,
+            contact_message,
+            contact_subject
+        }) {
+            return new Promise((resolve, reject) => {
+                axios({
+                    url: `${this.state.apiPath}api/sendEmail`,
+                    method: 'post',
+                    params: {
+                        contact_email,
+                        contact_message,
+                        contact_subject
+                    },
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+                    }
+                }).then(response => {
+                    resolve(response.data);
+                }).catch(function(error) {
+                    reject(error);
+                })
+            });
+        },
+        requestSubscribe({
+            commit
+        }, {
+            contact_email_subscribe
+        }) {
+            return new Promise((resolve, reject) => {
+                axios({
+                    url: `${this.state.apiPath}api/addSubscriber`,
+                    method: 'post',
+                    params: {
+                        contact_email_subscribe
+                    },
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+                    }
+                }).then(response => {
+                    resolve(response.data);
+                }).catch(function(error) {
+                    reject(error);
+                })
+            });
+        },
         getProductById({
             commit
         }, {
@@ -161,6 +214,25 @@ export default new Vuex.Store({
                     reject(error);
                 })
             });
+        },
+        getCustomData({
+            commit
+        }, data) {
+            if (Object.keys(this.state.customData).length === 0) {
+                return new Promise((resolve, reject) => {
+                    axios({
+                        url: `${this.state.apiPath}api/getCustomData`,
+                        method: 'get',
+                    }).then(response => {
+                        resolve(response.data);
+                        if (response.data && response.data.email) {
+                            commit('SET_CUSTOM_DATA', response.data)
+                        }
+                    }).catch(function(error) {
+                        reject(error);
+                    })
+                });
+            } 
         }
     }
 })

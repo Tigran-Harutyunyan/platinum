@@ -4,14 +4,14 @@
             <div class="social-place">
                 <h3>Միացեք մեր էջերին</h3>
                 <ul class="footer-social-links">
-                    <li class="social-icons fb">
-                        <a href="https://www.facebook.com/PlatiniumInk/" class="fb-link"></a>
+                    <li class="social-icons fb" v-if="customData.facebook_link">
+                        <a :href="customData.facebook_link" class="fb-link"></a>
                     </li>
                     <li class="social-icons in">
                         <a href="https://www.linkedin.com/profile/edit?trk=nav_responsive_sub_nav_edit_profile" class="in-link"></a>
                     </li>
-                    <li class="social-icons ins">
-                        <a href="https://www.instagram.com/platinuminkdesign/" class="ins-link"></a>
+                    <li class="social-icons ins" v-if="customData.instagram_link">
+                        <a :href="customData.instagram_link" class="ins-link"></a>
                     </li>
                 </ul>
             </div>
@@ -19,10 +19,10 @@
             <div class="subscription-form">
                 <h3>Բաժանորդագրվեք մեր նորություններին</h3>
                 <div class="form-container">
-                    <form class="subscription-form" id="form-contact-us" name="contact_form">
+                    <form v-on:submit.prevent="onSubmit" @submit="$v.email.$touch();" class="subscription-form" name="contact_form">
                         <div class="default-inp-row">
-                            <input id="contact_email" class="def-input" type="email" placeholder="էլ-փոստ" name="contact_email" v-model="email">
-                            <input type="submit" @click.prevent="submit" class="btn-submit" id="contact-us-btn" value="բաժանորդագրվել">
+                            <input  v-model="email" :class="{'has-error': $v.email.$error}" class="def-input" type="email" placeholder="էլ-փոստ" name="contact_email">
+                            <input type="submit" class="btn-submit" value="բաժանորդագրվել">
                         </div>
                     </form>
                 </div>

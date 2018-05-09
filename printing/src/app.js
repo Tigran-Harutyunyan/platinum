@@ -15,6 +15,7 @@ import {
     Upload,
     MessageBox,
     Notification,
+    Loading,
     Table,
     TableColumn,
     Tabs,
@@ -23,6 +24,7 @@ import {
     FormItem,
     DatePicker
 } from "element-ui";
+Vue.use(Loading.directive);
 Vue.use(Carousel);
 Vue.use(CarouselItem);
 Vue.use(Select);
@@ -38,6 +40,7 @@ Vue.use(TabPane);
 Vue.use(Form);
 Vue.use(FormItem);
 Vue.use(DatePicker);
+Vue.prototype.$loading = Loading.service;
 Vue.prototype.$confirm = MessageBox.confirm;
 Vue.prototype.$notify = Notification;
 import lang from 'element-ui/lib/locale/lang/en'

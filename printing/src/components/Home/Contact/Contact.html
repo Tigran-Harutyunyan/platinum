@@ -117,14 +117,14 @@
             <div class="social-place">
                 <p>{{ $t('message.contacts.join') }}</p>
                 <ul class="footer-social-links">
-                    <li class="social-icons fb">
-                        <a href="https://web.facebook.com/platinuminkdesign/" class="fb-link"></a>
+                    <li class="social-icons fb" v-if="customData.facebook_link">
+                        <a :href="customData.facebook_link" class="fb-link"></a>
                     </li>
                     <li class="social-icons in">
                         <a href="https://www.linkedin.com/profile/edit?trk=nav_responsive_sub_nav_edit_profile" class="in-link"></a>
                     </li>
-                    <li class="social-icons ins">
-                        <a href="https://www.instagram.com/platinuminkdesign/" class="ins-link"></a>
+                    <li class="social-icons ins" v-if="customData.instagram_link">
+                        <a :href="customData.instagram_link" class="ins-link"></a>
                     </li>
                 </ul>
             </div>
@@ -137,22 +137,23 @@
             </div>
             <div class="form-place">
                 <div class="form-container">
-                    <form class="contact-form" id="form-contact-us" name="contact_form">
+                    <form v-on:submit.prevent="onSubmit" @submit="$v.email.$touch();$v.message.$touch();$v.subject.$touch()" class="contact-form"  v-loading="loading" name="contact_form">
                         <div class="contact-form-referral ref1">
-                            <div class="default-inp-row ">
-                                <input id="contact_subject" class="def-input" type="text" :placeholder="$t('message.form.subject')" name="contact_subject">
+                            <div class="default-inp-row">
+                                <input id="contact_subject" v-model="subject" class="def-input" type="text" :placeholder="$t('message.form.subject')" :class="{'has-error': $v.subject.$error}" name="contact_subject">
                             </div>
                             <div class="elem-spacer"></div>
                             <div class="default-inp-row ">
-                                <input id="contact_email" class="def-input" type="email" :placeholder="$t('message.form.email')" name="contact_email">
+                                <input id="contact_email" class="def-input" type="email" :placeholder="$t('message.form.email')" v-model="email" :class="{'has-error': $v.email.$error}" name="contact_email">
                             </div>
                             <div class="elem-spacer"></div>
                             <div class="default-inp-row ">
-                                <textarea name="contact_message" :placeholder="$t('message.form.message')" class="def-input" id="contact_message" cols="30" rows="10"></textarea>
+                                <textarea name="contact_message" :placeholder="$t('message.form.message')" :class="{'has-error': $v.message.$error}" v-model="message" class="def-input" id="contact_message" cols="30" rows="10"></textarea>
                             </div>
                             <div class="elem-spacer"></div>
                             <div class="default-inp-row row-btn">
-                                <input type="submit" class="btn-submit" id="contact-us-btn" :value="$t('message.form.send')">
+                                <input type="submit" class="btn-submit" :value="$t('message.form.send')">
+                                <!-- <el-button type="primary" class="btn-submit" :loading="loading">{{ $t('message.form.send') }}</el-button> -->
                             </div>
                         </div>
                     </form>
