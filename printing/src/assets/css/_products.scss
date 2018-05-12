@@ -314,6 +314,9 @@ img.banner-offer {
         color: #7d7d7d;
         font-size:14px;
         line-height: 22px;
+        &:hover {
+            color :#af995a
+        }
     }
 }
 .links-container {
@@ -363,9 +366,7 @@ img.banner-offer {
 
 .product-slider {
     width: 300px;
-    .el-carousel__item {
-        
-    }
+    margin-right: 100px;
 }
 
 .el-carousel__button {
@@ -418,10 +419,10 @@ img.banner-offer {
 .product-details-inner {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between; 
+    justify-content: left; 
     padding-bottom: 64px;
     .el-carousel__container {
-        height: 248px;
+        height: 205px;
         img {
             width: 100%
         }

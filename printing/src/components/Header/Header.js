@@ -9,7 +9,10 @@ export default {
             password: "tigran",
             recoveryMail: "",
             isAuthenticated: false,
+            search_key: '',
+            isHamburgerActive: false,
             user: {}, 
+            currentRoute: "",
             locales: [{
                     localeName: 'ՀԱՅ',
                     activeLocale: false,
@@ -23,26 +26,26 @@ export default {
             ]
         }
     },
-    methods: {
+    watch: {
+        '$route' (to, from) {
+            this.currentRoute = to.name;
+        }
+    },
+    methods: { 
         logout(){  
             this.$store.dispatch('requestLogOut', {
-                token: this.user.token 
+                token: this.user ? this.user.token : ""
             }).then((response) => { 
-                this.removeUser()
+                this.removeUser();
             }).catch((error) => {
-                this.$notify({
-                    title: 'Login',
-                    message: error ? error : 'Failed to login',
-                    position: "top-right",
-                    type: "error"
-                });
+                this.removeUser();
             });
         },
         removeUser(){
             let storage = localStorage.getItem('platinumInk') ? JSON.parse(localStorage.getItem("platinumInk")) : {};
             delete storage.user ;
             localStorage.setItem('platinumInk', JSON.stringify(storage));
-            this.$store.dispatch('SET_STORAGE', storage); 
+            this.$store.dispatch('setStorage', storage); 
             this.isAuthenticated = false;
         },
         toSignupPage() {
@@ -62,7 +65,7 @@ export default {
             let storage = localStorage.getItem('platinumInk') ? JSON.parse(localStorage.getItem("platinumInk")) : {};
             storage.locale = locale;
             localStorage.setItem('platinumInk', JSON.stringify(storage));
-            this.$store.dispatch('SET_S2TORAGE', storage);
+            this.$store.dispatch('setStorage', storage);
             this.locales.forEach(item => {
                 item.activeLocale = item.locale == locale;
             })
@@ -138,7 +141,7 @@ export default {
                         storage.user = response;
                         this.user = response;
                         localStorage.setItem('platinumInk', JSON.stringify(storage));
-                        this.$store.dispatch('SET_STORAGE', storage);
+                        this.$store.dispatch('setStorage', storage);
                         this.showLoginDropdown = false;
                         this.loginMode = true;
                         this.isAuthenticated = true;
@@ -163,6 +166,7 @@ export default {
             item.activeLocale = item.locale == currentLocale;
         });
         this.initScroller();
+        this.currentRoute = this.$route.name; 
     },
     validations: {
         email: {

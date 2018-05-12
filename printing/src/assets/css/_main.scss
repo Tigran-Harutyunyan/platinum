@@ -159,7 +159,9 @@ Navigation
     opacity: 1;
     transition: margin-top 0.25s ease-in-out 0.3s, opacity ease-in-out 0.3s;
     .btn-link {
-        margin-top: -11px;
+        margin-top: -8px;
+        padding-top: 6px;
+        padding-bottom: 6px; 
         &:hover {
             background: #0f0f0f;
         }
@@ -199,6 +201,7 @@ Navigation
     }
     .lang-toggler {
         padding-top: 0;
+        margin-top: -4px;
         a:first-child {
             margin-bottom: 9px;
         }
@@ -2256,4 +2259,55 @@ menu hamburger>i:after {
 }
 .def-input.has-error {
     border-color:red
+} 
+.search-input {
+    width: 200px;
+    .el-input__inner {
+        height: 30px;
+        padding-left: 13px;
+        text-transform: uppercase; 
+        border-color: #959595 !important;
+    }
 }
+.nav li.search-holder {
+    padding-top: 0;
+    margin-top: -3px;
+    .el-input__prefix,
+    .el-input__suffix {
+        right: 7px;
+        left: auto;
+        top: -5px;
+    }
+}
+.hamburger-box {
+    width: 35px;
+}
+.hamburger:hover {
+    opacity:1
+}
+.el-select-dropdown {
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+}
+.el-popper[x-placement^=bottom] {
+    margin-top: 0;
+}
+.el-select-dropdown__item.hover, .el-select-dropdown__item:hover {
+    background-color: #ebebeb;
+    border-left: 2px solid #bba977;
+} 
+.el-select-dropdown__item {
+   border-left: 2px solid #f5f7fa; 
+}
+.el-select-dropdown__list{
+    padding:  0
+}
+.el-select-dropdown__item.selected {
+    background-color: #ebebeb;
+    border-left: 2px solid #bba977;
+    span { font-weight: 400; }
+}
+.el-popper[x-placement^=bottom] .popper__arrow, .el-popper[x-placement^=top] .popper__arrow {
+    display: none;
+}  

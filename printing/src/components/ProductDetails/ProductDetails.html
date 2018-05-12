@@ -54,42 +54,7 @@
         <p>{{ totalPrice }} </p> 
       </div>  
       <a class="btn-submit btn-invert" v-show="isThereProperties && isDirty" @click="reset"  style="margin-left:20px">cancel</a>
-      <a class="btn-submit btn-invert" v-show="isThereProperties" :class="{disabled: !isDirty}">շարունակել</a>
+      <a class="btn-submit btn-invert" v-show="isThereProperties" @click="addProductToCart()" :class="{disabled: !isDirty}">շարունակել</a>
     </div>
   </div>
 </div>
- <!--   <div class="parameters-item">
-        <h3 class="param-label">թղթի տեսակը</h3>
-        <el-select v-model="value" placeholder="Select">
-          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
-          </el-option>
-        </el-select> 
-      </div>
-      <div class="parameters-item">
-        <h3 class="param-label">տպագրվող կողմեր</h3>
-        <el-select v-model="value" placeholder="Select">
-          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
-          </el-option>
-        </el-select>
-      </div>
-      <div class="parameters-item">
-        <h3 class="param-label">կլորացված եզրեր</h3>
-        <el-select v-model="value" placeholder="Select">
-          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
-          </el-option>
-        </el-select>
-      </div>
-      <div class="parameters-item">
-        <h3 class="param-label">քանակ</h3>
-        <el-select v-model="value" placeholder="Select">
-          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
-          </el-option>
-        </el-select>
-      </div>
-      <div class="parameters-item">
-        <h3 class="param-label">տպագրման ժամկետ</h3>
-        <el-select v-model="value" placeholder="Select">
-          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
-          </el-option>
-        </el-select>
-      </div> -->

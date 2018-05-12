@@ -58,6 +58,7 @@
     }
     .btn-link {
         color: #af995a;
+        width: 207px;
         &:hover {
             background: #af995a;
             color: #f5f5f5;
@@ -74,12 +75,25 @@
     background-color: white
 }
 .product-detail-info {
-    width: calc(100% - 500px);
-    height: 300px;
+    width: calc(100% - 400px);
+    height: 205px;
     position: relative;
     p {
         color: #666666;
         font-size: 16px;
         line-height: 25px;
     } 
+}
+.product-details-inner {
+    padding-bottom: 74px;
+}
+.el-select .el-input.is-focus .el-input__inner {
+    border-color:#af995a
+}
+.el-select-dropdown__item {
+    font-size: 16px;
+    color: #666666;
+}
+.el-popper .popper__arrow, .el-popper .popper__arrow::after,.popper__arrow, .el-popper[x-placement^=bottom] .popper__arrow {
+    display: none;
 }

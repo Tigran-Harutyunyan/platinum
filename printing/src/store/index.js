@@ -8,9 +8,10 @@ export default new Vuex.Store({
         userInfo: {},
         products: {},
         categories: [],
-        apiPath: "http://api.platinuminkdesign.com/",
+        apiPath: "http://api.platinuminkdesign.com",
         storage: {},
-        customData: {}
+        customData: {},
+        sliderImages: []
     },
     getters: {
         appData: state => state.data,
@@ -20,7 +21,8 @@ export default new Vuex.Store({
         categories: state => state.categories,
         getStorage: state => state.storage,
         getApiPath: state => state.apiPath,
-        getCustomData: state => state.customData
+        getCustomData: state => state.customData,
+        getSliderImages: state => state.sliderImages,
     },
     mutations: {
         SET_DATA(state, payload) {
@@ -40,9 +42,15 @@ export default new Vuex.Store({
         },
         SET_CUSTOM_DATA(state, payload) {
             state.customData = payload;
+        },
+        UPDATE_SLIDER_IMAGES(state, payload) {
+            state.sliderImages = payload;
         }
     },
     actions: {
+        getSliderImages({ commit }, payload) {
+            commit('UPDATE_SLIDER_IMAGES', payload)
+        },
         setStorage({ commit }, payload) {
             commit('SET_STORAGE', payload)
         },
@@ -57,6 +65,13 @@ export default new Vuex.Store({
         }, data) {
             axios.get(`${this.state.apiPath}/api/getProductsList?lang=am`).then((response) => {
                 commit('updateProducts', response.data)
+            })
+        },
+        getSliderImages({
+            commit
+        }, data) {
+            axios.get(`${this.state.apiPath}/api/getSliderImages?lang=am`).then((response) => {
+                commit('updateSliderImage', response.data)
             })
         },
         getCategories({
@@ -151,6 +166,48 @@ export default new Vuex.Store({
                 })
             });
         },
+        requestLogOut({
+            commit
+        }, {
+            token
+        }) {
+            return new Promise((resolve, reject) => {
+                axios({
+                    url: `${this.state.apiPath}api/logout`,
+                    method: 'post',
+                    params: {
+                        token
+                    },
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+                    }
+                }).then(response => {
+                    resolve(response.data);
+                }).catch(function(error) {
+                    reject(error);
+                })
+            });
+        },
+        addProductToBasket({
+            commit
+        }, {
+            formData 
+        }) {
+            return new Promise((resolve, reject) => {
+                axios({
+                    url: `${this.state.apiPath}/api/addProductToBasket`,
+                    method: 'post',
+                    formData,
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+                    }
+                }).then(response => {
+                    resolve(response.data);
+                }).catch(function(error) {
+                    reject(error);
+                })
+            });
+        },  
         requestContact({
             commit
         }, {

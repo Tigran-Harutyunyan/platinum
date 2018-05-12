@@ -31,6 +31,16 @@ export default {
                 copywriteText2: "since 2010 powered by Platinum Ink Design."
             },
             readMore: 'Read more',
+            dropdown:{
+                item1: 'Home',
+                item2: 'Services',
+                item3: 'About us',
+                item4: 'Projects',
+                item5: 'WHY WORK WITH US?',
+                item6: 'OUR STAFF',
+                item7: 'CONTACT US',
+                item8: 'Order online'  
+            },
             form: {
                 send: 'Send',
                 subject: 'Subject',
@@ -144,6 +154,16 @@ export default {
                 tab5: "Օֆսեթ Տպագրություն",
                 tab6: "Լայնաֆորմատ Տպագրություն",
                 tab7: "Այլ Ծառայություններ"
+            },
+            dropdown:{
+                item1: 'Գլխավոր',
+                item2: 'Ծառայություններ',
+                item3: 'Մեր մասին',
+                item4: 'Աշխատանքներ',
+                item5: 'ինչու՞ ընտրել մեզ',
+                item6: 'մեր թիմը',
+                item7: 'Հետադարձ կապ',
+                item8: 'Պատվիրել Օնլայն'
             },
             counters: {
                 onGoingProjects: 'Ընթացիկ Նախագծեր',

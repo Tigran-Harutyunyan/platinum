@@ -53,10 +53,10 @@ export default {
                         element[0].categoryHref = "/#/category/" + element[0].category_id;
                         element.forEach(product => {
                             product.href = "/#/product/" + product.id;
-                            if (product.images.length){
+                            if (product.images.length){ 
                                 product.image = `${this.apiPath}${product.images[0].image}` 
                             } else {
-                                product.image =  '../../assets/img/products/1.png'
+                                product.image =  '../static/img/products/1.png'
                             }
                         });
                         this.productList = element;

@@ -4,69 +4,72 @@
             <a href="/#/home" class="left-floated logo-link" data-scroll-nav="section-home">
                 <div class="logo-place"></div>
             </a>
-            <ul class="nav sidemenu right-floated" id="top-nav">
-                <li><a class="menu-item active-menu" data-scroll-nav="section-home">Գլխավոր<span class="line-elem-menu"></span></a></li>
-                <li><a class="menu-item" data-scroll-nav="section-services">Ծառայություններ<span class="line-elem-menu"></span></a></li>
-                <li><a class="menu-item" data-scroll-nav="section-about-us">Մեր մասին<span class="line-elem-menu"></span></a></li>
-                <li><a class="menu-item" data-scroll-nav="section-portfolio">Աշխատանքներ<span class="line-elem-menu"></span></a></li>
-                <li><a class="menu-item" data-scroll-nav="section-contact-us">Հետադարձ կապ<span class="line-elem-menu"></span></a></li>
-                <li v-show="!isAuthenticated">
-                    <a class="btn-link" style="margin-right: -13px;" @click="showLoginDropdown=true">Մուտք
-                        <div class="login-dropdown-content" v-show="showLoginDropdown">
-                            <i class="el-icon-close" @click.stop="hideLoginDropdown"></i>
-                            <div class="login-block" v-if="loginMode">
-                            <form v-on:submit.prevent="onLogin" 
-                                 @submit="$v.email.$touch();$v.password.$touch();"> 
-                                <el-input v-model="email" :placeholder="$t('message.form.email')" :class="{'has-error': $v.email.$error}"></el-input>
-                                <div class="spacer-1"></div>
-                                <el-input v-model="password" :placeholder="$t('message.form.password')" :class="{'has-error': $v.password.$error}"></el-input>
-                                <a class="forgot-pass-link" @click="loginMode=false">{{ $t('message.form.forgotPassword') }}</a> 
-                                <input type="submit" class="btn-submit btn-invert" :value="$t('message.form.login')">
-                            </form>
+            <div class="navigation-container  right-floated">
+                <!-- <ul class="nav sidemenu" id="top-nav" v-if="currentRoute!='Home'">
+                    <li><a class="menu-item active-menu" data-scroll-nav="section-home">Գլխավոր<span class="line-elem-menu"></span></a></li>
+                    <li><a class="menu-item" data-scroll-nav="section-services">Ծառայություններ<span class="line-elem-menu"></span></a></li>
+                    <li><a class="menu-item" data-scroll-nav="section-about-us">Մեր մասին<span class="line-elem-menu"></span></a></li>
+                    <li><a class="menu-item" data-scroll-nav="section-portfolio">Աշխատանքներ<span class="line-elem-menu"></span></a></li>
+                    <li><a class="menu-item" data-scroll-nav="section-contact-us">Հետադարձ կապ<span class="line-elem-menu"></span></a></li>
+                </ul> -->
+                <ul class="nav sidemenu">
+                    <li v-show="!isAuthenticated">
+                        <a class="btn-link" style="margin-right: -13px;" @click="showLoginDropdown=true">Մուտք
+                            <div class="login-dropdown-content" v-show="showLoginDropdown">
+                                <i class="el-icon-close" @click.stop="hideLoginDropdown"></i>
+                                <div class="login-block" v-if="loginMode">
+                                    <form v-on:submit.prevent="onLogin" 
+                                        @submit="$v.email.$touch();$v.password.$touch();"> 
+                                        <el-input v-model="email" :placeholder="$t('message.form.email')" :class="{'has-error': $v.email.$error}"></el-input>
+                                        <div class="spacer-1"></div>
+                                        <el-input v-model="password" :placeholder="$t('message.form.password')" :class="{'has-error': $v.password.$error}"></el-input>
+                                        <span class="forgot-pass-link" @click="loginMode=false">{{ $t('message.form.forgotPassword') }}</span>
+                                        <input type="submit" class="btn-submit btn-invert" :value="$t('message.form.login')">
+                                    </form>
+                                </div> 
+                                <div class="forgot-pass-block" v-else>
+                                    <el-input v-model="email" :placeholder="$t('message.form.email')"></el-input>
+                                    <a class="forgot-pass-link" @click="loginMode=true">{{ $t('message.form.back') }}</a>
+                                            <button class="btn-submit btn-invert" @click="onPassRecovery">Submit</button>
+                                </div>
+                                <h5 class="on-signup">{{ $t('message.form.noProfile') }}</h5>
+                                <span href="javascript:void(0)" @click="toSignupPage" class="create-link">{{ $t('message.form.createPage') }}</span>
                             </div>
-                            <div class="forgot-pass-block" v-else>
-                               <el-input v-model="email" :placeholder="$t('message.form.email')"></el-input>
-                               <a class="forgot-pass-link" @click="loginMode=true">{{ $t('message.form.back') }}</a> 
-                               <button class="btn-submit btn-invert" @click="onPassRecovery">Submit</button>
+                         </a>
+                    </li>
+                    <li v-show="!isAuthenticated"><a class="btn-link btn-bright" href="javascript:void(0)" @click="toSignupPage">Գրանցվել</a></li>
+                    <li v-show="isAuthenticated"><a class="btn-link btn-bright" href="javascript:void(0)" @click="logout">ելք</a></li>
+                    <li class="search-holder">
+                        <el-input class="search-input" placeholder="Փնտրել" v-model="search_key">
+                            <i slot="prefix" class="el-input__icon el-icon-search"></i>
+                        </el-input>
+                    </li>
+                    <!-- LOCALE TOGGLER -->
+                    <li class="lang-toggler">
+                        <a href="javascript:void(0)" v-for="item in locales" @click="toggleLang(item.locale)" :class="{'active-lang':item.activeLocale}" class="menu-item-lang">{{ item.localeName }}</a>
+                    </li>
+                    <!-- v-if="currentRoute=='Home'" -->
+                    <li>
+                        <div class="hamburger hamburger--slider" :class="{'is-active':isHamburgerActive}">
+                            <div class="hamburger-box" @click="isHamburgerActive=!isHamburgerActive">
+                                <div class="hamburger-inner"></div>
                             </div>
-                            <h5 class="on-signup">{{ $t('message.form.noProfile') }}</h5>
-                            <a href="javascript:void(0)" @click="toSignupPage" class="create-link">{{ $t('message.form.createPage') }}</a>
+                            <div class="nav-dropdown" v-show="isHamburgerActive">
+                                <ul class="nav sidemenu">
+                                    <li><a class="menu-item" data-scroll-nav="section-home">{{ $t('message.dropdown.item1') }}</a></li>
+                                    <li><a class="menu-item" data-scroll-nav="section-services">{{ $t('message.dropdown.item2') }}</a></li>
+                                    <li><a class="menu-item" data-scroll-nav="section-about-us">{{ $t('message.dropdown.item3') }}</a></li>
+                                    <li><a class="menu-item" data-scroll-nav="section-portfolio">{{ $t('message.dropdown.item4') }}</a></li>
+                                    <li><a class="menu-item" data-scroll-nav="section-about-us">{{ $t('message.dropdown.item5') }}</a></li>
+                                    <li><a class="menu-item" data-scroll-nav="section-about-us">{{ $t('message.dropdown.item6') }}</a></li>
+                                    <li><a class="menu-item" data-scroll-nav="section-contact-us">{{ $t('message.dropdown.item7') }}</a></li>
+                                    <li><a class="menu-item" >{{ $t('message.dropdown.item8') }}<span class="line-elem-menu"></span></a></li>
+                                </ul> 
+                            </div>
                         </div>
-                    </a>
-                </li>
-                <li v-show="!isAuthenticated"><a class="btn-link btn-bright" href="javascript:void(0)" @click="toSignupPage">Գրանցվել</a></li>
-                <li v-show="isAuthenticated"><a class="btn-link btn-bright" href="javascript:void(0)" @click="logout">ելք</a></li>
-                <!-- LOCALE TOGGLER -->
-                <li class="lang-toggler">
-                    <a href="javascript:void(0)" v-for="item in locales" @click="toggleLang(item.locale)" :class="{'active-lang':item.activeLocale}" class="menu-item-lang">{{ item.localeName }}</a>
-                </li>
-            </ul>
-            <content class="menu-toggler-container">
-                <menu>
-                    <label for="trigger">
-                            <input id="trigger" type="checkbox" />
-                            <section class="drawer-list">
-                                <ul>
-                                    <li><a class="nav-item active-menu" data-scroll-nav="section-home">Գլխավոր</a></li>
-                                    <li><a class="nav-item" data-scroll-nav="section-services">Ծառայություններ</a></li>
-                                    <li><a class="nav-item" data-scroll-nav="section-about-us">Մեր մասին </a></li>
-                                    <li><a class="nav-item" data-scroll-nav="section-portfolio">Աշխատանքներ</a></li>
-                                    <li><a class="nav-item" data-scroll-nav="section-contact-us">Հետադարձ կապ</a></li>
-                                    <li class="lang-selector">
-                                        <a class="nav-item" href="http://platinuminkdesign.com/en.html">ENG </a>
-                                        <a class="nav-item active-lang" href="http://platinuminkdesign.com/hy.html">ՀԱՅ</a>
-                                    </li>
-                                </ul>
-                            </section>    
-                          <!--   <hamburger> <i></i>
-                                <text>
-                                    <close> </close>
-                                    <open> </open>
-                                </text>
-                            </hamburger> -->
-                        </label>
-                </menu>
-            </content>
+                    </li>
+                </ul>
+            </div> 
         </div>
     </nav>
 </header>
