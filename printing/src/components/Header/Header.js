@@ -55,6 +55,7 @@ export default {
             localStorage.setItem('platinumInk', JSON.stringify(storage));
             this.$store.dispatch('setStorage', storage);
             this.isAuthenticated = false;
+            EventBus.$emit('exitCart');
         },
         toSignupPage() {
             this.showLoginDropdown = false;

@@ -1,8 +1,8 @@
 <div class="products-main">
     <div class="bordered-block br-cart">
-        <h3 class="product-category-title">զամբյուղ</h3>
+        <h3 class="product-category-title">{{ $t('message.cart') }}</h3>
         <div class="product-details-inner">
-            <div class="cart-top">
+            <div class="cart-top" v-for="(item, index) in cartItems" :key="index">
                 <div class="cart-images">
                     <div class="cart-img-container">
                         <img class="cart-img" src="http://via.placeholder.com/200x200"><h5>դիմաց</h5> 

@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from '../store';
 import Products from '../components/Products/Products.vue'
 import ProductDetails from '../components/ProductDetails/ProductDetails.vue'
 import Cart from '../components/Cart/Cart.vue'
@@ -8,7 +9,16 @@ import Orders from '../components/Orders/Orders.vue'
 import Home from '../components/Home/Home.vue'
 import Shopping from '../components/Shopping/Shopping.vue'
 import Portfolio from '../components/Portfolio/Portfolio.vue'
-Vue.use(Router)
+Vue.use(Router);
+
+const shouldBeAuthed = async (to, from, next) => {
+    let authorized = store.state.storage.user ? true : false;  
+    if (authorized) {
+        next();
+    } else {
+        next('/category/1');
+    }
+};
 
 export default new Router({
     routes: [{
@@ -28,7 +38,8 @@ export default new Router({
                 {
                     path: '/cart',
                     name: 'Cart',
-                    component: Cart
+                    component: Cart,
+                    beforeEnter: shouldBeAuthed
                 },
                 {
                     path: '/SignUp',
@@ -38,7 +49,8 @@ export default new Router({
                 {
                     path: '/orders',
                     name: 'Orders',
-                    component: Orders
+                    component: Orders,
+                    beforeEnter: shouldBeAuthed
                 } 
                 
             ]
@@ -55,4 +67,4 @@ export default new Router({
         } ,
         { path: '*', redirect: '/home' }
     ]
-})
+});

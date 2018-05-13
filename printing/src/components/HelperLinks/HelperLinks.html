@@ -21,7 +21,7 @@
     <div>
         <span class="icon"></span>
         <div class="link-text">
-            <span style="margin-top: 12px;"> {{ $t('message.cart') }}</span>
+            <span style="margin-top: 12px;" @click="$router.push({name:'Cart'})">{{ $t('message.cart') }}</span>
         </div>
         <div class="cart-info">0</div>
     </div>

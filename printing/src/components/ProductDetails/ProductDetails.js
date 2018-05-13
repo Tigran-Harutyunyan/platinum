@@ -91,6 +91,7 @@ export default {
                                 position: "top-right",
                                 type: "success"
                             });
+                            this.$router.push({name:'Cart'});
                         }
                     }).catch((error) => {
                         this.isLoading = false;

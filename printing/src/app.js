@@ -61,9 +61,13 @@ export default {
     data() {
         return {};
     },
-   /*  watch: {
-        $route(to, from) {}
-    }, */
+    watch: {
+        '$route': function(to, from) { 
+            if (to.name=='Cart'){
+                $('html').stop().animate({ scrollTop: 400 }, 700, 'swing', function() {});
+            } 
+        }
+    },
     methods: {
         
     },
