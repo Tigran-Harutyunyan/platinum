@@ -90,7 +90,7 @@ Layout styles
     width: 235px;
     height: 50px;
     background-position: -38px -128px;
-    margin-top: 9px;
+    margin-top: 6px ;
 }
 .login-dropdown-content {
     position: absolute;
@@ -101,11 +101,13 @@ Layout styles
     border: 1px solid #b3b3b3;
     border-radius: 23px;
     left: 0;
+    margin-top: -7px;
     padding: 27px 34px;
     cursor: initial;
     .el-input__inner {
         height: 34px;
-        width: 180px
+        width: 180px;
+        border: 1px solid #b3b3b3 
     } 
     .btn-submit {
         float: none;
@@ -123,8 +125,9 @@ Layout styles
     z-index: 101;
     position: fixed;
     top: 0;
-    height: 70px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    height: 68px;
+    border-bottom: 1px solid #373737;
+    //border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .normal-header .nav-bar {
@@ -155,19 +158,23 @@ Navigation
     margin: 0;
     padding: 0;
     list-style: none;
-    margin-top: 23px;
+    margin-top: 21px;
     opacity: 1;
     transition: margin-top 0.25s ease-in-out 0.3s, opacity ease-in-out 0.3s;
     .btn-link {
         margin-top: -8px;
         padding-top: 6px;
-        padding-bottom: 6px; 
+        padding-bottom: 6px;  
+        color: #959595;
+        border-width: 1px;
+        border-color: #959595;
         &:hover {
             background: #0f0f0f;
         }
     }
     .btn-link.btn-bright {
         background: #af995a;
+        border-color: #af995a !important;
         color: #f5f5f5;
         &:hover {
             color: #f5f5f5;
@@ -2110,6 +2117,10 @@ menu hamburger>i:after {
     border: 1px solid #af995a;
     background: transparent;
     border-radius: 30px;
+    height: 30px;
+}
+.el-input__icon {
+    line-height: 33px;
 }
 .el-checkbox__inner {
     border: 1px solid #af995a;
@@ -2311,3 +2322,15 @@ menu hamburger>i:after {
 .el-popper[x-placement^=bottom] .popper__arrow, .el-popper[x-placement^=top] .popper__arrow {
     display: none;
 }  
+.list-container { 
+    .el-checkbox__label {
+        line-height: 29px !important;
+    }
+}
+.banner-container {
+    .el-carousel__item {
+         background-size :  cover ;
+         background-position :  center;
+         background-repeat: no-repeat;  
+     }
+}

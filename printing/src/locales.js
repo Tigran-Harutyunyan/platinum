@@ -31,7 +31,7 @@ export default {
                 copywriteText2: "since 2010 powered by Platinum Ink Design."
             },
             readMore: 'Read more',
-            dropdown:{
+            dropdown: {
                 item1: 'Home',
                 item2: 'Services',
                 item3: 'About us',
@@ -39,7 +39,7 @@ export default {
                 item5: 'WHY WORK WITH US?',
                 item6: 'OUR STAFF',
                 item7: 'CONTACT US',
-                item8: 'Order online'  
+                item8: 'Order online'
             },
             form: {
                 send: 'Send',
@@ -47,9 +47,9 @@ export default {
                 email: 'Email',
                 message: 'Message',
                 password: "Password",
-                forgotPassword: "Forgot password",
+                forgotPassword: "Forgot password?",
                 noProfile: "Don`t have a profile?",
-                createPage:"Sign up",
+                createPage: "Sign up",
                 login: "Login",
                 back: "Back"
             },
@@ -61,6 +61,8 @@ export default {
             },
             seeMore: 'See more',
             more: 'More',
+            search: 'Search',
+            logout: 'Logout',
             comments: 'Comments',
             staff: 'our staff',
             addComment: 'Add a comment',
@@ -68,6 +70,27 @@ export default {
             workingHoursInfo: 'Working hours ',
             workingHours: '9am - 7pm',
             orderOnline: 'order Online',
+            uploadFile: 'upload your file',
+            or: 'or',
+            uploadOurselves: 'we will provide',
+            sizeRestriction: 'files with a size less than 25mb',
+            printingCost: 'Printing cost',
+            myOrders: 'My orders',
+            myFiles: "My files",
+            editProfile:"Edit profile",
+            personalPage: 'Profile',
+            uploadOurselves: 'We will upload',
+            cancel: 'Cancel',
+            continue: 'Continue',
+            cart: 'Cart',
+            your: 'Your',
+            help: 'Help',
+            products: 'Products',
+            orderNow: 'order now',
+            select: 'Select',
+            uploadSamples: 'Upload samples',
+            howToUseIt: 'how to use',
+            description: 'description',
             bannerText: {
                 text1: 'Create your desired design and',
                 text2: 'quality printing with us'
@@ -133,7 +156,7 @@ export default {
             }
         }
     },
-    hy: {
+    am: {
         message: {
             aboutUs: {
                 title: "Մեր մասին",
@@ -155,7 +178,7 @@ export default {
                 tab6: "Լայնաֆորմատ Տպագրություն",
                 tab7: "Այլ Ծառայություններ"
             },
-            dropdown:{
+            dropdown: {
                 item1: 'Գլխավոր',
                 item2: 'Ծառայություններ',
                 item3: 'Մեր մասին',
@@ -189,7 +212,7 @@ export default {
                 password: "Գաղտնաբառ",
                 forgotPassword: "Մոռացե՞լ եք գաղտնաբառը",
                 noProfile: "Չունե՞ք Անձնական էջ",
-                createPage:"Ստեղծել անձնական էջ",
+                createPage: "Ստեղծել անձնական էջ",
                 login: "մուտք",
                 back: "ետ"
             },
@@ -212,7 +235,29 @@ export default {
             addComment: 'Ավելացնել գրառում',
             ratingInfo: 'Գործընկերների գնահատականը մեր մասին',
             workingHoursInfo: 'Մենք հասանելի ենք',
+            search: 'Փնտրել',
+            uploadFile: 'բեռնել ձեր ֆայլը',
+            or: 'կամ',
+            cart: 'զամբյուղ',
+            your: 'Ձեր',
+            help: 'օգնություն',
+            myOrders: 'Իմ պատվերները',
+            myFiles: "Իմ ֆայլերը",
+            editProfile:"Փոխել անձնական տվյալները",
+            personalPage: 'Անձնական էջը',
+            uploadOurselves: 'մենք կպատրաստենք',
+            sizeRestriction: '25mb- ից պակաս չափով ֆայլեր',
+            printingCost: 'Տպագրման արժեք',
+            cancel: 'չեղարկել',
+            continue: 'շարունակել',
+            products: 'ապրանքներ',
+            orderNow: 'պատվիրեք հիմա',
+            uploadSamples: 'ԲԵՌՆԵԼ ՕՐԻՆԱԿՆԵՐԸ',
+            howToUseIt: 'ԻՆՉՊԵՍ ՕԳՏԱԳՈՐԾԵԼ',
+            description: 'ՆԿԱՐԱԳԻՐ',
+            logout: 'ելք',
             workingHours: '09:00 - 19:00',
+            select: 'Ընտրեք',
             services: {
                 title: "ԾԱՌԱՅՈՒԹՅՈՒՆՆԵՐ",
                 design: "Դիզայն",

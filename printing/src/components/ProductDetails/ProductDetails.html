@@ -2,12 +2,13 @@
   <div class="bordered-block" v-if="product.properties">
     <h3 class="product-category-title">{{ productInfo.name }}</h3>
     <div class="product-details-inner" :class="{'single-image': product.images.length==1}">
-      <el-carousel v-if="product.images" :autoplay="false" trigger="click" indicator-position="outside"  arrow="never" class="product-slider">
+      <el-carousel v-if="product.images.length" :autoplay="false" trigger="click" indicator-position="outside"  arrow="never" class="product-slider">
         <el-carousel-item v-for="(item, index) in product.images" :key="index">
            <img :src="item.image" alt="">
         </el-carousel-item>
       </el-carousel>
-      <div class="product-detail-info">
+      <img src="../../../static/img/products/1.png" class="no-image-palceholder" alt="No image" v-else>
+      <div class="product-detail-info" >
         <p> {{ productInfo.description }}
         </p>
         <div class="choices">
@@ -17,10 +18,10 @@
             action="https://jsonplaceholder.typicode.com/posts/"
             :on-change="handleChange"
             :auto-upload="false" :on-remove="handleRemove">
-            <el-button size="small" type="primary" class="btn-submit btn-invert">բեռնել ձեր ֆայլը</el-button>
+            <el-button size="small" type="primary" class="btn-submit btn-invert">{{ $t('message.uploadFile') }}</el-button>
          </el-upload>
-          <span>կամ</span>
-          <a class="btn-link">մենք կպատրաստենք </a>
+          <span>{{ $t('message.or') }}</span>
+          <a class="btn-link">{{ $t('message.uploadOurselves')}} </a>
         </div>
       </div>
     </div>
@@ -37,24 +38,24 @@
         action="https://jsonplaceholder.typicode.com/posts/"
         :on-change="handleChange"
         :file-list="fileList"  :auto-upload="false" :on-remove="handleRemove">
-        <el-button size="small" type="primary" class="btn-submit btn-invert">բեռնել ֆայլ</el-button>
-        <div slot="tip" class="el-upload__tip">files with a size less than 25mb</div>
+        <el-button size="small" type="primary" class="btn-submit btn-invert">{{ $t('message.uploadFile')}}</el-button>
+        <div slot="tip" class="el-upload__tip">{{ $t('message.sizeRestriction')}}</div>
       </el-upload>
     </div>
     <div class="right-block">
       <div class="parameters-item" v-for="(value, key) in product.properties">
         <h3 class="param-label">{{ key }}</h3> 
-        <el-select v-model="value.selected" placeholder="Select"> 
+        <el-select v-model="value.selected" :placeholder="$t('message.select')"> 
           <el-option v-for="(item, key) in value.options" :key="key" :label="item.name" :value="item.price">
           </el-option>
         </el-select>
       </div> 
       <div class="summary-block" v-show="isThereProperties">
-        <h3 class="param-label">Տպագրման արժեք:</h3> 
+        <h3 class="param-label">{{ $t('message.printingCost')}}:</h3> 
         <p>{{ totalPrice }} </p> 
       </div>  
-      <a class="btn-submit btn-invert" v-show="isThereProperties && isDirty" @click="reset" style="margin-left:20px">չեղարկել</a>
-      <a class="btn-submit btn-invert" v-show="isThereProperties" :disabled="isLoading" @click="addProductToCart()" :class="{disabled: !isDirty}">շարունակել</a>
+      <a class="btn-submit btn-invert" v-show="isThereProperties && isDirty" @click="reset" style="margin-left:20px">{{ $t('message.cancel')}}</a>
+      <a class="btn-submit btn-invert" v-show="isThereProperties" :disabled="isLoading" @click="addProductToCart()" :class="{disabled: !isDirty}">{{ $t('message.continue')}}</a>
     </div>
   </div>
 </div>

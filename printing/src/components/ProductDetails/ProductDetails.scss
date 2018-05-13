@@ -42,8 +42,7 @@
     padding-bottom: 47px;
 }
 .choices {
-    position: absolute;
-    bottom: 0;
+    padding-top: 20px;
     text-transform: uppercase;
     display: flex; 
     span {
@@ -75,13 +74,16 @@
     background-color: white
 }
 .product-detail-info {
-    width: calc(100% - 400px);
-    height: 205px;
-    position: relative;
+    width: calc(100% - 400px); 
+    position: relative; 
     p {
         color: #666666;
         font-size: 16px;
         line-height: 25px;
+        max-height: 420px;
+        overflow-y: auto;
+        min-height: 150px;
+        white-space: pre-line;
     } 
 }
 .product-details-inner {
@@ -96,4 +98,9 @@
 }
 .el-popper .popper__arrow, .el-popper .popper__arrow::after,.popper__arrow, .el-popper[x-placement^=bottom] .popper__arrow {
     display: none;
+}
+.no-image-palceholder {
+    width: 300px; 
+    height: 206px;
+    margin-right: 100px;
 }

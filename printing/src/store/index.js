@@ -9,7 +9,7 @@ export default new Vuex.Store({
         products: {},
         categories: [],
         apiPath: "http://api.platinuminkdesign.com",
-        storage: {},
+        storage: {locale:"en"},
         customData: {},
         sliderImages: []
     },
@@ -47,10 +47,7 @@ export default new Vuex.Store({
             state.sliderImages = payload;
         }
     },
-    actions: {
-        getSliderImages({ commit }, payload) {
-            commit('UPDATE_SLIDER_IMAGES', payload)
-        },
+    actions: { 
         setStorage({ commit }, payload) {
             commit('SET_STORAGE', payload)
         },
@@ -63,21 +60,30 @@ export default new Vuex.Store({
         getProducts({
             commit
         }, data) {
-            axios.get(`${this.state.apiPath}/api/getProductsList?lang=am`).then((response) => {
+            axios.get(`${this.state.apiPath}/api/getProductsList?lang=${this.state.storage.locale}`).then((response) => {
                 commit('updateProducts', response.data)
             })
         },
         getSliderImages({
             commit
         }, data) {
-            axios.get(`${this.state.apiPath}/api/getSliderImages?lang=am`).then((response) => {
-                commit('updateSliderImage', response.data)
+            axios.get(`${this.state.apiPath}/api/getSliderImages?lang=${this.state.storage.locale}`).then((response) => {
+               if (Array.isArray(response.data)){
+                    response.data.forEach(element => {
+                        element.imageStyle = {
+                            'background-image': `url(${this.state.apiPath}${element.image})`  
+                        }
+                        element.image = `${this.state.apiPath}${element.image}`;
+                        element.productLink = `/#/product${element.product_id}`
+                    }); 
+                    commit('UPDATE_SLIDER_IMAGES', response.data)
+                } 
             })
         },
         getCategories({
             commit
         }, data) {
-            axios.get(`${this.state.apiPath}/api/getCategories?lang=am`).then((response) => {
+            axios.get(`${this.state.apiPath}/api/getCategories?lang=${this.state.storage.locale}`).then((response) => {
                 commit('updateCategories', response.data)
             })
         },
@@ -206,6 +212,26 @@ export default new Vuex.Store({
                 })
             });
         },  
+        getBasketProducts({
+            commit
+        }, {
+            formData 
+        }) { 
+            return new Promise((resolve, reject) => {
+                axios({
+                    url: `${this.state.apiPath}/api/getBasketProducts?lang=am`,
+                    method: 'post',
+                    data: formData,
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+                    }
+                }).then(response => {
+                    resolve(response.data);
+                }).catch(response =>{
+                    reject(response);
+                })
+            });
+        },   
         requestContact({
             commit
         }, {
@@ -261,7 +287,7 @@ export default new Vuex.Store({
         }) {
             return new Promise((resolve, reject) => {
                 axios({
-                    url: `${this.state.apiPath}/api/getProductById?id=${id}`,
+                    url: `${this.state.apiPath}/api/getProductById?id=${id}&lang=${this.state.storage.locale}`,
                     method: 'get',
                 }).then(response => {
                     resolve(response.data);

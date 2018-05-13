@@ -7,19 +7,19 @@ export default {
     data() {
         return {
             activeTab: 1,
-            tabs: [{
+            tabs: [{  
                     id: 1,
-                    name: 'բեռնել օրինակները',
+                    name: 'message.orderNow',
                     isActive: true
                 },
                 {
                     id: 2,
-                    name: 'ինչպես օգտագործել',
+                    name: 'message.uploadSamples',
                     isActive: false
                 },
                 {
                     id: 3,
-                    name: 'նկարագիր',
+                    name: 'message.howToUseIt',
                     isActive: false
                 }
             ]

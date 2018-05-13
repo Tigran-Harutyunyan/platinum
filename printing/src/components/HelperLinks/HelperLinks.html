@@ -2,26 +2,26 @@
     <div>
         <span class="icon"></span>
         <div class="link-text">
-            <span> օգնությութ</span>
-            <a class="secondary" href="">+374 99 76 66 64</a>
+            <span>{{ $t('message.help') }}</span>
+            <a class="secondary" href="tel:+37499766664">+374 99 76 66 64</a>
         </div>
     </div>
     <div id="personal-page">
         <span class="icon"></span>
         <div class="link-text" >
-            <span>Ձեր</span>
-            <span class="secondary">Անձնական էջը</span>
+            <span>{{ $t('message.your') }}</span>
+            <span class="secondary"> {{ $t('message.personalPage') }}</span>
             <ul class="personal-page-dropdown">
-                <li><a href="javascript:void(0)">Իմ պատվերները</a></li>
-                <li class="active-link"><a href="javascript:void(0)">Իմ ֆայլերը</a></li>
-                <li><a href="javascript:void(0)">Փոխել անձնական տվյալները</a></li>
+                <li><a href="javascript:void(0)">{{ $t('message.myOrders') }}</a></li>
+                <li class="active-link"><a href="javascript:void(0)">{{ $t('message.myFiles') }}</a></li>
+                <li><a href="javascript:void(0)">{{ $t('message.editProfile') }}</a></li>
             </ul>
         </div> 
     </div>
     <div>
         <span class="icon"></span>
         <div class="link-text">
-            <span style="margin-top: 12px;">զամբյուղ</span>
+            <span style="margin-top: 12px;"> {{ $t('message.cart') }}</span>
         </div>
         <div class="cart-info">0</div>
     </div>

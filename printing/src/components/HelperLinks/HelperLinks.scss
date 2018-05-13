@@ -82,9 +82,11 @@
     }
     >div:first-child {
         .icon {
-            width: 106px;
+            width: 58px;
             height: 39px;
             background-position: -436px -126px;
+            margin-right: 5px;
+            flex-shrink: 0;
         }
     }
     >div:nth-child(2) {

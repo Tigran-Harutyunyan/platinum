@@ -57,7 +57,7 @@
                         </table>
                     </div>
                     <div class="right">
-                        <table class="table-2">
+                        <!--  <table class="table-2">
                             <tr>
                                 <td>Հայտեր ստանալ</td>
                                 <td class="checked-input">
@@ -74,7 +74,15 @@
                                 <vue-recaptcha class="recaptcha-element" sitekey="6LcGJ1YUAAAAAJ2-9OwJPxB8KY1Jtc0OpXwFjglL" ref="recaptcha" @verify="onVerify" @expired="onExpired">
                                 </vue-recaptcha>
                             </tr>
-                        </table>
+                        </table> -->
+                        <div class="list-container">
+                            <ul>
+                                <li><!-- <span>Հայտեր ստանալ</span>  --><el-checkbox v-model="receive_promotions">Այո, ես ուզում եմ զեղչեր եւ ամենավերջին ապրանքի մասին էլեկտրոնային փոստով:</el-checkbox></li>
+                                <li><!-- <span>Պայմաններ եւ դրույթներ</span> --><el-checkbox v-model="agree">Այո, համաձայն եմ պայմաններին:</el-checkbox></li>
+                            </ul> 
+                        </div>
+                        <vue-recaptcha class="recaptcha-element" sitekey="6LcGJ1YUAAAAAJ2-9OwJPxB8KY1Jtc0OpXwFjglL" ref="recaptcha" @verify="onVerify" @expired="onExpired">
+                        </vue-recaptcha>
                         <p class="agreement-text">Անձնական էջ ստեղծելով դուք համաձայնվում եք <i>Platinum ink design-ի</i> Ընդհանուր դրույթներին եւ պայմաններին ինչպես նաեվ համաձայնվում եք ստանալ էլեկտրոնային հաղորդագրություն նոր առաջարկների եվ ակցիաների վերաբերյալ
                         </p>
                         <input type="submit" class="btn-submit btn-invert" value="ստեղծել էջ">

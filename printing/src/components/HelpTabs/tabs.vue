@@ -4,7 +4,7 @@
           v-for="tab in tabs" 
           :class="{'active-tab': tab.isActive }" 
           @click="selectTab(tab)"> <i></i>
-          {{ tab.name }}
+          {{ $t( tab.name )}}  
       </div> 
     </div>   
  </template>

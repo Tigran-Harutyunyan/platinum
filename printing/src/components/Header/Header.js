@@ -17,7 +17,7 @@ export default {
             locales: [{
                     localeName: 'ՀԱՅ',
                     activeLocale: false,
-                    locale: 'hy'
+                    locale: 'am'
                 },
                 {
                     localeName: 'ENG',
@@ -47,7 +47,7 @@ export default {
                 });
             } else {
                 this.removeUser();
-            } 
+            }
         },
         removeUser() {
             let storage = localStorage.getItem('platinumInk') ? JSON.parse(localStorage.getItem("platinumInk")) : {};
@@ -61,7 +61,7 @@ export default {
             this.loginMode = true;
             this.$router.push({ name: 'SignUp' });
         },
-        hideLoginDropdown() { 
+        hideLoginDropdown() {
             this.showLoginDropdown = false;
             this.loginMode = true
         },
@@ -69,14 +69,14 @@ export default {
 
         },
         toggleLang(locale) {
-            this.$root._i18n.locale = locale;
+            //this.$root._i18n.locale = locale;
             let storage = localStorage.getItem('platinumInk') ? JSON.parse(localStorage.getItem("platinumInk")) : {};
-            storage.locale = locale;
-            localStorage.setItem('platinumInk', JSON.stringify(storage));
-            this.$store.dispatch('setStorage', storage);
-            this.locales.forEach(item => {
-                item.activeLocale = item.locale == locale;
-            })
+            if (locale != storage.locale) {
+                storage.locale = locale;
+                localStorage.setItem('platinumInk', JSON.stringify(storage));
+                this.$store.dispatch('setStorage', storage);
+                location.reload();
+            } 
         },
         initScroller() {
             var sectionsController = new ScrollMagic.Controller();

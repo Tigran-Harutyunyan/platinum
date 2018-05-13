@@ -4,14 +4,14 @@ export default {
         return {}
     },
     computed:{ 
-        slideImage() {
+        sliderImages() {
             return this.$store.getters.getSliderImages;
         } 
     },
     mounted() {
         let sliderImages = this.$store.getters.sliderImages; 
         if (!sliderImages) {
-           // this.$store.dispatch('getSliderImages');
+           this.$store.dispatch('getSliderImages');
         } 
     }
 }

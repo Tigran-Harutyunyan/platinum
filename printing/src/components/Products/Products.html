@@ -5,8 +5,12 @@
             <img :src="product.image">
             <div class="product-descr">
                 <span class="product-name">{{ product.name }}</span>
-                <span class="size">{{ product.size }}</span>
-                <span class="product-pricing">{{ product.short_description }} <i>{{ product.price }}</i> դրամից</span>
+                <div class="size">{{ product.size }}</div> 
+                <div class="product-pricing">
+                    <div class="short-description">{{ product.short_description }} </div>
+                    <i>{{ product.price }}</i> 
+                    <div class="part-3">դրամից</div>
+                </div>
             </div>
         </a> 
     </div> 
