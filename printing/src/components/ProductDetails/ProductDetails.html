@@ -53,8 +53,8 @@
         <h3 class="param-label">Տպագրման արժեք:</h3> 
         <p>{{ totalPrice }} </p> 
       </div>  
-      <a class="btn-submit btn-invert" v-show="isThereProperties && isDirty" @click="reset"  style="margin-left:20px">cancel</a>
-      <a class="btn-submit btn-invert" v-show="isThereProperties" @click="addProductToCart()" :class="{disabled: !isDirty}">շարունակել</a>
+      <a class="btn-submit btn-invert" v-show="isThereProperties && isDirty" @click="reset" style="margin-left:20px">չեղարկել</a>
+      <a class="btn-submit btn-invert" v-show="isThereProperties" :disabled="isLoading" @click="addProductToCart()" :class="{disabled: !isDirty}">շարունակել</a>
     </div>
   </div>
 </div>
