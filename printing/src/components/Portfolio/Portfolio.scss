@@ -1,0 +1,26 @@
+ .portfolio .main-section {
+     min-height: 700px;
+     margin-top: 60px;
+ }
+ 
+ .grid-item {
+     width: 350px;
+     height: 420px;
+     background: black;
+     margin-bottom: 16px;
+ }
+ 
+ .grid .grid-item:nth-child(3n),.grid .grid-item:nth-child(5n),.grid .grid-item:nth-child(8n) {
+    height: 350px;
+ }
+ .grid {
+    margin: 0 auto;
+ }
+ @media only screen and (max-width: 1470px) {
+    .grid-item {
+        width: 32.4%
+    }
+    .grid .grid-item:nth-child(3n),.grid .grid-item:nth-child(5n),.grid .grid-item:nth-child(8n) {
+        height: 350px;
+     }
+}

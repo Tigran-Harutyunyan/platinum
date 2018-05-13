@@ -54,8 +54,7 @@ export default {
                     //.addIndicators()  
                     .addTo(controllerBanner);
             }
-        },
-    
+        }, 
         initReviews() {
             var reviewsController = new ScrollMagic.Controller({
                 globalSceneOptions: {
@@ -71,8 +70,7 @@ export default {
                     ease: Linear.easeNone
                 })
                 .addTo(reviewsController);
-        },
-       
+        }, 
         initPartnersSlider() {  
             $('#partners-slider').owlCarousel({
                 loop: true,

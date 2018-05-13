@@ -117,7 +117,7 @@ export default new Vuex.Store({
         }) {
             return new Promise((resolve, reject) => {
                 axios({
-                    url: `${this.state.apiPath}api/logout`,
+                    url: `${this.state.apiPath}/api/logout`,
                     method: 'post',
                     params: {
                         token
@@ -169,15 +169,13 @@ export default new Vuex.Store({
         requestLogOut({
             commit
         }, {
-            token
+            formData
         }) {
             return new Promise((resolve, reject) => {
                 axios({
-                    url: `${this.state.apiPath}api/logout`,
+                    url: `${this.state.apiPath}/api/logout`,
                     method: 'post',
-                    params: {
-                        token
-                    },
+                    data: formData,
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
                     }
@@ -192,19 +190,19 @@ export default new Vuex.Store({
             commit
         }, {
             formData 
-        }) {
+        }) { 
             return new Promise((resolve, reject) => {
                 axios({
                     url: `${this.state.apiPath}/api/addProductToBasket`,
                     method: 'post',
-                    formData,
+                    data: formData,
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
                     }
                 }).then(response => {
                     resolve(response.data);
-                }).catch(function(error) {
-                    reject(error);
+                }).catch(response =>{
+                    reject(response);
                 })
             });
         },  
@@ -217,7 +215,7 @@ export default new Vuex.Store({
         }) {
             return new Promise((resolve, reject) => {
                 axios({
-                    url: `${this.state.apiPath}api/sendEmail`,
+                    url: `${this.state.apiPath}/api/sendEmail`,
                     method: 'post',
                     params: {
                         contact_email,
@@ -241,7 +239,7 @@ export default new Vuex.Store({
         }) {
             return new Promise((resolve, reject) => {
                 axios({
-                    url: `${this.state.apiPath}api/addSubscriber`,
+                    url: `${this.state.apiPath}/api/addSubscriber`,
                     method: 'post',
                     params: {
                         contact_email_subscribe
@@ -278,7 +276,7 @@ export default new Vuex.Store({
             if (Object.keys(this.state.customData).length === 0) {
                 return new Promise((resolve, reject) => {
                     axios({
-                        url: `${this.state.apiPath}api/getCustomData`,
+                        url: `${this.state.apiPath}/api/getCustomData`,
                         method: 'get',
                     }).then(response => {
                         resolve(response.data);

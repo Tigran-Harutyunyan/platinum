@@ -4,10 +4,10 @@ import Products from '../components/Products/Products.vue'
 import ProductDetails from '../components/ProductDetails/ProductDetails.vue'
 import Cart from '../components/Cart/Cart.vue'
 import SignUp from '../components/SignUp/SignUp.vue'
- import Orders from '../components/Orders/Orders.vue'
+import Orders from '../components/Orders/Orders.vue'
 import Home from '../components/Home/Home.vue'
 import Shopping from '../components/Shopping/Shopping.vue'
-
+import Portfolio from '../components/Portfolio/Portfolio.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -34,12 +34,13 @@ export default new Router({
                     path: '/SignUp',
                     name: 'SignUp',
                     component: SignUp
-                }, 
+                },
                 {
                     path: '/orders',
                     name: 'Orders',
                     component: Orders
-                }
+                } 
+                
             ]
         },
         {
@@ -47,5 +48,11 @@ export default new Router({
             name: 'Home',
             component: Home
         },
+        {
+            path: '/portfolio',
+            name: 'Portfolio',
+            component: Portfolio
+        } ,
+        { path: '*', redirect: '/home' }
     ]
 })

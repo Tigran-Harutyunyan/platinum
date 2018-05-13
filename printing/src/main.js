@@ -12,7 +12,7 @@ Vue.use(Vuelidate);
 import VueI18n from 'vue-i18n';
 import messages from './locales';
 Vue.use(VueI18n);
-
+ 
 
 // Create VueI18n instance with options
 let storage = localStorage.getItem('platinumInk') ? JSON.parse(localStorage.getItem("platinumInk")) : {}; 

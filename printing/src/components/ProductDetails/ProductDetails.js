@@ -1,3 +1,4 @@
+import { EventBus } from '../../event-bus.js';
 export default {
     data() {
         return {
@@ -41,45 +42,68 @@ export default {
     },
     methods: {
         addProductToCart() {
-            let object = this.product.properties;
-            let selectedOptions = [];
-            for (const key in object) { 
-                if (object.hasOwnProperty(key)) { 
-                    const item = object[key]; 
-                    if (item.selected.length){
-                        item.options.forEach(option => {
-                            if (option.price == item.selected){
-                                selectedOptions.push(option.id);
-                            }
-                        });
-                    }
-                }
-            } 
-            let formData = new FormData(); 
-            formData.append('token', this.user ? this.user.token :"");
-            formData.append('product_id', this.product[0].id);
-            formData.append('properties', JSON.stringify(selectedOptions));
-            if (!this.isLoading) {
-                this.isLoading = true;
-                this.$store.dispatch('addProductToBasket', {
-                    formData
-                }).then((response) => {
-                    this.isLoading = false;
-                    if (response.error) {
-                        
-                    } else {
-                        this.$notify({
-                            title: 'Sign up',
-                            message: 'Signup success!',
-                            position: "top-right",
-                            type: "success"
-                        });
-
-                    }
-                }).catch((error) => {
-                    this.isLoading = false
+            this.checkAuth();
+            if (!this.user) {
+                this.$notify({
+                    title: 'Cart',
+                    message: "Please login first",
+                    position: "top-right",
+                    type: "error"
                 });
+                EventBus.$emit('logout');
+            } else { 
+                if (!this.isLoading) {
+                    this.isLoading = true;
+                    let object = this.product.properties;
+                    let selectedOptions = [];
+                    for (const key in object) {
+                        if (object.hasOwnProperty(key)) {
+                            const item = object[key];
+                            if (item.selected.length) {
+                                item.options.forEach(option => {
+                                    if (option.price == item.selected) {
+                                        selectedOptions.push(option.id);
+                                    }
+                                });
+                            }
+                        }
+                    }
+                    let formData = new FormData();
+                    formData.append('token', this.user ? this.user.token : "");
+                    formData.append('product_id', this.product[0].id);
+                    formData.append('properties', JSON.stringify(selectedOptions));
+                    this.$store.dispatch('addProductToBasket', {
+                        formData
+                    }).then((response) => {
+                        this.isLoading = false;
+                        if (response.error) {
+                            this.$notify({
+                                title: 'Shopping cart',
+                                message: response.message,
+                                position: "top-right",
+                                type: "error"
+                            });
+                            EventBus.$emit('logout');
+                        } else {
+                            this.$notify({
+                                title: 'Shopping cart',
+                                message: response.message ? response.message : 'Item is added to shopping cart!',
+                                position: "top-right",
+                                type: "success"
+                            });
+                        }
+                    }).catch((error) => {
+                        this.isLoading = false;
+                        this.$notify({
+                            title: 'Shopping cart',
+                            message: "Server error",
+                            position: "top-right",
+                            type: "error"
+                        });
+                    });
+                }
             }
+
         },
         handleChange(file, fileList) {
             if (file.raw.type.indexOf('image') != -1) {
@@ -136,11 +160,14 @@ export default {
         reset() {
             this.product = JSON.parse(JSON.stringify(this.copyOfProduct));
             this.isDirty = false;
+        },
+        checkAuth() {
+            let storage = localStorage.getItem("platinumInk") ? JSON.parse(localStorage.getItem("platinumInk")) : {};
+            this.user = storage.user ? storage.user : null;
         }
     },
     created() {
         this.getProductById();
-        let storage = localStorage.getItem("platinumInk") ? JSON.parse(localStorage.getItem("platinumInk")) : {};
-        this.user = storage.user; 
+        this.checkAuth();
     }
 }

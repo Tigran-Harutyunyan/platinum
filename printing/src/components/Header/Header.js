@@ -1,4 +1,5 @@
 import { required, minLength, email, sameAs } from 'vuelidate/lib/validators';
+import { EventBus } from '../../event-bus.js';
 export default {
     name: 'pl-header',
     data() {
@@ -11,7 +12,7 @@ export default {
             isAuthenticated: false,
             search_key: '',
             isHamburgerActive: false,
-            user: {}, 
+            user: {},
             currentRoute: "",
             locales: [{
                     localeName: 'ՀԱՅ',
@@ -31,21 +32,28 @@ export default {
             this.currentRoute = to.name;
         }
     },
-    methods: { 
-        logout(){  
-            this.$store.dispatch('requestLogOut', {
-                token: this.user ? this.user.token : ""
-            }).then((response) => { 
+    methods: {
+        logout() {
+            this.checkAuth();
+            if (this.user) {
+                let formData = new FormData();
+                formData.append('token', this.user ? this.user.token : "");
+                this.$store.dispatch('requestLogOut', {
+                    formData
+                }).then((response) => {
+                    this.removeUser();
+                }).catch((error) => {
+                    this.removeUser();
+                });
+            } else {
                 this.removeUser();
-            }).catch((error) => {
-                this.removeUser();
-            });
+            } 
         },
-        removeUser(){
+        removeUser() {
             let storage = localStorage.getItem('platinumInk') ? JSON.parse(localStorage.getItem("platinumInk")) : {};
-            delete storage.user ;
+            delete storage.user;
             localStorage.setItem('platinumInk', JSON.stringify(storage));
-            this.$store.dispatch('setStorage', storage); 
+            this.$store.dispatch('setStorage', storage);
             this.isAuthenticated = false;
         },
         toSignupPage() {
@@ -53,13 +61,13 @@ export default {
             this.loginMode = true;
             this.$router.push({ name: 'SignUp' });
         },
-        hideLoginDropdown() {2
+        hideLoginDropdown() { 
             this.showLoginDropdown = false;
             this.loginMode = true
         },
         onPassRecovery() {
 
-        }, 
+        },
         toggleLang(locale) {
             this.$root._i18n.locale = locale;
             let storage = localStorage.getItem('platinumInk') ? JSON.parse(localStorage.getItem("platinumInk")) : {};
@@ -155,18 +163,25 @@ export default {
                     });
                 });
             }
+        },
+        checkAuth() {
+            let storage = localStorage.getItem("platinumInk") ? JSON.parse(localStorage.getItem("platinumInk")) : {};
+            this.user = storage.user ? storage.user : null;
         }
     },
     mounted() {
         let storage = localStorage.getItem("platinumInk") ? JSON.parse(localStorage.getItem("platinumInk")) : {};
-        this.user = storage.user; 
+        this.user = storage.user;
         this.isAuthenticated = storage.user;
         let currentLocale = storage.locale ? storage.locale : "en";
         this.locales.forEach(item => {
             item.activeLocale = item.locale == currentLocale;
         });
         this.initScroller();
-        this.currentRoute = this.$route.name; 
+        this.currentRoute = this.$route.name;
+        EventBus.$on('logout', () => {
+            this.removeUser();
+        });
     },
     validations: {
         email: {
