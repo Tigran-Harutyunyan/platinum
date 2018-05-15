@@ -80,7 +80,7 @@
                                     <li><a class="menu-item" data-scroll-nav="section-about-us">{{ $t('message.dropdown.item5') }}</a></li>
                                     <li><a class="menu-item" data-scroll-nav="section-about-us">{{ $t('message.dropdown.item6') }}</a></li>
                                     <li><a class="menu-item" data-scroll-nav="section-contact-us">{{ $t('message.dropdown.item7') }}</a></li>
-                                    <li><a class="menu-item" >{{ $t('message.dropdown.item8') }}<span class="line-elem-menu"></span></a></li>
+                                    <li><a class="menu-item" @click="isHamburgerActive=false; $router.push({name:'Categories',params: {id:1}})">{{ $t('message.dropdown.item8') }}<span class="line-elem-menu"></span></a></li>
                                 </ul> 
                             </div>
                         </div>
