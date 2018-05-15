@@ -17,7 +17,24 @@ export default {
         this.$router.push({ name: 'Categories', params: { id: 1 } });
       });
     },
+    computed: {
+        totalPrice(){
+            let total = 0;
+            this.cartItems.forEach(element => {
+                total += parseFloat(element.price); 
+            });
+            return  total;
+        }
+    },
     methods: {
+        deleteCartItem(id){
+            this.$notify({
+                title: 'Shopping cart',
+                message: "Coming soon",
+                position: "top-right",
+                type: "info"
+            });
+        },
         getBasketProducts() {
             this.isLoading = true;
             let formData = new FormData();
@@ -45,6 +62,14 @@ export default {
                     position: "top-right",
                     type: "error"
                 });
+            });
+        },
+        submit(){
+            this.$notify({
+                title: 'Shopping cart',
+                message: "Coming soon",
+                position: "top-right",
+                type: "info"
             });
         }
     }

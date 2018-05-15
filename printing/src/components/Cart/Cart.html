@@ -1,88 +1,75 @@
 <div class="products-main">
-    <div class="bordered-block br-cart">
+    <div class="bordered-block br-cart" v-loading="isLoading">
         <h3 class="product-category-title">{{ $t('message.cart') }}</h3>
         <div class="product-details-inner">
             <div class="cart-top" v-for="(item, index) in cartItems" :key="index">
+                <div class="spacer"></div>
                 <div class="cart-images">
                     <div class="cart-img-container">
-                        <img class="cart-img" src="http://via.placeholder.com/200x200"><h5>դիմաց</h5> 
+                        <img class="cart-img" src="http://via.placeholder.com/200x200"><h5>{{ $t('message.front') }}</h5> 
                     </div>
                     <div class="cart-img-container">
-                        <img class="cart-img" src="http://via.placeholder.com/200x200"><h5>հետեվ</h5>
+                        <img class="cart-img" src="http://via.placeholder.com/200x200"><h5>{{ $t('message.back') }}</h5>
                     </div>
                 </div>
                 <div class="cart-products"> 
-                    <table>
-                        <tr>
-                            <td class="product-type">չափը</td>
-                            <td>90մմ x 50մմ</td>
-                        </tr>
-                        <tr>
-                            <td class="product-type">թղթի տեսակ</td>
-                            <td>300 գրամ</td>
-                        </tr>
-                        <tr>
-                            <td class="product-type">տպագրման կողմ</td>
-                            <td>4+0</td>
-                        </tr>
-                        <tr>
-                            <td class="product-type">կլորացված եզրեր</td>
-                            <td>այո</td>
-                        </tr>
-                        <tr>
-                            <td class="product-type">քանակ</td>
-                            <td>100</td>
-                        </tr>
-                        <tr>
-                            <td class="product-type">տպագրման ժամկետ </td>
-                            <td>3 աշխատանքային օր</td>
-                        </tr>
+                    <table> 
+                        <tr v-for="(value, key) in item.product_properties">
+                            <td class="product-type">{{ key }}</td>
+                            <td>{{ value[0].name }}</td>
+                        </tr> 
                     </table>
                   <div class="action">
                       <ul class="action-btns">
-                          <li class="price-bold">2000</li>
-                          <li class="btn-links">Հեռացնել</li>
-                          <li class="btn-links">Ավելացնել նորը</li>
-                          <li class="btn-links">Խմբագրել</li>
+                          <li class="price-bold">{{ item.price}}</li>
+                          <li class="btn-links"  @click="deleteCartItem(item.id)">{{ $t('message.delete') }}</li>
+                          <li class="btn-links"  @click="$router.push({name:'Categories', params: {id:1}})" >{{ $t('message.addNew') }}</li> 
+                          <!-- <li class="btn-links">Խմբագրել</li> -->
                         </ul>
-                        <a class="btn-submit btn-white ">անվանումը</a>
+                        <el-popover
+                            placement="top-start" 
+                            width="400"
+                            trigger="hover">  
+                            <h2 class="popover-title">{{ item.name }}</h2>
+                            <p class="popover-description">{{ item.description }}</p>
+                            <a slot="reference"class="btn-submit btn-white">{{ $t('message.name') }}</a>
+                        </el-popover> 
                   </div>
-                </div>
+                </div> 
             </div>
             <div class="cart-bottom">
                 <div class="cart-products"> 
                     <table class="table-1">
                         <tr>
-                            <td class="product-type">Տպագրման արժեքը</td>
-                            <td>2000 դր</td>
+                            <td class="product-type">{{ $t('message.printingCost') }}</td>
+                            <td> {{ totalPrice }} դր</td>
                         </tr>
                         <tr>
-                            <td class="product-type">Զեղչ</td>
+                            <td class="product-type">{{ $t('message.discount') }}</td>
                             <td>0.00</td>
                         </tr>
                         <tr>
-                            <td class="product-type">Առաքում</td>
+                            <td class="product-type">{{ $t('message.shipping') }}</td>
                             <td>0.00</td>
                         </tr>
                         <tr>
-                            <td class="product-type">Հարկ</td>
+                            <td class="product-type"> {{ $t('message.tax') }}</td>
                             <td>0.00</td>
-                        </tr> 
-                        
+                        </tr>  
                     </table>
                     <!-- total -->
                     <table class="table-2"> 
                         <tr>
-                            <td class="product-type">Ընդհանուր գինը</td>
-                            <td>2000</td>
+                            <td class="product-type">{{ $t('message.totalPrice') }}</td>
+                            <td> {{ totalPrice }}</td>
                         </tr> 
                     </table>
                   </div>
                
             </div>
             <div class="pricing-cell">
-                <a href="" class="link">Շարունակել պատվիրել</a>
-                <a href="" class="btn-submit btn-invert">Վճարել</a>
+                <a href="javascript:void(0)" @click="$router.push({name:'Categories', params: {id:1}})" class="link">{{ $t('message.continueShopping') }}</a>
+                <a href="javascript:void(0)" @click="submit()" class="btn-submit btn-invert">{{ $t('message.pay') }}</a>
             </div>
         </div>
     </div> 

@@ -22,7 +22,8 @@ import {
     TabPane,
     Form,
     FormItem,
-    DatePicker
+    DatePicker,
+    Popover
 } from "element-ui";
 Vue.use(Loading.directive);
 Vue.use(Carousel);
@@ -40,6 +41,7 @@ Vue.use(TabPane);
 Vue.use(Form);
 Vue.use(FormItem);
 Vue.use(DatePicker);
+Vue.use(Popover);
 Vue.prototype.$loading = Loading.service;
 Vue.prototype.$confirm = MessageBox.confirm;
 Vue.prototype.$notify = Notification;
