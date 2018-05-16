@@ -4,7 +4,16 @@
     src: url("../fonts/Glamor-BoldExtended.eot?#iefix") format("embedded-opentype"), url("../fonts/Glamor-BoldExtended.woff") format("woff"), url("../fonts/Glamor-BoldExtended.ttf") format("truetype"), url("../fonts/Glamor-BoldExtended.svg#Glamor-BoldExtended") format("svg");
     font-weight: normal;
 }
- 
+@font-face { 
+    font-family: "Tahoma";
+    src: url("../fonts/Tahoma.eot");
+    src: url("../fonts/TahomaExtended.eot?#iefix") format("embedded-opentype"),
+         url("../fonts/Tahoma.woff") format("woff"), 
+         url("../fonts/Tahoma.eot"),
+         url("../fonts/Tahoma.ttf") format("truetype"),
+         url("../fonts/Tahoma.svg#Glamor-BoldExtended") format("svg");
+    font-weight: normal;
+}
 .tahoma {
     font-family: 'Tahoma', sans-serif;
 }

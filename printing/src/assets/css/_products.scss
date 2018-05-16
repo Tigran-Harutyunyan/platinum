@@ -16,8 +16,7 @@
     .owl-item {
         height: 400px
     }
-}
-
+} 
 .banner-container {
     position: relative;
     height: 100%;
@@ -30,7 +29,9 @@ img.banner-offer {
 .offer-text {
     font-family: 'Museo-Slab';
     p {
-        text-transform: uppercase
+        text-transform: uppercase;
+        padding-right: 20px;
+        line-height: 47px;
     }
 }
 
@@ -44,7 +45,7 @@ img.banner-offer {
 
 .print-slide-inner {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
     padding-top: 56px;
     .offer-text {
         font-family: Tahoma;
@@ -52,6 +53,7 @@ img.banner-offer {
         font-size: 40px;
         color: #141414;
         padding-top: 30px;
+        width: 645px;
         span {
             font-size: 60px;
             color: #af995a;
@@ -464,6 +466,7 @@ img.banner-offer {
     height: 30px;
     color: #666666;
     padding-left: 8px;
+    font-family: Tahoma;
 }
 
 .parameters-item {

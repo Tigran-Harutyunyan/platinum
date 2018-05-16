@@ -30,11 +30,11 @@
 
 .offer-text {
     font-family: 'Museo-Slab';
-}
-
+}   
+ 
 .print-slide-inner {
-    display: flex;
-    justify-content: space-around;
+    display: flex;    
+    justify-content: flex-end;
     padding-top: 56px;
     .offer-text {
         font-family: Tahoma;
@@ -42,6 +42,7 @@
         font-size: 40px;
         color: #141414;
         padding-top: 30px;
+        width: 643px;
         span {
             font-size: 60px;
             color: #af995a;
