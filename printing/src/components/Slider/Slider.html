@@ -3,7 +3,7 @@
     <div class="banner-container" :class="{'single-image': sliderImages.length<2}">
       <el-carousel v-if="sliderImages.length" :autoplay="false" trigger="click" indicator-position="inside" height="400px" arrow="never" class="">
         <el-carousel-item v-for="(item,index) in sliderImages" :key="index" :style="item.imageStyle">
-          <div class="print-slide-inner"> "
+          <div class="print-slide-inner">
             <div class="offer-text">
                <p>{{ item.description }}</p> 
               <a :href="item.productLink" class="btn-link banner-btn">{{ $t('message.orderNow') }}</a>

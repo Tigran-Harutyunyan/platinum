@@ -38,9 +38,6 @@ img.banner-offer {
 .product-items {
     display: flex;
     flex-wrap: wrap;
-    >a:nth-child(4n) {
-        margin-right: 0;
-    }
 }
 
 .print-slide-inner {
@@ -269,7 +266,7 @@ img.banner-offer {
     border-color: #131313;
     color: white;
     display: inline-block;
-    margin-top: 47px;
+    margin-top: ww;
     font-size: 18px;
     &:hover {
         border-color: #af995a;
