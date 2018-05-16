@@ -219,7 +219,7 @@ export default new Vuex.Store({
         }) { 
             return new Promise((resolve, reject) => {
                 axios({
-                    url: `${this.state.apiPath}/api/getBasketProducts?lang=am`,
+                    url: `${this.state.apiPath}/api/getBasketProducts?&lang=${this.state.storage.locale}`,
                     method: 'post',
                     data: formData,
                     headers: {
