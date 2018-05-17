@@ -54,8 +54,10 @@
         <h3 class="param-label">{{ $t('message.printingCost')}}:</h3> 
         <p>{{ totalPrice }} </p> 
       </div>  
-      <a class="btn-submit btn-invert" v-show="isThereProperties && isDirty" @click="reset" style="margin-left:20px">{{ $t('message.cancel')}}</a>
+     <div class="btns-container">
+      <a class="btn-submit btn-invert btn-1" v-show="isThereProperties && isDirty" @click="reset">{{ $t('message.cancel')}}</a>
       <a class="btn-submit btn-invert" v-show="isThereProperties" :disabled="isLoading" @click="addProductToCart()" :class="{disabled: !isDirty}">{{ $t('message.continue')}}</a>
+     </div>
     </div>
   </div>
 </div>
