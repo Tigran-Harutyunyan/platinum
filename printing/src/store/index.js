@@ -74,7 +74,7 @@ export default new Vuex.Store({
                             'background-image': `url(${this.state.apiPath}${element.image})`  
                         }
                         element.image = `${this.state.apiPath}${element.image}`;
-                        element.productLink = `/#/product${element.product_id}`
+                        element.productLink = `/#/product/${element.product_id}`
                     }); 
                     commit('UPDATE_SLIDER_IMAGES', response.data)
                 } 
