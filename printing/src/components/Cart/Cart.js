@@ -1,44 +1,83 @@
 import { EventBus } from '../../event-bus.js';
 export default {
     data() {
-        return { 
+        return {
             value: '',
             cartItems: [],
-            isLoading: false
+            isLoading: false,
+            isCartEmpty: ''
         }
     },
     created() {
         let storage = localStorage.getItem("platinumInk") ? JSON.parse(localStorage.getItem("platinumInk")) : {};
         this.user = storage.user ? storage.user : null;
-        this.getBasketProducts(); 
+        this.getBasketProducts();
     },
-    mounted(){
-      EventBus.$on('exitCart', () => { 
-        this.$router.push({ name: 'Categories', params: { id: 1 } });
-      });
+    mounted() {
+        EventBus.$on('exitCart', () => {
+            this.$router.push({ name: 'Categories', params: { id: 1 } });
+        });
     },
     computed: {
-        totalPrice(){
+        totalPrice() {
             let total = 0;
             this.cartItems.forEach(element => {
-                total += parseFloat(element.price); 
+                total += parseFloat(element.price);
             });
-            return  total;
+            return total;
+        },
+        storage(){
+            return this.$store.getters.getStorage;
+        },
+        token(){
+            return this.storage.user ? this.storage.user.token : ""
         }
     },
     methods: {
-        deleteCartItem(id){
-            this.$notify({
-                title: 'Shopping cart',
-                message: "Coming soon",
-                position: "top-right",
-                type: "info"
-            });
+        deleteCartItem(id) {
+            this.pendingOrderId = id;   
+            this.$confirm(this.$t('message.cartItemDeletePrompt'), {
+                confirmButtonText: this.$t('message.yes'),
+                cancelButtonText: this.$t('message.cancel'),
+                type: 'warning'
+            }).then(() => {
+                let formData = new FormData();
+                formData.append('token', this.token);
+                formData.append('id',  this.pendingOrderId );
+                this.$store.dispatch('removeBasketProduct', {
+                    formData
+                }).then((response) => {
+                    this.isLoading = false;
+                    if (response.success) {
+                        this.getBasketProducts(); 
+                    } else { 
+                        if (response.message) {
+                            this.$notify({
+                                title: 'Shopping cart',
+                                message: response.message,
+                                position: "top-right",
+                                type: "error"
+                            });
+                            if (response.message === "Invalid token"){
+                                EventBus.$emit('logout');
+                            }
+                        }  
+                    }
+                }).catch((error) => {
+                    this.isLoading = false;
+                    this.$notify({
+                        title: 'Shopping cart',
+                        message: "Server error",
+                        position: "top-right",
+                        type: "error"
+                    });
+                });
+            }).catch(() => {}); 
         },
         getBasketProducts() {
             this.isLoading = true;
             let formData = new FormData();
-            formData.append('token', this.user ? this.user.token : "");
+            formData.append('token', this.token);
             this.$store.dispatch('getBasketProducts', {
                 formData
             }).then((response) => {
@@ -53,6 +92,7 @@ export default {
                     EventBus.$emit('logout');
                 } else {
                     this.cartItems = response;
+                    this.isCartEmpty  = this.cartItems.length === 0 ? true: false;
                 }
             }).catch((error) => {
                 this.isLoading = false;
@@ -64,12 +104,38 @@ export default {
                 });
             });
         },
-        submit(){
-            this.$notify({
-                title: 'Shopping cart',
-                message: "Coming soon",
-                position: "top-right",
-                type: "info"
+        moveProductToOrders() {
+            //token, basket_id
+            let formData = new FormData();
+            formData.append('token', this.token);
+            formData.append('id',  this.pendingOrderId );
+            this.$store.dispatch('moveProductToOrders', {
+                formData
+            }).then((response) => {
+                this.isLoading = false;
+                if (response.success) {
+                    this.getBasketProducts(); 
+                } else { 
+                    if (response.message) {
+                        this.$notify({
+                            title: 'Shopping cart',
+                            message: response.message,
+                            position: "top-right",
+                            type: "error"
+                        });
+                        if (response.message === "Invalid token"){
+                            EventBus.$emit('logout');
+                        }
+                    }  
+                }
+            }).catch((error) => {
+                this.isLoading = false;
+                this.$notify({
+                    title: 'Shopping cart',
+                    message: "Server error",
+                    position: "top-right",
+                    type: "error"
+                });
             });
         }
     }

@@ -103,6 +103,9 @@ export default {
             addNew: 'Add new',
             pay:'Pay',
             continueShopping: "Continue shopping",
+            emptyCart:"Your cart is empty",
+            cartItemDeletePrompt: "Are you sure you want to delete the cart item?",
+            yes: 'Ok',
             bannerText: {
                 text1: 'Create your desired design and',
                 text2: 'quality printing with us'
@@ -260,8 +263,8 @@ export default {
             uploadOurselves: 'մենք կպատրաստենք',
             sizeRestriction: '25mb- ից պակաս չափով ֆայլեր',
             printingCost: 'Տպագրման արժեք',
-            cancel: 'չեղարկել',
-            continue: 'շարունակել',
+            cancel: 'Չեղարկել',
+            continue: 'Շարունակել',
             products: 'ապրանքներ',
             orderNow: 'պատվիրեք հիմա',
             uploadSamples: 'ԲԵՌՆԵԼ ՕՐԻՆԱԿՆԵՐԸ',
@@ -281,6 +284,9 @@ export default {
             addNew: 'Ավելացնել նորը',
             pay:'Վճարել',
             continueShopping: "Շարունակել պատվիրել",
+            emptyCart:"Ձեր զամբյուղը դատարկ է", 
+            cartItemDeletePrompt: "Վստահ եք, որ ցանկանում եք ջնջել զամբյուղի տարրը",
+            yes: 'Այո',
             services: {
                 title: "ԾԱՌԱՅՈՒԹՅՈՒՆՆԵՐ",
                 design: "Դիզայն",

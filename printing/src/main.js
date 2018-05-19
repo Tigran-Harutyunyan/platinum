@@ -15,11 +15,14 @@ Vue.use(VueI18n);
  
 
 // Create VueI18n instance with options
-let storage = localStorage.getItem('platinumInk') ? JSON.parse(localStorage.getItem("platinumInk")) : {}; 
-let availableLocale = storage.locale ? storage.locale: 'en'; 
+let storage = localStorage.getItem('platinumInk') ? JSON.parse(localStorage.getItem("platinumInk")) : {};  
+if (typeof storage.locale == 'undefined'){
+  storage.locale = 'en'
+}
+ 
 store.dispatch('setStorage', storage);
 const i18n = new VueI18n({
-  locale: availableLocale, // set locale
+  locale: storage.locale, // set locale
   messages, // set locale messages
 })
 /* eslint-disable no-new */

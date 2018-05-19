@@ -11,7 +11,8 @@ export default new Vuex.Store({
         apiPath: "http://api.platinuminkdesign.com",
         storage: {locale:"en"},
         customData: {},
-        sliderImages: []
+        sliderImages: [],
+        cart: ''
     },
     getters: {
         appData: state => state.data,
@@ -23,6 +24,7 @@ export default new Vuex.Store({
         getApiPath: state => state.apiPath,
         getCustomData: state => state.customData,
         getSliderImages: state => state.sliderImages,
+        getCartItems: state => state.cart
     },
     mutations: {
         SET_DATA(state, payload) {
@@ -45,7 +47,10 @@ export default new Vuex.Store({
         },
         UPDATE_SLIDER_IMAGES(state, payload) {
             state.sliderImages = payload;
-        }
+        },
+        updateCartItems(state, items) {
+            state.cart = items;
+        },
     },
     actions: { 
         setStorage({ commit }, payload) {
@@ -226,6 +231,7 @@ export default new Vuex.Store({
                         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
                     }
                 }).then(response => {
+                    commit('updateCartItems', response.data)
                     resolve(response.data);
                 }).catch(response =>{
                     reject(response);
@@ -280,6 +286,26 @@ export default new Vuex.Store({
                 })
             });
         },
+        removeBasketProduct({
+            commit
+        }, {
+            formData
+        }) {
+            return new Promise((resolve, reject) => {
+                axios({
+                    url: `${this.state.apiPath}/api/removeBasketProduct`,
+                    method: 'post',
+                    data: formData,
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+                    }
+                }).then(response => {
+                    resolve(response.data);
+                }).catch(function(error) {
+                    reject(error);
+                })
+            });
+        },
         getProductById({
             commit
         }, {
@@ -314,6 +340,26 @@ export default new Vuex.Store({
                     })
                 });
             } 
-        }
+        },
+        moveProductToOrders({  
+            commit
+        }, {
+            formData
+        }) {
+            return new Promise((resolve, reject) => {
+                axios({
+                    url: `${this.state.apiPath}/api/moveProductToOrders`,
+                    method: 'post',
+                    data: formData,
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+                    }
+                }).then(response => {
+                    resolve(response.data);
+                }).catch(function(error) {
+                    reject(error);
+                })
+            });
+        } 
     }
 })

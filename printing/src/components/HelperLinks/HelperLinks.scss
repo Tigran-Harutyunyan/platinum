@@ -2,13 +2,16 @@
     display: flex;
     justify-content: flex-end;
     background: white;
-    width: 600px;
+    width: 200px;
     margin-left: auto;
     padding: 5px 0;
     position: relative;
     z-index: 1;
     > div{
         cursor: pointer;
+    }
+    > div:last-child{
+        border: none
     }
     ul {
         position: absolute;
@@ -104,6 +107,9 @@
             background-position: -389px -126px;
         }
     }
+}
+.helper-links.logged-in {
+    width: 600px;
 }
 #personal-page:hover   ul   {
     display: block;

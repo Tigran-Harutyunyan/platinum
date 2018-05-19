@@ -1,7 +1,7 @@
 <div class="products-main">
     <div class="bordered-block br-cart" v-loading="isLoading">
         <h3 class="product-category-title">{{ $t('message.cart') }}</h3>
-        <div class="product-details-inner">
+        <div class="product-details-inner" v-if="cartItems.length">
             <div class="cart-top" v-for="(item, index) in cartItems" :key="index">
                 <div class="spacer"></div>
                 <div class="cart-images">
@@ -69,8 +69,11 @@
             </div>
             <div class="pricing-cell">
                 <a href="javascript:void(0)" @click="$router.push({name:'Categories', params: {id:1}})" class="link">{{ $t('message.continueShopping') }}</a>
-                <a href="javascript:void(0)" @click="submit()" class="btn-submit btn-invert">{{ $t('message.pay') }}</a>
+                <a href="javascript:void(0)" @click="moveProductToOrders()" class="btn-submit btn-invert">{{ $t('message.pay') }}</a>
             </div>
+        </div>
+        <div class="empty-cart" v-if="isCartEmpty">
+            <p>{{ $t('message.emptyCart') }} </p>
         </div>
     </div> 
 </div>
