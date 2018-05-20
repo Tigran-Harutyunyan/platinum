@@ -1,16 +1,16 @@
 <div class="parallax-section" id="parallax-trigger">
     <!-- STAFF SECTION -->
-    <swiper :options="swiperOption" class="staff-slider" ref="mySwiper">
-        <swiper-slide v-for="(item, index) in staff" :key="index">
+    <swiper :options="swiperOption" class="staff-slider" ref="mySwiper" v-if="staffData.length">
+        <swiper-slide v-for="(item, index) in staffData" :key="index">
             <figure class="a-info-left">
-                <img :src="item.avatar" :alt="item.name">
+                <img :src="item.image" :alt="item.name">
                 <figcaption>
                     <span class="staff-name">{{ item.name }}</span>
                     <br>
                     <span class="staff-position">{{ item.position }}</span>
                 </figcaption>
             </figure>
-            <p>{{ item.text }}</p>
+            <p>{{ item.description }}</p>
         </swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
     </swiper>

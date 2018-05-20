@@ -12,7 +12,9 @@ export default new Vuex.Store({
         storage: {locale:"en"},
         customData: {},
         sliderImages: [],
-        cart: ''
+        cart: '',
+        staff: '',
+        orders: ''
     },
     getters: {
         appData: state => state.data,
@@ -24,7 +26,9 @@ export default new Vuex.Store({
         getApiPath: state => state.apiPath,
         getCustomData: state => state.customData,
         getSliderImages: state => state.sliderImages,
-        getCartItems: state => state.cart
+        getCartItems: state => state.cart,
+        getStaffData: state => state.staff,
+        getOrders: state => state.orders
     },
     mutations: {
         SET_DATA(state, payload) {
@@ -51,6 +55,12 @@ export default new Vuex.Store({
         updateCartItems(state, items) {
             state.cart = items;
         },
+        updateStaff(state, items) {
+            state.staff = items;
+        },
+        UPDATE_ORDERS_DATA(state, items) {
+            state.orders = items;
+        }
     },
     actions: { 
         setStorage({ commit }, payload) {
@@ -360,6 +370,43 @@ export default new Vuex.Store({
                     reject(error);
                 })
             });
+        },
+        getStaffInfo({
+            commit
+        }) {
+            axios.get(`${this.state.apiPath}/api/getStaff?lang=${this.state.storage.locale}`).then((response) => {
+                response.data.forEach(element => {
+                    element.image = `${this.state.apiPath}${element.image}`;
+                    element.name = `${ element.first_name} ${ element.last_name}`;
+                });
+                commit('updateStaff', response.data)
+            })
+        },  
+        getOrders({
+            commit
+        }, {
+            formData
+        }) {
+            return new Promise((resolve, reject) => {
+                axios({
+                    url: `${this.state.apiPath}/api/getOrders?lang=${this.state.storage.locale}`,
+                    method: 'post',
+                    data: formData,
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+                    }
+                }).then(response => { 
+                   /*  if (Array.isArray(response.data)){
+                        response.data.forEach(element => {
+                            element.status = element.status ?  element.status: 'N/A' 
+                        });
+                    } */
+                    commit('UPDATE_ORDERS_DATA', response.data)
+                    resolve(response.data);
+                }).catch(function(error) {
+                    reject(error);
+                })
+            });
         } 
     }
-})
+}) 

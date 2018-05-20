@@ -34,6 +34,7 @@ export default {
         }
     },
     methods: {
+        
         deleteCartItem(id) {
             this.pendingOrderId = id;   
             this.$confirm(this.$t('message.cartItemDeletePrompt'), {
@@ -74,6 +75,8 @@ export default {
                 });
             }).catch(() => {}); 
         },
+
+
         getBasketProducts() {
             this.isLoading = true;
             let formData = new FormData();
@@ -83,13 +86,9 @@ export default {
             }).then((response) => {
                 this.isLoading = false;
                 if (response.error) {
-                    this.$notify({
-                        title: 'Shopping cart',
-                        message: response.message,
-                        position: "top-right",
-                        type: "error"
-                    });
-                    EventBus.$emit('logout');
+                    if(response.message){
+                        this.handleErrors(response.message);
+                    } 
                 } else {
                     this.cartItems = response;
                     this.isCartEmpty  = this.cartItems.length === 0 ? true: false;
@@ -104,28 +103,32 @@ export default {
                 });
             });
         },
-        moveProductToOrders() {
-            //token, basket_id
+
+
+        moveProductToOrders() { 
             let formData = new FormData();
+            let productIds = [];
+            this.cartItems.forEach(element => {
+                productIds.push(element.id)
+            });
             formData.append('token', this.token);
-            formData.append('id',  this.pendingOrderId );
+            formData.append('basket_id',  JSON.stringify(productIds));
+             
             this.$store.dispatch('moveProductToOrders', {
                 formData
             }).then((response) => {
                 this.isLoading = false;
                 if (response.success) {
-                    this.getBasketProducts(); 
+                    this.$notify({
+                        title: 'Shopping cart',
+                        message:  'Order is formed',
+                        position: "top-right",
+                        type: "error"
+                    });
+                    this.$router.push({name:'Orders'});
                 } else { 
                     if (response.message) {
-                        this.$notify({
-                            title: 'Shopping cart',
-                            message: response.message,
-                            position: "top-right",
-                            type: "error"
-                        });
-                        if (response.message === "Invalid token"){
-                            EventBus.$emit('logout');
-                        }
+                        this.handleErrors(response.message);
                     }  
                 }
             }).catch((error) => {
@@ -137,6 +140,18 @@ export default {
                     type: "error"
                 });
             });
+        },
+
+        handleErrors(message){
+            this.$notify({
+                title: 'Shopping cart',
+                message:  message,
+                position: "top-right",
+                type: "error"
+            });
+            if (message === "Invalid token"){
+                EventBus.$emit('logout');
+            }
         }
     }
 }

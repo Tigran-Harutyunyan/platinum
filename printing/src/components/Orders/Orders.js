@@ -1,19 +1,7 @@
+import { EventBus } from '../../event-bus.js';
 export default {
     data() {
-        return {
-            tableData: [{
-                date: '10/04/2018',
-                orderName: 'Կոնֆերանս քարտ', 
-                orderNumber: 'PL8093010350-001',
-                status: 'առաքված',
-                cost: 4000.00 
-            },{
-              date: '08/04/2018',
-              orderName: 'քարտ', 
-              orderNumber: 'PL8093045250-001',
-              status: 'առաքված',
-              cost: 6000.00 
-          }],
+        return { 
           activeName: 'status'
         }
     },
@@ -21,5 +9,46 @@ export default {
         handleClick(tab, event) {
             //console.log(tab, event);
         }
+    },
+    computed: {
+        orders: {
+            get: function() {
+                return this.$store.getters.getOrders;
+            },
+            set: function() {} 
+        }, 
+        storage(){
+            return this.$store.getters.getStorage;
+        }
+    },
+    mounted(){
+        let data = this.$store.getters.getOrders; 
+        if (!data && this.storage &&  this.storage.user) {  
+            this.isLoading = true;
+            let formData = new FormData();
+            formData.append('token', this.storage.user ? this.storage.user.token : "");
+            this.$store.dispatch('getOrders', {
+                formData
+            }).then((response) => {
+                this.isLoading = false;
+                if (response.error) {
+                    this.$notify({
+                        title: 'Shopping cart',
+                        message:  message,
+                        position: "top-right",
+                        type: "error"
+                    });
+                    if (message === "Invalid token"){
+                        EventBus.$emit('logout');
+                    }
+                } else {
+                    this.cartItems = response;
+                    this.isCartEmpty = this.cartItems.length === 0 ? true : false;
+                }
+            }).catch((error) => {});
+        } 
+        EventBus.$on('exitCart', () => {
+            this.$router.push({ name: 'Categories', params: { id: 1 } });
+        });
     } 
 }
