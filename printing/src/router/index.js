@@ -11,8 +11,8 @@ import Shopping from '../components/Shopping/Shopping.vue'
 import Portfolio from '../components/Portfolio/Portfolio.vue'
 Vue.use(Router);
 
-const shouldBeAuthed = async (to, from, next) => {
-    let authorized = store.state.storage.user ? true : false;  
+const shouldBeAuthed = async(to, from, next) => {
+    let authorized = store.state.storage.user ? true : false;
     if (authorized) {
         next();
     } else {
@@ -20,7 +20,7 @@ const shouldBeAuthed = async (to, from, next) => {
     }
 };
 
-export default new Router({
+const router = new Router({
     routes: [{
             path: '',
             name: 'Shopping',
@@ -51,8 +51,8 @@ export default new Router({
                     name: 'Orders',
                     component: Orders,
                     beforeEnter: shouldBeAuthed
-                } 
-                
+                }
+
             ]
         },
         {
@@ -61,10 +61,23 @@ export default new Router({
             component: Home
         },
         {
-            path: '/portfolio',
-            name: 'Portfolio',
+            path: '/design',
+            name: 'Design',
             component: Portfolio
-        } ,
+        },
         { path: '*', redirect: '/home' }
     ]
 });
+let jqueryElement = $('html, body');
+router.beforeEach(function(to, from, next) {
+    if (to.name != "Home") {
+        setTimeout(() => {
+            //window.scrollTo(0, 0);
+            jqueryElement.animate({
+                scrollTop: 0
+            }, 200);
+        }, 100);
+    }
+    next();
+});
+export default router;

@@ -407,6 +407,26 @@ export default new Vuex.Store({
                     reject(error);
                 })
             });
-        } 
+        },
+        getProductPrice({
+            commit
+        }, {
+            formData
+        }) {
+            return new Promise((resolve, reject) => {
+                axios({
+                    url: `${this.state.apiPath}/api/getProductPrice?`,
+                    method: 'post',
+                    data: formData,
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+                    }
+                }).then(response => {   
+                    resolve(response.data);
+                }).catch(function(error) {
+                    reject(error);
+                })
+            });
+        }  
     }
 }) 

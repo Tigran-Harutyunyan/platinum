@@ -6,8 +6,8 @@ export default {
         return {
             loginMode: true,
             showLoginDropdown: false,
-            email: "tigran3@mail.ru",
-            password: "tigran",
+            email: "",
+            password: "",
             recoveryMail: "",
             isAuthenticated: false,
             search_key: '',
@@ -69,6 +69,42 @@ export default {
         onPassRecovery() {
 
         },
+        goTo(section) {
+            let param = '';
+            let customOffset = 0;
+            switch (section) {
+                case 'services':
+                    param = '#section-services';
+                    break;
+                case 'about-us':
+                    param = '#section-about-us';
+                    break;
+                case 'projects':
+                    param = '#section-portfolio';
+                    break;
+                case 'why':
+                    param = '#reasons-section';
+                    break;
+                case 'staff':
+                    param = '#staff-section';
+                    customOffset = 50;
+                    break;
+                case 'contact-us':
+                    param = '#section-5';
+                    customOffset = -140;
+                    break;
+                default:
+                    param = '';
+            }
+            this.$router.push({ name: 'Home'});
+            //this.$router.push({ name: 'Home', params: { section: section } });
+            this.isHamburgerActive = false;
+            setTimeout(() => {
+                $('html, body').animate({
+                    scrollTop: !param ? 0 : $(param).offset().top - customOffset
+                }, 200);
+            },200) 
+        },
         toggleLang(locale) {
             //this.$root._i18n.locale = locale;
             let storage = localStorage.getItem('platinumInk') ? JSON.parse(localStorage.getItem("platinumInk")) : {};
@@ -77,7 +113,7 @@ export default {
                 localStorage.setItem('platinumInk', JSON.stringify(storage));
                 this.$store.dispatch('setStorage', storage);
                 location.reload();
-            } 
+            }
         },
         initScroller() {
             var sectionsController = new ScrollMagic.Controller();
@@ -89,46 +125,10 @@ export default {
                 .addTo(sectionsController)
                 //.addIndicators()
                 .on("enter", function(e) {
-                    console.log("enter");
+                    //console.log("enter");
                 })
             sceneNav.setClassToggle("#top-nav", "section-services");
-            sceneNav.setClassToggle("#service-boxes", "active-services");
-
-            sectionsController.scrollTo(function(newpos) {
-                if (section_to_scroll) {
-                    var offsetTop = 0;
-                    switch (section_to_scroll) {
-                        case '#section-home':
-                            offsetTop = 0;
-                            break;
-                        case '#section-services':
-                            offsetTop = 90;
-                            break;
-                        case '#section-about-us':
-                            offsetTop = 90;
-                            break;
-                        case '#section-portfolio':
-                            offsetTop = 0;
-                            break;
-                        case '#section-contact-us':
-                            offsetTop = 0;
-                            break;
-                    }
-                }
-
-                if (isLargeScreen && section_to_scroll === "#section-home") {
-                    $('html,body').animate({
-                        scrollTop: 0
-                    }, 600, 'easeInOutQuad');
-                } else {
-                    TweenMax.to(window, 0.5, {
-                        scrollTo: {
-                            y: newpos - offsetTop
-                        }
-                    });
-                }
-
-            });
+            sceneNav.setClassToggle("#service-boxes", "active-services"); 
         },
         onLogin() {
             if (!this.$v.$invalid) {

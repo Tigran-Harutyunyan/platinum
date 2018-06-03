@@ -38,7 +38,7 @@
                             <p>{{ $t('message.bannerText.text1') }}</p> <br> 
                             <p>{{ $t('message.bannerText.text2') }}</p>
                         </div>
-                        <a href="javascript:void(0)" class="btn-link banner-see-more-link">{{ $t('message.orderOnline') }}</a>
+                        <a @click="$router.push({name:'Categories',params: {id:1}})" class="btn-link banner-see-more-link">{{ $t('message.orderOnline') }}</a>
                         <div class="banner-line"></div>
                     </div>
                 </div>

@@ -109,10 +109,8 @@
         <div class="partners-left left-floated">
             <p class="contact-us-p">{{ $t('message.contacts.toContact') }}</p>
             <div class="info-platinumink-am">
-                <span v-show="locale=='hy'">{{ $t('message.address.part1') }}</span>
-                <span>{{ $t('message.address.part2') }}</span>
-                <span v-show="locale=='hy'">{{ $t('message.address.part3') }}</span>
-                <span>{{ $t('message.address.part4') }}</span>
+                <span>{{ $t('message.address.part2') }} {{ customData.email}}</span>
+                <span>{{ $t('message.address.part4') }} {{ customData.phone}}</span> 
             </div>
             <div class="social-place">
                 <p>{{ $t('message.contacts.join') }}</p>

@@ -1,11 +1,41 @@
 <div class="portfolio">
     <pl-header></pl-header>
     <div class="main-section content-area">
-        <div class="portfolio-grid"> 
+        <div class="portfolio-grid">
             <div class="grid">
-                <div class="grid-item" v-for="(item, index) in numbers"></div> 
+                <div class="grid-item" v-for="(item, index) in items" @click="openPopup(index)">
+                    <div class="shirma"></div>
+                </div>
             </div>
         </div>
         <pl-footer></pl-footer>
     </div>
+    <div class="el-dialog__wrapper" v-show="popupVisible">
+        <div class="design-dialog">
+            <div class="navigation">
+                <div @click=navigate(-1)><span class="prev"></span>Back</div>
+                <div @click=navigate(1)>Next<span class="next"></span></div>
+            </div>
+            <div class="item-container">
+                <div class="imgs-container">
+                    <img src="../../../static/img/designImg1.jpg">
+                    <img src="../../../static/img/designImg2.jpg">
+                    <img src="../../../static/img/designImg1.jpg">
+                </div>
+                <div class="info-container">
+                    <div class="close" @click="closePopup"></div>
+                    <h1 class="item-title">Creadit Fix</h1> 
+                    <div class="line"></div>
+                    <ul class="info-list">
+                        <li>Client: Credit Fix</li>
+                        <li>Date: 2016</li>
+                        <li>Service: Logo design, graphic design</li>
+                        <li>Category: Credit repair</li>
+                    </ul>
+                    <p class="info-description">CreditFixPro are dedicated to you and all your different credit repair needs. They've been around for over 8 years and they've made excellent credit for thousands of people. But, their most important win is making you a happy, life-long customer.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div> 
 </div>

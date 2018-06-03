@@ -75,8 +75,7 @@ export default {
                 });
             }).catch(() => {}); 
         },
-
-
+ 
         getBasketProducts() {
             this.isLoading = true;
             let formData = new FormData();

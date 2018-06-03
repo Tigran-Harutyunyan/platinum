@@ -19,7 +19,7 @@
             <projects-slider></projects-slider> 
             <div class="content-area">
                 <div class="main-inner z-indexed">
-                    <a href="javascript:void(0)" class="btn-link link-type-2 see-all-link-portfolio2">{{ $t('message.seeMore') }}</a> 
+                    <a @click="$router.push({name:'Categories',params: {id:1}})" class="btn-link link-type-2 see-all-link-portfolio2">{{ $t('message.seeMore') }}</a> 
                 </div>
             </div>
             <span class="vert-line"></span>
@@ -43,7 +43,7 @@
         </div>
     </div>
     <div class="parallax-bg" id="parallax1"></div>
-    <div class="main-section"> 
+    <div class="main-section" id="staff-section"> 
         <staff></staff>
         <contact locale="storage.locale"></contact> 
         <footer class="footer">

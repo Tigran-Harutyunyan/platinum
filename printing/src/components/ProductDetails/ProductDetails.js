@@ -10,29 +10,17 @@ export default {
             productInfo: {},
             isDirty: false,
             isLoading: false,
-            isThereProperties: false
+            showPriceTotal: false,
+            isRequiredSelected: false,
+            totalPrice: ''
         }
     },
     computed: {
+        storage() {
+            return this.$store.getters.getStorage;
+        },
         apiPath() {
             return this.$store.getters.getApiPath;
-        },
-        totalPrice() {
-            let properties = this.product.properties;
-            let sum = 0;
-            for (const key in properties) {
-                if (properties.hasOwnProperty(key)) {
-                    if (properties[key].selected) {
-                        sum += (+properties[key].selected);
-                    }
-                }
-            }
-            if (sum == 0) {
-                return "";
-            } else {
-                this.isDirty = true;
-                return sum;
-            }
         }
     },
     watch: {
@@ -41,6 +29,25 @@ export default {
         }
     },
     methods: {
+        onDropDownChange() {
+            let properties = this.product.properties;
+            let optionID;
+            for (const key in properties) {
+                if (properties.hasOwnProperty(key)) {
+                    if (properties[key].selected) {
+                        properties[key].options.forEach(option => {
+                            if (option.required) {
+                                optionID = option.id
+                            }
+                        });
+                    }
+                }
+            }
+            this.isRequiredSelected = optionID ? true : false;
+            if (this.isRequiredSelected) {
+                this.getProductPrice(optionID);
+            }
+        },
         addProductToCart() {
             this.checkAuth();
             if (!this.user) {
@@ -51,23 +58,11 @@ export default {
                     type: "error"
                 });
                 EventBus.$emit('logout');
-            } else { 
+            } else {
                 if (!this.isLoading) {
-                    this.isLoading = true;
-                    let object = this.product.properties;
-                    let selectedOptions = [];
-                    for (const key in object) {
-                        if (object.hasOwnProperty(key)) {
-                            const item = object[key];
-                            if (item.selected.length) {
-                                item.options.forEach(option => {
-                                    if (option.price == item.selected) {
-                                        selectedOptions.push(option.id);
-                                    }
-                                });
-                            }
-                        }
-                    }
+                    this.isLoading = true; 
+                    let selectedOptions = this.getSelectedOptions();
+                     
                     let formData = new FormData();
                     formData.append('token', this.user ? this.user.token : "");
                     formData.append('product_id', this.product[0].id);
@@ -91,7 +86,7 @@ export default {
                                 position: "top-right",
                                 type: "success"
                             });
-                            this.$router.push({name:'Cart'});
+                            this.$router.push({ name: 'Cart' });
                         }
                     }).catch((error) => {
                         this.isLoading = false;
@@ -104,8 +99,8 @@ export default {
                     });
                 }
             }
-
         },
+
         handleChange(file, fileList) {
             if (file.raw.type.indexOf('image') != -1) {
                 var fr = new FileReader();
@@ -125,10 +120,12 @@ export default {
               type: "success"
             }); */
         },
+
         handleRemove(file, fileList) {
             this.fileList = fileList.slice(-1);
             this.styleObject = {}
         },
+
         getProductById() {
             this.$store.dispatch('getProductById', {
                 id: this.$route.params.id
@@ -152,19 +149,88 @@ export default {
                         });
                     }
                     this.productInfo = response[0];
-                    this.isThereProperties = countProperties > 0;
+                    this.showPriceTotal = countProperties > 0;
                     this.copyOfProduct = JSON.parse(JSON.stringify(this.product));
                     this.isDirty = false;
                 }
             }).catch((error) => {});
         },
+
         reset() {
             this.product = JSON.parse(JSON.stringify(this.copyOfProduct));
             this.isDirty = false;
+            this.showPriceTotal = false;
         },
+
         checkAuth() {
             let storage = localStorage.getItem("platinumInk") ? JSON.parse(localStorage.getItem("platinumInk")) : {};
             this.user = storage.user ? storage.user : null;
+        },
+
+        getSelectedOptions() {
+            let object = this.product.properties;
+            let selectedOptions = [];
+            for (const key in object) {
+                if (object.hasOwnProperty(key)) {
+                    const item = object[key];
+                    if (item.selected.length) {
+                        item.options.forEach(option => {
+                            if (option.price == item.selected) {
+                                selectedOptions.push(option.id);
+                            }
+                        });
+                    }
+                }
+            }
+            return selectedOptions;
+        },
+
+        getProductPrice(optionID) {
+            this.checkAuth();
+            if (!this.user) {
+                this.$notify({
+                    title: 'Cart',
+                    message: "Please login first",
+                    position: "top-right",
+                    type: "error"
+                });
+                EventBus.$emit('logout');
+            } else { 
+                let selectedOptions = this.getSelectedOptions(); 
+                selectedOptions.push(optionID);
+
+                let formData = new FormData();
+                formData.append('token', this.user ? this.user.token : "");
+                formData.append('product_id', this.product[0].id);
+                formData.append('quantity_id', [optionID]);
+                formData.append('properties', JSON.stringify(selectedOptions));
+                this.$store.dispatch('getProductPrice', {
+                    formData
+                }).then((response) => {
+                    if (response.error) {
+                        this.$notify({
+                            title: 'Get price error',
+                            message: response.message,
+                            position: "top-right",
+                            type: "error"
+                        });
+                        EventBus.$emit('logout');
+                    } else {
+                        if (response[0].price) {
+                            this.showPriceTotal = true;
+                            this.isDirty = true;
+                            this.totalPrice = response[0].price;
+                        }
+                    }
+                }).catch((error) => {
+                    this.$notify({
+                        title: 'Get price error',
+                        message: "Server error",
+                        position: "top-right",
+                        type: "error"
+                    });
+                });
+            }
         }
     },
     created() {

@@ -45,18 +45,18 @@
     <div class="right-block">
       <div class="parameters-item" v-for="(value, key) in product.properties">
         <h3 class="param-label">{{ key }}</h3> 
-        <el-select v-model="value.selected" :placeholder="$t('message.select')"> 
+        <el-select v-model="value.selected" :placeholder="$t('message.select')" @change="onDropDownChange"> 
           <el-option v-for="(item, key) in value.options" :key="key" :label="item.name" :value="item.price">
           </el-option>
         </el-select>
       </div> 
-      <div class="summary-block" v-show="isThereProperties">
+      <div class="summary-block" v-show="showPriceTotal && totalPrice">
         <h3 class="param-label">{{ $t('message.printingCost')}}:</h3> 
         <p>{{ totalPrice }} </p> 
       </div>  
      <div class="btns-container">
-      <a class="btn-submit btn-invert btn-1" v-show="isThereProperties && isDirty" @click="reset">{{ $t('message.cancel')}}</a>
-      <a class="btn-submit btn-invert" v-show="isThereProperties" :disabled="isLoading" @click="addProductToCart()" :class="{disabled: !isDirty}">{{ $t('message.continue')}}</a>
+      <a class="btn-submit btn-invert btn-1" v-show="showPriceTotal && isDirty" @click="reset">{{ $t('message.cancel')}}</a>
+      <a class="btn-submit btn-invert" v-show="showPriceTotal" :disabled="isLoading" @click="addProductToCart()" :class="{disabled: !isDirty}">{{ $t('message.continue')}}</a>
      </div>
     </div>
   </div>

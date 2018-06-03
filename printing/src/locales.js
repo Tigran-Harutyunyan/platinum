@@ -55,9 +55,9 @@ export default {
             },
             address: {
                 part1: '',
-                part2: 'Email: info@platinumink.am',
+                part2: 'Email:',
                 part3: '',
-                part4: 'Mobile +1(323)6004477'
+                part4: 'Mobile:'
             },
             seeMore: 'See more',
             more: 'More',
@@ -244,9 +244,9 @@ export default {
             },
             address: {
                 part1: 'Հասցե՝ Ք. Երևան, Արշակունյաց 44',
-                part2: 'Էլ-փոստ՝ info@platinumink.am',
+                part2: 'Էլ-փոստ:',
                 part3: 'Աշխ.՝ +374 10 444921',
-                part4: 'Բջջ.՝ +374 99 766664'
+                part4: 'Բջջ:'
             },
             why: {
                 title: "ինչու՞ աշխատել մեզ հետ"
