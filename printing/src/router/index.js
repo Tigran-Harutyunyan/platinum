@@ -69,7 +69,10 @@ const router = new Router({
     ]
 });
 let jqueryElement = $('html, body');
-router.beforeEach(function(to, from, next) {
+router.beforeEach((to, from, next)=> {
+    if(to.name == 'Shopping'){
+        router.push({name: 'Home'})
+    }
     if (to.name != "Home") {
         setTimeout(() => {
             //window.scrollTo(0, 0);
@@ -77,7 +80,7 @@ router.beforeEach(function(to, from, next) {
                 scrollTop: 0
             }, 200);
         }, 100);
-    }
+    } 
     next();
 });
 export default router;
