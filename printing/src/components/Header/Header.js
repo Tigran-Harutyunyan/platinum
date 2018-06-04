@@ -6,8 +6,8 @@ export default {
         return {
             loginMode: true,
             showLoginDropdown: false,
-            email: "",
-            password: "",
+            email: "tigran3@mail.ru",
+            password: "tigran",
             recoveryMail: "",
             isAuthenticated: false,
             search_key: '',
