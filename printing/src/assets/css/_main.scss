@@ -684,14 +684,11 @@ footer {
 
 .banner {
     background-image: url("../../../static/img/banner.jpg");
-    height: 1048px;
-    position: relative;
+    height: 1048px; 
     background-size: cover;
     background-position: center;
-    text-align: center;
-    position: fixed;
-    width: 100%;
-    top: 0;
+    text-align: center; 
+    width: 100%; 
     .owl-container,
     .banner-container,
     .owl-carousel,
@@ -710,11 +707,7 @@ footer {
         margin: 0 auto;
     }
 }
-
-.content-area1 {
-    margin-top: 1048px;
-    position: relative;
-}
+ 
 
 .changed-zindex {
     z-index: -1;
@@ -841,6 +834,9 @@ footer {
     color: white;
     padding-top: 446px;
     line-height: 19px;
+    p {
+        line-height: 42px;
+    }
 }
 
 //SWING ANIMATION

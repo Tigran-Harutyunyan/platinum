@@ -25,7 +25,7 @@ export default {
     },
     methods: {  
         setZindex() {
-            //*************   SET BANNER Z-INDEX **********************************
+            //************* SET BANNER Z-INDEX **********************************
 
             var bannerController = new ScrollMagic.Controller();
             var scene = new ScrollMagic.Scene({
@@ -98,7 +98,6 @@ export default {
          
     },
     mounted() { 
-        this.initBannerParallaxScroller(); 
         this.initReviews(); 
         this.initPartnersSlider();
         this.setZindex();
@@ -111,8 +110,7 @@ export default {
             gallery: {
                 enabled: true
             },
-            mainClass: 'mfp-with-zoom',
-
+            mainClass: 'mfp-with-zoom', 
             zoom: {
                 enabled: true,
                 duration: 300
