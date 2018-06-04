@@ -2,9 +2,9 @@
   <pl-header></pl-header>
   <div class="main-section content-area">
     <div class="portfolio-grid">
-      <div class="grid">
-        <isotope :list="items" :options='getOptions()'>
-          <div class="grid-item" v-for="(element, index) in items" :key="index" @click="openPopup(index)">
+      <div class="grid" v-if="completedWorks.length">
+        <isotope :list="completedWorks" :options='getOptions()'>
+          <div class="grid-item" v-for="(element, index) in completedWorks" :key="index" :style="element.imageStyle" @click="openPopup(element)">
             <div class="shirma"></div>
           </div>
         </isotope>
@@ -23,24 +23,21 @@
       </div>
       <div class="item-container">
         <div class="imgs-container">
-          <img src="../../../static/img/designImg1.jpg">
-          <img src="../../../static/img/designImg2.jpg">
-          <img src="../../../static/img/designImg1.jpg">
+            <div v-if="currentSlide.images">
+                <img :src="item.image" v-for="(item,index) in currentSlide.images" :key="index"> 
+            </div> 
         </div>
-        <div class="info-container">
+        <div class="info-container" v-if="currentSlide[0]">
           <div class="close" @click="closePopup"></div>
-          <h1 class="item-title">Creadit Fix</h1>
+          <h1 class="item-title">{{ currentSlide[0].title }}</h1>
           <div class="line"></div>
           <ul class="info-list">
-            <li>Client: Credit Fix</li>
-            <li>Date: 2016</li>
-            <li>Service: Logo design, graphic design</li>
-            <li>Category: Credit repair</li>
+            <li>Client: {{ currentSlide[0].client }}</li>
+            <li>Date: {{ currentSlide[0].date }}</li>
+            <li>Service: {{ currentSlide[0].service }} </li>
+            <li>Category: {{ currentSlide[0].category }}</li>
           </ul>
-          <p class="info-description">CreditFixPro are dedicated to you and all your different credit repair needs. They've been around for over 8 years
-            and they've made excellent credit for thousands of people. But, their most important win is making you a happy,
-            life-long customer.
-          </p>
+          <p class="info-description">{{ currentSlide[0].description }}</p>
         </div>
       </div>
     </div>
