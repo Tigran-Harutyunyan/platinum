@@ -48,6 +48,7 @@ export default {
             } else {
                 this.removeUser();
             }
+         
         },
         removeUser() {
             let storage = localStorage.getItem('platinumInk') ? JSON.parse(localStorage.getItem("platinumInk")) : {};
@@ -56,6 +57,8 @@ export default {
             this.$store.dispatch('setStorage', storage);
             this.isAuthenticated = false;
             EventBus.$emit('exitCart');
+            EventBus.$emit('authChanged');
+            //location.reload();
         },
         toSignupPage() {
             this.showLoginDropdown = false;
@@ -67,7 +70,7 @@ export default {
             this.loginMode = true
         },
         onPassRecovery() {
-
+            // not implemented
         },
         goTo(section) {
             let param = '';
@@ -155,6 +158,7 @@ export default {
                         this.loginMode = true;
                         this.isAuthenticated = true;
                     }
+                    EventBus.$emit('authChanged');
                 }).catch((error) => {
                     this.$notify({
                         title: 'Login',

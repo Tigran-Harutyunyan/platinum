@@ -46,7 +46,7 @@
       <div class="parameters-item" v-for="(value, key) in product.properties">
         <h3 class="param-label">{{ key }}</h3> 
         <el-select v-model="value.selected" :placeholder="$t('message.select')" @change="onDropDownChange"> 
-          <el-option v-for="(item, key) in value.options" :key="key" :label="item.name" :value="item.price">
+          <el-option v-for="(item, key) in value.options" :key="key" :label="item.name" :value="item.id">
           </el-option>
         </el-select>
       </div> 
