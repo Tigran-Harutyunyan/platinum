@@ -1,5 +1,4 @@
-<div class="banner" id="mainSlider">
-  <!-- <div class="logo"></div> -->
+<div class="banner" id="mainSlider"> 
   <div class="banner-nav-inner">
     <div class="slides-info-place">
       <span id="current-slide">{{ currentSlide }}</span>
@@ -7,14 +6,14 @@
     </div>
     <div class="social-place slider-social-btns">
       <ul class="footer-social-links">
-        <li class="social-icons fb">
-          <a href="https://www.facebook.com/PlatiniumInk/" class="fb-link"></a>
+        <li class="social-icons fb" v-if="customData.facebook_link">
+          <a :href="customData.facebook_link"class="fb-link"></a>
         </li>
         <li class="social-icons in">
           <a href="https://www.linkedin.com/profile/edit?trk=nav_responsive_sub_nav_edit_profile" class="in-link"></a>
         </li>
-        <li class="social-icons ins">
-          <a href="https://www.instagram.com/platinuminkdesign/" class="ins-link"></a>
+        <li class="social-icons ins" v-if="customData.instagram_link">
+          <a :href="customData.instagram_link" class="ins-link"></a>
         </li>
       </ul>
     </div>
@@ -37,9 +36,9 @@
         <a @click="$router.push({name:'Categories',params: {id:1}})" class="btn-link banner-see-more-link">{{ $t('message.orderOnline') }}</a>
         <div class="banner-line"></div>
       </div>
-    </swiper-slide>
-
+    </swiper-slide> 
     <swiper-slide> 
+        
     </swiper-slide>
     <div class="swiper-pagination big-slider-pagination" slot="pagination"></div>
   </swiper>

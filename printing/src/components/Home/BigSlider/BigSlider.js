@@ -1,8 +1,8 @@
  export default {
    data() {
-     return { 
+     return {
        currentSlide: 1,
-       slidesLength: '', 
+       slidesLength: '',
        swiperOption: {
          slidesPerView: 1,
          fadeEffect: {
@@ -18,14 +18,14 @@
      }
    },
    mounted() {
-     this.setSlidesItems(1);  //set slide item info.
+     this.setSlidesItems(1); //set slide item info.
 
      this.swiper.on('slideChange', () => {
        //handle slide change.
        let currentIndex = this.swiper.activeIndex + 1;
        this.setSlidesItems(currentIndex);
      });
-   
+
      this.initLogo();
 
    },
@@ -33,14 +33,17 @@
      swiper() {
        return this.$refs.bigSlider.swiper
      },
+     customData() {
+       return this.$store.getters.getCustomData;
+     }
    },
    methods: {
      setSlidesItems(currentIndex) {
        let slidesLength = this.swiper.slides.length;
        this.slidesLength = (currentIndex < 10) ? '/0' + slidesLength : '/' + slidesLength;
        this.currentSlide = (currentIndex < 10) ? '0' + currentIndex : currentIndex;
-     }, 
-     // Logo animation related
+     },
+     // Logo animation related.
      initLogo() {
        this.canvas = document.getElementById("canvas");
        this.anim_container = document.getElementById("animation_container");
