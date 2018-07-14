@@ -4,6 +4,7 @@ export default {
             swiperOption: {
                 slidesPerView: 2,
                 spaceBetween: 30,
+                autoplay:true,
                 pagination: {
                     el: '.swiper-pagination',
                     clickable: true
