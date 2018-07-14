@@ -1,5 +1,41 @@
 export default {
     graphic: [{
+        image: "../../../../static/img/web/YourNurses.jpg",
+        thumbnail: "../../../../static/img/web/thumbnails/YourNurses.jpg",
+        name: "Your nurses web site mockup"
+    }, {
+        image: "../../../../static/img/web/GoldenYears.jpg",
+        thumbnail: "../../../../static/img/web/thumbnails/GoldenYears.jpg",
+        name: "Goldern Years web site mockup"
+    }, {
+        image: "../../../../static/img/web/Faint&Hope.jpg",
+        thumbnail: "../../../../static/img/web/thumbnails/Faint&Hope.jpg",
+        name: "Faint & Hope web site mockup"
+    }, {
+        image: "../../../../static/img/web/ZenNoho.jpg",
+        thumbnail: "../../../../static/img/web/thumbnails/ZenNoho.jpg",
+        name: "Faint & Hope web mockup"
+    }, {
+        image: "../../../../static/img/web/eternity.jpg",
+        thumbnail: "../../../../static/img/web/thumbnails/eternity.jpg",
+        name: "Eternity web mockup"
+    }, {
+        image: "../../../../static/img/web/CMWCUSA.jpg",
+        thumbnail: "../../../../static/img/web/thumbnails/CMWCUSA.jpg",
+        name: "CMWCUSA web mockup"
+    }, {
+        image: "../../../../static/img/web/EatNoho.jpg",
+        thumbnail: "../../../../static/img/web/thumbnails/EatNoho.jpg",
+        name: "EAT Noho web mockup"
+    }, {
+        image: "../../../../static/img/web/Nomenclature.jpg",
+        thumbnail: "../../../../static/img/web/thumbnails/Nomenclature.jpg",
+        name: "Nomenclature web site mockup"
+    }, {
+        image: "../../../../static/img/web/thumbnails/YourNurses.jpg",
+        thumbnail: "../../../../static/img/web/YourNurses.jpg",
+        name: "Your Nurses"
+    } ,{
             image: "../../../../static/img/portfolio/thumbnails/Avangard.jpg",
             thumbnail: "../../../../static/img/portfolio/Avangard_1200px_Card.jpg",
             name: "Avangard"
@@ -155,43 +191,6 @@ export default {
             name: ""
         }
     ],
-    web: [{
-            image: "../../../../static/img/web/YourNurses.jpg",
-            thumbnail: "../../../../static/img/web/thumbnails/YourNurses.jpg",
-            name: "Your nurses web site mockup"
-        }, {
-            image: "../../../../static/img/web/GoldenYears.jpg",
-            thumbnail: "../../../../static/img/web/thumbnails/GoldenYears.jpg",
-            name: "Goldern Years web site mockup"
-        }, {
-            image: "../../../../static/img/web/Faint&Hope.jpg",
-            thumbnail: "../../../../static/img/web/thumbnails/Faint&Hope.jpg",
-            name: "Faint & Hope web site mockup"
-        }, {
-            image: "../../../../static/img/web/ZenNoho.jpg",
-            thumbnail: "../../../../static/img/web/thumbnails/ZenNoho.jpg",
-            name: "Faint & Hope web mockup"
-        }, {
-            image: "../../../../static/img/web/eternity.jpg",
-            thumbnail: "../../../../static/img/web/thumbnails/eternity.jpg",
-            name: "Eternity web mockup"
-        }, {
-            image: "../../../../static/img/web/CMWCUSA.jpg",
-            thumbnail: "../../../../static/img/web/thumbnails/CMWCUSA.jpg",
-            name: "CMWCUSA web mockup"
-        }, {
-            image: "../../../../static/img/web/EatNoho.jpg",
-            thumbnail: "../../../../static/img/web/thumbnails/EatNoho.jpg",
-            name: "EAT Noho web mockup"
-        }, {
-            image: "../../../../static/img/web/Nomenclature.jpg",
-            thumbnail: "../../../../static/img/web/thumbnails/Nomenclature.jpg",
-            name: "Nomenclature web site mockup"
-        }, {
-            image: "../../../../static/img/web/thumbnails/YourNurses.jpg",
-            thumbnail: "../../../../static/img/web/YourNurses.jpg",
-            name: "Your Nurses"
-        } 
-    ]
+     
 }
  

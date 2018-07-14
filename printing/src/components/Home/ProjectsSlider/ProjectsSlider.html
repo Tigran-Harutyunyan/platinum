@@ -1,20 +1,8 @@
-<div class="sliders-place noselect">
-    <!-- GRAPHICAL DESIGN PROJECTS -->
-    <div class="landing-wrapper" v-show="activeTab=='graphicDesign'" id="graphicsTab">
-        <div class="landing-inner-content" id="graphics_slider">
-            <div class="box" v-for="item in graphic">
-                <img class="open-popup-link mfp-prevent-close" :src="item.thumbnail" :data-mfp-src="item.image" :alt="item.name" magnific-popup>
-            </div> 
-        </div>
-    </div>
-    <!-- WEB DESIGN PROJECTS -->
-    <div class="landing-wrapper" v-show="activeTab=='webDesign'" id="webDesignTab">
-        <div class="landing-inner-content" id="web_slider">
-            <div class="box" v-for="item in web">
-                <div class="box-content">
-                    <img class="open-popup-link mfp-prevent-close" :src="item.thumbnail" :data-mfp-src="item.image" :alt="item.name"  magnific-popup>
-                </div>
-            </div> 
-        </div>
-    </div> 
+<div class="sliders-place noselect projects-slider-container">
+  <!-- PROJECTS -->
+  <swiper :options="swiperOption" ref="myProjects">
+    <swiper-slide v-for="(item, index) in projects" :key="index" class="box">
+      <img class="open-popup-link mfp-prevent-close" :src="item.thumbnail" :data-mfp-src="item.image" :alt="item.name" magnific-popup>
+    </swiper-slide>
+  </swiper>
 </div>
