@@ -1,54 +1,46 @@
 <div class="banner" id="mainSlider">
-    <!-- <div class="logo"></div> -->
-    <div class="banner-nav-inner">
-        <div class="slides-info-place">
-            <span id="current-slide"></span>
-            <span id="items-counter"></span>
-        </div>
-        <div class="nav-element-container">
-            <span class="active-nav" data-nav="0"></span>
-        </div>
-        <div class="social-place slider-social-btns">
-            <ul class="footer-social-links">
-                <li class="social-icons fb">
-                    <a href="https://www.facebook.com/PlatiniumInk/" class="fb-link"></a>
-                </li>
-                <li class="social-icons in">
-                    <a href="https://www.linkedin.com/profile/edit?trk=nav_responsive_sub_nav_edit_profile" class="in-link"></a>
-                </li>
-                <li class="social-icons ins">
-                    <a href="https://www.instagram.com/platinuminkdesign/" class="ins-link"></a>
-                </li>
-            </ul>
-        </div>
+  <!-- <div class="logo"></div> -->
+  <div class="banner-nav-inner">
+    <div class="slides-info-place">
+      <span id="current-slide">{{ currentSlide }}</span>
+      <span id="items-counter">{{ slidesLength }}</span>
     </div>
-    <!-- Home Slider -->
-    <div class="owl-container">
-        <div class="banner-container">
-            <div class="owl-carousel owl-carousel-home owl-theme" id="banners-slider">
-                <div class="owl-item">
-                    <div class="home-slide-inner">
-                        <!-- <div class="logo"></div> -->
-                        <div id="animation_container" style="background-color:rgba(0, 0, 0, 0.00); width:100%; height:370px">
-                            <canvas id="canvas" width="566" height="370" style="position: absolute; display: block; background-color:rgba(0, 0, 0, 0.00);"></canvas>
-                            <div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:566px; height:370px; position: absolute; left: 0px; top: 0px; display: block;">
-                            </div>
-                        </div>
-                        <div class="main-banner-text">
-                            <p>{{ $t('message.bannerText.text1') }}</p> <br> 
-                            <p>{{ $t('message.bannerText.text2') }}</p>
-                        </div>
-                        <a @click="$router.push({name:'Categories',params: {id:1}})" class="btn-link banner-see-more-link">{{ $t('message.orderOnline') }}</a>
-                        <div class="banner-line"></div>
-                    </div>
-                </div>
-                <div class="owl-item">
-                </div>
-                <div class="owl-item">
-                </div>
-            </div>
-            <div id="banner-dots2" class="banner-dots"></div>
-        </div>
+    <div class="social-place slider-social-btns">
+      <ul class="footer-social-links">
+        <li class="social-icons fb">
+          <a href="https://www.facebook.com/PlatiniumInk/" class="fb-link"></a>
+        </li>
+        <li class="social-icons in">
+          <a href="https://www.linkedin.com/profile/edit?trk=nav_responsive_sub_nav_edit_profile" class="in-link"></a>
+        </li>
+        <li class="social-icons ins">
+          <a href="https://www.instagram.com/platinuminkdesign/" class="ins-link"></a>
+        </li>
+      </ul>
     </div>
-    <!-- Home slider  -->
+  </div>
+  <!-- Home slider  -->
+  <swiper :options="swiperOption" class="staff-slider" ref="bigSlider">
+    <swiper-slide>
+      <div class="home-slide-inner">
+        <!-- <div class="logo"></div> -->
+        <div id="animation_container" style="background-color:rgba(0, 0, 0, 0.00); width:100%; height:370px">
+          <canvas id="canvas" width="566" height="370" style="position: absolute; display: block; background-color:rgba(0, 0, 0, 0.00);"></canvas>
+          <div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:566px; height:370px; position: absolute; left: 0px; top: 0px; display: block;">
+          </div>
+        </div>
+        <div class="main-banner-text">
+          <p>{{ $t('message.bannerText.text1') }}</p>
+          <br>
+          <p>{{ $t('message.bannerText.text2') }}</p>
+        </div>
+        <a @click="$router.push({name:'Categories',params: {id:1}})" class="btn-link banner-see-more-link">{{ $t('message.orderOnline') }}</a>
+        <div class="banner-line"></div>
+      </div>
+    </swiper-slide>
+
+    <swiper-slide> 
+    </swiper-slide>
+    <div class="swiper-pagination big-slider-pagination" slot="pagination"></div>
+  </swiper>
 </div>
