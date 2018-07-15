@@ -2,7 +2,10 @@ import {
     required,
     minLength,
     email
-} from 'vuelidate/lib/validators';
+} from 'vuelidate/lib/validators'; 
+
+import PartnersSlider from "../PartnersSlider/PartnersSlider.vue";
+
 export default {
     data() {
         return {
@@ -57,6 +60,9 @@ export default {
                 });
             }
         },
+    },
+    components: { 
+        'partners-slider': PartnersSlider
     },
     validations: {
         email: {

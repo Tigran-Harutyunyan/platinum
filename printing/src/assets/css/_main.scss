@@ -120,8 +120,7 @@ Layout styles
         border: 1px solid #b3b3b3
     }
     .btn-submit {
-        float: none;
-        width: 120px;
+        float: none; 
         padding: 4px 30px 4px;
         &:hover {
             border-color: white
@@ -906,11 +905,15 @@ footer {
     .box {
         position: relative;
         background: #eeece5;
-        width: 250px;
-        height: 250px;
+        width: 250px !important;
+        height: 250px !important; 
         margin: 20px 20px 0 0;
         float: left;
-        overflow: hidden;
+        overflow: hidden; 
+        img {
+            width: 100%;
+            height: 100%;
+        }
     }
     .box:first-of-type {
         margin-left: 20px;
@@ -935,7 +938,9 @@ footer {
         margin: 0 auto 0;
     }
 }
-
+.projects-slider-container {
+    padding-bottom: 70px;
+}
 .services-section {
     padding-top: 85px;
 }
@@ -2268,13 +2273,16 @@ menu hamburger>i:after {
             margin: 0 auto 18px;
         }
     }
-    p {
+   .staff-description{
         color: #999999;
         font-size: 12px;
         text-align: center;
         line-height: 22px;
         max-width: 575px;
         margin: 24px auto 0;
+    }
+    .swiper-pagination.big-slider-pagination{
+        bottom: 50px !important;
     }
     span {
         color: #cccccc
@@ -2315,7 +2323,7 @@ menu hamburger>i:after {
     .el-input__inner {
         height: 30px;
         padding-left: 13px;
-        text-transform: uppercase;
+       // text-transform: uppercase;
         border-color: #959595 !important;
         font-family: Tahoma;
     }

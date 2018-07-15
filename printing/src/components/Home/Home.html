@@ -1,52 +1,63 @@
 <div>
-    <pl-header></pl-header>
-    <!-- <p>{{ $t("message.hello") }}</p> -->
-    <div class="main-section" id="main-section">
-       <big-slider></big-slider>
-        <div class="content-area content-area1">
-            <!-- <div class="large-triangle11" id="triangle11"></div> -->
-            <div class="main-inner"> 
-                <div class="large-triangle1 triangles"></div>
-                <div class="large-triangle2 triangles"></div>
-                <!-- SERVICES -->
-                <services></services> 
-                <!-- ABOUT US -->
-                <about></about>
-                <!-- PROJECTS -->
-                <projects></projects>
+  <pl-header></pl-header>
+  <!-- <p>{{ $t("message.hello") }}</p> -->
+  <div class="main-section" id="main-section">
+    <big-slider></big-slider>
+    <div class="content-area content-area1">
+      <!-- <div class="large-triangle11" id="triangle11"></div> -->
+      <div class="main-inner">
+        <div class="large-triangle1 triangles"></div>
+        <div class="large-triangle2 triangles"></div>
+        <!-- SERVICES -->
+        <services></services>
+        <!-- ABOUT US -->
+        <about></about>
+        <!-- PROJECTS -->
+        <section class="portfolio-section" id="section-portfolio">
+          <!-- <div class="large-triangle6 triangles"></div> -->
+          <div class="section-title-place">
+            <div class="letter-divider">
+              <h6>03</h6>
             </div>
-            <!-- PROJECTS SLIDER -->
-            <projects-slider></projects-slider> 
-            <div class="content-area">
-                <div class="main-inner z-indexed">
-                    <a @click="$router.push({name:'Categories',params: {id:1}})" class="btn-link link-type-2 see-all-link-portfolio2">{{ $t('message.seeMore') }}</a> 
-                </div>
-            </div>
+            <h5>{{ $t('message.projects.title') }}</h5>
+            <!-- <a href="javascript:void(0)" class="btn-link link-type-2 see-all-link-portfolio1">{{ $t('message.seeMore') }}</a> -->
             <span class="vert-line"></span>
-            <div class="order-stripe">
-                <a href="/#/category/1" class="btn-link">{{ $t('message.orderOnline') }}</a> 
-            </div>
-            <div class="main-inner inner-reviews">
-                <reasons></reasons>
-            </div>
-            <div class="main-inner inner-reviews">
-                <section class="testimonials-section">
-                    <div class="section-title-place">
-                        <div class="letter-divider">
-                            <h6>05</h6>
-                        </div>
-                        <h5>{{ $t('message.staff') }}</h5>
-                        <span class="vert-line"></span>
-                    </div>
-                </section>
-            </div>
+          </div>
+          <div class="portfolio-inner"></div>
+        </section>
+      </div>
+      <!-- PROJECTS SLIDER -->
+      <projects-slider></projects-slider>
+      <div class="content-area">
+        <div class="main-inner z-indexed">
+          <a @click="$router.push({name:'Categories',params: {id:1}})" class="btn-link link-type-2 see-all-link-portfolio2">{{ $t('message.seeMore') }}</a>
         </div>
+      </div>
+      <span class="vert-line"></span>
+      <div class="order-stripe">
+        <a href="/#/category/1" class="btn-link">{{ $t('message.orderOnline') }}</a>
+      </div>
+      <div class="main-inner inner-reviews">
+        <reasons></reasons>
+      </div>
+      <div class="main-inner inner-reviews">
+        <section class="testimonials-section">
+          <div class="section-title-place">
+            <div class="letter-divider">
+              <h6>05</h6>
+            </div>
+            <h5>{{ $t('message.staff') }}</h5>
+            <span class="vert-line"></span>
+          </div>
+        </section>
+      </div>
     </div>
-    <div class="parallax-bg" id="parallax1"></div>
-    <div class="main-section" id="staff-section"> 
-        <staff></staff>
-        <contact locale="storage.locale"></contact> 
-        <footer class="footer">
-        </footer>
-    </div>
+  </div>
+  <div class="parallax-bg" id="parallax1"></div>
+  <div class="main-section" id="staff-section">
+    <staff></staff>
+    <contact locale="storage.locale"></contact>
+    <footer class="footer">
+    </footer>
+  </div>
 </div>

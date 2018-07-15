@@ -71,7 +71,8 @@ export default {
         noProfile: "Don`t have a profile?",
         createPage: "Sign up",
         login: "Login",
-        back: "Back"
+        back: "Back",
+        recovery: "recovery"
       },
       address: {
         part1: '',
@@ -260,7 +261,8 @@ export default {
         noProfile: "Չունե՞ք Անձնական էջ",
         createPage: "Ստեղծել անձնական էջ",
         login: "մուտք",
-        back: "ետ"
+        back: "ետ",
+        recovery: "վերականգնում"
       },
       address: {
         part1: 'Հասցե՝ Ք. Երևան, Արշակունյաց 44',

@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import store from '../store';
+import { state } from '../store/modules/state.js';
 import Products from '../components/Products/Products.vue'
+import Search from '../components/Search/Search.vue'
 import ProductDetails from '../components/ProductDetails/ProductDetails.vue'
 import Cart from '../components/Cart/Cart.vue'
 import SignUp from '../components/SignUp/SignUp.vue'
@@ -12,7 +13,7 @@ import Portfolio from '../components/Portfolio/Portfolio.vue'
 Vue.use(Router);
 
 const shouldBeAuthed = async(to, from, next) => {
-    let authorized = store.state.storage.user ? true : false;
+     let authorized =  state.storage.user ? true : false;
     if (authorized) {
         next();
     } else {
@@ -51,6 +52,11 @@ const router = new Router({
                     name: 'Orders',
                     component: Orders,
                     beforeEnter: shouldBeAuthed
+                },
+                {
+                    path: '/search/:search_key',
+                    name: 'Search',
+                    component: Search 
                 }
 
             ]
@@ -78,7 +84,7 @@ router.beforeEach((to, from, next)=> {
             //window.scrollTo(0, 0);
             jqueryElement.animate({
                 scrollTop: 0
-            }, 200);
+            }, 0);
         }, 100);
     } 
     next();

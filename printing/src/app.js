@@ -56,9 +56,7 @@ import VueAwesomeSwiper from 'vue-awesome-swiper';
 // require styles
 import 'swiper/dist/css/swiper.css'; 
 Vue.use(VueAwesomeSwiper, /* { default global options } */)
-
-const AdminApi = require('./admin-api');
-Vue.use(AdminApi);
+ 
 
 export default {
     name: "App", 
@@ -71,10 +69,7 @@ export default {
                 $('html').stop().animate({ scrollTop: 400 }, 700, 'swing', function() {});
             } 
         }
-    },
-    methods: {
-        
-    },
+    }, 
     created() { 
         this.$store.dispatch('getCategories');
     }

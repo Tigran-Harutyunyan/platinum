@@ -1,0 +1,17 @@
+<div class="products-main" style="padding-left: 35px;"> 
+    <h3 class="product-category-title">{{ categoryName }}</h3>
+    <div class="product-items">
+        <a class="product-item" :href="product.href" v-for="product in productList">
+            <img :src="product.image">
+            <div class="product-descr">
+                <span class="product-name">{{ product.name }}</span>
+                <div class="size">{{ product.size }}</div> 
+                <div class="product-pricing">
+                    <div class="short-description">{{ product.short_description }} </div>
+                    <i>{{ product.price }}</i> 
+                    <div class="part-3">դրամից</div>
+                </div>
+            </div>
+        </a> 
+    </div> 
+</div>

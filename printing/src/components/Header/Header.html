@@ -32,19 +32,23 @@
                                             :class="{'has-error': $v.password.$error}">
                                         </el-input>
                                         <span class="forgot-pass-link" @click="loginMode=false">{{ $t('message.form.forgotPassword') }}</span>
-                                        <input type="submit" class="btn-submit btn-invert" :value="$t('message.form.login')">
+                                        <input type="submit" class="btn-submit btn-invert" :loading="loading" :value="$t('message.form.login')">
                                     </form>
                                 </div> 
                                 <div class="forgot-pass-block" v-else>
-                                    <el-input 
-                                        v-model="email" 
-                                        :placeholder="$t('message.form.email')">
-                                    </el-input>
-                                    <a class="forgot-pass-link" @click="loginMode=true">{{ $t('message.form.back') }}</a>
-                                    <button class="btn-submit btn-invert" @click="onPassRecovery">Submit</button>
+                                   <form v-on:submit.prevent="onPassRecovery" 
+                                        @submit="$v.recoveryMail.$touch();"> 
+                                        <el-input class="password-recovery-input" 
+                                            v-model="recoveryMail" 
+                                            :class="{'has-error': $v.recoveryMail.$error}"
+                                            :placeholder="$t('message.form.email')">
+                                        </el-input> 
+                                        <input type="submit" class="btn-submit btn-invert" :value="$t('message.form.recovery')">
+                                        <a class="forgot-pass-link" @click="loginMode=true">{{ $t('message.form.back') }}</a> 
+                                    </form>
                                 </div>
                                 <h5 class="on-signup">{{ $t('message.form.noProfile') }}</h5>
-                                <span href="javascript:void(0)" @click="toSignupPage" class="create-link">{{ $t('message.form.createPage') }}</span>
+                                <a @click.stop="toSignupPage" class="create-link">{{ $t('message.form.createPage') }}</a>
                             </div>
                          </a>
                     </li>
@@ -57,8 +61,8 @@
                         </a>
                     </li>
                     <li class="search-holder">
-                        <el-input class="search-input" :placeholder="$t('message.search')" v-model="search_key">
-                            <i slot="prefix" class="el-input__icon el-icon-search"></i>
+                        <el-input class="search-input" @change="onSearch" :placeholder="$t('message.search')" v-model="search_key">
+                            <i slot="prefix" class="el-input__icon el-icon-search" @click="onSearch"></i>
                         </el-input>
                     </li>
                     <!-- LOCALE TOGGLER -->

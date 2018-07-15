@@ -27,7 +27,7 @@ export default {
     methods: {
         checkRoute(route) {
             this.showSidebar =
-                route == "Categories" || route == "ProductDetail" ? true : false;
+                route == "Categories" || route == "ProductDetail" || route == "Search"? true : false;
         }
     },
     created(){ 

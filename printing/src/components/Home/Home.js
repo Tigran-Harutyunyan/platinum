@@ -1,8 +1,7 @@
 import Header from "../Header/Header.vue";
 import services from "./Services/Services.vue";
 import about from "./About/About.vue";
-import staff from "./Staff/Staff.vue";
-import Projects from "./Projects/Projects.vue";
+import staff from "./Staff/Staff.vue"; 
 import ProjectsSlider from "./ProjectsSlider/ProjectsSlider.vue";
 import reasons from "./Reasons/Reasons.vue"; 
 import contact from "./Contact/Contact.vue"; 
@@ -21,7 +20,7 @@ export default {
     computed: {
         storage() {
             return this.$store.getters.getStorage
-        }
+        } 
     },
     methods: {  
         setZindex() {
@@ -70,52 +69,21 @@ export default {
                     ease: Linear.easeNone
                 })
                 .addTo(reviewsController);
-        }, 
-        initPartnersSlider() {  
-            $('#partners-slider').owlCarousel({
-                loop: true,
-                autoplay: true,
-                margin: 0,
-                smartSpeed: 450,
-                dots: false,
-                nav: false,
-                items: 5,
-                autoHeight: false,
-                mouseDrag: true
-            });
-        }
+        }  
+       
     },
     components: { 
         services,
         about,
         contact,
         reasons,
-        staff,
-        projects: Projects,
+        staff, 
         "pl-header": Header,
         'projects-slider': ProjectsSlider,
-        'big-slider': BigSlider 
-         
+        'big-slider': BigSlider  
     },
     mounted() { 
-        this.initReviews(); 
-        this.initPartnersSlider();
-        this.setZindex();
-        $("#graphics_slider, #web_slider").mThumbnailScroller({
-            theme: "hover-classic", //"hover-precise", //theme:"hover-classic"
-            speed: 15
-        });
-        $('.open-popup-link').magnificPopup({
-            type: 'image',
-            gallery: {
-                enabled: true
-            },
-            mainClass: 'mfp-with-zoom', 
-            zoom: {
-                enabled: true,
-                duration: 300
-            }
-        });
-
+        this.initReviews();  
+        this.setZindex(); 
     }
 }

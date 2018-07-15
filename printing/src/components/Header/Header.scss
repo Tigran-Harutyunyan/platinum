@@ -7,7 +7,7 @@
     color: #3c3c3c;
     padding: 8px 0 11px;
     text-transform: initial;
-    display: inline-block;
+    display:  block;
     cursor: pointer;
     &:hover {
         color: #af995a;
@@ -93,4 +93,8 @@
 }
 .el-input__icon {
     line-height: 39px;
+    cursor: pointer
+}
+.password-recovery-input {
+    margin-bottom: 20px;
 }

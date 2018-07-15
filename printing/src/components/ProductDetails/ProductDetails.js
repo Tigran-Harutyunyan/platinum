@@ -14,7 +14,8 @@ export default {
       isLoading: false,
       showPriceTotal: false,
       isRequiredSelected: false,
-      totalPrice: ''
+      totalPrice: '',
+      loading: false
     }
   },
   computed: {
@@ -81,6 +82,7 @@ export default {
         });
         EventBus.$emit('logout');
       } else {
+        this.loading = true;
         let selectedOptions = this.getSelectedOptions(); 
         let formData = new FormData();
         formData.append('token', this.user ? this.user.token : "");
@@ -91,6 +93,7 @@ export default {
         this.$store.dispatch('getProductPrice', {
           formData
         }).then((response) => {
+          this.loading = false;
           if (response.error) {
             this.$notify({
               title: 'Get price error',
@@ -109,6 +112,7 @@ export default {
             }
           }
         }).catch((error) => {
+          this.loading = false;
           this.$notify({
             title: 'Get price error',
             message: "Server error",
@@ -121,7 +125,7 @@ export default {
 
     addProductToCart() {
       this.checkAuth();
-      if (!this.user) {
+      if (!this.user && !this.loading) {
         this.$notify({
           title: 'Cart',
           message: "Please login first",
@@ -201,10 +205,10 @@ export default {
       this.styleObject = {}
     },
 
-    getProductById() {
+    getProductById() { 
       this.$store.dispatch('getProductById', {
         id: this.$route.params.id
-      }).then((response) => {
+      }).then((response) => { 
         if (response[0]) {
           let object = response.properties;
           let countProperties = 0;
