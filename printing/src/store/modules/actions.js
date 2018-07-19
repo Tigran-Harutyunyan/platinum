@@ -76,23 +76,12 @@ import axios from 'axios';
  };
  const requestLogin = ({
    commit,state
- }, {
-   first_name,
-   last_name,
-   company_name,
-   email,
-   password,
-   receive_promotions,
-   recaptcha
- }) => {
+ }, data) => {
    return new Promise((resolve, reject) => {
      axios({
        url: `${state.apiPath}/api/login`,
        method: 'post',
-       params: {
-         email,
-         password
-       },
+       params: data,
        headers: {
          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
        }
@@ -129,28 +118,12 @@ import axios from 'axios';
 
  const requestSignup = ({
    commit,state
- }, {
-   first_name,
-   last_name,
-   company_name,
-   email,
-   password,
-   receive_promotions,
-   recaptcha
- }) => {
+ }, data) => { 
    return new Promise((resolve, reject) => {
      axios({
        url: `${state.apiPath}/api/register`,
        method: 'post',
-       params: {
-         first_name,
-         last_name,
-         company_name,
-         email,
-         password,
-         receive_promotions,
-         recaptcha
-       },
+       params: data,
        headers: {
          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
        }
@@ -161,6 +134,26 @@ import axios from 'axios';
      })
    });
  };
+
+ const updateProfileInfo = ({
+  commit,state
+}, data) => { 
+  return new Promise((resolve, reject) => {
+    axios({
+      url: `${state.apiPath}/api/updateProfileInfo`,
+      method: 'post',
+      params: data,
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      }
+    }).then(response => {
+      resolve(response.data);
+    }).catch(function (error) {
+      reject(error);
+    })
+  });
+};
+
  const requestLogOut = ({
    commit,state
  }, {
@@ -416,6 +409,7 @@ import axios from 'axios';
    requestPasswordRecovery,
    requestSignup,
    requestLogOut,
+   updateProfileInfo,
    addProductToBasket,
    getBasketProducts,
    requestContact,

@@ -42,7 +42,7 @@ export default {
   },
   methods: {
     logout() {
-      this.checkAuth();
+      this.checkAuth(); 
       if (this.user) {
         let formData = new FormData();
         formData.append('token', this.user ? this.user.token : "");
@@ -64,7 +64,7 @@ export default {
       localStorage.setItem('platinumInk', JSON.stringify(storage));
       this.$store.dispatch('setStorage', storage);
       this.isAuthenticated = false;
-      EventBus.$emit('exitCart');
+      EventBus.$emit('onLogout');
       EventBus.$emit('authChanged');
     },
 

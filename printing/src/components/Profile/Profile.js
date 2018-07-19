@@ -1,3 +1,6 @@
+import {
+  EventBus
+} from '../../event-bus.js';
 import VueRecaptcha from 'vue-recaptcha';
 import {
   required,
@@ -9,74 +12,72 @@ import {
 export default {
   data() {
     return {
-      agree: false,
       recaptchaResponse: "",
       first_name: "",
       last_name: "",
       company_name: "",
       email: "",
-      password: "",
       receive_promotions: false,
       recaptcha: '',
-      passwordConfirm: '',
       isLoading: false,
       birthday_at: "",
       phone: "",
       pickerOptions1: {
         format: 'yyyy-MM-dd'
-      },
-      birthday_at: ''
+      }
     }
   },
   computed: {
     isFormValid() {
-      return !this.$v.$invalid && this.agree && this.recaptchaResponse.length;
+      return !this.$v.$invalid && this.recaptchaResponse.length>0;
+    },
+    storage() {
+      return this.$store.getters.getStorage;
     }
   },
   methods: {
-    onSubmitSignup() {
+    updateProfileInfo() {
       if (!this.isLoading && !this.$v.$invalid) {
         this.isLoading = true;
         let data = {
           email: this.email,
-          password: this.password,
           first_name: this.first_name,
           last_name: this.last_name,
           company_name: this.company_name,
           phone: this.phone,
-          receive_promotions: this.receive_promotions,
-          recaptcha: this.recaptchaResponse
-        }
-        if (this.birthday_at) {
-          data.birthday_at = this.birthday_at;
+          receive_promotions: this.receive_promotions ? 1 : 0,
+          recaptcha: this.recaptchaResponse,
+          token: this.token
         }
 
-        this.$store.dispatch('requestSignup', data).then((response) => {
+        if (this.birthday_at) {
+          data.birthday_at = this.birthday_at
+        }
+
+        this.$store.dispatch('updateProfileInfo', data).then((response) => {
           this.isLoading = false;
           if (response.error) {
             if (response.message == "Invalid Recaptcha") {
               this.$refs.recaptcha.reset();
             } else {
               this.$notify({
-                title: 'Sign up',
-                message: response.message ? response.message : 'Failed to sign up',
+                title: 'Edit profile',
+                message: response.message ? response.message : 'Failed to edit the profile',
                 position: "top-right",
                 type: "error"
               });
             }
           } else {
             this.$notify({
-              title: 'Sign up',
-              message: 'Signup success! Please log in',
+              title: 'Edit profile',
+              message: 'Edit profile success!',
               position: "bottom-right",
               type: "success"
             });
-            this.$router.push({
-              name: 'Categories',
-              params: {
-                id: 1
-              }
-            })
+            let storage = localStorage.getItem('platinumInk') ? JSON.parse(localStorage.getItem("platinumInk")) : {};
+            storage.user = response;
+            localStorage.setItem('platinumInk', JSON.stringify(storage));
+            this.$store.dispatch('setStorage', storage);
           }
         }).catch((error) => {
           this.isLoading = false
@@ -90,8 +91,30 @@ export default {
       this.$refs.recaptcha.reset();
     },
     resetRecaptcha() {
-      this.$refs.recaptcha.reset(); // Direct call reset method
+      this.$refs.recaptcha.reset();
     }
+  },
+  mounted() {
+    if (this.storage && this.storage.user) {
+      console.log(this.storage);
+      let user = this.storage.user;
+      this.first_name = user.first_name;
+      this.last_name = user.last_name;
+      this.phone = user.phone;
+      this.birthday_at = user.birthday_at;
+      this.email = user.email;
+      this.company_name = user.company_name;
+      this.token = user.token;
+      this.receive_promotions = user.receive_promotions === 1 ? true : false;
+    }
+    EventBus.$on('onLogout', () => {
+      this.$router.push({
+        name: 'Categories',
+        params: {
+          id: 1
+        }
+      });
+    });
   },
   components: {
     VueRecaptcha
@@ -107,30 +130,11 @@ export default {
       required,
       email
     },
-    companyName: {
+    company_name: {
       required
     },
-    password: {
-      required,
-      minLength: minLength(6)
-    },
-    passwordConfirm: {
-      required,
-      sameAsPassword: sameAs('password')
-    },  
     phone: {
       required
-    },
-  },
-  /* mounted(){
-    this.$notify({
-      title: 'Sign up',
-      message: 'Signup success! Please log in',
-      position: "top-right",
-      type: "error",
-      iconClass:"error", //'error' and 'success' classes
-      showClose: false,
-      offset:52
-    });
-  } */
+    }
+  }
 }

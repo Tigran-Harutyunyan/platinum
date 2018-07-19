@@ -1,13 +1,13 @@
 <div class="products-main">
   <div class="bordered-block br-cart">
-    <h3 class="product-category-title">{{ $t('message.signup.create_personal_page') }}</h3>
+    <h3 class="product-category-title">{{ $t('message.editProfileTitle') }}</h3>
     <div class="product-details-inner">
       <div class="sign-up-top">
         <p>{{ $t('message.signup.info1') }}:
           <br>{{ $t('message.signup.info2') }}:
         </p>
       </div>
-      <form v-on:submit.prevent="onSubmitSignup" @submit="$v.first_name.$touch();$v.last_name.$touch();$v.email.$touch();$v.companyName.$touch();$v.password.$touch();$v.passwordConfirm.$touch();$v.phone.$touch();">
+      <form v-on:submit.prevent="updateProfileInfo" @submit="$v.first_name.$touch();$v.last_name.$touch();$v.email.$touch();$v.company_name.$touch(); $v.phone.$touch();">
         <div class="sign-up-bottom">
           <div class="left">
             <table class="table-2">
@@ -26,25 +26,13 @@
               <tr>
                 <td>{{ $t('message.signup.company') }}</td>
                 <td>
-                  <el-input v-model="company_name" :class="{'has-error': $v.companyName.$error}"></el-input> 
+                  <el-input v-model="company_name" :class="{'has-error': $v.company_name.$error}"></el-input>
                 </td>
               </tr>
               <tr>
                 <td>{{ $t('message.signup.email') }}</td>
                 <td>
                   <el-input v-model="email" :class="{'has-error': $v.email.$error}"></el-input>
-                </td>
-              </tr>
-              <tr>
-                <td>{{ $t('message.signup.password') }}</td>
-                <td>
-                  <el-input :placeholder="$t('message.signup.info9')" type="password" v-model="password" :class="{'has-error': $v.password.$error}"></el-input>
-                </td>
-              </tr>
-              <tr>
-                <td>{{ $t('message.signup.confirm_password') }}</td>
-                <td>
-                  <el-input type="password" v-model="passwordConfirm"  :placeholder="$t('message.signup.info9')" :class="{'has-error': $v.passwordConfirm.$error}"></el-input>
                 </td>
               </tr>
               <tr>
@@ -57,31 +45,23 @@
               <tr>
                 <td>{{ $t('message.signup.phone') }}</td>
                 <td class="custom-picker">
-                    <el-input type="text" v-model="phone" :class="{'has-error': $v.phone.$error}"></el-input> 
+                  <el-input type="text" v-model="phone" :class="{'has-error': $v.phone.$error}"></el-input>
                 </td>
               </tr>
             </table>
           </div>
-          <div class="right"> 
+          <div class="right">
             <div class="list-container">
               <ul>
                 <li>
                   <!-- <span>Հայտեր ստանալ</span>  -->
-                  <el-checkbox v-model="receive_promotions">{{ $t('message.signup.info3') }}:</el-checkbox>
-                </li>
-                <li>
-                  <!-- <span>Պայմաններ եւ դրույթներ</span> -->
-                  <el-checkbox v-model="agree">{{ $t('message.signup.info4') }}:</el-checkbox>
+                  <el-checkbox v-model="receive_promotions">{{ $t('message.signup.info3') }}</el-checkbox>
                 </li>
               </ul>
             </div>
             <vue-recaptcha class="recaptcha-element" sitekey="6LcGJ1YUAAAAAJ2-9OwJPxB8KY1Jtc0OpXwFjglL" ref="recaptcha" @verify="onVerify"
-              @expired="onExpired">
-            </vue-recaptcha>
-            <p class="agreement-text">{{ $t('message.signup.info5') }}
-              <i>{{ $t('message.signup.info6') }}</i> {{ $t('message.signup.info7') }}
-            </p>
-            <input type="submit" class="btn-submit btn-invert" :value="$t('message.signup.info8')">
+              @expired="onExpired"></vue-recaptcha>
+            <input type="submit" class="btn-submit btn-invert" :disabled="!isFormValid" :value="$t('message.signup.info10')">
           </div>
         </div>
       </form>

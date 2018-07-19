@@ -14,7 +14,7 @@ export default {
         this.getBasketProducts();
     },
     mounted() {
-        EventBus.$on('exitCart', () => {
+        EventBus.$on('onLogout', () => {
             this.$router.push({ name: 'Categories', params: { id: 1 } });
         });
     },

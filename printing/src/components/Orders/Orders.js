@@ -47,7 +47,7 @@ export default {
                 }
             }).catch((error) => {});
         } 
-        EventBus.$on('exitCart', () => {
+        EventBus.$on('onLogout', () => {
             this.$router.push({ name: 'Categories', params: { id: 1 } });
         });
     } 

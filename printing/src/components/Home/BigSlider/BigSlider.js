@@ -8,13 +8,15 @@
          fadeEffect: {
            crossFade: true
          },
+         speed: 700,
          effect: 'fade',
          autoplay: true,
          pagination: {
            el: '.big-slider-pagination',
            clickable: true
          }
-       }
+       },
+       showBoxes: false
      }
    },
    mounted() {
@@ -23,6 +25,9 @@
      this.swiper.on('slideChange', () => {
        //handle slide change.
        let currentIndex = this.swiper.activeIndex + 1;
+       if (currentIndex === 2) {
+         this.showBoxes = true
+       }
        this.setSlidesItems(currentIndex);
      });
 
@@ -37,6 +42,7 @@
        return this.$store.getters.getCustomData;
      }
    },
+
    methods: {
      setSlidesItems(currentIndex) {
        let slidesLength = this.swiper.slides.length;

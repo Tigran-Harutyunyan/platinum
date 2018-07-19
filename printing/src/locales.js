@@ -59,7 +59,8 @@ export default {
         info6: "Platinum ink design`s",
         info7: " terms and conditions and agree to receive new offers and promotions",
         info8: "Create page",
-        info9: "min 6 symbols"
+        info9: "min 6 symbols",
+        info10: "Save profile"
       },
       form: {
         send: 'Send',
@@ -92,6 +93,9 @@ export default {
       workingHours: '9am - 7pm',
       orderOnline: 'order Online',
       uploadFile: 'upload your file',
+      uploadFile1: 'upload the first side',
+      uploadFile2: 'upload the second sike',
+      uploadFileDescription: 'Uploaded files are visible only in JPG format, other formats will be sent to you by e-mail',
       remove: 'Remove',
       name: "Name",
       delete: "Delete",
@@ -138,6 +142,16 @@ export default {
       myOrders: "My orders",
       completedOrders: "completed orders",
       unapprovedOrders: "unapproved orders",
+      old_password: "Old password",
+      changePasswordTitle: "Change password",
+      editProfileTitle: "Edit profile",
+      sliderText1: "Try our new",
+      sliderText2: "Online orders",
+      sliderText3: "system",
+      online_service_1: "Search for the desired product",
+      online_service_2: "Upload your design",
+      online_service_3: "Confirm final files",
+      online_service_4: "Wait for our sender:)",
       bannerText: {
         text1: 'Create your desired design and',
         text2: 'quality printing with us'
@@ -285,6 +299,9 @@ export default {
       workingHoursInfo: 'Մենք հասանելի ենք',
       search: 'Փնտրել',
       uploadFile: 'բեռնել ձեր ֆայլը',
+      uploadFile1: 'բեռնել առաջին կող',
+      uploadFile2: 'բեռնել երկրորդ կողմի  ֆայլը',
+      uploadFileDescription: 'Բեռնված ֆայլերը տեսանելի են միայն JPG ֆորմատի  դեպքում, մյուս ֆորմատները Ձեզ կուղարկվեն  էլ-փոստով հաստ',
       or: 'կամ',
       cart: 'զամբյուղ',
       your: 'Ձեր',
@@ -329,7 +346,17 @@ export default {
       myOrders: "իմ պատվերները",
       completedOrders: "ավարտած պատվերներ",
       unapprovedOrders: "չհաստատված պատվերներ",
-      signup: { 
+      old_password: "Հին գաղտնաբառ",
+      changePasswordTitle: "Փոխել գաղտնաբառը",
+      editProfileTitle: "Խմբագրել պրոֆիլը",
+      sliderText1: "Փորձեք Մեր Նոր",
+      sliderText2: "Առցանց պատվերների",
+      sliderText3: "համակարգը",
+      online_service_1: "Փնտրեք ցանկալի պրոդուկտը",
+      online_service_2: "Բեռնեք Ձեր  դիզայնը",
+      online_service_3: "Հաստատեք վերջնական ֆայլերը ",
+      online_service_4: "Սպասեք մեր առաքիչին:)",
+      signup: {
         create_personal_page: "Ստեղծել անձնական էջ",
         info1: "Խնդրում ենք մուտքագրել հետեւյալ տեղեկությունները, պատվերները տալու համար",
         info2: "Ավարտվելուց հետո դուք կստանաք հաստատման նամակ",
@@ -347,7 +374,8 @@ export default {
         info6: "Platinum ink design-ի",
         info7: "Ընդհանուր դրույթներին եւ պայմաններին ինչպես նաեվ համաձայնվում եք ստանալ էլեկտրոնային հաղորդագրություն նոր առաջարկների եվ ակցիաների վերաբերյալ",
         info8: "ստեղծել էջ",
-        info9: "մինիմում 6 սիմվոլ"
+        info9: "մինիմում 6 սիմվոլ",
+        info10: "Թարմացնել պրոֆիլը"
       },
       services: {
         title: "ԾԱՌԱՅՈՒԹՅՈՒՆՆԵՐ",

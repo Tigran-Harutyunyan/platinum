@@ -1,3 +1,6 @@
+import {
+    EventBus
+  } from '../../event-bus.js';
 export default {
     data() {
         return {}
@@ -23,13 +26,7 @@ export default {
                 formData
             }).then((response) => {
                 this.isLoading = false;
-                if (response.error) {
-                    this.$notify({
-                        title: 'Shopping cart',
-                        message: response.message,
-                        position: "top-right",
-                        type: "error"
-                    });
+                if (response.error) {  
                     EventBus.$emit('logout');
                 } else {
                     this.cartItems = response;

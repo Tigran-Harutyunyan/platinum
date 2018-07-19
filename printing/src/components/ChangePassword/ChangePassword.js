@@ -1,57 +1,38 @@
+import { EventBus } from '../../event-bus.js';
 import VueRecaptcha from 'vue-recaptcha';
 import {
   required,
   minLength,
-  email,
   sameAs
 } from 'vuelidate/lib/validators';
-//https://www.google.com/recaptcha/admin#site/341190406
 export default {
   data() {
     return {
-      agree: false,
+      recaptcha: "",
       recaptchaResponse: "",
-      first_name: "",
-      last_name: "",
-      company_name: "",
-      email: "",
+      oldPassword: "",
       password: "",
-      receive_promotions: false,
-      recaptcha: '',
-      passwordConfirm: '',
-      isLoading: false,
-      birthday_at: "",
-      phone: "",
-      pickerOptions1: {
-        format: 'yyyy-MM-dd'
-      },
-      birthday_at: ''
+      passwordConfirm: "",
+      isLoading: false
     }
   },
   computed: {
     isFormValid() {
       return !this.$v.$invalid && this.agree && this.recaptchaResponse.length;
+    },
+    storage() {
+      return this.$store.getters.getStorage;
     }
   },
   methods: {
-    onSubmitSignup() {
+    changePassword() {
       if (!this.isLoading && !this.$v.$invalid) {
         this.isLoading = true;
-        let data = {
-          email: this.email,
-          password: this.password,
-          first_name: this.first_name,
-          last_name: this.last_name,
-          company_name: this.company_name,
-          phone: this.phone,
-          receive_promotions: this.receive_promotions,
+        this.$store.dispatch('changePassword', { 
+          old_password: this.old_password,
+          password: this.password, 
           recaptcha: this.recaptchaResponse
-        }
-        if (this.birthday_at) {
-          data.birthday_at = this.birthday_at;
-        }
-
-        this.$store.dispatch('requestSignup', data).then((response) => {
+        }).then((response) => {
           this.isLoading = false;
           if (response.error) {
             if (response.message == "Invalid Recaptcha") {
@@ -90,47 +71,29 @@ export default {
       this.$refs.recaptcha.reset();
     },
     resetRecaptcha() {
-      this.$refs.recaptcha.reset(); // Direct call reset method
+      this.$refs.recaptcha.reset();
     }
+  },
+  mounted() {
+    if (this.storage && this.storage.user) {
+      this.token = this.storage.user.token;
+    }
+    EventBus.$on('onLogout', () => {
+      this.$router.push({ name: 'Categories', params: { id: 1 } });
+  });
   },
   components: {
     VueRecaptcha
   },
   validations: {
-    first_name: {
-      required
-    },
-    last_name: {
-      required
-    },
-    email: {
-      required,
-      email
-    },
-    companyName: {
+    old_password: {
       required
     },
     password: {
-      required,
       minLength: minLength(6)
     },
     passwordConfirm: {
-      required,
       sameAsPassword: sameAs('password')
-    },  
-    phone: {
-      required
-    },
-  },
-  /* mounted(){
-    this.$notify({
-      title: 'Sign up',
-      message: 'Signup success! Please log in',
-      position: "top-right",
-      type: "error",
-      iconClass:"error", //'error' and 'success' classes
-      showClose: false,
-      offset:52
-    });
-  } */
+    }
+  }
 }
