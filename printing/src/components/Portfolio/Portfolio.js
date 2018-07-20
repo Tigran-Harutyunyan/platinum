@@ -7,7 +7,13 @@ export default {
     return {
       popupVisible: false,
       counter: 0,
-      currentSlide: {}
+      currentSlide: {},
+      showContent: false
+    }
+  },
+  watch: {
+    completedWorks() {
+      this.showContent = true;
     }
   },
   computed: {
@@ -79,6 +85,7 @@ export default {
   },
   mounted() {
     this.$store.dispatch('getCompletedWorks');
+
   },
   components: {
     "pl-header": Header,

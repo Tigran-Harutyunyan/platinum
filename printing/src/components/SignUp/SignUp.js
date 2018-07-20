@@ -37,17 +37,21 @@ export default {
     onSubmitSignup() {
       if (!this.isLoading && !this.$v.$invalid) {
         this.isLoading = true;
-        this.$store.dispatch('requestSignup', {
+        let data = {
           email: this.email,
           password: this.password,
           first_name: this.first_name,
           last_name: this.last_name,
           company_name: this.company_name,
+          phone: this.phone,
           receive_promotions: this.receive_promotions,
-          recaptcha: this.recaptchaResponse,
-          birthday_at: this.birthday_at,
-          phone: this.phone
-        }).then((response) => {
+          recaptcha: this.recaptchaResponse
+        }
+        if (this.birthday_at) {
+          data.birthday_at = this.birthday_at;
+        }
+
+        this.$store.dispatch('requestSignup', data).then((response) => {
           this.isLoading = false;
           if (response.error) {
             if (response.message == "Invalid Recaptcha") {
@@ -63,11 +67,16 @@ export default {
           } else {
             this.$notify({
               title: 'Sign up',
-              message: 'Signup success!',
-              position: "top-right",
+              message: 'Signup success! Please log in',
+              position: "bottom-right",
               type: "success"
             });
-
+            this.$router.push({
+              name: 'Categories',
+              params: {
+                id: 1
+              }
+            })
           }
         }).catch((error) => {
           this.isLoading = false
@@ -98,6 +107,9 @@ export default {
       required,
       email
     },
+    companyName: {
+      required
+    },
     password: {
       required,
       minLength: minLength(6)
@@ -105,9 +117,20 @@ export default {
     passwordConfirm: {
       required,
       sameAsPassword: sameAs('password')
-    },
+    },  
     phone: {
       required
     },
-  }
+  },
+  /* mounted(){
+    this.$notify({
+      title: 'Sign up',
+      message: 'Signup success! Please log in',
+      position: "top-right",
+      type: "error",
+      iconClass:"error", //'error' and 'success' classes
+      showClose: false,
+      offset:52
+    });
+  } */
 }

@@ -1,4 +1,4 @@
-<div class="banner" id="mainSlider"> 
+<div class="banner" id="mainSlider">
   <div class="banner-nav-inner">
     <div class="slides-info-place">
       <span id="current-slide">{{ currentSlide }}</span>
@@ -7,10 +7,10 @@
     <div class="social-place slider-social-btns">
       <ul class="footer-social-links">
         <li class="social-icons fb" v-if="customData.facebook_link">
-          <a :href="customData.facebook_link"class="fb-link"></a>
+          <a :href="customData.facebook_link" class="fb-link"></a>
         </li>
-        <li class="social-icons in">
-          <a href="https://www.linkedin.com/profile/edit?trk=nav_responsive_sub_nav_edit_profile" class="in-link"></a>
+        <li class="social-icons in" v-if="customData.linkedin_link">
+          <a :href="customData.linkedin_link" class="in-link"></a>
         </li>
         <li class="social-icons ins" v-if="customData.instagram_link">
           <a :href="customData.instagram_link" class="ins-link"></a>
@@ -22,13 +22,12 @@
   <swiper :options="swiperOption" class="staff-slider" ref="bigSlider">
     <swiper-slide>
       <div class="home-slide-inner">
-        <!-- <div class="logo"></div> -->
         <div id="animation_container" style="background-color:rgba(0, 0, 0, 0.00); width:100%; height:370px">
           <canvas id="canvas" width="566" height="370" style="position: absolute; display: block; background-color:rgba(0, 0, 0, 0.00);"></canvas>
           <div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:566px; height:370px; position: absolute; left: 0px; top: 0px; display: block;">
           </div>
         </div>
-        <div class="main-banner-text">
+        <div class="main-banner-text banner1-text">
           <p>{{ $t('message.bannerText.text1') }}</p>
           <br>
           <p>{{ $t('message.bannerText.text2') }}</p>
@@ -36,9 +35,47 @@
         <a @click="$router.push({name:'Categories',params: {id:1}})" class="btn-link banner-see-more-link">{{ $t('message.orderOnline') }}</a>
         <div class="banner-line"></div>
       </div>
-    </swiper-slide> 
-    <swiper-slide> 
-        
+    </swiper-slide>
+
+    <swiper-slide>
+      <div class="new-service-ad-texts main-banner-text" :class="{animated:showBoxes}">
+        <p class="slideInLeft">{{ $t('message.sliderText1') }}</p>
+        <br>
+        <p class="big-text slideInRight">{{ $t('message.sliderText2') }}</p>
+        <br>
+        <p class="slideInLeft">{{ $t('message.sliderText3') }}</p>
+      </div>
+      <div class="new-service-types-boxes" :class="{animated:showBoxes}">
+        <div class="service-item-container zoomIn">
+          <div class="service-item">
+            <span class="item-graphic"></span>
+            <p>{{ $t('message.online_service_1') }}</p>
+          </div>
+          <div class="pointer fadeInLeft"></div>
+        </div>
+        <div class="service-item-container zoomIn">
+          <div class="service-item">
+            <span class="item-graphic"></span>
+            <p>{{ $t('message.online_service_2') }}</p>
+          </div>
+          <div class="pointer fadeInLeft"></div>
+        </div>
+        <div class="service-item-container zoomIn">
+          <div class="service-item">
+            <span class="item-graphic"></span>
+            <p>{{ $t('message.online_service_3') }}</p>
+          </div>
+          <div class="pointer fadeInLeft"></div>
+        </div>
+        <div class="service-item-container zoomIn">
+          <div class="service-item">
+            <span class="item-graphic"></span>
+            <p>{{ $t('message.online_service_4') }}</p>
+          </div>
+        </div>
+      </div>
+      <a @click="$router.push({name:'Categories',params: {id:1}})" class="btn-link banner-see-more-link">{{ $t('message.orderOnline') }}</a>
+      <div class="banner-line"></div>
     </swiper-slide>
     <div class="swiper-pagination big-slider-pagination" slot="pagination"></div>
   </swiper>

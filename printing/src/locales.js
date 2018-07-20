@@ -59,7 +59,8 @@ export default {
         info6: "Platinum ink design`s",
         info7: " terms and conditions and agree to receive new offers and promotions",
         info8: "Create page",
-        info9: "min 6 symbols"
+        info9: "min 6 symbols",
+        info10: "Save profile"
       },
       form: {
         send: 'Send',
@@ -92,6 +93,9 @@ export default {
       workingHours: '9am - 7pm',
       orderOnline: 'order Online',
       uploadFile: 'upload your file',
+      uploadFile1: 'upload the first side',
+      uploadFile2: 'upload the second sike',
+      uploadFileDescription: 'Uploaded files are visible only in JPG format, other formats will be sent to you by e-mail',
       remove: 'Remove',
       name: "Name",
       delete: "Delete",
@@ -138,6 +142,16 @@ export default {
       myOrders: "My orders",
       completedOrders: "completed orders",
       unapprovedOrders: "unapproved orders",
+      old_password: "Old password",
+      changePasswordTitle: "Change password",
+      editProfileTitle: "Edit profile",
+      sliderText1: "Try our new",
+      sliderText2: "Online orders",
+      sliderText3: "system",
+      online_service_1: "Search for the desired product",
+      online_service_2: "Upload your design",
+      online_service_3: "Confirm final files",
+      online_service_4: "Wait for our sender:)",
       bannerText: {
         text1: 'Create your desired design and',
         text2: 'quality printing with us'
@@ -160,45 +174,29 @@ export default {
         design: "Design",
         advertising: 'Advertising',
         printing: 'Printing',
-        graphicService: {
-          word1: "Graphic",
-          word2: "Design",
-          text: ""
+        service1: { 
+          text: `The works are performed by qualified personnel`
         },
-        webDesign: {
-          word1: "Web",
-          word2: "Design",
-          text: ""
+        service2: { 
+          text: `Printing is only done with high quality materials, with your own choice`
         },
-        outdoor: {
-          word1: "Outdoor",
-          word2: "Advertising",
-          text: ""
+        service3: { 
+          text: `We make any order in your desired, reasonable timeframe`
         },
-        promo: {
-          word1: "Promo",
-          word2: "Services",
-          text: ""
+        service4: { 
+          text: `We modify the design as long as you are not satisfied`
         },
-        digitalPrinting: {
-          word1: "Digital",
-          word2: "Printing",
-          text: ""
+        service5: { 
+          text: `We bear full responsibility for the work done and the quality of the product received`
         },
-        offsetPrinting: {
-          word1: "Offset",
-          word2: "Printing",
-          text: ""
+        service6: { 
+          text: `A sample is provided for your print order`
         },
-        largePrinting: {
-          word1: "Large Format",
-          word2: "Printing",
-          text: ""
+        service7: { 
+          text: `We provide FREE design advice for you or your company`
         },
-        otherServices: {
-          word1: "Other",
-          word2: "Services",
-          text: ""
+        service8: { 
+          text: `You do not lose time to visit us and order. All actions are done online`
         }
       }
     }
@@ -285,6 +283,9 @@ export default {
       workingHoursInfo: 'Մենք հասանելի ենք',
       search: 'Փնտրել',
       uploadFile: 'բեռնել ձեր ֆայլը',
+      uploadFile1: 'բեռնել առաջին կող',
+      uploadFile2: 'բեռնել երկրորդ կողմի  ֆայլը',
+      uploadFileDescription: 'Բեռնված ֆայլերը տեսանելի են միայն JPG ֆորմատի  դեպքում, մյուս ֆորմատները Ձեզ կուղարկվեն  էլ-փոստով հաստ',
       or: 'կամ',
       cart: 'զամբյուղ',
       your: 'Ձեր',
@@ -329,7 +330,17 @@ export default {
       myOrders: "իմ պատվերները",
       completedOrders: "ավարտած պատվերներ",
       unapprovedOrders: "չհաստատված պատվերներ",
-      signup: { 
+      old_password: "Հին գաղտնաբառ",
+      changePasswordTitle: "Փոխել գաղտնաբառը",
+      editProfileTitle: "Խմբագրել պրոֆիլը",
+      sliderText1: "Փորձեք Մեր Նոր",
+      sliderText2: "Առցանց պատվերների",
+      sliderText3: "համակարգը",
+      online_service_1: "Փնտրեք ցանկալի պրոդուկտը",
+      online_service_2: "Բեռնեք Ձեր  դիզայնը",
+      online_service_3: "Հաստատեք վերջնական ֆայլերը ",
+      online_service_4: "Սպասեք մեր առաքիչին:)",
+      signup: {
         create_personal_page: "Ստեղծել անձնական էջ",
         info1: "Խնդրում ենք մուտքագրել հետեւյալ տեղեկությունները, պատվերները տալու համար",
         info2: "Ավարտվելուց հետո դուք կստանաք հաստատման նամակ",
@@ -347,52 +358,37 @@ export default {
         info6: "Platinum ink design-ի",
         info7: "Ընդհանուր դրույթներին եւ պայմաններին ինչպես նաեվ համաձայնվում եք ստանալ էլեկտրոնային հաղորդագրություն նոր առաջարկների եվ ակցիաների վերաբերյալ",
         info8: "ստեղծել էջ",
-        info9: "մինիմում 6 սիմվոլ"
+        info9: "մինիմում 6 սիմվոլ",
+        info10: "Թարմացնել պրոֆիլը"
       },
       services: {
         title: "ԾԱՌԱՅՈՒԹՅՈՒՆՆԵՐ",
         design: "Դիզայն",
         advertising: 'Գովազդ',
         printing: 'Տպագրություն',
-        graphicService: {
-          word1: "Գրաֆիկական",
-          word2: "Դիզայն",
-          text: `Մենք կստեղծենք ձեր ընկերության կորպորատիվ ոճը, որը թույլ կտա ձեզ դառնալ ավելի յուրահատուկ,ավելի մրցունակ և հեշտությամբ ճանաչելի:`
+        service1: { 
+          text: `Աշխատանքները կատարում են համապատասխան որակավորում ունեցող մասնագետներ`
         },
-        webDesign: {
-          word1: "Վեբ",
-          word2: "Դիզայն",
-          text: `Վստահեք մեզ ձեր վեբ կայքի նախագծումը, պատրաստումն ու առաջխաղացումը և մեր մասնագետները հոգ կտանեն նրբաճաշակ դիզայնի և հարմարավետության մասին:`
+        service2: { 
+          text: `Տպագրությունը իրականցվում է  միայն բարձրորակ նյութերով, Ձեր  իսկ նախընտրած պահանջներով`
         },
-        outdoor: {
-          word1: "Արտաքին",
-          word2: "Գովազդ",
-          text: `Արտաքին գովազդի պատրաստում և տեղադրում տարատեսակ նյութերով\`ծավալային տառեր,լուսավորվող վահանակներ,ցուցանակներ և այլն:`
+        service3: { 
+          text: `Ցանկացած պատվեր մենք  կատարում ենք Ձեր ցանկալի,  խելամիտ ժամկետներում`
         },
-        promo: {
-          word1: "Գովազդային",
-          word2: "Ակցիաներ",
-          text: `Գովազդային ակցիաների կազմակերպումը ենթադրում է որոշակի գործողություններ, որոնք ուղղված են ընկերության և սպառողների միջև անմիջական կապի ձևավորմանը:`
+        service4: { 
+          text: `Դիզայնի փոփոխում կատարում  ենք այնքան ժամանակ, քանի  դեռ Դուք գոհ չեք`
         },
-        digitalPrinting: {
-          word1: "Թվային",
-          word2: "Տպագրություն",
-          text: `Այս եղանակը թույլ է տալիս արագ և որակյալ տպագրել փոքր և միջին քանակ ունեցող այցեքարտեր, բուկլետներ և այլ տպագիր նյութեր:`
+        service5: { 
+          text: `Մենք կրում ենք լիարժեք պատասխանատվություն կատարված աշխատանքի և ստացված  պրոդուկտի որակի համար`
         },
-        offsetPrinting: {
-          word1: "Օֆսեթ",
-          word2: "Տպագրություն",
-          text: `Այս եղանակը ամենահարմարն է մեծաքանակ տպագրության համար, քանի որ ապահովում է արտադրության բարձր որակ և մատչելի գին:`
+        service6: { 
+          text: `Ձեր ցանկացած տպագրության պատվերի դեպքում տրամադրվում  է ԱՆՎՃԱՐ նմուշ`
         },
-        largePrinting: {
-          word1: "Լայնաֆորմատ",
-          word2: "Տպագրություն",
-          text: `Այս եղանակը թույլ է տալիս ստանալ մեծ չափսերի տպագիր նյութեր,որոնք կիրառվում են ինտերյերի ձևաորման և արտաքին գովազդի մեջ:`
+        service7: { 
+          text: `Անցկացնում ենք ԱՆՎՃԱՐ դիզայն խորհրդատվություն Ձեր կամ Ձեր ընկերության համար`
         },
-        otherServices: {
-          word1: "Այլ",
-          word2: "Ծառայություններ",
-          text: `Ծառայության տեսակներ,որոնք փոքր ինչ բազմազան են, այդ իսկ պատճառով խմբագրվելեն մեկ ընդհանուր վերնագրով:`
+        service8: { 
+          text: `Դուք ժամանակ չեք կորցնում մեզ այցելելու և պատվեր տալու համար: Բոլոր գործողությունները  կատարվում են առցանց`
         }
       }
     }

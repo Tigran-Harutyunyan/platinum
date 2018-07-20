@@ -42,10 +42,10 @@
                 <ul class="footer-social-links">
                     <li class="social-icons fb" v-if="customData.facebook_link">
                         <a :href="customData.facebook_link" class="fb-link"></a>
-                    </li>
-                    <li class="social-icons in">
-                        <a href="https://www.linkedin.com/profile/edit?trk=nav_responsive_sub_nav_edit_profile" class="in-link"></a>
-                    </li>
+                    </li> 
+                    <li class="social-icons in" v-if="customData.linkedin_link">
+                        <a :href="customData.linkedin_link" class="in-link"></a>
+                      </li>
                     <li class="social-icons ins" v-if="customData.instagram_link">
                         <a :href="customData.instagram_link" class="ins-link"></a>
                     </li>
@@ -54,9 +54,9 @@
             <p class="rights-info">{{ $t('message.contacts.copywriteText1') }}<br>{{ $t('message.contacts.copywriteText2') }}
             </p>
         </div>
-        <div class="partners-right right-floated">
+        <div class="partners-right right-floated" v-if="customData.working_hours">
             <div class="availability">{{ $t('message.workingHoursInfo') }}
-                <br>{{ $t('message.workingHours') }}
+                <br>{{ customData.working_hours }}
             </div>
             <div class="form-place">
                 <div class="form-container">

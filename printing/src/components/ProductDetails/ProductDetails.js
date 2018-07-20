@@ -4,9 +4,11 @@ import {
 export default {
   data() {
     return {
-      fileList: [],
+      fileList1: [],
+      fileList2: [],
       value: '',
-      styleObject: null,
+      styleObject1: null,
+      styleObject2: null,
       product: {},
       copyOfProduct: {},
       productInfo: {},
@@ -83,7 +85,7 @@ export default {
         EventBus.$emit('logout');
       } else {
         this.loading = true;
-        let selectedOptions = this.getSelectedOptions(); 
+        let selectedOptions = this.getSelectedOptions();
         let formData = new FormData();
         formData.append('token', this.user ? this.user.token : "");
         formData.append('product_id', this.product[0].id);
@@ -180,35 +182,55 @@ export default {
       }
     },
 
-    handleChange(file, fileList) {
+    handleChange1(file, fileList) {
+      this.proccessFiles(file, fileList, 1);
+    },
+
+    handleChange2(file, fileList) {
+      this.proccessFiles(file, fileList, 2);
+    },
+
+    proccessFiles(file, fileList, side) {
       if (file.raw.type.indexOf('image') != -1) {
-        var fr = new FileReader();
+        var fr = new FileReader(); 
         fr.onload = () => {
-          this.styleObject = {
+          let obj = {
             'background-image': `url(${fr.result})`,
             'background-color': 'transparent'
-          }
+          };
+          if (side === 1) {
+            this.styleObject1 = obj;
+          } else {
+            this.styleObject2 = obj;
+          } 
         }
         fr.readAsDataURL(file.raw);
       }
-      this.fileList = fileList.slice(-1);
-      /* this.$notify({
-        title: 'Upload file',
-        message: 'Success!',
-        position: "top-right",
-        type: "success"
-      }); */
+      if (side === 1) {
+        this.fileList1 = fileList.slice(-1);
+      } else {
+        this.fileList2 = fileList.slice(-1);
+      }  
     },
-
-    handleRemove(file, fileList) {
-      this.fileList = fileList.slice(-1);
-      this.styleObject = {}
+    onHandleRemove1(file, fileList) {
+      this.handleRemove(file, fileList,1); 
     },
-
-    getProductById() { 
+    onHandleRemove2(file, fileList) {
+      this.handleRemove(file, fileList,2);  
+    },
+    handleRemove(file, fileList, side) { 
+      if (side === 1) {
+        this.fileList1 = fileList.slice(-1);
+        this.styleObject1 = {};
+      } else {
+        this.fileList2 = fileList.slice(-1);
+        this.styleObject2 = {}
+      }  
+    },
+    getProductById() {
       this.$store.dispatch('getProductById', {
         id: this.$route.params.id
-      }).then((response) => { 
+      }).then((response) => {
         if (response[0]) {
           let object = response.properties;
           let countProperties = 0;
@@ -251,9 +273,9 @@ export default {
     this.getProductById();
     this.checkAuth();
   },
-  mounted(){
+  mounted() {
     EventBus.$on('authChanged', () => {
-        this.reset();
-     });
+      this.reset();
+    });
   }
 }

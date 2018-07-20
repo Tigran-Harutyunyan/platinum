@@ -1,4 +1,3 @@
-import { EventBus } from '../../event-bus.js';
 export default {
     data() {
         return {
@@ -12,12 +11,7 @@ export default {
         let storage = localStorage.getItem("platinumInk") ? JSON.parse(localStorage.getItem("platinumInk")) : {};
         this.user = storage.user ? storage.user : null;
         this.getBasketProducts();
-    },
-    mounted() {
-        EventBus.$on('exitCart', () => {
-            this.$router.push({ name: 'Categories', params: { id: 1 } });
-        });
-    },
+    }, 
     computed: {
         totalPrice() {
             let total = 0;

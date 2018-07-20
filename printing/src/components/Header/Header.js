@@ -64,8 +64,14 @@ export default {
       localStorage.setItem('platinumInk', JSON.stringify(storage));
       this.$store.dispatch('setStorage', storage);
       this.isAuthenticated = false;
-      EventBus.$emit('exitCart');
-      EventBus.$emit('authChanged');
+      EventBus.$emit('onLogout');
+      EventBus.$emit('authChanged'); 
+      this.$router.push({
+        name: 'Categories',
+        params: {
+          id: 1
+        }
+      });
     },
 
     toSignupPage() {
@@ -162,7 +168,7 @@ export default {
             search_key: this.search_key
           }
         });
-      } 
+      }
     },
 
     onLogin() {

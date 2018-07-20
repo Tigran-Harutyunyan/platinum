@@ -4,5 +4,7 @@
     <swiper-slide v-for="(item, index) in projects" :key="index" class="box">
       <img class="open-popup-link mfp-prevent-close" :src="item.thumbnail" :data-mfp-src="item.image" :alt="item.name" magnific-popup>
     </swiper-slide>
-  </swiper>
+    <div class="swiper-button-prev" slot="button-prev"></div>
+    <div class="swiper-button-next" slot="button-next"></div>
+  </swiper> 
 </div>
