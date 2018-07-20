@@ -1,6 +1,7 @@
-import { EventBus } from '../../event-bus.js';
-import VueRecaptcha from 'vue-recaptcha';
 import {
+  EventBus
+} from '../../event-bus.js';
+ import {
   required,
   minLength,
   sameAs
@@ -8,9 +9,6 @@ import {
 export default {
   data() {
     return {
-      recaptcha: "",
-      recaptchaResponse: "",
-      oldPassword: "",
       password: "",
       passwordConfirm: "",
       isLoading: false
@@ -18,7 +16,7 @@ export default {
   },
   computed: {
     isFormValid() {
-      return !this.$v.$invalid && this.agree && this.recaptchaResponse.length;
+      return !this.$v.$invalid
     },
     storage() {
       return this.$store.getters.getStorage;
@@ -26,73 +24,56 @@ export default {
   },
   methods: {
     changePassword() {
-      if (!this.isLoading && !this.$v.$invalid) {
+      if (!this.isLoading && this.isFormValid) {
         this.isLoading = true;
-        this.$store.dispatch('changePassword', { 
-          old_password: this.old_password,
-          password: this.password, 
-          recaptcha: this.recaptchaResponse
+        this.$store.dispatch('changePassword', {
+          password: this.password,
+          token: this.token
         }).then((response) => {
           this.isLoading = false;
           if (response.error) {
-            if (response.message == "Invalid Recaptcha") {
-              this.$refs.recaptcha.reset();
-            } else {
-              this.$notify({
-                title: 'Sign up',
-                message: response.message ? response.message : 'Failed to sign up',
-                position: "top-right",
-                type: "error"
-              });
-            }
+            this.$notify({
+              title: 'Change password',
+              message: response.message ? response.message : 'Failed to change the password',
+              position: "top-right",
+              type: "error"
+            });
           } else {
             this.$notify({
-              title: 'Sign up',
-              message: 'Signup success! Please log in',
+              title: 'Password change',
+              message: 'Password change success!',
               position: "bottom-right",
               type: "success"
             });
-            this.$router.push({
-              name: 'Categories',
-              params: {
-                id: 1
-              }
-            })
+            this.password = this.passwordConfirm = '';
+            this.$v.$reset();
           }
         }).catch((error) => {
           this.isLoading = false
         });
       }
-    },
-    onVerify(response) {
-      this.recaptchaResponse = response
-    },
-    onExpired() {
-      this.$refs.recaptcha.reset();
-    },
-    resetRecaptcha() {
-      this.$refs.recaptcha.reset();
-    }
+    } 
   },
   mounted() {
     if (this.storage && this.storage.user) {
       this.token = this.storage.user.token;
     }
     EventBus.$on('onLogout', () => {
-      this.$router.push({ name: 'Categories', params: { id: 1 } });
-  });
-  },
-  components: {
-    VueRecaptcha
-  },
+      this.$router.push({
+        name: 'Categories',
+        params: {
+          id: 1
+        }
+      });
+    });
+  }, 
   validations: {
-    old_password: {
+    password: {
+      minLength: minLength(6),
       required
     },
-    password: {
-      minLength: minLength(6)
-    },
     passwordConfirm: {
+      required,
       sameAsPassword: sameAs('password')
     }
   }
