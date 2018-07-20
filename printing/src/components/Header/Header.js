@@ -42,7 +42,7 @@ export default {
   },
   methods: {
     logout() {
-      this.checkAuth(); 
+      this.checkAuth();
       if (this.user) {
         let formData = new FormData();
         formData.append('token', this.user ? this.user.token : "");
@@ -65,7 +65,13 @@ export default {
       this.$store.dispatch('setStorage', storage);
       this.isAuthenticated = false;
       EventBus.$emit('onLogout');
-      EventBus.$emit('authChanged');
+      EventBus.$emit('authChanged'); 
+      this.$router.push({
+        name: 'Categories',
+        params: {
+          id: 1
+        }
+      });
     },
 
     toSignupPage() {
@@ -162,7 +168,7 @@ export default {
             search_key: this.search_key
           }
         });
-      } 
+      }
     },
 
     onLogin() {

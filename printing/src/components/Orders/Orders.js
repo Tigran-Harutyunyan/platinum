@@ -1,4 +1,3 @@
-import { EventBus } from '../../event-bus.js';
 export default {
     data() {
         return { 
@@ -46,9 +45,6 @@ export default {
                     this.isCartEmpty = this.cartItems.length === 0 ? true : false;
                 }
             }).catch((error) => {});
-        } 
-        EventBus.$on('onLogout', () => {
-            this.$router.push({ name: 'Categories', params: { id: 1 } });
-        });
+        }  
     } 
 }

@@ -46,7 +46,7 @@
    methods: {
      setSlidesItems(currentIndex) {
        let slidesLength = this.swiper.slides.length;
-       this.slidesLength = (currentIndex < 10) ? '/0' + slidesLength : '/' + slidesLength;
+       //this.slidesLength = (currentIndex < 10) ? '/0' + slidesLength : '/' + slidesLength;
        this.currentSlide = (currentIndex < 10) ? '0' + currentIndex : currentIndex;
      },
      // Logo animation related.

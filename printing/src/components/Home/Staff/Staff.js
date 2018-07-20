@@ -20,8 +20,7 @@ export default {
     computed: {
         swiper() {
             return this.$refs.mySwiper.swiper
-        },
-        
+        }, 
         staffData: {
             get: function() {
                 return this.$store.getters.getStaffData;

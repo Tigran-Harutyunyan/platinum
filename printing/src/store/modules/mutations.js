@@ -19,6 +19,9 @@
  const UPDATE_SLIDER_IMAGES = (state, payload) => {
    state.sliderImages = payload;
  };
+ const UPDATE_PARTNERS_IMAGES = (state, payload) => {
+   state.partnersImages = payload;
+ };
  const UPDATE_CART_ITEMS = (state, items) => {
    state.cart = items;
  };
@@ -37,8 +40,9 @@
    SET_STORAGE,
    SET_CUSTOM_DATA,
    UPDATE_PRODUCTS,
-   UPDATE_CATEGORIES, 
+   UPDATE_CATEGORIES,
    UPDATE_SLIDER_IMAGES,
+   UPDATE_PARTNERS_IMAGES,
    UPDATE_CART_ITEMS,
    UPDATE_STAFF,
    UPDATE_ORDERS_DATA,

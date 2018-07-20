@@ -1,35 +1,28 @@
 import {
-  EventBus
-} from '../../event-bus.js';
-import VueRecaptcha from 'vue-recaptcha';
-import {
   required,
   minLength,
   email,
   sameAs
 } from 'vuelidate/lib/validators';
-//https://www.google.com/recaptcha/admin#site/341190406
 export default {
   data() {
     return {
-      recaptchaResponse: "",
       first_name: "",
       last_name: "",
       company_name: "",
       email: "",
       receive_promotions: false,
-      recaptcha: '',
       isLoading: false,
       birthday_at: "",
       phone: "",
-      pickerOptions1: {
+      pickerOptions: {
         format: 'yyyy-MM-dd'
       }
     }
   },
   computed: {
     isFormValid() {
-      return !this.$v.$invalid && this.recaptchaResponse.length>0;
+      return !this.$v.$invalid;
     },
     storage() {
       return this.$store.getters.getStorage;
@@ -37,7 +30,7 @@ export default {
   },
   methods: {
     updateProfileInfo() {
-      if (!this.isLoading && !this.$v.$invalid) {
+      if (!this.isLoading && this.isFormValid) {
         this.isLoading = true;
         let data = {
           email: this.email,
@@ -46,7 +39,6 @@ export default {
           company_name: this.company_name,
           phone: this.phone,
           receive_promotions: this.receive_promotions ? 1 : 0,
-          recaptcha: this.recaptchaResponse,
           token: this.token
         }
 
@@ -57,16 +49,12 @@ export default {
         this.$store.dispatch('updateProfileInfo', data).then((response) => {
           this.isLoading = false;
           if (response.error) {
-            if (response.message == "Invalid Recaptcha") {
-              this.$refs.recaptcha.reset();
-            } else {
-              this.$notify({
-                title: 'Edit profile',
-                message: response.message ? response.message : 'Failed to edit the profile',
-                position: "top-right",
-                type: "error"
-              });
-            }
+            this.$notify({
+              title: 'Edit profile',
+              message: response.message ? response.message : 'Failed to edit the profile',
+              position: "top-right",
+              type: "error"
+            });
           } else {
             this.$notify({
               title: 'Edit profile',
@@ -76,6 +64,7 @@ export default {
             });
             let storage = localStorage.getItem('platinumInk') ? JSON.parse(localStorage.getItem("platinumInk")) : {};
             storage.user = response;
+            storage.user.token = this.token;
             localStorage.setItem('platinumInk', JSON.stringify(storage));
             this.$store.dispatch('setStorage', storage);
           }
@@ -83,20 +72,10 @@ export default {
           this.isLoading = false
         });
       }
-    },
-    onVerify(response) {
-      this.recaptchaResponse = response
-    },
-    onExpired() {
-      this.$refs.recaptcha.reset();
-    },
-    resetRecaptcha() {
-      this.$refs.recaptcha.reset();
     }
   },
   mounted() {
     if (this.storage && this.storage.user) {
-      console.log(this.storage);
       let user = this.storage.user;
       this.first_name = user.first_name;
       this.last_name = user.last_name;
@@ -107,18 +86,8 @@ export default {
       this.token = user.token;
       this.receive_promotions = user.receive_promotions === 1 ? true : false;
     }
-    EventBus.$on('onLogout', () => {
-      this.$router.push({
-        name: 'Categories',
-        params: {
-          id: 1
-        }
-      });
-    });
   },
-  components: {
-    VueRecaptcha
-  },
+
   validations: {
     first_name: {
       required

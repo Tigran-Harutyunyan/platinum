@@ -143,3 +143,12 @@
     display: block;
     width: 400px
   }
+
+  @media only screen and (max-width: 512px) {
+    .banner-see-more-link {
+        width: 100% !important;
+    }
+    .main-banner-text { 
+        font-size: 21px; 
+    }
+  }

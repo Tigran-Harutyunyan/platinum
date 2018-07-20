@@ -826,7 +826,7 @@ footer {
 .main-banner-text {
   text-transform: uppercase;
   font-size: 30px;
-  color: white; 
+  color: white;
   line-height: 19px;
   p {
     line-height: 42px;
@@ -947,6 +947,12 @@ footer {
   .services-box:nth-child(3n) {
     margin-right: 0;
   }
+  .service-box-large {
+    .box-image {
+      width: 55px;
+      height: 55px;
+    }
+  }
 }
 
 .services-inner {
@@ -954,10 +960,6 @@ footer {
   .service-box-large {
     height: 210px;
     width: 406px;
-    .box-image {
-      width: 55px;
-      height: 55px;
-    }
     .box-title {
       font-size: 18px;
       margin-top: 35px;
@@ -974,40 +976,60 @@ footer {
     }
   }
   .services-box.service-box-large:nth-child(1) .box-image {
-    background-position: -303px -537px !important;
+    background-position: -20px -284px !important;
+    width: 68px;
+    height: 68px;
   }
   .services-box.service-box-large:nth-child(2) .box-image {
-    background-position: -453px -537px !important;
+    background-position: -106px -284px !important;
+    width: 68px;
+    height: 68px;
   }
   .services-box.service-box-large:nth-child(3) .box-image {
-    background-position: -379px -537px !important;
+    background-position: -189px -284px !important;
+    width: 74px;
+    height: 68px;
   }
   .services-box:nth-child(4n) {
     margin-right: 0;
   }
   .services-box:nth-child(1) .box-image {
-    background-position: -37px -3px;
+    background-position: -14px -67px;
+    width: 59px;
+    height: 61px
   }
   .services-box:nth-child(2) .box-image {
-    background-position: -86px -3px;
+    background-position: -90px -68px;
   }
   .services-box:nth-child(3) .box-image {
-    background-position: -141px -3px;
+    background-position: -155px -68px;
+    width: 59px;
+    height: 59px;
   }
   .services-box:nth-child(4) .box-image {
-    background-position: -195px -3px;
+    background-position: -228px -68px;
+    width: 63px;
+    height: 60px;
   }
   .services-box:nth-child(5) .box-image {
-    background-position: -253px -3px;
+    background-position: -304px -68px;
+    width: 51px;
+    height: 60px;
   }
   .services-box:nth-child(6) .box-image {
-    background-position: -306px -3px;
+    background-position: -17px -141px;
+    width: 57px;
+    height: 60px;
   }
   .services-box:nth-child(7) .box-image {
-    background-position: -364px -3px;
+    background-position: -86px -141px;
+    width: 72px;
+    height: 61px;
   }
   .services-box:nth-child(8) .box-image {
-    background-position: -426px -3px;
+    background-position: -169px -142px;
+    width: 60px;
+    height: 62px;
   }
 }
 
@@ -1018,6 +1040,7 @@ footer {
   padding-top: 29px;
   overflow: hidden;
   text-align: center;
+  position: relative;
   width: 270px;
   min-height: 140px;
   opacity: 0.7;
@@ -1036,9 +1059,9 @@ footer {
     display: block
   }
   .box-image {
-    @extend .sprite;
-    width: 40px;
-    height: 40px;
+    @extend .sprite-png;
+    width: 50px;
+    height: 50px;
     margin: 0 auto;
     opacity: 0;
     transition: opacity 0.2s linear;
@@ -1060,6 +1083,9 @@ footer {
     opacity: 0;
     transition: opacity 0.3s linear 0.3s;
     padding: 0 6px;
+    position: absolute;
+    top: 116px;
+    font-size: 14px;
   }
 }
 
@@ -1222,8 +1248,6 @@ footer {
     width: 121px
   }
 }
-
-
 
 .services-more-i {
   @extend .sprite;
@@ -1449,11 +1473,11 @@ footer {
   }
 }
 
-.banner-line { 
-    height: 56px;
-    border-left: 1px solid #878686; 
-    margin: 20px auto;
-    width: 1px;
+.banner-line {
+  height: 56px;
+  border-left: 1px solid #878686;
+  margin: 20px auto;
+  width: 1px;
 }
 
 .parallax-section {
@@ -1524,8 +1548,9 @@ footer {
 }
 
 .partners-box {
-  img:last-child {
-    display: none
+  img {
+    max-width: 200px;
+    height: 100%
   }
 }
 
@@ -1608,8 +1633,6 @@ section.contact-us-section {
   float: left;
   padding-left: 30px;
 }
-
-
 
 .owl-carousel-home {
   .owl-item {

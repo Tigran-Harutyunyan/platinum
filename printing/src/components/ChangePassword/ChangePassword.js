@@ -1,7 +1,4 @@
 import {
-  EventBus
-} from '../../event-bus.js';
- import {
   required,
   minLength,
   sameAs
@@ -57,15 +54,7 @@ export default {
   mounted() {
     if (this.storage && this.storage.user) {
       this.token = this.storage.user.token;
-    }
-    EventBus.$on('onLogout', () => {
-      this.$router.push({
-        name: 'Categories',
-        params: {
-          id: 1
-        }
-      });
-    });
+    } 
   }, 
   validations: {
     password: {

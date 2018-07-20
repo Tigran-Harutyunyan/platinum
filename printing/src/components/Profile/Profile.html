@@ -38,14 +38,8 @@
               <tr>
                 <td>{{ $t('message.signup.birthday') }}</td>
                 <td class="custom-picker">
-                  <el-date-picker v-model="birthday_at" type="date" placeholder="" :picker-options="pickerOptions1">
+                  <el-date-picker v-model="birthday_at" type="date" placeholder="" :picker-options="pickerOptions">
                   </el-date-picker>
-                </td>
-              </tr>
-              <tr>
-                <td>{{ $t('message.signup.phone') }}</td>
-                <td class="custom-picker">
-                  <el-input type="text" v-model="phone" :class="{'has-error': $v.phone.$error}"></el-input>
                 </td>
               </tr>
             </table>
@@ -54,13 +48,10 @@
             <div class="list-container">
               <ul>
                 <li>
-                  <!-- <span>Հայտեր ստանալ</span>  -->
                   <el-checkbox v-model="receive_promotions">{{ $t('message.signup.info3') }}</el-checkbox>
                 </li>
               </ul>
             </div>
-            <vue-recaptcha class="recaptcha-element" sitekey="6LcGJ1YUAAAAAJ2-9OwJPxB8KY1Jtc0OpXwFjglL" ref="recaptcha" @verify="onVerify"
-              @expired="onExpired"></vue-recaptcha>
             <input type="submit" class="btn-submit btn-invert" :disabled="!isFormValid" :value="$t('message.signup.info10')">
           </div>
         </div>

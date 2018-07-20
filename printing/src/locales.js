@@ -174,45 +174,29 @@ export default {
         design: "Design",
         advertising: 'Advertising',
         printing: 'Printing',
-        graphicService: {
-          word1: "Graphic",
-          word2: "Design",
-          text: ""
+        service1: { 
+          text: `The works are performed by qualified personnel`
         },
-        webDesign: {
-          word1: "Web",
-          word2: "Design",
-          text: ""
+        service2: { 
+          text: `Printing is only done with high quality materials, with your own choice`
         },
-        outdoor: {
-          word1: "Outdoor",
-          word2: "Advertising",
-          text: ""
+        service3: { 
+          text: `We make any order in your desired, reasonable timeframe`
         },
-        promo: {
-          word1: "Promo",
-          word2: "Services",
-          text: ""
+        service4: { 
+          text: `We modify the design as long as you are not satisfied`
         },
-        digitalPrinting: {
-          word1: "Digital",
-          word2: "Printing",
-          text: ""
+        service5: { 
+          text: `We bear full responsibility for the work done and the quality of the product received`
         },
-        offsetPrinting: {
-          word1: "Offset",
-          word2: "Printing",
-          text: ""
+        service6: { 
+          text: `A sample is provided for your print order`
         },
-        largePrinting: {
-          word1: "Large Format",
-          word2: "Printing",
-          text: ""
+        service7: { 
+          text: `We provide FREE design advice for you or your company`
         },
-        otherServices: {
-          word1: "Other",
-          word2: "Services",
-          text: ""
+        service8: { 
+          text: `You do not lose time to visit us and order. All actions are done online`
         }
       }
     }
@@ -382,45 +366,29 @@ export default {
         design: "Դիզայն",
         advertising: 'Գովազդ',
         printing: 'Տպագրություն',
-        graphicService: {
-          word1: "Գրաֆիկական",
-          word2: "Դիզայն",
-          text: `Մենք կստեղծենք ձեր ընկերության կորպորատիվ ոճը, որը թույլ կտա ձեզ դառնալ ավելի յուրահատուկ,ավելի մրցունակ և հեշտությամբ ճանաչելի:`
+        service1: { 
+          text: `Աշխատանքները կատարում են համապատասխան որակավորում ունեցող մասնագետներ`
         },
-        webDesign: {
-          word1: "Վեբ",
-          word2: "Դիզայն",
-          text: `Վստահեք մեզ ձեր վեբ կայքի նախագծումը, պատրաստումն ու առաջխաղացումը և մեր մասնագետները հոգ կտանեն նրբաճաշակ դիզայնի և հարմարավետության մասին:`
+        service2: { 
+          text: `Տպագրությունը իրականցվում է  միայն բարձրորակ նյութերով, Ձեր  իսկ նախընտրած պահանջներով`
         },
-        outdoor: {
-          word1: "Արտաքին",
-          word2: "Գովազդ",
-          text: `Արտաքին գովազդի պատրաստում և տեղադրում տարատեսակ նյութերով\`ծավալային տառեր,լուսավորվող վահանակներ,ցուցանակներ և այլն:`
+        service3: { 
+          text: `Ցանկացած պատվեր մենք  կատարում ենք Ձեր ցանկալի,  խելամիտ ժամկետներում`
         },
-        promo: {
-          word1: "Գովազդային",
-          word2: "Ակցիաներ",
-          text: `Գովազդային ակցիաների կազմակերպումը ենթադրում է որոշակի գործողություններ, որոնք ուղղված են ընկերության և սպառողների միջև անմիջական կապի ձևավորմանը:`
+        service4: { 
+          text: `Դիզայնի փոփոխում կատարում  ենք այնքան ժամանակ, քանի  դեռ Դուք գոհ չեք`
         },
-        digitalPrinting: {
-          word1: "Թվային",
-          word2: "Տպագրություն",
-          text: `Այս եղանակը թույլ է տալիս արագ և որակյալ տպագրել փոքր և միջին քանակ ունեցող այցեքարտեր, բուկլետներ և այլ տպագիր նյութեր:`
+        service5: { 
+          text: `Մենք կրում ենք լիարժեք պատասխանատվություն կատարված աշխատանքի և ստացված  պրոդուկտի որակի համար`
         },
-        offsetPrinting: {
-          word1: "Օֆսեթ",
-          word2: "Տպագրություն",
-          text: `Այս եղանակը ամենահարմարն է մեծաքանակ տպագրության համար, քանի որ ապահովում է արտադրության բարձր որակ և մատչելի գին:`
+        service6: { 
+          text: `Ձեր ցանկացած տպագրության պատվերի դեպքում տրամադրվում  է ԱՆՎՃԱՐ նմուշ`
         },
-        largePrinting: {
-          word1: "Լայնաֆորմատ",
-          word2: "Տպագրություն",
-          text: `Այս եղանակը թույլ է տալիս ստանալ մեծ չափսերի տպագիր նյութեր,որոնք կիրառվում են ինտերյերի ձևաորման և արտաքին գովազդի մեջ:`
+        service7: { 
+          text: `Անցկացնում ենք ԱՆՎՃԱՐ դիզայն խորհրդատվություն Ձեր կամ Ձեր ընկերության համար`
         },
-        otherServices: {
-          word1: "Այլ",
-          word2: "Ծառայություններ",
-          text: `Ծառայության տեսակներ,որոնք փոքր ինչ բազմազան են, այդ իսկ պատճառով խմբագրվելեն մեկ ընդհանուր վերնագրով:`
+        service8: { 
+          text: `Դուք ժամանակ չեք կորցնում մեզ այցելելու և պատվեր տալու համար: Բոլոր գործողությունները  կատարվում են առցանց`
         }
       }
     }

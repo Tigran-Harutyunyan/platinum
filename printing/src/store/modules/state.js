@@ -9,6 +9,7 @@ export const state = {
     },
     customData: {},
     sliderImages: [],
+    partnersImages: [],
     cart: '',
     staff: '',
     orders: '',
