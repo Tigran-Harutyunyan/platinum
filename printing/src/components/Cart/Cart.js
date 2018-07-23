@@ -1,3 +1,5 @@
+import CartTotals from './CartTotals/CartTotals.vue'; 
+import CartItemActions from './CartItemActions/CartItemActions.vue';
 export default {
     data() {
         return {
@@ -6,6 +8,10 @@ export default {
             isLoading: false,
             isCartEmpty: ''
         }
+    },
+    components:{
+        CartTotals,
+        CartItemActions
     },
     created() {
         let storage = localStorage.getItem("platinumInk") ? JSON.parse(localStorage.getItem("platinumInk")) : {};

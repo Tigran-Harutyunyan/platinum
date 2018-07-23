@@ -12,61 +12,19 @@
                         <img class="cart-img" src="http://via.placeholder.com/200x200"><h5>{{ $t('message.back') }}</h5>
                     </div>
                 </div>
-                <div class="cart-products"> 
+                 <div class="cart-products"> 
                     <table> 
                         <tr v-for="(value, key) in item.product_properties">
                             <td class="product-type">{{ key }}</td>
                             <td>{{ value[0].name }}</td>
                         </tr> 
-                    </table>
-                  <div class="action">
-                      <ul class="action-btns">
-                          <li class="price-bold">{{ item.price}}</li>
-                          <li class="btn-links"  @click="deleteCartItem(item.id)">{{ $t('message.delete') }}</li>
-                          <li class="btn-links"  @click="$router.push({name:'Categories', params: {id:1}})" >{{ $t('message.addNew') }}</li> 
-                          <!-- <li class="btn-links">Խմբագրել</li> -->
-                        </ul>
-                        <el-popover
-                            placement="top-start" 
-                            width="400"
-                            trigger="hover">  
-                            <h2 class="popover-title">{{ item.name }}</h2>
-                            <p class="popover-description">{{ item.description }}</p>
-                            <a slot="reference"class="btn-submit btn-white">{{ $t('message.name') }}</a>
-                        </el-popover> 
-                  </div>
-                </div> 
+                    </table> 
+                   <CartItemActions :item="item" v-on:deleteCartItem="deleteCartItem"/>
+                 </div> 
             </div>
-            <div class="cart-bottom">
-                <div class="cart-products"> 
-                    <table class="table-1">
-                        <tr>
-                            <td class="product-type">{{ $t('message.printingCost') }}</td>
-                            <td> {{ totalPrice }} դր</td>
-                        </tr>
-                        <tr>
-                            <td class="product-type">{{ $t('message.discount') }}</td>
-                            <td>0.00</td>
-                        </tr>
-                        <tr>
-                            <td class="product-type">{{ $t('message.shipping') }}</td>
-                            <td>0.00</td>
-                        </tr>
-                        <tr>
-                            <td class="product-type"> {{ $t('message.tax') }}</td>
-                            <td>0.00</td>
-                        </tr>  
-                    </table>
-                    <!-- total -->
-                    <table class="table-2"> 
-                        <tr>
-                            <td class="product-type">{{ $t('message.totalPrice') }}</td>
-                            <td> {{ totalPrice }}</td>
-                        </tr> 
-                    </table>
-                  </div>
-               
-            </div>
+             
+            <CartTotals :totalPrice="totalPrice"/>
+            
             <div class="pricing-cell">
                 <a href="javascript:void(0)" @click="$router.push({name:'Categories', params: {id:1}})" class="link">{{ $t('message.continueShopping') }}</a>
                 <a href="javascript:void(0)" @click="moveProductToOrders()" class="btn-submit btn-invert">{{ $t('message.pay') }}</a>
