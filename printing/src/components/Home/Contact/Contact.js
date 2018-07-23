@@ -5,7 +5,8 @@ import {
 } from 'vuelidate/lib/validators'; 
 
 import PartnersSlider from "../PartnersSlider/PartnersSlider.vue";
-
+import SocialMedia from "../SocialMedia/SocialMedia.vue";
+// import utils from '../../../utils'; 
 export default {
     data() {
         return {
@@ -62,7 +63,8 @@ export default {
         },
     },
     components: { 
-        'partners-slider': PartnersSlider
+        'partners-slider': PartnersSlider,
+        'social-media': SocialMedia
     },
     validations: {
         email: {

@@ -1,10 +1,10 @@
 import Header from "../Header/Header.vue";
-import services from "./Services/Services.vue";
-import about from "./About/About.vue";
-import staff from "./Staff/Staff.vue"; 
+import Services from "./Services/Services.vue";
+import About from "./About/About.vue";
+import Staff from "./Staff/Staff.vue"; 
 import ProjectsSlider from "./ProjectsSlider/ProjectsSlider.vue";
-import reasons from "./Reasons/Reasons.vue"; 
-import contact from "./Contact/Contact.vue"; 
+import Reasons from "./Reasons/Reasons.vue"; 
+import Contact from "./Contact/Contact.vue"; 
 import BigSlider from "./BigSlider/BigSlider.vue";
 export default {
     data() {
@@ -73,14 +73,14 @@ export default {
        
     },
     components: { 
-        services,
-        about,
-        contact,
-        reasons,
-        staff, 
+        Services,
+        About,
+        Contact,
+        Reasons,
+        Staff, 
         "pl-header": Header,
         'projects-slider': ProjectsSlider,
-        'big-slider': BigSlider  
+        BigSlider  
     },
     mounted() { 
         this.initReviews();  

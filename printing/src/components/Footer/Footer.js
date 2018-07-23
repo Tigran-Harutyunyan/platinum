@@ -3,6 +3,8 @@ import {
     minLength,
     email
 } from 'vuelidate/lib/validators';
+import SocialMedia from "../Home/SocialMedia/SocialMedia.vue";
+
 export default {
     name: 'pl-footer',
     data() {
@@ -53,6 +55,9 @@ export default {
     },
     mounted() {
         this.$store.dispatch('getCustomData');
+    },
+    components: {  
+        'social-media': SocialMedia
     },
     validations: {
         email: {
