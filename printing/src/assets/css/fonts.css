@@ -1,9 +1,0 @@
-@font-face {
-  font-family: 'AbrilFatface-Regular';
-  src: url("AbrilFatface-Regular.ttf.woff") format("woff"), url("AbrilFatface-Regular.ttf.svg#AbrilFatface-Regular") format("svg"), url("AbrilFatface-Regular.ttf.eot"), url("AbrilFatface-Regular.ttf.eot?#iefix") format("embedded-opentype");
-  font-weight: normal;
-  font-style: normal;
-}
-.abril {
-  font-family: 'roboto-condensed', sans-serif;
-}
