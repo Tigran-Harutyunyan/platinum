@@ -39,14 +39,20 @@ export default {
             this.$notify({
               title: 'Password change',
               message: 'Password change success!',
-              position: "bottom-right",
+              position: "top-right",
               type: "success"
             });
             this.password = this.passwordConfirm = '';
             this.$v.$reset();
           }
         }).catch((error) => {
-          this.isLoading = false
+          this.isLoading = false;
+          this.$notify({
+            title: 'Password change error',
+            message: error.message || '' ,
+            position: "top-right",
+            type: "error"
+          });
         });
       }
     } 

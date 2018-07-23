@@ -4,7 +4,6 @@ import {
   state
 } from '../store/modules/state.js';
 import Products from '../components/Products/Products.vue'
-import Search from '../components/Search/Search.vue'
 import ProductDetails from '../components/ProductDetails/ProductDetails.vue'
 import Cart from '../components/Cart/Cart.vue'
 import SignUp from '../components/SignUp/SignUp.vue'
@@ -66,12 +65,7 @@ const router = new Router({
           name: 'Orders',
           component: Orders,
           beforeEnter: shouldBeAuthed
-        },
-        {
-          path: '/search/:search_key',
-          name: 'Search',
-          component: Search
-        },
+        }, 
         {
           path: '/profile',
           name: 'profile',

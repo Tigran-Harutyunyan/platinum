@@ -78,8 +78,8 @@ export default {
         Contact,
         Reasons,
         Staff, 
-        "pl-header": Header,
-        'projects-slider': ProjectsSlider,
+        Header,
+        ProjectsSlider,
         BigSlider  
     },
     mounted() { 
