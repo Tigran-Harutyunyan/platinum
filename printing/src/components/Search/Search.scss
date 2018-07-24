@@ -20,8 +20,11 @@
       text-transform: capitalize;
     }
   }
-}
-
+} 
 .el-input__icon {
   margin-top: 4px;
+}
+.no-results {
+  color: #b2b2b2; 
+  font-size: 14px;
 }

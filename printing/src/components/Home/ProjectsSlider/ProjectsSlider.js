@@ -7,16 +7,16 @@ export default {
     return {
       projects: [],
       swiperOption: {
-        slidesPerView: 5,
+        slidesPerView: 7,
         spaceBetween: 20,
         autoplay: true,
         isInitialized: false,
-        //loop: true,
+        loop: true,
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
         },
-        breakpoints: {
+        /* breakpoints: {
           1250: {
             slidesPerView: 4
           },
@@ -29,7 +29,7 @@ export default {
           340: {
             slidesPerView: 1
           }
-        }
+        } */
       }
     }
   },

@@ -4,21 +4,21 @@ export default {
     return {
       search_key: '',
       searchResults: '',
-      showSearchResults: false,
-      noResults: false
+      showSearchResults: false
     }
   },
   computed: {
-
+    noResults() {
+      return this.searchResults.length == 0
+    }
   },
   methods: {
     checkDropdown() {
-      this.showSearchResults = true;
+      if (this.search_key.length) {
+        this.showSearchResults = true;
+      }
     },
-    onSearch: debounce(function (e) {
-      this.showSearchResults = false;
-      this.searchResults = [];
-       
+    onSearch: debounce(function (e) { 
       if (this.search_key.trim().length === 0) {
         this.showSearchResults = false;
         this.searchResults = [];
@@ -45,8 +45,7 @@ export default {
         }).catch((error) => {
 
         });
-      }
-
+      } 
     }, 400)
   }
-}
+} 

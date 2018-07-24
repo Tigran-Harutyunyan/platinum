@@ -102,10 +102,7 @@ export default {
               message: response.message,
               position: "top-right",
               type: "error"
-            });
-
-            EventBus.$emit('logout');
-
+            });  
           } else {
             if (response[0].price) {
               this.showPriceTotal = true;
@@ -156,8 +153,7 @@ export default {
                 message: response.message,
                 position: "top-right",
                 type: "error"
-              });
-              EventBus.$emit('logout');
+              }); 
             } else {
               this.$notify({
                 title: 'Shopping cart',

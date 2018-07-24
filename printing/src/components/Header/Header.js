@@ -7,20 +7,18 @@ import {
 import {
   EventBus
 } from '../../event-bus.js';
-export default {
-  name: 'pl-header',
+import Login from '../Login/Login.vue';
+import Search from '../Search/Search.vue';
+import Hamburger from './Hamburger/Hamburger.vue';
+export default { 
   data() {
     return {
       loginMode: true,
       loading: false,
-      showLoginDropdown: false,
-      email: "tigran3@mail.ru",
-      password: "tigran",
+      showLoginDropdown: false, 
       recoveryMail: "",
-      isAuthenticated: false,
-      search_key: '',
-      isHamburgerActive: false,
-      user: {},
+      isAuthenticated: false, 
+       user: {},
       currentRoute: "",
       locales: [{
           localeName: 'ՀԱՅ',
@@ -34,6 +32,11 @@ export default {
         }
       ]
     }
+  },
+  components:{
+    Login,
+    Search,
+    Hamburger
   },
   watch: {
     '$route' (to, from) {
@@ -98,43 +101,7 @@ export default {
         });
       }
     },
-
-    goTo(section) {
-      let param = '';
-      let customOffset = 0;
-      switch (section) {
-        case 'services':
-          param = '#section-services';
-          break;
-        case 'about-us':
-          param = '#section-about-us';
-          break;
-        case 'projects':
-          param = '#section-portfolio';
-          break;
-        case 'why':
-          param = '#reasons-section';
-          break;
-        case 'staff':
-          param = '#staff-section';
-          customOffset = 50;
-          break;
-        case 'contact-us':
-          param = '#section-5';
-          customOffset = -140;
-          break;
-        default:
-          param = '';
-      }
-      this.$router.push({
-        name: 'Home'
-      });
-      //this.$router.push({ name: 'Home', params: { section: section } });
-      this.isHamburgerActive = false;
-      $('html, body').animate({
-        scrollTop: !param ? 0 : $(param).offset().top - customOffset
-      }, 0);
-    },
+    
     toggleLang(locale) {
       //this.$root._i18n.locale = locale;
       let storage = localStorage.getItem('platinumInk') ? JSON.parse(localStorage.getItem("platinumInk")) : {};
@@ -145,6 +112,7 @@ export default {
         location.reload();
       }
     },
+    
     initScroller() {
       var sectionsController = new ScrollMagic.Controller();
       var sceneNav = new ScrollMagic.Scene({
@@ -160,55 +128,16 @@ export default {
       sceneNav.setClassToggle("#top-nav", "section-services");
       sceneNav.setClassToggle("#service-boxes", "active-services");
     },
-    onSearch() {
-      if (this.search_key.length) {
-        this.$router.push({
-          name: 'Search',
-          params: {
-            search_key: this.search_key
-          }
-        });
-      }
-    },
-
-    onLogin() {
-
-      if (!this.$v.email.$invalid && !this.$v.password.$invalid && !this.loading) {
-        this.loading = true;
-        this.$store.dispatch('requestLogin', {
-          email: this.email,
-          password: this.password
-        }).then((response) => {
-          this.loading = false;
-          if (response.error) {
-            this.$notify({
-              title: 'Login',
-              message: response.message ? response.message : 'Failed to login',
-              position: "top-right",
-              type: "error"
-            });
-          }
-          if (response.success) {
-            let storage = localStorage.getItem('platinumInk') ? JSON.parse(localStorage.getItem("platinumInk")) : {};
-            storage.user = response;
-            this.user = response;
-            localStorage.setItem('platinumInk', JSON.stringify(storage));
-            this.$store.dispatch('setStorage', storage);
-            this.showLoginDropdown = false;
-            this.loginMode = true;
-            this.isAuthenticated = true;
-          }
-          EventBus.$emit('authChanged');
-        }).catch((error) => {
-          this.loading = false;
-          this.$notify({
-            title: 'Login',
-            message: error ? error : 'Failed to login',
-            position: "top-right",
-            type: "error"
-          });
-        });
-      }
+  
+    onLoginSuccess(response) {
+      let storage = localStorage.getItem('platinumInk') ? JSON.parse(localStorage.getItem("platinumInk")) : {};
+      storage.user = response;
+      this.user = response;
+      localStorage.setItem('platinumInk', JSON.stringify(storage));
+      this.$store.dispatch('setStorage', storage);
+      this.showLoginDropdown = false;
+      this.loginMode = true;
+      this.isAuthenticated = true;
     },
     checkAuth() {
       let storage = localStorage.getItem("platinumInk") ? JSON.parse(localStorage.getItem("platinumInk")) : {};

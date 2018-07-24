@@ -1,50 +1,43 @@
 export default {
-    data() {
-        return { 
-          activeName: 'status'
-        }
+  data() {
+    return {
+      activeName: 'status'
+    }
+  },
+  methods: {
+    handleClick(tab, event) {
+      //console.log(tab, event);
     },
-    methods: {
-        handleClick(tab, event) {
-            //console.log(tab, event);
-        }
+    getOrders() { 
+        this.isLoading = true;  
+        this.$store.dispatch('getOrders').then((response) => {
+          this.isLoading = false; 
+          if (response.error) {
+            this.$notify({
+              title: 'Shopping cart',
+              message: message,
+              position: "top-right",
+              type: "error"
+            }); 
+          } else {
+            this.cartItems = response;
+            this.isCartEmpty = this.cartItems.length === 0 ? true : false;
+          }
+        }).catch((error) => {});
+      } 
+  },
+  computed: {
+    orders: {
+      get: function () {
+        return this.$store.getters.getOrders;
+      },
+      set: function () {}
     },
-    computed: {
-        orders: {
-            get: function() {
-                return this.$store.getters.getOrders;
-            },
-            set: function() {} 
-        }, 
-        storage(){
-            return this.$store.getters.getStorage;
-        }
-    },
-    mounted(){
-        let data = this.$store.getters.getOrders; 
-        if (!data && this.storage &&  this.storage.user) {  
-            this.isLoading = true;
-            let formData = new FormData();
-            formData.append('token', this.storage.user ? this.storage.user.token : "");
-            this.$store.dispatch('getOrders', {
-                formData
-            }).then((response) => {
-                this.isLoading = false;
-                if (response.error) {
-                    this.$notify({
-                        title: 'Shopping cart',
-                        message:  message,
-                        position: "top-right",
-                        type: "error"
-                    });
-                    if (message === "Invalid token"){
-                        EventBus.$emit('logout');
-                    }
-                } else {
-                    this.cartItems = response;
-                    this.isCartEmpty = this.cartItems.length === 0 ? true : false;
-                }
-            }).catch((error) => {});
-        }  
-    } 
-}
+    storage() {
+      return this.$store.getters.getStorage;
+    }
+  },
+  mounted() {
+    this.getOrders();
+  }
+} 

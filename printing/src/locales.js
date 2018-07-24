@@ -94,7 +94,7 @@ export default {
       orderOnline: 'order Online',
       uploadFile: 'upload your file',
       uploadFile1: 'upload the first side',
-      uploadFile2: 'upload the second sike',
+      uploadFile2: 'upload the second side',
       uploadFileDescription: 'Uploaded files are visible only in JPG format, other formats will be sent to you by e-mail',
       remove: 'Remove',
       name: "Name",
