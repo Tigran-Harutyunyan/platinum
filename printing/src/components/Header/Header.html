@@ -12,20 +12,11 @@
                                 <i class="el-icon-close" @click.stop="hideLoginDropdown"></i>
                                 <Login 
                                     v-if="loginMode"
-                                    v-on:LoginSuccess="onLoginSuccess"/>
+                                    v-on:LoginSuccess="onLoginSuccess"
+                                    v-on:ToPasswordRecovery="loginMode=false"/> 
 
-                                <div class="forgot-pass-block" v-else>
-                                   <form v-on:submit.prevent="onPassRecovery" 
-                                        @submit="$v.recoveryMail.$touch();"> 
-                                        <el-input class="password-recovery-input" 
-                                            v-model="recoveryMail" 
-                                            :class="{'has-error': $v.recoveryMail.$error}"
-                                            :placeholder="$t('message.form.email')">
-                                        </el-input> 
-                                        <input type="submit" class="btn-submit btn-invert" :value="$t('message.form.recovery')">
-                                        <a class="forgot-pass-link" @click="loginMode=true">{{ $t('message.form.back') }}</a> 
-                                    </form>
-                                </div>
+                                 <PasswordRecovery v-on:backToLogin="loginMode=true" v-if="!loginMode"/>  
+                                
                                 <h5 class="on-signup">{{ $t('message.form.noProfile') }}</h5>
                                 <a @click.stop="toSignupPage" class="create-link">{{ $t('message.form.createPage') }}</a>
                             </div>

@@ -1,15 +1,10 @@
 import {
-  required,
-  minLength,
-  email,
-  sameAs
-} from 'vuelidate/lib/validators';
-import {
   EventBus
 } from '../../event-bus.js';
 import Login from '../Login/Login.vue';
 import Search from '../Search/Search.vue';
 import Hamburger from './Hamburger/Hamburger.vue';
+import PasswordRecovery from '../PasswordRecovery/PasswordRecovery.vue';
 export default { 
   data() {
     return {
@@ -36,7 +31,8 @@ export default {
   components:{
     Login,
     Search,
-    Hamburger
+    Hamburger,
+    PasswordRecovery
   },
   watch: {
     '$route' (to, from) {
@@ -89,19 +85,7 @@ export default {
       this.showLoginDropdown = false;
       this.loginMode = true
     },
-
-    onPassRecovery() {
-      if (!this.$v.recoveryMail.$invalid) {
-        this.$store.dispatch('requestPasswordRecovery', {
-          email: this.recoveryMail
-        }).then((response) => {
-          console.log(response)
-        }).catch((error) => {
-
-        });
-      }
-    },
-    
+ 
     toggleLang(locale) {
       //this.$root._i18n.locale = locale;
       let storage = localStorage.getItem('platinumInk') ? JSON.parse(localStorage.getItem("platinumInk")) : {};
@@ -157,18 +141,5 @@ export default {
     EventBus.$on('logout', () => {
       this.removeUser();
     });
-  },
-  validations: {
-    email: {
-      required,
-      email
-    },
-    recoveryMail: {
-      required,
-      email
-    },
-    password: {
-      required
-    }
-  }
+  } 
 }

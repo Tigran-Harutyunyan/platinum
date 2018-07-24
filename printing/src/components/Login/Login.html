@@ -12,7 +12,7 @@
             :placeholder="$t('message.form.password')" 
             :class="{'has-error': $v.password.$error}">
         </el-input>
-        <span class="forgot-pass-link" @click="loginMode=false">{{ $t('message.form.forgotPassword') }}</span>
+        <span class="forgot-pass-link" @click="$emit('ToPasswordRecovery')">{{ $t('message.form.forgotPassword') }}</span>
         <input type="submit" class="btn-submit btn-invert"  :value="$t('message.form.login')">
     </form>
 </div> 
