@@ -1,0 +1,19 @@
+.projects-slider-container {
+    .swiper-button-prev, .swiper-button-next{
+        background-image: url("../../../../static/img/sprite.png"); 
+        background-size: 612px 792px;
+        background-repeat: no-repeat;
+        height: 80px;
+        width: 32px;
+    }
+}
+.swiper-button-next {
+    background-position: -66px 0px; 
+}
+.swiper-button-prev {
+    background-position:  -33px 0px;
+    
+}
+.swiper-button-prev.swiper-button-disabled, .swiper-button-next.swiper-button-disabled { 
+    pointer-events: all;
+}
