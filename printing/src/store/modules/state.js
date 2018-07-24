@@ -13,5 +13,7 @@ export const state = {
     cart: '',
     staff: '',
     orders: '',
-    completedWorks: ''
+    completedWorks: '',
+    projectsSliderImages:'',
+    searchResults:''
   };

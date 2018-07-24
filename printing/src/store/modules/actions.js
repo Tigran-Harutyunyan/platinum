@@ -71,6 +71,20 @@ const getSliderImages = ({
     }
   })
 };
+const getProjectSliderImages = ({
+  commit,
+  state
+}, data) => {
+  axios.get(`${state.apiPath}/api/getProjectSliderImages?lang=${state.storage.locale}`).then((response) => {
+    if (Array.isArray(response.data)) {
+      response.data.forEach(element => {  
+        element.thumbnail = `${state.apiPath}${element.image}`; 
+        element.image = `${state.apiPath}${element.popup_image}`; 
+      });
+      commit('PROJECTS_SLIDER_IMAGES', response.data)
+    }
+  })
+}; 
 const getPartnersImages = ({
   commit,
   state
@@ -91,6 +105,25 @@ const getCategories = ({
   axios.get(`${state.apiPath}/api/getCategories?lang=${state.storage.locale}`).then((response) => {
     commit('UPDATE_CATEGORIES', response.data)
   })
+};
+const getSearchResults = ({
+  commit,
+  state
+}, data) => { 
+  return new Promise((resolve, reject) => {
+    axios({
+      url: `${state.apiPath}/api/search?lang=${state.storage.locale}`,
+      method: 'post',
+      params: data,
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      }
+    }).then(response => {
+      resolve(response.data);
+    }).catch(function (error) {
+      reject(error);
+    })
+  });
 };
 const requestLogin = ({
   commit,
@@ -474,5 +507,7 @@ export default {
   getOrders,
   getProductPrice,
   changePassword,
-  getPartnersImages
+  getPartnersImages,
+  getProjectSliderImages,
+  getSearchResults
 }

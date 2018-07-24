@@ -1,5 +1,27 @@
+.search-dropdown {
+  display: flex;
+  flex-wrap: wrap;
+  width: 200px;
+  max-height: 200px;
+  overflow: auto;
+  background: black;
+  border: 1px solid #b3b3b3;
+  border-radius: 23px;
+  margin-top: 5px;
+  padding: 7px;
+  border: 1px solid #b3b3b3;
+  border-radius: 23px;
+  li {
+    width: 100%;
+    padding: 10px;
+    margin: 0;
+    float: none;
+    a {
+      text-transform: capitalize;
+    }
+  }
+}
 
-.product-items {
-    display: flex;
-    flex-wrap: wrap; 
+.el-input__icon {
+  margin-top: 4px;
 }

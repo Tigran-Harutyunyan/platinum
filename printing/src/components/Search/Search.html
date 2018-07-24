@@ -1,17 +1,10 @@
-<div class="products-main" style="padding-left: 35px;"> 
-    <h3 class="product-category-title">{{ categoryName }}</h3>
-    <div class="product-items">
-        <a class="product-item" :href="product.href" v-for="product in productList">
-            <img :src="product.image">
-            <div class="product-descr">
-                <span class="product-name">{{ product.name }}</span>
-                <div class="size">{{ product.size }}</div> 
-                <div class="product-pricing">
-                    <div class="short-description">{{ product.short_description }} </div>
-                    <i>{{ product.price }}</i> 
-                    <div class="part-3">դրամից</div>
-                </div>
-            </div>
-        </a> 
-    </div> 
+<div>
+    <el-input class="search-input" @input="onSearch" :placeholder="$t('message.search')" @focus="checkDropdown" v-model="search_key">
+        <i slot="prefix" class="el-input__icon el-icon-search" @click="onSearch"></i>
+    </el-input>
+    <ul class="search-dropdown" v-if="showSearchResults">
+        <li v-for="(item, index) in searchResults" :key="index">
+            <a :href="item.url" @click="showSearchResults=false">{{item.name}}</a>
+        </li>
+    </ul>
 </div>

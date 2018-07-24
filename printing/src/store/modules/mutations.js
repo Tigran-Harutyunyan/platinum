@@ -16,9 +16,12 @@
  const SET_CUSTOM_DATA = (state, payload) => {
    state.customData = payload;
  };
+ const PROJECTS_SLIDER_IMAGES = (state, payload) => {
+  state.projectsSliderImages = payload;
+};
  const UPDATE_SLIDER_IMAGES = (state, payload) => {
-   state.sliderImages = payload;
- };
+  state.sliderImages = payload;
+};
  const UPDATE_PARTNERS_IMAGES = (state, payload) => {
    state.partnersImages = payload;
  };
@@ -34,6 +37,10 @@
  const UPDATE_COMPLETED_WORKS = (state, items) => {
    state.completedWorks = items;
  };
+ const SEARCH = (state, items) => {
+  state.searchResults = items;
+};
+  
  export default {
    SET_DATA,
    SET_USER_INFO,
@@ -42,9 +49,11 @@
    UPDATE_PRODUCTS,
    UPDATE_CATEGORIES,
    UPDATE_SLIDER_IMAGES,
+   PROJECTS_SLIDER_IMAGES,
    UPDATE_PARTNERS_IMAGES,
    UPDATE_CART_ITEMS,
    UPDATE_STAFF,
    UPDATE_ORDERS_DATA,
-   UPDATE_COMPLETED_WORKS
+   UPDATE_COMPLETED_WORKS,
+   SEARCH
  }
