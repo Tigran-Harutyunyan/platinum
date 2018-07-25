@@ -1,5 +1,16 @@
 import axios from 'axios';
-
+import {
+  EventBus
+} from '../../event-bus.js';
+axios.interceptors.response.use(function (response) {  
+  if(response.data.error && response.data.message === "Invalid token"){  
+    EventBus.$emit('logout');
+  }
+  return response
+   
+}, function (err) {
+  return Promise.reject(err);
+});
 const setStorage = ({
   commit
 }, payload) => {
@@ -71,6 +82,20 @@ const getSliderImages = ({
     }
   })
 };
+const getProjectSliderImages = ({
+  commit,
+  state
+}, data) => {
+  axios.get(`${state.apiPath}/api/getProjectSliderImages?lang=${state.storage.locale}`).then((response) => {
+    if (Array.isArray(response.data)) {
+      response.data.forEach(element => {
+        element.thumbnail = `${state.apiPath}${element.image}`;
+        element.image = `${state.apiPath}${element.popup_image}`;
+      });
+      commit('PROJECTS_SLIDER_IMAGES', response.data)
+    }
+  })
+};
 const getPartnersImages = ({
   commit,
   state
@@ -91,6 +116,25 @@ const getCategories = ({
   axios.get(`${state.apiPath}/api/getCategories?lang=${state.storage.locale}`).then((response) => {
     commit('UPDATE_CATEGORIES', response.data)
   })
+};
+const getSearchResults = ({
+  commit,
+  state
+}, data) => {
+  return new Promise((resolve, reject) => {
+    axios({
+      url: `${state.apiPath}/api/search?lang=${state.storage.locale}`,
+      method: 'post',
+      params: data,
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      }
+    }).then(response => {
+      resolve(response.data);
+    }).catch(function (error) {
+      reject(error);
+    })
+  });
 };
 const requestLogin = ({
   commit,
@@ -398,15 +442,20 @@ const getStaffInfo = ({
       element.image = `${state.apiPath}${element.image}`;
       element.name = `${ element.first_name} ${ element.last_name}`;
     });
-    commit('UPDATE_STAFF', response.data)
+    if (!response.data.error) {
+      commit('UPDATE_STAFF', response.data);
+    }
   })
 };
 const getOrders = ({
-  commit
-}, {
-  formData
+  commit,
+  state
 }) => {
+
   return new Promise((resolve, reject) => {
+    let formData = new FormData();
+    let token =  state.storage.user ? state.storage.user.token : "";
+    formData.append('token',token);
     axios({
       url: `${state.apiPath}/api/getOrders?lang=${state.storage.locale}`,
       method: 'post',
@@ -420,7 +469,10 @@ const getOrders = ({
                element.status = element.status ?  element.status: 'N/A' 
            });
        } */
-      commit('UPDATE_ORDERS_DATA', response.data)
+      if (!response.data.error) {
+        commit('UPDATE_ORDERS_DATA', response.data);
+      }
+
       resolve(response.data);
     }).catch(function (error) {
       reject(error);
@@ -447,7 +499,9 @@ const getProductPrice = ({
       reject(error);
     })
   });
-}
+};
+ 
+
 export default {
   setStorage,
   setData,
@@ -474,5 +528,7 @@ export default {
   getOrders,
   getProductPrice,
   changePassword,
-  getPartnersImages
+  getPartnersImages,
+  getProjectSliderImages,
+  getSearchResults
 }

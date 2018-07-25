@@ -7,19 +7,29 @@ export default {
     return {
       projects: [],
       swiperOption: {
-        slidesPerView: 5,
+        slidesPerView: 7,
         spaceBetween: 20,
         autoplay: true,
-        //loop: true,
+        isInitialized: false,
+        loop: true,
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
         },
-        /*  breakpoints: {
-           1250: {
-             slidesPerView: 4,
-           }
-         } */
+        breakpoints: {
+          1250: {
+            slidesPerView: 4
+          },
+          860: {
+            slidesPerView: 3
+          },
+          560: {
+            slidesPerView: 2
+          },
+          340: {
+            slidesPerView: 1
+          }
+        }
       }
     }
   },
@@ -27,21 +37,35 @@ export default {
     swiper() {
       return this.$refs.myProjects.swiper
     },
+    projectsSliderImages: {
+      get: function () {
+        return this.$store.getters.projectsSliderImages;
+      },
+      set: function () {}
+    }
   },
   created() {
-    this.projects = data.graphic;
+    let data = this.$store.getters.projectsSliderImages;
+    if (!data.length) {
+      this.$store.dispatch('getProjectSliderImages');
+    }
   },
-  mounted() {
-    $('.open-popup-link').magnificPopup({
-      type: 'image',
-      gallery: {
-        enabled: true
-      },
-      mainClass: 'mfp-with-zoom',
-      zoom: {
-        enabled: true,
-        duration: 300
-      }
-    });
+  updated() {
+    if (!this.isInitialized) {
+      this.isInitialized = true;
+      setTimeout(function () {
+        $('.open-popup-link').magnificPopup({
+          type: 'image',
+          gallery: {
+            enabled: true
+          },
+          mainClass: 'mfp-with-zoom',
+          zoom: {
+            enabled: true,
+            duration: 300
+          }
+        });
+      }, 400) 
+    }
   }
 }

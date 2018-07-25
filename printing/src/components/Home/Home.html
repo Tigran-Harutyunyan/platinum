@@ -1,17 +1,17 @@
 <div>
-  <pl-header></pl-header>
+  <Header/>
   <!-- <p>{{ $t("message.hello") }}</p> -->
   <div class="main-section" id="main-section">
-    <big-slider></big-slider>
+    <BigSlider/>
     <div class="content-area content-area1">
       <!-- <div class="large-triangle11" id="triangle11"></div> -->
       <div class="main-inner">
         <div class="large-triangle1 triangles"></div>
         <div class="large-triangle2 triangles"></div>
         <!-- SERVICES -->
-        <services></services>
+        <Services/>
         <!-- ABOUT US -->
-        <about></about>
+        <About/>
         <!-- PROJECTS -->
         <section class="portfolio-section" id="section-portfolio">
           <!-- <div class="large-triangle6 triangles"></div> -->
@@ -26,8 +26,10 @@
           <div class="portfolio-inner"></div>
         </section>
       </div>
+
       <!-- PROJECTS SLIDER -->
-      <projects-slider></projects-slider>
+      <ProjectsSlider/>
+
       <div class="content-area">
         <div class="main-inner z-indexed">
           <a @click="$router.push({name:'Categories',params: {id:1}})" class="btn-link link-type-2 see-all-link-portfolio2">{{ $t('message.seeMore') }}</a>
@@ -37,9 +39,11 @@
       <div class="order-stripe">
         <a href="/#/category/1" class="btn-link">{{ $t('message.orderOnline') }}</a>
       </div>
+
       <div class="main-inner inner-reviews">
-        <reasons></reasons>
+        <Reasons/>
       </div>
+      
       <div class="main-inner inner-reviews">
         <section class="testimonials-section">
           <div class="section-title-place">
@@ -55,9 +59,8 @@
   </div>
   <div class="parallax-bg" id="parallax1"></div>
   <div class="main-section" id="staff-section">
-    <staff></staff>
-    <contact locale="storage.locale"></contact>
-    <footer class="footer">
-    </footer>
+    <Staff/>
+    <Contact locale="storage.locale"></Contact>
+    <footer class="footer"></footer>
   </div>
 </div>

@@ -60,7 +60,8 @@ export default {
         info7: " terms and conditions and agree to receive new offers and promotions",
         info8: "Create page",
         info9: "min 6 symbols",
-        info10: "Save profile"
+        info10: "Save profile",
+        info11: "Sign up"
       },
       form: {
         send: 'Send',
@@ -81,6 +82,7 @@ export default {
         part3: '',
         part4: 'Mobile:'
       },
+      partnersOpinion: 'Peer review about us',
       seeMore: 'See more',
       more: 'More',
       search: 'Search',
@@ -94,7 +96,7 @@ export default {
       orderOnline: 'order Online',
       uploadFile: 'upload your file',
       uploadFile1: 'upload the first side',
-      uploadFile2: 'upload the second sike',
+      uploadFile2: 'upload the second side',
       uploadFileDescription: 'Uploaded files are visible only in JPG format, other formats will be sent to you by e-mail',
       remove: 'Remove',
       name: "Name",
@@ -249,6 +251,7 @@ export default {
       },
       readMore: 'Կարդալ ավելին',
       seeMore: 'Դիտել բոլորը',
+      partnersOpinion: 'Գործընկերների գնահատականը մեր մասին',
       form: {
         send: 'Ուղարկել',
         subject: 'Նյութ',
@@ -359,7 +362,8 @@ export default {
         info7: "Ընդհանուր դրույթներին եւ պայմաններին ինչպես նաեվ համաձայնվում եք ստանալ էլեկտրոնային հաղորդագրություն նոր առաջարկների եվ ակցիաների վերաբերյալ",
         info8: "ստեղծել էջ",
         info9: "մինիմում 6 սիմվոլ",
-        info10: "Թարմացնել պրոֆիլը"
+        info10: "Թարմացնել պրոֆիլը",
+        info11: "Գրանցվել"
       },
       services: {
         title: "ԾԱՌԱՅՈՒԹՅՈՒՆՆԵՐ",

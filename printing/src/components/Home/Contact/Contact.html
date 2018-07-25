@@ -1,88 +1,86 @@
 <div class="content-area contacts-section" id="area-contacts">
-    <div class="main-inner" id="section-5">
-        <!-- Partners -->
-       <partners-slider></partners-slider>
-        <!-- Partners -->
-        <section class="contact-us-section" id="section-contact-us">
-            <div class="large-triangle7 triangles" id="triangle7"></div>
-            <div class="large-triangle10 triangles" id="triangle10"></div>
-            <div class="large-triangle9 triangles" id="triangle9"></div>
+  <!-- Partners -->
+  <PartnersSlider/>
+  <!-- Partners -->
 
-            <div class="contacts-subsection">
-                <div class="section-title-place">
-                    <div class="letter-divider">
-                        <h6>06</h6>
-                    </div>
-                    <h5>{{ $t('message.contacts.title') }}</h5>
-                    <span class="vert-line"></span>
-                </div>
-            </div>
+  <div class="main-inner" id="section-5"> 
+    <section class="contact-us-section" id="section-contact-us">
+      <div class="large-triangle7 triangles" id="triangle7"></div>
+      <div class="large-triangle10 triangles" id="triangle10"></div>
+      <div class="large-triangle9 triangles" id="triangle9"></div>
 
-            <div class="rating-place right-floated">
-                <ul class="right-floated">
-                    <li class="stars rated"></li>
-                    <li class="stars rated"></li>
-                    <li class="stars rated"></li>
-                    <li class="stars rated"></li>
-                    <li class="stars"></li>
-                </ul>
-                <p class="partners-opinion-p"></p>
-            </div>
-        </section> 
-    </div>
-    <div class="partners-inner">
-        <div class="partners-left left-floated">
-            <p class="contact-us-p">{{ $t('message.contacts.toContact') }}</p>
-            <div class="info-platinumink-am">
-                <span>{{ $t('message.address.part2') }} {{ customData.email}}</span>
-                <span>{{ $t('message.address.part4') }} {{ customData.phone}}</span> 
-            </div>
-            <div class="social-place">
-                <p>{{ $t('message.contacts.join') }}</p>
-                <ul class="footer-social-links">
-                    <li class="social-icons fb" v-if="customData.facebook_link">
-                        <a :href="customData.facebook_link" class="fb-link"></a>
-                    </li> 
-                    <li class="social-icons in" v-if="customData.linkedin_link">
-                        <a :href="customData.linkedin_link" class="in-link"></a>
-                      </li>
-                    <li class="social-icons ins" v-if="customData.instagram_link">
-                        <a :href="customData.instagram_link" class="ins-link"></a>
-                    </li>
-                </ul>
-            </div>
-            <p class="rights-info">{{ $t('message.contacts.copywriteText1') }}<br>{{ $t('message.contacts.copywriteText2') }}
-            </p>
+      <div class="contacts-subsection">
+        <div class="section-title-place">
+          <div class="letter-divider">
+            <h6>06</h6>
+          </div>
+          <h5>{{ $t('message.contacts.title') }}</h5>
+          <span class="vert-line"></span>
         </div>
-        <div class="partners-right right-floated" v-if="customData.working_hours">
-            <div class="availability">{{ $t('message.workingHoursInfo') }}
-                <br>{{ customData.working_hours }}
-            </div>
-            <div class="form-place">
-                <div class="form-container">
-                    <form v-on:submit.prevent="onSubmit" @submit="$v.email.$touch();$v.message.$touch();$v.subject.$touch()" class="contact-form"  v-loading="loading" name="contact_form">
-                        <div class="contact-form-referral ref1">
-                            <div class="default-inp-row">
-                                <input id="contact_subject" v-model="subject" class="def-input" type="text" :placeholder="$t('message.form.subject')" :class="{'has-error': $v.subject.$error}" name="contact_subject">
-                            </div>
-                            <div class="elem-spacer"></div>
-                            <div class="default-inp-row ">
-                                <input id="contact_email" class="def-input" type="email" :placeholder="$t('message.form.email')" v-model="email" :class="{'has-error': $v.email.$error}" name="contact_email">
-                            </div>
-                            <div class="elem-spacer"></div>
-                            <div class="default-inp-row ">
-                                <textarea name="contact_message" :placeholder="$t('message.form.message')" :class="{'has-error': $v.message.$error}" v-model="message" class="def-input" id="contact_message" cols="30" rows="10"></textarea>
-                            </div>
-                            <div class="elem-spacer"></div>
-                            <div class="default-inp-row row-btn">
-                                <input type="submit" class="btn-submit" :value="$t('message.form.send')">
-                                <!-- <el-button type="primary" class="btn-submit" :loading="loading">{{ $t('message.form.send') }}</el-button> -->
-                            </div>
-                        </div>
-                    </form>
+      </div>
+
+      <div class="rating-place right-floated">
+        <ul class="right-floated">
+          <li class="stars rated"></li>
+          <li class="stars rated"></li>
+          <li class="stars rated"></li>
+          <li class="stars rated"></li>
+          <li class="stars"></li>
+        </ul>
+        <p class="partners-opinion-p">{{ $t('message.partnersOpinion') }}</p>
+      </div>
+    </section>
+  </div>
+  <div class="partners-inner">
+    <div class="partners-inner-container">
+      <div class="partners-left left-floated">
+        <p class="contact-us-p">{{ $t('message.contacts.toContact') }}</p>
+        <div class="info-platinumink-am">
+          <span>{{ $t('message.address.part2') }} {{ customData.email}}</span>
+          <span>{{ $t('message.address.part4') }} {{ customData.phone}}</span>
+        </div>
+        <div class="social-place">
+          <p>{{ $t('message.contacts.join') }}</p>
+          <SocialMedia/>
+        </div>
+        <p class="rights-info">{{ $t('message.contacts.copywriteText1') }}
+          <br>{{ $t('message.contacts.copywriteText2') }}
+        </p>
+      </div>
+      <div class="partners-right right-floated" v-if="customData.working_hours">
+        <div class="availability">{{ $t('message.workingHoursInfo') }}
+          <br>{{ customData.working_hours }}
+        </div>
+        <div class="form-place">
+          <div class="form-container">
+            <form v-on:submit.prevent="onSubmit" @submit="$v.email.$touch();$v.message.$touch();$v.subject.$touch()" class="contact-form"
+              v-loading="loading" name="contact_form">
+              <div class="contact-form-referral ref1">
+                <div class="default-inp-row">
+                  <input id="contact_subject" v-model="subject" class="def-input" type="text" :placeholder="$t('message.form.subject')" :class="{'has-error': $v.subject.$error}"
+                    name="contact_subject">
                 </div>
-            </div>
+                <div class="elem-spacer"></div>
+                <div class="default-inp-row ">
+                  <input id="contact_email" class="def-input" type="email" :placeholder="$t('message.form.email')" v-model="email" :class="{'has-error': $v.email.$error}"
+                    name="contact_email">
+                </div>
+                <div class="elem-spacer"></div>
+                <div class="default-inp-row ">
+                  <textarea name="contact_message" :placeholder="$t('message.form.message')" :class="{'has-error': $v.message.$error}" v-model="message"
+                    class="def-input" id="contact_message" cols="30" rows="10"></textarea>
+                </div>
+                <div class="elem-spacer"></div>
+                <div class="default-inp-row row-btn">
+                  <input type="submit" class="btn-submit" :value="$t('message.form.send')">
+                  <!-- <el-button type="primary" class="btn-submit" :loading="loading">{{ $t('message.form.send') }}</el-button> -->
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
-        <div class="contacts-space clearfix"></div>
+      </div>
+      <div class="contacts-space clearfix"></div>
     </div>
+  </div>
 </div>

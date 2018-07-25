@@ -25,16 +25,7 @@
 img.banner-offer {
     width: 438px !important;
 }
-
-.offer-text {
-    font-family: 'Museo-Slab';
-    p {
-        text-transform: uppercase;
-        padding-right: 20px;
-        line-height: 47px;
-    }
-}
-
+ 
 .product-items {
     display: flex;
     flex-wrap: wrap;
@@ -54,7 +45,12 @@ img.banner-offer {
         span {
             font-size: 60px;
             color: #af995a;
-            line-height: 25px;
+            line-height: 43px;
+        }
+        p {
+            text-transform: uppercase;
+            padding-right: 20px;
+            line-height: 49px;
         }
     }
 }

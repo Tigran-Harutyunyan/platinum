@@ -1,6 +1,3 @@
-import {
-    EventBus
-  } from '../../event-bus.js';
 export default {
     data() {
         return {}
@@ -26,9 +23,7 @@ export default {
                 formData
             }).then((response) => {
                 this.isLoading = false;
-                if (response.error) {  
-                    EventBus.$emit('logout');
-                } else {
+                if (!response.error) {   
                     this.cartItems = response;
                     this.isCartEmpty = this.cartItems.length === 0 ? true : false;
                 }

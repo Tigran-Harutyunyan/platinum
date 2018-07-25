@@ -11,6 +11,7 @@
  const getOrders = state => state.orders;
  const getCompletedWorks = state => state.completedWorks;
  const partnersImages = state => state.partnersImages;
+ const projectsSliderImages  = state => state.projectsSliderImages;
  export default {
    appData,
    getUserInfo,
@@ -20,6 +21,7 @@
    getStorage,
    getCustomData,
    getSliderImages,
+   projectsSliderImages,
    partnersImages,
    getCartItems,
    getStaffData,

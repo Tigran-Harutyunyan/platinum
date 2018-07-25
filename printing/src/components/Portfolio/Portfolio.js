@@ -2,6 +2,7 @@ import Header from "../Header/Header.vue";
 import Footer from "../Footer/Footer.vue";
 import VueGridLayout from "vue-grid-layout";
 import isotope from 'vueisotope';
+import PortfolioPopup from './PortfolioPopup/PortfolioPopup.vue'
 export default {
   data() {
     return {
@@ -16,6 +17,7 @@ export default {
       this.showContent = true;
     }
   },
+
   computed: {
     apiPath() {
       return this.$store.getters.getApiPath;
@@ -88,8 +90,9 @@ export default {
 
   },
   components: {
-    "pl-header": Header,
-    "pl-footer": Footer,
+    Header,
+    Footer,
+    PortfolioPopup,
     isotope
   }
 }

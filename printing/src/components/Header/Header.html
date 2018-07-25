@@ -4,90 +4,41 @@
             <a @click="$router.push({ name: 'Home'})" class="left-floated logo-link">
                 <div class="logo-place"></div>
             </a>
-            <div class="navigation-container  right-floated">
-                <!-- <ul class="nav sidemenu" id="top-nav" v-if="currentRoute!='Home'">
-                    <li><a class="menu-item active-menu" data-scroll-nav="section-home">Գլխավոր<span class="line-elem-menu"></span></a></li>
-                    <li><a class="menu-item" data-scroll-nav="section-services">Ծառայություններ<span class="line-elem-menu"></span></a></li>
-                    <li><a class="menu-item" data-scroll-nav="section-about-us">Մեր մասին<span class="line-elem-menu"></span></a></li>
-                    <li><a class="menu-item" data-scroll-nav="section-portfolio">Աշխատանքներ<span class="line-elem-menu"></span></a></li>
-                    <li><a class="menu-item" data-scroll-nav="section-contact-us">Հետադարձ կապ<span class="line-elem-menu"></span></a></li>
-                </ul> -->
+            <div class="navigation-container  right-floated"> 
                 <ul class="nav sidemenu">
                     <li v-show="!isAuthenticated">
-                        <a class="btn-link" style="margin-right: -13px;" @click="showLoginDropdown=true">Մուտք
+                        <a class="btn-link" style="margin-right: -13px;" @click="showLoginDropdown=true">{{ $t('message.form.login') }}
                             <div class="login-dropdown-content" v-show="showLoginDropdown">
                                 <i class="el-icon-close" @click.stop="hideLoginDropdown"></i>
-                                <div class="login-block" v-if="loginMode">
-                                    <form v-on:submit.prevent="onLogin" 
-                                        @submit="$v.email.$touch();$v.password.$touch();"> 
-                                        <el-input 
-                                            v-model="email" 
-                                            :placeholder="$t('message.form.email')" 
-                                            :class="{'has-error': $v.email.$error}">
-                                        </el-input>
-                                        <div class="spacer-1"></div>
-                                        <el-input 
-                                            v-model="password" 
-                                            :placeholder="$t('message.form.password')" 
-                                            :class="{'has-error': $v.password.$error}">
-                                        </el-input>
-                                        <span class="forgot-pass-link" @click="loginMode=false">{{ $t('message.form.forgotPassword') }}</span>
-                                        <input type="submit" class="btn-submit btn-invert" :loading="loading" :value="$t('message.form.login')">
-                                    </form>
-                                </div> 
-                                <div class="forgot-pass-block" v-else>
-                                   <form v-on:submit.prevent="onPassRecovery" 
-                                        @submit="$v.recoveryMail.$touch();"> 
-                                        <el-input class="password-recovery-input" 
-                                            v-model="recoveryMail" 
-                                            :class="{'has-error': $v.recoveryMail.$error}"
-                                            :placeholder="$t('message.form.email')">
-                                        </el-input> 
-                                        <input type="submit" class="btn-submit btn-invert" :value="$t('message.form.recovery')">
-                                        <a class="forgot-pass-link" @click="loginMode=true">{{ $t('message.form.back') }}</a> 
-                                    </form>
-                                </div>
+                                <Login 
+                                    v-if="loginMode"
+                                    v-on:LoginSuccess="onLoginSuccess"
+                                    v-on:ToPasswordRecovery="loginMode=false"/> 
+
+                                 <PasswordRecovery v-on:backToLogin="loginMode=true" v-if="!loginMode"/>  
+                                
                                 <h5 class="on-signup">{{ $t('message.form.noProfile') }}</h5>
                                 <a @click.stop="toSignupPage" class="create-link">{{ $t('message.form.createPage') }}</a>
                             </div>
                          </a>
                     </li>
                     <li v-show="!isAuthenticated">
-                        <a class="btn-link btn-bright" href="javascript:void(0)" @click="toSignupPage">Գրանցվել</a>
+                        <a class="btn-link btn-bright" @click="toSignupPage">{{ $t('message.signup.info11') }}</a>
                     </li>
                     <li v-show="isAuthenticated">
-                        <a class="btn-link btn-bright" href="javascript:void(0)" @click="logout">
+                        <a class="btn-link btn-bright" @click="logout">
                             {{ $t('message.logout') }}
                         </a>
                     </li>
                     <li class="search-holder">
-                        <el-input class="search-input" @change="onSearch" :placeholder="$t('message.search')" v-model="search_key">
-                            <i slot="prefix" class="el-input__icon el-icon-search" @click="onSearch"></i>
-                        </el-input>
+                        <Search />
                     </li>
                     <!-- LOCALE TOGGLER -->
                     <li class="lang-toggler">
                         <a href="javascript:void(0)" v-for="item in locales" @click="toggleLang(item.locale)" :class="{'active-lang':item.activeLocale}" class="menu-item-lang">{{ item.localeName }}</a>
-                    </li>
-                    <!-- v-if="currentRoute=='Home'" -->
-                    <li>
-                        <div class="hamburger hamburger--slider" :class="{'is-active':isHamburgerActive}">
-                            <div class="hamburger-box" @click="isHamburgerActive=!isHamburgerActive">
-                                <div class="hamburger-inner"></div>
-                            </div>
-                            <div class="nav-dropdown" v-show="isHamburgerActive">
-                                <ul class="nav sidemenu">
-                                    <li><a class="menu-item" @click="goTo()">{{ $t('message.dropdown.item1') }}</a></li>
-                                    <li><a class="menu-item" @click="goTo('services')">{{ $t('message.dropdown.item2') }}</a></li>
-                                    <li><a class="menu-item" @click="goTo('about-us')">{{ $t('message.dropdown.item3') }}</a></li>
-                                    <li><a class="menu-item" @click="goTo('projects')">{{ $t('message.dropdown.item4') }}</a></li>
-                                    <li><a class="menu-item" @click="goTo('why')">{{ $t('message.dropdown.item5') }}</a></li>
-                                    <li><a class="menu-item" @click="goTo('staff')">{{ $t('message.dropdown.item6') }}</a></li>
-                                    <li><a class="menu-item" @click="goTo('contact-us')">{{ $t('message.dropdown.item7') }}</a></li>
-                                    <li><a class="menu-item" @click="isHamburgerActive=false; $router.push({name:'Categories',params: {id:1}})">{{ $t('message.dropdown.item8') }}<span class="line-elem-menu"></span></a></li>
-                                </ul> 
-                            </div>
-                        </div>
+                    </li> 
+                    <li> 
+                        <Hamburger />
                     </li>
                 </ul>
             </div> 

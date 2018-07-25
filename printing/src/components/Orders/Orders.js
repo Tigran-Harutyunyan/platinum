@@ -1,50 +1,67 @@
 export default {
-    data() {
-        return { 
-          activeName: 'status'
-        }
+  data() {
+    return {
+      activeTab: '1',
+      allOrders: [],
+      cartItems: []
+    }
+  },
+  methods: {
+    handleClick() {
+      this.cartItems = this.filterOrders(this.activeTab);
     },
-    methods: {
-        handleClick(tab, event) {
-            //console.log(tab, event);
-        }
+    filterOrders(status_id) {
+      let filteredOrders = [];
+      filteredOrders = this.allOrders.filter(order => order.status_id == status_id);
+      return filteredOrders;
     },
-    computed: {
-        orders: {
-            get: function() {
-                return this.$store.getters.getOrders;
-            },
-            set: function() {} 
-        }, 
-        storage(){
-            return this.$store.getters.getStorage;
+    getStatusName(statusID) {
+      // let statusName = this.statuses.find(status => status.id == statusID);
+      for (let item in this.statuses) {
+        let status = this.statuses[item]
+        if (status.id == statusID){
+          return status.name; 
         }
+      } 
     },
-    mounted(){
-        let data = this.$store.getters.getOrders; 
-        if (!data && this.storage &&  this.storage.user) {  
-            this.isLoading = true;
-            let formData = new FormData();
-            formData.append('token', this.storage.user ? this.storage.user.token : "");
-            this.$store.dispatch('getOrders', {
-                formData
-            }).then((response) => {
-                this.isLoading = false;
-                if (response.error) {
-                    this.$notify({
-                        title: 'Shopping cart',
-                        message:  message,
-                        position: "top-right",
-                        type: "error"
-                    });
-                    if (message === "Invalid token"){
-                        EventBus.$emit('logout');
-                    }
-                } else {
-                    this.cartItems = response;
-                    this.isCartEmpty = this.cartItems.length === 0 ? true : false;
-                }
-            }).catch((error) => {});
-        }  
-    } 
+    getOrders() {
+      this.isLoading = true;
+      this.$store.dispatch('getOrders').then((response) => {
+        this.isLoading = false;
+        if (response.error) {
+          this.$notify({
+            title: 'Shopping cart',
+            message: message,
+            position: "top-right",
+            type: "error"
+          });
+        } else {
+          this.statuses = response.statuses || [];
+          if (Array.isArray(response.data)) {
+            response.data.forEach(order => {
+              order.statusName = this.getStatusName(order.status_id);
+            });
+          }
+
+          this.allOrders = response.data;
+          this.cartItems = this.filterOrders(1);
+          this.isCartEmpty = this.allOrders.length === 0 ? true : false;
+        }
+      }).catch((error) => {});
+    }
+  },
+  computed: {
+    orders: {
+      get: function () {
+        return this.$store.getters.getOrders;
+      },
+      set: function () {}
+    },
+    storage() {
+      return this.$store.getters.getStorage;
+    }
+  },
+  mounted() {
+    this.getOrders();
+  }
 }

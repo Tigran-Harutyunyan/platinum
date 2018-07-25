@@ -1,7 +1,7 @@
 <div>
-    <pl-header></pl-header>
+    <Header/>
     <div class="main-section content-area" style="margin-top: 68px;" id="products">
-        <slider></slider>
+        <Slider/>
         <div class="content-area products-area" style="position:relative">
             <div class="products-inner">
                 <div class="large-triangle1 triangles tr-1"></div>
@@ -11,12 +11,12 @@
                 <div class="large-triangle1 triangles tr-4"></div>
                 <sidebar v-show="showSidebar"></sidebar>
                 <div class="products-main">
-                    <helper-links></helper-links>
+                    <HelperLinks/>
                        <router-view></router-view>
-                    <help-tabs v-show="showSidebar"></help-tabs>
+                    <HelpTabs v-show="showSidebar"></HelpTabs>
                 </div>
             </div>
         </div>
-        <pl-footer></pl-footer>
+        <Footer/>
     </div>
 </div>
