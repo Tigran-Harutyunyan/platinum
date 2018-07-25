@@ -1,0 +1,53 @@
+.hamburger {
+  position: relative;
+  padding: 0;
+  margin-top: -4px;
+  margin-left: -9px;
+  margin-right: 5px;
+  .nav-dropdown {
+    position: absolute;
+    right: 0;
+    z-index: 100;
+    background: #090908;
+    width: 260px;
+    top: 46px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    .nav.sidemenu {
+      margin: 0;
+      li {
+        width: 100%;
+        padding: 8px 6px 8px 36px;
+        border-left: 2px solid #090908;
+        user-select: none !important;
+
+        a {
+          font-size: 16px;
+          color: #646464;
+        }
+        &:hover {
+          border-left: 2px solid #af995a;
+          background: #141414;
+          a {
+            color: #af995a;
+          }
+        }
+      }
+    }
+  }
+}
+
+.hamburder-outer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 35px;
+  margin-top: -4px;
+  cursor: pointer;
+  span {
+    width: 35px;
+    height: 4px;
+    border-radius: 2px;
+    background: #999999;
+    margin-bottom: 6px;
+  }
+}
