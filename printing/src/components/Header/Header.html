@@ -7,7 +7,7 @@
             <div class="navigation-container  right-floated"> 
                 <ul class="nav sidemenu">
                     <li v-show="!isAuthenticated">
-                        <a class="btn-link" style="margin-right: -13px;" @click="showLoginDropdown=true">Մուտք
+                        <a class="btn-link" style="margin-right: -13px;" @click="showLoginDropdown=true">{{ $t('message.form.login') }}
                             <div class="login-dropdown-content" v-show="showLoginDropdown">
                                 <i class="el-icon-close" @click.stop="hideLoginDropdown"></i>
                                 <Login 
@@ -23,10 +23,10 @@
                          </a>
                     </li>
                     <li v-show="!isAuthenticated">
-                        <a class="btn-link btn-bright" href="javascript:void(0)" @click="toSignupPage">Գրանցվել</a>
+                        <a class="btn-link btn-bright" @click="toSignupPage">{{ $t('message.signup.info11') }}</a>
                     </li>
                     <li v-show="isAuthenticated">
-                        <a class="btn-link btn-bright" href="javascript:void(0)" @click="logout">
+                        <a class="btn-link btn-bright" @click="logout">
                             {{ $t('message.logout') }}
                         </a>
                     </li>

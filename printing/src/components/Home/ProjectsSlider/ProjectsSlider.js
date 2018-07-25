@@ -53,17 +53,19 @@ export default {
   updated() {
     if (!this.isInitialized) {
       this.isInitialized = true;
-      $('.open-popup-link').magnificPopup({
-        type: 'image',
-        gallery: {
-          enabled: true
-        },
-        mainClass: 'mfp-with-zoom',
-        zoom: {
-          enabled: true,
-          duration: 300
-        }
-      });
+      setTimeout(function () {
+        $('.open-popup-link').magnificPopup({
+          type: 'image',
+          gallery: {
+            enabled: true
+          },
+          mainClass: 'mfp-with-zoom',
+          zoom: {
+            enabled: true,
+            duration: 300
+          }
+        });
+      }, 400) 
     }
   }
 }
