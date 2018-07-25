@@ -1,30 +1,54 @@
 export default {
   data() {
     return {
-      activeName: 'status'
+      activeTab: '1',
+      allOrders: [],
+      cartItems: []
     }
   },
   methods: {
-    handleClick(tab, event) {
-      //console.log(tab, event);
+    handleClick() {
+      this.cartItems = this.filterOrders(this.activeTab);
     },
-    getOrders() { 
-        this.isLoading = true;  
-        this.$store.dispatch('getOrders').then((response) => {
-          this.isLoading = false; 
-          if (response.error) {
-            this.$notify({
-              title: 'Shopping cart',
-              message: message,
-              position: "top-right",
-              type: "error"
-            }); 
-          } else {
-            this.cartItems = response;
-            this.isCartEmpty = this.cartItems.length === 0 ? true : false;
-          }
-        }).catch((error) => {});
+    filterOrders(status_id) {
+      let filteredOrders = [];
+      filteredOrders = this.allOrders.filter(order => order.status_id == status_id);
+      return filteredOrders;
+    },
+    getStatusName(statusID) {
+      // let statusName = this.statuses.find(status => status.id == statusID);
+      for (let item in this.statuses) {
+        let status = this.statuses[item]
+        if (status.id == statusID){
+          return status.name; 
+        }
       } 
+    },
+    getOrders() {
+      this.isLoading = true;
+      this.$store.dispatch('getOrders').then((response) => {
+        this.isLoading = false;
+        if (response.error) {
+          this.$notify({
+            title: 'Shopping cart',
+            message: message,
+            position: "top-right",
+            type: "error"
+          });
+        } else {
+          this.statuses = response.statuses || [];
+          if (Array.isArray(response.data)) {
+            response.data.forEach(order => {
+              order.statusName = this.getStatusName(order.status_id);
+            });
+          }
+
+          this.allOrders = response.data;
+          this.cartItems = this.filterOrders(1);
+          this.isCartEmpty = this.allOrders.length === 0 ? true : false;
+        }
+      }).catch((error) => {});
+    }
   },
   computed: {
     orders: {
@@ -40,4 +64,4 @@ export default {
   mounted() {
     this.getOrders();
   }
-} 
+}

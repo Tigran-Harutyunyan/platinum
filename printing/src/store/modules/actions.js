@@ -453,12 +453,13 @@ const getOrders = ({
 }) => {
 
   return new Promise((resolve, reject) => {
+    let formData = new FormData();
+    let token =  state.storage.user ? state.storage.user.token : "";
+    formData.append('token',token);
     axios({
       url: `${state.apiPath}/api/getOrders?lang=${state.storage.locale}`,
       method: 'post',
-      data: {
-        token: state.storage.user ? state.storage.user.token : ""
-      },
+      data: formData,
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
       }

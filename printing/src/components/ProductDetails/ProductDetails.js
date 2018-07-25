@@ -36,44 +36,29 @@ export default {
   methods: {
     onDropDownChange() {
       let properties = this.product.properties;
-      let optionID;
+      let quantityID = '';
+      let selectedOptions = [];
       for (const key in properties) {
         if (properties.hasOwnProperty(key)) {
-          if (properties[key].selected) {
-            properties[key].options.forEach(option => {
-              if (option.required) {
-                optionID = option.id
+          if (properties[key].selected) { 
+            properties[key].options.forEach(option => { 
+              if (option.quantity) {
+                quantityID = properties[key].selected
               }
-            });
-          }
-        }
-      }
-      this.isRequiredSelected = optionID ? true : false;
-
-      if (this.isRequiredSelected) {
-        this.getProductPrice(optionID);
-      }
-    },
-
-    getSelectedOptions() {
-      let object = this.product.properties;
-      let selectedOptions = [];
-      for (const key in object) {
-        if (object.hasOwnProperty(key)) {
-          const item = object[key];
-          if (item.selected) {
-            item.options.forEach(option => {
-              if (option.id == item.selected) {
+              if (option.id == properties[key].selected) {
                 selectedOptions.push(option.id);
               }
             });
           }
         }
-      }
-      return selectedOptions;
+      } 
+      if(quantityID){
+        // only send requests if quantity is selected
+        this.getProductPrice(quantityID,selectedOptions);
+      } 
     },
-
-    getProductPrice(optionID) {
+   
+    getProductPrice(quantityID,selectedOptions) {
       this.checkAuth();
       if (!this.user) {
         this.$notify({
@@ -84,14 +69,12 @@ export default {
         });
         EventBus.$emit('logout');
       } else {
-        this.loading = true;
-        let selectedOptions = this.getSelectedOptions();
+        this.loading = true; 
         let formData = new FormData();
         formData.append('token', this.user ? this.user.token : "");
         formData.append('product_id', this.product[0].id);
-        formData.append('quantity_id', [optionID]);
-        formData.append('properties', JSON.stringify(selectedOptions));
-
+        formData.append('quantity_id', [quantityID]);
+        formData.append('properties', JSON.stringify(selectedOptions)); 
         this.$store.dispatch('getProductPrice', {
           formData
         }).then((response) => {
@@ -102,7 +85,7 @@ export default {
               message: response.message,
               position: "top-right",
               type: "error"
-            });  
+            });
           } else {
             if (response[0].price) {
               this.showPriceTotal = true;
@@ -153,7 +136,7 @@ export default {
                 message: response.message,
                 position: "top-right",
                 type: "error"
-              }); 
+              });
             } else {
               this.$notify({
                 title: 'Shopping cart',
@@ -188,7 +171,7 @@ export default {
 
     proccessFiles(file, fileList, side) {
       if (file.raw.type.indexOf('image') != -1) {
-        var fr = new FileReader(); 
+        var fr = new FileReader();
         fr.onload = () => {
           let obj = {
             'background-image': `url(${fr.result})`,
@@ -198,7 +181,7 @@ export default {
             this.styleObject1 = obj;
           } else {
             this.styleObject2 = obj;
-          } 
+          }
         }
         fr.readAsDataURL(file.raw);
       }
@@ -206,22 +189,22 @@ export default {
         this.fileList1 = fileList.slice(-1);
       } else {
         this.fileList2 = fileList.slice(-1);
-      }  
+      }
     },
     onHandleRemove1(file, fileList) {
-      this.handleRemove(file, fileList,1); 
+      this.handleRemove(file, fileList, 1);
     },
     onHandleRemove2(file, fileList) {
-      this.handleRemove(file, fileList,2);  
+      this.handleRemove(file, fileList, 2);
     },
-    handleRemove(file, fileList, side) { 
+    handleRemove(file, fileList, side) {
       if (side === 1) {
         this.fileList1 = fileList.slice(-1);
         this.styleObject1 = {};
       } else {
         this.fileList2 = fileList.slice(-1);
         this.styleObject2 = {}
-      }  
+      }
     },
     getProductById() {
       this.$store.dispatch('getProductById', {

@@ -33,8 +33,7 @@ export default {
       return this.storage.user ? this.storage.user.token : ""
     }
   },
-  methods: {
-
+  methods: { 
     deleteCartItem(id) {
       this.pendingOrderId = id;
       this.$confirm(this.$t('message.cartItemDeletePrompt'), {
@@ -117,7 +116,7 @@ export default {
             title: 'Shopping cart',
             message: 'Order is formed',
             position: "top-right",
-            type: "error"
+            type: "success"
           });
           this.$router.push({
             name: 'Orders'
