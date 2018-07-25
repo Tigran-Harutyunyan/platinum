@@ -16,7 +16,7 @@ export default {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
         },
-        /* breakpoints: {
+        breakpoints: {
           1250: {
             slidesPerView: 4
           },
@@ -29,7 +29,7 @@ export default {
           340: {
             slidesPerView: 1
           }
-        } */
+        }
       }
     }
   },
