@@ -500,7 +500,12 @@ const getProductPrice = ({
     })
   });
 };
- 
+const setScrollParams = ({
+  commit,
+  state
+}, params) => {
+  commit('STORE_SCROLL_PARAMS', params);
+};
 
 export default {
   setStorage,
@@ -530,5 +535,6 @@ export default {
   changePassword,
   getPartnersImages,
   getProjectSliderImages,
-  getSearchResults
+  getSearchResults,
+  setScrollParams
 }

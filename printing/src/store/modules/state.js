@@ -15,5 +15,6 @@ export const state = {
     orders: '',
     completedWorks: '',
     projectsSliderImages:'',
-    searchResults:''
+    searchResults:'',
+    scrollParams:''
   };

@@ -12,6 +12,7 @@
  const getCompletedWorks = state => state.completedWorks;
  const partnersImages = state => state.partnersImages;
  const projectsSliderImages  = state => state.projectsSliderImages;
+ const scrollParams = state => state.scrollParams;
  export default {
    appData,
    getUserInfo,
@@ -26,5 +27,6 @@
    getCartItems,
    getStaffData,
    getOrders,
-   getCompletedWorks
+   getCompletedWorks,
+   scrollParams
  };

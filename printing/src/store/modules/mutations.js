@@ -40,6 +40,9 @@
  const SEARCH = (state, items) => {
   state.searchResults = items;
 };
+const STORE_SCROLL_PARAMS = (state, params) => { 
+  state.scrollParams = params;
+}
   
  export default {
    SET_DATA,
@@ -55,5 +58,6 @@
    UPDATE_STAFF,
    UPDATE_ORDERS_DATA,
    UPDATE_COMPLETED_WORKS,
-   SEARCH
+   SEARCH,
+   STORE_SCROLL_PARAMS
  }
