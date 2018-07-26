@@ -507,6 +507,13 @@ const setScrollParams = ({
   commit('STORE_SCROLL_PARAMS', params);
 };
 
+const setSideBarProducts = ({
+  commit,
+  state
+}, products) => {
+  commit('SET_PRODUCT_LIST', products);
+};
+
 export default {
   setStorage,
   setData,
@@ -536,5 +543,6 @@ export default {
   getPartnersImages,
   getProjectSliderImages,
   getSearchResults,
-  setScrollParams
+  setScrollParams,
+  setSideBarProducts
 }

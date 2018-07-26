@@ -13,6 +13,7 @@
  const partnersImages = state => state.partnersImages;
  const projectsSliderImages  = state => state.projectsSliderImages;
  const scrollParams = state => state.scrollParams;
+ const sidebarProducts = state => state.sidebarProducts;
  export default {
    appData,
    getUserInfo,
@@ -28,5 +29,6 @@
    getStaffData,
    getOrders,
    getCompletedWorks,
-   scrollParams
+   scrollParams,
+   sidebarProducts
  };

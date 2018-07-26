@@ -1,29 +1,35 @@
 <div class="tabs-container">
-    <tabs :tabs="tabs" @tab-changed="onTabChange"></tabs>
-    <div class="tab-content-container">
-        <div class="tab-content" v-if="activeTab==1">
-            <div class="tab-inner">
-                <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas, eligendi ducimus! Adipisci neque nobis ducimus asperiores sunt perferendis doloremque, maiores quibusdam quia accusamus voluptatem quod a tempora? Quidem, quia inventore?
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas, eligendi ducimus! Adipisci neque nobis ducimus asperiores sunt perferendis doloremque, maiores quibusdam quia accusamus voluptatem quod a tempora? Quidem, quia inventore?
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas, eligendi ducimus! Adipisci neque nobis ducimus asperiores sunt perferendis doloremque, maiores quibusdam quia accusamus voluptatem quod a tempora? Quidem, quia inventore?
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas, eligendi ducimus! Adipisci neque nobis ducimus asperiores sunt perferendis doloremque, maiores quibusdam quia accusamus voluptatem quod a tempora? Quidem, quia inventore?
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas, eligendi ducimus! Adipisci neque nobis ducimus asperiores sunt perferendis doloremque, maiores quibusdam quia accusamus voluptatem quod a tempora? Quidem, quia inventore?
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas, eligendi ducimus! Adipisci neque nobis ducimus asperiores sunt perferendis doloremque, maiores quibusdam quia accusamus voluptatem quod a tempora? Quidem, quia inventore?
-                </p>
-            </div>
-        </div>
-        <div class="tab-content" v-else-if="activeTab==2">Tab2 content</div>
-        <div class="tab-content" v-else="activeTab==3">Tab3 content</div>
+  <tabs :tabs="tabs" @tab-changed="onTabChange"></tabs>
+  <div class="tab-content-container">
+    <div class="tab-content" v-if="activeTab==1">
+      <div class="tab-inner">
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas, eligendi ducimus! Adipisci neque nobis ducimus asperiores
+          sunt perferendis doloremque, maiores quibusdam quia accusamus voluptatem quod a tempora? Quidem, quia inventore?
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas, eligendi ducimus! Adipisci neque nobis ducimus asperiores
+          sunt perferendis doloremque, maiores quibusdam quia accusamus voluptatem quod a tempora? Quidem, quia inventore?
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas, eligendi ducimus! Adipisci neque nobis ducimus asperiores
+          sunt perferendis doloremque, maiores quibusdam quia accusamus voluptatem quod a tempora? Quidem, quia inventore?
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas, eligendi ducimus! Adipisci neque nobis ducimus asperiores
+          sunt perferendis doloremque, maiores quibusdam quia accusamus voluptatem quod a tempora? Quidem, quia inventore?
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas, eligendi ducimus! Adipisci neque nobis ducimus asperiores
+          sunt perferendis doloremque, maiores quibusdam quia accusamus voluptatem quod a tempora? Quidem, quia inventore?
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas, eligendi ducimus! Adipisci neque nobis ducimus asperiores
+          sunt perferendis doloremque, maiores quibusdam quia accusamus voluptatem quod a tempora? Quidem, quia inventore?
+        </p>
+      </div>
     </div>
+    <div class="tab-content" v-else-if="activeTab==2">Tab2 content</div>
+    <div class="tab-content" v-else="activeTab==3">Tab3 content</div>
+  </div>
 </div>

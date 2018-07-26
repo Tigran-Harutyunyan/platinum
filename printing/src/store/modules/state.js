@@ -16,5 +16,6 @@ export const state = {
     completedWorks: '',
     projectsSliderImages:'',
     searchResults:'',
-    scrollParams:''
+    scrollParams:'',
+    sidebarProducts:''
   };

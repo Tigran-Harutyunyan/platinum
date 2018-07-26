@@ -199,6 +199,18 @@ export default {
         },
         service8: { 
           text: `You do not lose time to visit us and order. All actions are done online`
+        },
+        service9: { 
+          text: `We discuss and offer you the best and most profitable`
+        },
+        service10: { 
+          text: `We modify the design as long as you are not satisfied with the result`
+        },
+        service11: { 
+          text: `You pay only when you are satisfied with the result`
+        },
+        service12: { 
+          text: `Becoming a loyal customer you use regularly`
         }
       }
     }
@@ -377,7 +389,7 @@ export default {
           text: `Տպագրությունը իրականցվում է  միայն բարձրորակ նյութերով, Ձեր  իսկ նախընտրած պահանջներով`
         },
         service3: { 
-          text: `Ցանկացած պատվեր մենք  կատարում ենք Ձեր ցանկալի,  խելամիտ ժամկետներում`
+          text: `Ցանկացած պատվեր մենք  կատարում ենք Ձեր ցանկալի, խելամիտ ժամկետներում:)`
         },
         service4: { 
           text: `Դիզայնի փոփոխում կատարում  ենք այնքան ժամանակ, քանի  դեռ Դուք գոհ չեք`
@@ -392,7 +404,19 @@ export default {
           text: `Անցկացնում ենք ԱՆՎՃԱՐ դիզայն խորհրդատվություն Ձեր կամ Ձեր ընկերության համար`
         },
         service8: { 
-          text: `Դուք ժամանակ չեք կորցնում մեզ այցելելու և պատվեր տալու համար: Բոլոր գործողությունները  կատարվում են առցանց`
+          text: `Մեր ԱՆՎՃԱՐ առաքման ծառայության շնորհիվ Դուք ևս խնայում եք ժամանակ`
+        },
+        service9: { 
+          text: `Մենք քննարկում և առաջարկում ենք Ձեր համար լավագույն և ամենաշահավետ`
+        },
+        service10: { 
+          text: `Դիզայնի փոփոխում կատարում ենք այնքան ժամանակ, քանի դեռ Դուք գոհ չեք ստացված արդյունքից`
+        },
+        service11: { 
+          text: `Դուք վճարում եք միայն այն  ժամանակ, երբ գոհ եք  ստացված արդյունքից`
+        },
+        service12: { 
+          text: `Դառնալով մեր հավատարիմ հաճախորդը Դուք օգտվում եք պարբերաբար`
         }
       }
     }

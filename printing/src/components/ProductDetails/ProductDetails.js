@@ -17,7 +17,8 @@ export default {
       showPriceTotal: false,
       isRequiredSelected: false,
       totalPrice: '',
-      loading: false
+      loading: false,
+      selectedOptions: []
     }
   },
   computed: {
@@ -37,28 +38,28 @@ export default {
     onDropDownChange() {
       let properties = this.product.properties;
       let quantityID = '';
-      let selectedOptions = [];
+      this.selectedOptions = [];
       for (const key in properties) {
         if (properties.hasOwnProperty(key)) {
-          if (properties[key].selected) { 
-            properties[key].options.forEach(option => { 
+          if (properties[key].selected) {
+            properties[key].options.forEach(option => {
               if (option.quantity) {
                 quantityID = properties[key].selected
               }
               if (option.id == properties[key].selected) {
-                selectedOptions.push(option.id);
+                this.selectedOptions.push(option.id);
               }
             });
           }
         }
-      } 
-      if(quantityID){
+      }
+      if (quantityID) {
         // only send requests if quantity is selected
-        this.getProductPrice(quantityID,selectedOptions);
-      } 
+        this.getProductPrice(quantityID);
+      }
     },
-   
-    getProductPrice(quantityID,selectedOptions) {
+
+    getProductPrice(quantityID) {
       this.checkAuth();
       if (!this.user) {
         this.$notify({
@@ -69,12 +70,12 @@ export default {
         });
         EventBus.$emit('logout');
       } else {
-        this.loading = true; 
+        this.loading = true;
         let formData = new FormData();
         formData.append('token', this.user ? this.user.token : "");
         formData.append('product_id', this.product[0].id);
         formData.append('quantity_id', [quantityID]);
-        formData.append('properties', JSON.stringify(selectedOptions)); 
+        formData.append('properties', JSON.stringify(this.selectedOptions));
         this.$store.dispatch('getProductPrice', {
           formData
         }).then((response) => {
@@ -119,12 +120,17 @@ export default {
       } else {
         if (!this.isLoading) {
           this.isLoading = true;
-          let selectedOptions = this.getSelectedOptions();
-
           let formData = new FormData();
           formData.append('token', this.user ? this.user.token : "");
           formData.append('product_id', this.product[0].id);
-          formData.append('properties', JSON.stringify(selectedOptions));
+          formData.append('properties', JSON.stringify(this.selectedOptions)); 
+          
+          if (this.fileList1.length > 0) {
+            formData.append('front_side', this.fileList1[0].raw, this.fileList1[0].name );
+          }
+          if (this.fileList2.length > 0) {
+            formData.append('back_side', this.fileList2[0].raw, this.fileList2[0].name);
+          }
 
           this.$store.dispatch('addProductToBasket', {
             formData
