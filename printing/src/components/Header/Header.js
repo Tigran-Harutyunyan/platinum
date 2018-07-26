@@ -98,19 +98,17 @@ export default {
     },
     
     initScroller() {
-      var sectionsController = new ScrollMagic.Controller();
+    /*   var sectionsController = new ScrollMagic.Controller();
       var sceneNav = new ScrollMagic.Scene({
           triggerElement: "#section-services",
           triggerHook: 'onEnter',
           offset: 203
         })
-        .addTo(sectionsController)
-        //.addIndicators()
-        .on("enter", function (e) {
-          //console.log("enter");
+        .addTo(sectionsController) 
+        .on("enter", function (e) { 
         })
       sceneNav.setClassToggle("#top-nav", "section-services");
-      sceneNav.setClassToggle("#service-boxes", "active-services");
+      sceneNav.setClassToggle("#service-boxes", "active-services"); */
     },
   
     onLoginSuccess(response) {
@@ -136,7 +134,7 @@ export default {
     this.locales.forEach(item => {
       item.activeLocale = item.locale == currentLocale;
     });
-    this.initScroller();
+    //this.initScroller();
     this.currentRoute = this.$route.name;
     EventBus.$on('logout', () => {
       this.removeUser();
