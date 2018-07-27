@@ -2,14 +2,15 @@ import Header from "../Header/Header.vue";
 import Footer from "../Footer/Footer.vue";
 import VueGridLayout from "vue-grid-layout";
 import isotope from 'vueisotope';
-import PortfolioPopup from './PortfolioPopup/PortfolioPopup.vue'
+import PortfolioPopup from './PortfolioPopup/PortfolioPopup.vue';
 export default {
   data() {
     return {
       popupVisible: false,
       counter: 0,
       currentSlide: {},
-      showContent: false
+      showContent: false,
+      isInitialized: false
     }
   },
   watch: {
@@ -33,16 +34,6 @@ export default {
     }
   },
   methods: {
-    getOptions() {
-      return {
-        itemSelector: '.grid-item',
-        // layout mode options
-        masonry: {
-          columnWidth: 350,
-          gutter: 16
-        }
-      }
-    },
     getCounter(id) {
       this.completedWorks.forEach((element, index) => {
         if (element.id == id) {
@@ -87,7 +78,24 @@ export default {
   },
   mounted() {
     this.$store.dispatch('getCompletedWorks');
-
+  },
+  updated() {
+    if (!this.isInitialized) {
+      this.isInitialized = true;
+      $('.grid').isotope({
+        getSortData: {
+          name: '.grid-item',
+          // text from querySelector 
+        },
+        masonry: {
+          columnWidth: 350,
+          gutter: 16,
+          originTop: true,
+          layoutMode: 'packery',
+          horizontalOrder: true
+        }
+      }); 
+    } 
   },
   components: {
     Header,
