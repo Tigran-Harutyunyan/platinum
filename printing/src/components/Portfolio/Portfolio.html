@@ -2,19 +2,21 @@
   <Header />
 
   <div class="main-section content-area" :class="{'is-visible':showContent}">
-    <div class="portfolio-grid">
-      <div class="grid" v-if="completedWorks.length">
-        <isotope :list="completedWorks" :options='getOptions()'>
-          <div class="grid-item" v-for="(element, index) in completedWorks" :key="index" @click="openPopup(element)">
-            <div :style="element.imageStyle" class="item-bg"></div>
+ 
+    <div class="portfolio-grid"  v-loading="loading">
+      <isotope :options='getOptions()':list="completedWorks" class="grid" v-if="completedWorks.length"> 
+          <div class="grid-item"  v-for="(element, index) in completedWorks" :key="index" @click="openPopup(element)">
+            <div  class="item-bg">
+              <img :src="element.image" alt="">
+            </div>
+            <div class="spacer"></div>
             <div class="shirma"></div>
             <div class="item-text-place">
               <h1 class="item-title">{{ element.title }}</h1>
               <div class="line"></div>
-            </div>
-          </div>
-        </isotope>
-      </div>
+            </div> 
+          </div> 
+      </isotope>
     </div>
     <Footer />
   </div>

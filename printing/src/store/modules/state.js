@@ -15,5 +15,8 @@ export const state = {
     orders: '',
     completedWorks: '',
     projectsSliderImages:'',
-    searchResults:''
+    searchResults:'',
+    scrollParams:'',
+    sidebarProducts:'',
+    storage: localStorage.getItem("platinumInk") ? JSON.parse(localStorage.getItem("platinumInk")) : {}
   };

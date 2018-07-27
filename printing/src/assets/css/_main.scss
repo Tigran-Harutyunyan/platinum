@@ -93,7 +93,15 @@ Layout styles
 .header-heading {
   margin: 0;
 }
-
+ 
+.auth-controls {
+  display: none;
+  width: 100%;
+  padding: 20px 35px 0;
+  a:first-child {
+    margin-bottom: 22px;
+  }
+}
 .logo-place {
   @extend .sprite;
   width: 235px;
@@ -1028,6 +1036,26 @@ footer {
     width: 60px;
     height: 62px;
   }
+  .services-box:nth-child(9) .box-image {
+    background-position: -336px -142px;
+    width: 70px;
+    height: 50px;
+  }
+  .services-box:nth-child(10) .box-image {
+    background-position: -370px -72px;
+    width: 68px;
+    height: 43px;
+  }
+  .services-box:nth-child(11) .box-image {
+    background-position: -246px -142px;
+    width: 70px;
+    height: 59px;
+  }
+  .services-box:nth-child(12) .box-image {
+    background-position: -334px -225px;
+    width: 68px;
+    height: 42px;
+  }
 }
 
 .services-box {
@@ -1664,7 +1692,20 @@ section.contact-us-section {
   @extend .glamur;
   font-size: 20px;
   color: #cccccc;
-  line-height: 84px;
+  line-height: 77px;
+}
+
+.hamburger .language-switcher {
+  display: none;
+  margin: 0 auto;
+  width: 83px;
+  padding-top: 25px;
+  a:first-child {
+    margin-right: 30px;
+  }
+   .menu-item-lang {
+    font-size: 14px !important
+  }
 }
 
 #current-slide {

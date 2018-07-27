@@ -5,6 +5,7 @@ import Login from '../Login/Login.vue';
 import Search from '../Search/Search.vue';
 import Hamburger from './Hamburger/Hamburger.vue';
 import PasswordRecovery from '../PasswordRecovery/PasswordRecovery.vue';
+import LanguageSwitcher  from './LanguageSwitcher/LanguageSwitcher.vue';
 export default { 
   data() {
     return {
@@ -14,29 +15,24 @@ export default {
       recoveryMail: "",
       isAuthenticated: false, 
        user: {},
-      currentRoute: "",
-      locales: [{
-          localeName: 'ՀԱՅ',
-          activeLocale: false,
-          locale: 'am'
-        },
-        {
-          localeName: 'ENG',
-          activeLocale: false,
-          locale: 'en'
-        }
-      ]
+      currentRoute: "", 
     }
   },
   components:{
     Login,
     Search,
     Hamburger,
-    PasswordRecovery
+    PasswordRecovery,
+    LanguageSwitcher
   },
   watch: {
     '$route' (to, from) {
       this.currentRoute = to.name;
+    }
+  },
+  computed:{
+    storage(){
+      return this.$store.getters.storage;
     }
   },
   methods: {
@@ -65,12 +61,14 @@ export default {
       this.isAuthenticated = false;
       EventBus.$emit('onLogout');
       EventBus.$emit('authChanged'); 
-      this.$router.push({
-        name: 'Categories',
-        params: {
-          id: 1
-        }
-      });
+      if(this.$route.name !== 'Home'){
+        this.$router.push({
+          name: 'Categories',
+          params: {
+            id: 1
+          }
+        });
+      } 
     },
 
     toSignupPage() {
@@ -98,19 +96,17 @@ export default {
     },
     
     initScroller() {
-      var sectionsController = new ScrollMagic.Controller();
+    /*   var sectionsController = new ScrollMagic.Controller();
       var sceneNav = new ScrollMagic.Scene({
           triggerElement: "#section-services",
           triggerHook: 'onEnter',
           offset: 203
         })
-        .addTo(sectionsController)
-        //.addIndicators()
-        .on("enter", function (e) {
-          //console.log("enter");
+        .addTo(sectionsController) 
+        .on("enter", function (e) { 
         })
       sceneNav.setClassToggle("#top-nav", "section-services");
-      sceneNav.setClassToggle("#service-boxes", "active-services");
+      sceneNav.setClassToggle("#service-boxes", "active-services"); */
     },
   
     onLoginSuccess(response) {
@@ -123,20 +119,15 @@ export default {
       this.loginMode = true;
       this.isAuthenticated = true;
     },
+    
     checkAuth() {
-      let storage = localStorage.getItem("platinumInk") ? JSON.parse(localStorage.getItem("platinumInk")) : {};
-      this.user = storage.user ? storage.user : null;
+       this.user = this.storage.user ? this.storage.user : null;
     }
   },
-  mounted() {
-    let storage = localStorage.getItem("platinumInk") ? JSON.parse(localStorage.getItem("platinumInk")) : {};
-    this.user = storage.user;
-    this.isAuthenticated = storage.user;
-    let currentLocale = storage.locale ? storage.locale : "en";
-    this.locales.forEach(item => {
-      item.activeLocale = item.locale == currentLocale;
-    });
-    this.initScroller();
+  mounted() { 
+    this.user = this.storage.user;
+    this.isAuthenticated = this.storage.user; 
+    //this.initScroller();
     this.currentRoute = this.$route.name;
     EventBus.$on('logout', () => {
       this.removeUser();

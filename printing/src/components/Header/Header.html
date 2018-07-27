@@ -6,7 +6,7 @@
             </a>
             <div class="navigation-container  right-floated"> 
                 <ul class="nav sidemenu">
-                    <li v-show="!isAuthenticated">
+                    <li class="auth-links" v-show="!isAuthenticated">
                         <a class="btn-link" style="margin-right: -13px;" @click="showLoginDropdown=true">{{ $t('message.form.login') }}
                             <div class="login-dropdown-content" v-show="showLoginDropdown">
                                 <i class="el-icon-close" @click.stop="hideLoginDropdown"></i>
@@ -22,23 +22,26 @@
                             </div>
                          </a>
                     </li>
-                    <li v-show="!isAuthenticated">
+                    <li class="auth-links" v-if="!isAuthenticated">
                         <a class="btn-link btn-bright" @click="toSignupPage">{{ $t('message.signup.info11') }}</a>
                     </li>
-                    <li v-show="isAuthenticated">
+                    <li class="auth-links" v-if="isAuthenticated">
                         <a class="btn-link btn-bright" @click="logout">
                             {{ $t('message.logout') }}
                         </a>
                     </li>
                     <li class="search-holder">
                         <Search />
-                    </li>
-                    <!-- LOCALE TOGGLER -->
-                    <li class="lang-toggler">
-                        <a href="javascript:void(0)" v-for="item in locales" @click="toggleLang(item.locale)" :class="{'active-lang':item.activeLocale}" class="menu-item-lang">{{ item.localeName }}</a>
                     </li> 
+                    <li class="lang-toggler">
+                        <LanguageSwitcher /> 
+                    </li>
                     <li> 
-                        <Hamburger />
+                        <Hamburger
+                            :isAuthed="isAuthenticated" 
+                            v-on:signUp="toSignupPage" 
+                            v-on:logout="logout"
+                            v-on:logIn="showLoginDropdown=true" />
                     </li>
                 </ul>
             </div> 

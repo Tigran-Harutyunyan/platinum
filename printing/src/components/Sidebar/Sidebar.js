@@ -17,6 +17,7 @@ export default {
         }
       }
       this.productList = products;
+      this.$store.dispatch('setSideBarProducts',products);
     },
     categories: function (newVal, oldVal) {
       this.categories = newVal;
@@ -30,6 +31,12 @@ export default {
     categories: {
       get: function () {
         return this.$store.getters.categories;
+      },
+      set: function () {}
+    },
+    sidebarProducts: {
+      get: function () {
+        return this.$store.getters.sidebarProducts;
       },
       set: function () {}
     }
@@ -77,15 +84,20 @@ export default {
         }
       });
       return categoryName;
-    } 
+    }
   },
   mounted() {
-    let categories = this.$store.getters.categories;
-     
-    if (!categories) {
-      this.$store.dispatch('getCategories'); 
+    console.log(this.sidebarProducts)
+    if (this.sidebarProducts) {
+      console.log(this.sidebarProducts)
+      this.productList = this.sidebarProducts;
     } else {
+      let categories = this.$store.getters.categories;
+      if (!categories) {
+        this.$store.dispatch('getCategories');
+      } else {
         this.$store.dispatch('getProducts');
-    }
+      }
+    } 
   }
 }

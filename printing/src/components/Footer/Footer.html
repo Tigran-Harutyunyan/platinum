@@ -1,65 +1,99 @@
 <footer class="products-footer">
-    <div class="footer-inner">
-        <div class="footer-left">
-            <div class="social-place">
-                <h3>Միացեք մեր էջերին</h3>
-                <social-media></social-media>
-            </div>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <div class="social-place">
+        <h3>Միացեք մեր էջերին</h3>
+        <social-media></social-media>
+      </div>
 
-            <div class="subscription-form">
-                <h3>Բաժանորդագրվեք մեր նորություններին</h3>
-                <div class="form-container">
-                    <form v-on:submit.prevent="onSubmit" @submit="$v.email.$touch();" class="subscription-form" name="contact_form">
-                        <div class="default-inp-row">
-                            <input  v-model="email" :class="{'has-error': $v.email.$error}" class="def-input" type="email" placeholder="էլ-փոստ" name="contact_email">
-                            <input type="submit" class="btn-submit" value="բաժանորդագրվել">
-                        </div>
-                    </form>
-                </div>
+      <div class="subscription-form">
+        <h3>Բաժանորդագրվեք մեր նորություններին</h3>
+        <div class="form-container">
+          <form v-on:submit.prevent="onSubmit" @submit="$v.email.$touch();" class="subscription-form" name="contact_form">
+            <div class="default-inp-row">
+              <input v-model="email" :class="{'has-error': $v.email.$error}" class="def-input" type="email" placeholder="էլ-փոստ" name="contact_email">
+              <input type="submit" class="btn-submit" value="բաժանորդագրվել">
             </div>
-            <p class="rights-info">
-                Բոլոր հեղինակային իրավունքները պաշտպանված
-                <br> են © 2010-2017 Platinum Ink Design.
-            </p>
+          </form>
         </div>
-        <div class="links-container">
-            <div class="links-column">
-                <h5> Let Us Help</h5>
-                <ul>
-                    <li><a href="javascript:void(0)">Help center</a></li>
-                    <li><a href="javascript:void(0)">Contact us</a></li>
-                    <li><a href="javascript:void(0)">Shipping & delivery</a></li>
-                    <li><a href="javascript:void(0)">Request samples</a></li>
-                </ul>
-            </div>
-            <div class="links-column">
-                <h5>What We Offer</h5>
-                <ul>
-                    <li><a href="javascript:void(0)">Our products</a></li>
-                    <li><a href="javascript:void(0)">Upload designs</a></li>
-                    <li><a href="javascript:void(0)">Advertising with us</a></li>
-                    <li><a href="javascript:void(0)">Reseller program</a></li>
-                    <li><a href="javascript:void(0)">Popular searches</a></li>
-                </ul>
-            </div>
-            <div class="links-column">
-                <h5>Our Company</h5>
-                <ul>
-                    <li><a href="javascript:void(0)">About us</a></li>
-                    <li><a href="javascript:void(0)">Careers</a></li>
-                    <li><a href="javascript:void(0)">For media</a></li>
-                    <li><a href="javascript:void(0)">For investors</a></li>
-                    <li><a href="javascript:void(0)">Webs</a></li>
-                </ul>
-            </div>
-            <div class="links-column">
-                <h5>Our Policies</h5>
-                <ul>
-                    <li><a href="javascript:void(0)">Copyright matters</a></li>
-                    <li><a href="javascript:void(0)">Trademark matters </a></li>
-                    <li><a href="javascript:void(0)">Patents & trademarks</a></li>
-                </ul>
-            </div>
-        </div>
+      </div>
+      <p class="rights-info">
+        Բոլոր հեղինակային իրավունքները պաշտպանված
+        <br> են © 2010-2017 Platinum Ink Design.
+      </p>
     </div>
+    <div class="links-container">
+      <div class="links-column">
+        <h5> Let Us Help</h5>
+        <ul>
+          <li>
+            <a href="javascript:void(0)">Help center</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">Contact us</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">Shipping & delivery</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">Request samples</a>
+          </li>
+        </ul>
+      </div>
+      <div class="links-column">
+        <h5>What We Offer</h5>
+        <ul>
+          <li>
+            <a href="javascript:void(0)">Our products</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">Upload designs</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">Advertising with us</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">Reseller program</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">Popular searches</a>
+          </li>
+        </ul>
+      </div>
+      <div class="links-column">
+        <h5>Our Company</h5>
+        <ul>
+          <li>
+            <a href="javascript:void(0)">About us</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">Careers</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">For media</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">For investors</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">Webs</a>
+          </li>
+        </ul>
+      </div>
+      <div class="links-column">
+        <h5>Our Policies</h5>
+        <ul>
+          <li>
+            <a href="javascript:void(0)">Copyright matters</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">Trademark matters </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">Patents & trademarks</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </footer>

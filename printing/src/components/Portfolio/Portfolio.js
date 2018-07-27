@@ -2,22 +2,23 @@ import Header from "../Header/Header.vue";
 import Footer from "../Footer/Footer.vue";
 import VueGridLayout from "vue-grid-layout";
 import isotope from 'vueisotope';
-import PortfolioPopup from './PortfolioPopup/PortfolioPopup.vue'
+import PortfolioPopup from './PortfolioPopup/PortfolioPopup.vue';
 export default {
   data() {
     return {
       popupVisible: false,
       counter: 0,
       currentSlide: {},
-      showContent: false
+      showContent: false, 
+      loading: true
     }
   },
   watch: {
     completedWorks() {
+      this.loading = false;
       this.showContent = true;
     }
   },
-
   computed: {
     apiPath() {
       return this.$store.getters.getApiPath;
@@ -33,16 +34,6 @@ export default {
     }
   },
   methods: {
-    getOptions() {
-      return {
-        itemSelector: '.grid-item',
-        // layout mode options
-        masonry: {
-          columnWidth: 350,
-          gutter: 16
-        }
-      }
-    },
     getCounter(id) {
       this.completedWorks.forEach((element, index) => {
         if (element.id == id) {
@@ -50,49 +41,61 @@ export default {
         }
       });
     },
-    openPopup(item) {
-      this.getCompletedWorkById(item.id);
-      this.counter = this.getCounter(item.id);
-      $('html').addClass("no-scroll")
-    },
-    closePopup() {
-      this.popupVisible = false;
-      $('html').removeClass("no-scroll")
-    },
-    navigate(direction) {
-      this.counter = this.counter + direction;
-      if (direction === -1 && this.counter < 0) {
-        this.counter = this.amount - 1;
+    getOptions: function () {
+      var _this = this
+      return { 
+        name: '.grid-item',
+        masonry: {
+          columnWidth: 348,
+            gutter: 16,
+            originTop: true,
+            layoutMode: 'packery',
+            horizontalOrder: true
+        } 
       }
-      if (direction === 1 && !this.completedWorks[this.counter]) {
-        this.counter = 0;
-      }
-      let id;
-      this.completedWorks.forEach((element, index) => {
-        if (index == this.counter) {
-          id = element.id
-        }
-      });
+    },
+      openPopup(item) {
+          this.getCompletedWorkById(item.id);
+          this.counter = this.getCounter(item.id);
+          $('html').addClass("no-scroll")
+        },
+        closePopup() {
+          this.popupVisible = false;
+          $('html').removeClass("no-scroll")
+        },
+        navigate(direction) {
+          this.counter = this.counter + direction;
+          if (direction === -1 && this.counter < 0) {
+            this.counter = this.amount - 1;
+          }
+          if (direction === 1 && !this.completedWorks[this.counter]) {
+            this.counter = 0;
+          }
+          let id;
+          this.completedWorks.forEach((element, index) => {
+            if (index == this.counter) {
+              id = element.id
+            }
+          });
 
-      this.getCompletedWorkById(id);
-    },
-    getCompletedWorkById(id) {
-      this.$store.dispatch('getCompletedWorkById', id).then((response) => {
-        if (response[0] && response[0].id) {
-          this.currentSlide = response;
-          this.popupVisible = true;
+          this.getCompletedWorkById(id);
+        },
+        getCompletedWorkById(id) {
+          this.$store.dispatch('getCompletedWorkById', id).then((response) => {
+            if (response[0] && response[0].id) {
+              this.currentSlide = response;
+              this.popupVisible = true;
+            }
+          }).catch((error) => {});
         }
-      }).catch((error) => {});
+    },
+    mounted() {
+      this.$store.dispatch('getCompletedWorks');
+    }, 
+    components: {
+      Header,
+      Footer,
+      PortfolioPopup,
+      isotope
     }
-  },
-  mounted() {
-    this.$store.dispatch('getCompletedWorks');
-
-  },
-  components: {
-    Header,
-    Footer,
-    PortfolioPopup,
-    isotope
   }
-}
