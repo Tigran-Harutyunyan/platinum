@@ -61,12 +61,14 @@ export default {
       this.isAuthenticated = false;
       EventBus.$emit('onLogout');
       EventBus.$emit('authChanged'); 
-      this.$router.push({
-        name: 'Categories',
-        params: {
-          id: 1
-        }
-      });
+      if(this.$route.name !== 'Home'){
+        this.$router.push({
+          name: 'Categories',
+          params: {
+            id: 1
+          }
+        });
+      } 
     },
 
     toSignupPage() {
