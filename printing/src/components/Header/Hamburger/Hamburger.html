@@ -11,7 +11,16 @@
             <li><a class="menu-item" @click="goTo('why')">{{ $t('message.dropdown.item5') }}</a></li>
             <li><a class="menu-item" @click="goTo('staff')">{{ $t('message.dropdown.item6') }}</a></li>
             <li><a class="menu-item" @click="goTo('contact-us')">{{ $t('message.dropdown.item7') }}</a></li>
-            <li><a class="menu-item" @click="isActive=false; $router.push({name:'Categories',params: {id:1}})">{{ $t('message.dropdown.item8') }}<span class="line-elem-menu"></span></a></li>
+            <li>
+                <a class="menu-item" @click="isActive=false; $router.push({name:'Categories',params: {id:1}})">{{ $t('message.dropdown.item8') }}
+                <span class="line-elem-menu"></span></a>
+            </li> 
         </ul> 
+        <div class="auth-controls">
+            <a v-if="!isAuthed" class="btn-link btn-bright" @click="perform('login')">{{ $t('message.form.login') }}</a> 
+            <a v-if="!isAuthed" class="btn-link btn-bright" @click="perform('signUp')">{{ $t('message.signup.info11') }}</a>  
+            <a class="btn-link btn-bright" v-if="isAuthed" @click="perform('logout')">{{ $t('message.logout') }}</a>  
+        </div>
+        <LanguageSwitcher /> 
     </div>
 </div>

@@ -1,10 +1,29 @@
+import LanguageSwitcher  from '../LanguageSwitcher/LanguageSwitcher.vue';
 export default {
   data() {
     return {
       isActive: false
     }
   },
+  props: ['isAuthed'],
+  components: {
+    LanguageSwitcher
+  },
   methods: {
+    perform(action) {
+      switch (action) {
+        case 'login': 
+          this.$emit('logIn');
+          break;
+        case 'signUp':
+          this.$emit('signUp');
+          break;
+        case 'logout':
+          this.$emit('logout');
+          break;
+      }
+      this.isActive = false
+    },
     goTo(section) {
       let param = '';
       let customOffset = 0;
@@ -47,7 +66,7 @@ export default {
           param: param,
           offset: customOffset
         }
-        this.$store.dispatch('setScrollParams', params );
+        this.$store.dispatch('setScrollParams', params);
         this.$router.push({
           name: 'Home'
         });
