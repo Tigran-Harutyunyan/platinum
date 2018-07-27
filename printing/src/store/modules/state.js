@@ -17,5 +17,6 @@ export const state = {
     projectsSliderImages:'',
     searchResults:'',
     scrollParams:'',
-    sidebarProducts:''
+    sidebarProducts:'',
+    storage: localStorage.getItem("platinumInk") ? JSON.parse(localStorage.getItem("platinumInk")) : {}
   };

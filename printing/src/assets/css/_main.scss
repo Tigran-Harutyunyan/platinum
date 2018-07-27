@@ -93,7 +93,15 @@ Layout styles
 .header-heading {
   margin: 0;
 }
-
+ 
+.auth-controls {
+  display: none;
+  width: 100%;
+  padding: 20px 35px 0;
+  a:first-child {
+    margin-bottom: 22px;
+  }
+}
 .logo-place {
   @extend .sprite;
   width: 235px;
@@ -1684,7 +1692,20 @@ section.contact-us-section {
   @extend .glamur;
   font-size: 20px;
   color: #cccccc;
-  line-height: 84px;
+  line-height: 77px;
+}
+
+.hamburger .language-switcher {
+  display: none;
+  margin: 0 auto;
+  width: 83px;
+  padding-top: 25px;
+  a:first-child {
+    margin-right: 30px;
+  }
+   .menu-item-lang {
+    font-size: 14px !important
+  }
 }
 
 #current-slide {

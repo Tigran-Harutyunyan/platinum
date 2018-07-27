@@ -14,6 +14,7 @@
  const projectsSliderImages  = state => state.projectsSliderImages;
  const scrollParams = state => state.scrollParams;
  const sidebarProducts = state => state.sidebarProducts;
+ const storage = state => state.storage;
  export default {
    appData,
    getUserInfo,
@@ -30,5 +31,6 @@
    getOrders,
    getCompletedWorks,
    scrollParams,
-   sidebarProducts
+   sidebarProducts,
+   storage
  };

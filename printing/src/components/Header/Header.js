@@ -5,6 +5,7 @@ import Login from '../Login/Login.vue';
 import Search from '../Search/Search.vue';
 import Hamburger from './Hamburger/Hamburger.vue';
 import PasswordRecovery from '../PasswordRecovery/PasswordRecovery.vue';
+import LanguageSwitcher  from './LanguageSwitcher/LanguageSwitcher.vue';
 export default { 
   data() {
     return {
@@ -14,29 +15,24 @@ export default {
       recoveryMail: "",
       isAuthenticated: false, 
        user: {},
-      currentRoute: "",
-      locales: [{
-          localeName: 'ՀԱՅ',
-          activeLocale: false,
-          locale: 'am'
-        },
-        {
-          localeName: 'ENG',
-          activeLocale: false,
-          locale: 'en'
-        }
-      ]
+      currentRoute: "", 
     }
   },
   components:{
     Login,
     Search,
     Hamburger,
-    PasswordRecovery
+    PasswordRecovery,
+    LanguageSwitcher
   },
   watch: {
     '$route' (to, from) {
       this.currentRoute = to.name;
+    }
+  },
+  computed:{
+    storage(){
+      return this.$store.getters.storage;
     }
   },
   methods: {
@@ -121,19 +117,14 @@ export default {
       this.loginMode = true;
       this.isAuthenticated = true;
     },
+    
     checkAuth() {
-      let storage = localStorage.getItem("platinumInk") ? JSON.parse(localStorage.getItem("platinumInk")) : {};
-      this.user = storage.user ? storage.user : null;
+       this.user = this.storage.user ? this.storage.user : null;
     }
   },
-  mounted() {
-    let storage = localStorage.getItem("platinumInk") ? JSON.parse(localStorage.getItem("platinumInk")) : {};
-    this.user = storage.user;
-    this.isAuthenticated = storage.user;
-    let currentLocale = storage.locale ? storage.locale : "en";
-    this.locales.forEach(item => {
-      item.activeLocale = item.locale == currentLocale;
-    });
+  mounted() { 
+    this.user = this.storage.user;
+    this.isAuthenticated = this.storage.user; 
     //this.initScroller();
     this.currentRoute = this.$route.name;
     EventBus.$on('logout', () => {

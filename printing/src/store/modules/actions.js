@@ -43,7 +43,8 @@ const getCompletedWorks = ({
       response.data.forEach(element => {
         element.imageStyle = {
           'background-image': `url(${state.apiPath}${element.image})`
-        }
+        },
+        element.image =  `${state.apiPath}${element.image}`
       });
       commit('UPDATE_COMPLETED_WORKS', response.data)
     }
@@ -277,6 +278,16 @@ const getBasketProducts = ({
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
       }
     }).then(response => {
+      if(Array.isArray(response.data)){
+        response.data.forEach(element => { 
+          if(element.front_side){
+            element.front_side = `${state.apiPath}${element.front_side }`
+          } 
+          if(element.back_side){
+            element.back_side = `${state.apiPath}${element.back_side }`
+          } 
+        });
+      }
       commit('UPDATE_CART_ITEMS', response.data)
       resolve(response.data);
     }).catch(response => {
