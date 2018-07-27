@@ -5,6 +5,8 @@ import data from './slidersData'
 export default {
   data() {
     return {
+      visible: false,
+      index: 0,
       projects: [],
       swiperOption: {
         slidesPerView: 7,
@@ -50,22 +52,73 @@ export default {
       this.$store.dispatch('getProjectSliderImages');
     }
   },
+  methods: {
+    show() {
+      this.visible = true;
+    },
+    hide() {
+      this.visible = false;
+      this.index = 0;
+    },
+    hasNext() {
+      return this.index + 1 < this.images.length;
+    },
+    hasPrev() {
+      return this.index - 1 >= 0;
+    },
+    prev() {
+      if (this.hasPrev()) {
+        this.index -= 1;
+      }
+    },
+    next() {
+      if (this.hasNext()) {
+        this.index += 1;
+      }
+    },
+    onKeydown(e) {
+      if (this.visible) {
+        switch (e.key) {
+          case 'ArrowRight':
+            this.next();
+            break;
+          case 'ArrowLeft':
+            this.prev();
+            break;
+          case 'ArrowDown':
+          case 'ArrowUp':
+          case ' ':
+            e.preventDefault();
+            break;
+          case 'Escape':
+            this.hide();
+            break;
+        }
+      }
+    },
+  },
+  mounted() {
+    window.addEventListener('keydown', this.onKeydown)
+  },
+  destroyed() {
+    window.removeEventListener('keydown', this.onKeydown)
+  },
   updated() {
-    if (!this.isInitialized) {
-      this.isInitialized = true;
-      setTimeout(function () {
-        $('.open-popup-link').magnificPopup({
-          type: 'image',
-          gallery: {
-            enabled: true
-          },
-          mainClass: 'mfp-with-zoom',
-          zoom: {
-            enabled: true,
-            duration: 300
-          }
-        });
-      }, 400) 
-    }
+    /*  if (!this.isInitialized) {
+       this.isInitialized = true;
+       setTimeout(function () {
+         $('.open-popup-link').magnificPopup({
+           type: 'image',
+           gallery: {
+             enabled: true
+           },
+           mainClass: 'mfp-with-zoom',
+           zoom: {
+             enabled: true,
+             duration: 300
+           }
+         });
+       }, 400) 
+     } */
   }
 }
