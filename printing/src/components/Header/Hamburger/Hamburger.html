@@ -1,8 +1,9 @@
 <div class="hamburger hamburger--slider" :class="{'is-active':isActive}">
     <div class="hamburger-box" @click="isActive=!isActive">
-        <div class="hamburger-inner"></div>
+        <div class="hamburger-elem"></div>
     </div>
-    <div class="nav-dropdown" v-show="isActive">
+    <div class="nav-dropdown"  >
+        <div class="close-btn" @click="isActive=!isActive"></div>
         <ul class="nav sidemenu">
             <li><a class="menu-item" @click="goTo()">{{ $t('message.dropdown.item1') }}</a></li>
             <li><a class="menu-item" @click="goTo('services')">{{ $t('message.dropdown.item2') }}</a></li>
@@ -23,4 +24,5 @@
         </div>
         <LanguageSwitcher /> 
     </div>
+    <div class="v-modal" v-if="isActive"></div>
 </div>
