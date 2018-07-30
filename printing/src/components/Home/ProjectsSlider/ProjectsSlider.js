@@ -1,6 +1,3 @@
-import {
-  EventBus
-} from '../../../event-bus';
 import data from './slidersData'
 export default {
   data() {
@@ -8,6 +5,10 @@ export default {
       visible: false,
       index: 0,
       projects: [],
+      dialogTableVisible: false,
+      counter: 0,
+      popupImage: {},
+      currentSlideIndex: '',
       swiperOption: {
         slidesPerView: 7,
         spaceBetween: 20,
@@ -53,72 +54,26 @@ export default {
     }
   },
   methods: {
+    openPopup(image,index) {
+      this.popupImage = image;
+      this.dialogTableVisible = true;
+      this.counter  = index;
+    },
+    navigate(direction) { 
+      if ((this.counter == 0 &&  direction ==-1) || (this.counter == this.projectsSliderImages.length-1 && direction == 1)){
+        return;
+      }
+      this.counter = this.counter + direction;
+      if (direction === -1 && this.counter < 0) {
+        this.counter = this.amount - 1;
+      }
+      if (direction === 1 && !this.projectsSliderImages[this.counter]) {
+        this.counter = 0;
+      }
+      this.popupImage = this.projectsSliderImages[this.counter].image;
+    },
     show() {
       this.visible = true;
-    },
-    hide() {
-      this.visible = false;
-      this.index = 0;
-    },
-    hasNext() {
-      return this.index + 1 < this.images.length;
-    },
-    hasPrev() {
-      return this.index - 1 >= 0;
-    },
-    prev() {
-      if (this.hasPrev()) {
-        this.index -= 1;
-      }
-    },
-    next() {
-      if (this.hasNext()) {
-        this.index += 1;
-      }
-    },
-    onKeydown(e) {
-      if (this.visible) {
-        switch (e.key) {
-          case 'ArrowRight':
-            this.next();
-            break;
-          case 'ArrowLeft':
-            this.prev();
-            break;
-          case 'ArrowDown':
-          case 'ArrowUp':
-          case ' ':
-            e.preventDefault();
-            break;
-          case 'Escape':
-            this.hide();
-            break;
-        }
-      }
-    },
-  },
-  mounted() {
-    window.addEventListener('keydown', this.onKeydown)
-  },
-  destroyed() {
-    window.removeEventListener('keydown', this.onKeydown)
-  },
-  updated() {
-    /*  if (!this.isInitialized) {
-       this.isInitialized = true;
-       setTimeout(function () {
-         $('.open-popup-link').magnificPopup({
-           type: 'image',
-           gallery: {
-             enabled: true
-           },
-           mainClass: 'mfp-with-zoom',
-           zoom: {
-             enabled: true,
-             duration: 300
-           }
-         });
-       }, 400) 
-     } */
+    }
   }
 }
