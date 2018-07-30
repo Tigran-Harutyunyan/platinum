@@ -10,7 +10,7 @@
          fadeEffect: {
            crossFade: true
          },
-         speed: 800,
+         speed: 2000,
          effect: 'fade',
          autoplay: true,
          pagination: {

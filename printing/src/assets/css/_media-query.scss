@@ -42,9 +42,7 @@
   .nav-element-container {
     top: 305px
   }
-  .slider-social-btns {
-    top: 358px
-  }
+ 
   .parallax-bg {
     background: url("../../../static/img/parallax-bg1480.jpg") no-repeat;
   }
@@ -138,12 +136,7 @@
   }
   .new-service-types-boxes {
     width: 230px;
-    .service-item-container:nth-child(3) .pointer {
-      display: none
-    }
-    .service-item-container:nth-child(1) .pointer {
-      display: none
-    }
+   
   }
 }
 
@@ -283,8 +276,12 @@
 }
 
 @media only screen and (max-width: 920px) {
+  .banner-see-more-link {
+    width: 323px !important;
+  }
   .auth-controls {
-    display: inline-block;
+    display: flex;
+    justify-content: space-between;
   }
   .nav li.auth-links {
     display: none !important;
@@ -320,10 +317,7 @@
     .parallax-bg {
       background: url("../../assets/img/768/parallax-bg.jpg") no-repeat;
     }
-    .slider-social-btns {
-      left: 30px;
-      top: 405px;
-    }
+    
     .english .counters-place .counter-box:last-child {
       width: 199px;
     }
@@ -365,10 +359,7 @@
     .nav-element-container {
       top: 322px;
       right: 0
-    }
-    .slider-social-btns {
-      bottom: 80px
-    }
+    } 
     #animation_container {
       top: 145px;
     }
@@ -501,6 +492,9 @@
     }
   }
   @media only screen and (max-width: 600px) {
+     .projects-lightbox .el-dialog {
+        width: 70%
+    }
     .partners-inner,
     .form-place,
     .form-container .def-input {
@@ -554,7 +548,7 @@
   }
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 480px) { 
   .lang-toggler {display: none !important;}
   .hamburger .language-switcher {display: flex;}
   .services-inner .service-box-large .box-title {
@@ -734,7 +728,14 @@
   }
 }
 
-@media only screen and (max-width: 370px) {
+@media only screen and (max-width: 370px) { 
+    .search-input {
+      width: 165px;
+    } 
+  
+  .projects-lightbox .el-dialog {
+    width: 90%
+ }
   #animation_container,
   #canvas,
   #dom_overlay_container {
@@ -849,11 +850,7 @@
   .contact-us-p {
     text-align: center;
     margin-top: 40px;
-  }
-  .social-place {
-    text-align: center;
-    margin-top: 45px;
-  }
+  } 
   .rights-info {
     padding-bottom: 45px;
     text-align: center;
