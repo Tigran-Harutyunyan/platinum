@@ -7,13 +7,14 @@
   margin-right: 5px;
   .nav-dropdown {
     position: absolute;
-    right: -261px;
+    right: -315px;
     z-index: 100;
     background: #090908;
     width: 300px;
     top: -22px;
     padding-top: 10px;
     padding-bottom: 30px;
+    transition: right 0.2s;
     .nav.sidemenu {
       padding-top: 26px;
       li {
