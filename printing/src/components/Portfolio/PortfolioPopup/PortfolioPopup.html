@@ -1,31 +1,38 @@
-<div class="el-dialog__wrapper">
-  <div class="design-dialog">
-    <div class="navigation">
-      <div @click=navigate(-1)>
-        <span class="prev"></span>Back</div>
-      <div @click=navigate(1)>Next
-        <span class="next"></span>
-      </div>
-    </div>
-    <div class="item-container">
-      <div class="imgs-container">
-        <div v-if="currentSlide.images">
-          <img :src="item.image" v-for="(item,index) in currentSlide.images" :key="index">
+<el-dialog class="portfolio-modal" title=" " 
+    :append-to-body="true" 
+    :showClose="false"
+    :visible.sync="dialogVisible"  
+    @close="closePopup">
+    
+     <div class="design-dialog" v-loading="loading">
+      <div class="navigation">
+        <div @click=navigate(-1)>
+          <span class="prev"></span>Back</div>
+        <div @click=navigate(1)>Next
+          <span class="next"></span>
         </div>
       </div>
-      <div class="info-container" v-if="currentSlide[0]">
-        <div class="close" @click="closePopup"></div>
-        <h1 class="item-title">{{ currentSlide[0].title }}</h1>
-        <div class="line"></div>
-        <ul class="info-list">
-          <li>Client: {{ currentSlide[0].client }}</li>
-          <li>Date: {{ currentSlide[0].date }}</li>
-          <li>Service: {{ currentSlide[0].service }} </li>
-          <li>Category: {{ currentSlide[0].category }}</li>
-        </ul>
-        <p class="info-description">{{ currentSlide[0].description }}</p>
+      <div class="item-container">
+        <div class="imgs-container">
+          <div v-if="currentSlide.images">
+            <img 
+                :src="item.image" 
+                v-for="(item,index) in currentSlide.images" 
+                :key="index">
+          </div>
+        </div>
+        <div class="info-container" v-if="currentSlide[0]">
+          <div class="close" @click="closePopup"></div>
+          <h1 class="item-title">{{ currentSlide[0].title }}</h1>
+          <div class="line"></div>
+          <ul class="info-list">
+            <li>Client: {{ currentSlide[0].client }}</li>
+            <li>Date: {{ currentSlide[0].date }}</li>
+            <li>Service: {{ currentSlide[0].service }} </li>
+            <li>Category: {{ currentSlide[0].category }}</li>
+          </ul>
+          <p class="info-description" v-html="currentSlide[0].description"></p>
+        </div>
       </div>
     </div>
-
-  </div>
-</div>
+ </el-dialog>

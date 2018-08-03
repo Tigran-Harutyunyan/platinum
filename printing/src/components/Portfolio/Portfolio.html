@@ -4,13 +4,22 @@
   <div class="main-section content-area" :class="{'is-visible':showContent}">
  
     <div class="portfolio-grid"  v-loading="loading">
-      <isotope :options='getOptions()':list="completedWorks" class="grid" v-if="completedWorks.length"> 
-          <div class="grid-item"  v-for="(element, index) in completedWorks" :key="index" @click="openPopup(element)">
+      <isotope class="grid"
+          :options='getOptions()'
+          :list="completedWorks"  
+          v-if="completedWorks.length"> 
+          <div class="grid-item" 
+              v-for="(element, index) in completedWorks" 
+              :key="index" 
+              @click="currentSlideID=element.id;">
+
             <div  class="item-bg">
-              <img :src="element.image" alt="">
+              <img :src="element.image" :alt="element.title">
             </div>
+
             <div class="spacer"></div>
             <div class="shirma"></div>
+
             <div class="item-text-place">
               <h1 class="item-title">{{ element.title }}</h1>
               <div class="line"></div>
@@ -22,9 +31,8 @@
   </div>
   
   <PortfolioPopup 
-    :currentSlide="currentSlide"
-    v-on:closePopup="closePopup" 
-    v-on:navigate="navigate"
-    v-show="popupVisible">
+    v-on:popupClosed="onPopupClosed"
+    :completedWorks="completedWorks"
+    :currentSlideID="currentSlideID">
   </PortfolioPopup> 
 </div>
