@@ -2,7 +2,7 @@
     <div class="hamburger-box" @click="isActive=!isActive">
         <div class="hamburger-elem"></div>
     </div>
-    <div class="nav-dropdown"  >
+    <div class="nav-dropdown" v-if="isActive">
         <div class="close-btn" @click="isActive=!isActive"></div>
         <ul class="nav sidemenu">
             <li><a class="menu-item" @click="goTo()">{{ $t('message.dropdown.item1') }}</a></li>

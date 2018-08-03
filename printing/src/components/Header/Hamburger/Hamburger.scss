@@ -7,14 +7,14 @@
   margin-right: 5px;
   .nav-dropdown {
     position: absolute;
-    right: -315px;
+    right: 0;
     z-index: 100;
-    background: #090908;
+    background: #090908; 
     width: 300px;
     top: -22px;
     padding-top: 10px;
     padding-bottom: 30px;
-    transition: right 0.2s;
+    transition: opacity 0.2s;
     .nav.sidemenu {
       padding-top: 26px;
       li {
@@ -38,9 +38,7 @@
     }
   }
 }
-.hamburger--slider.is-active  .nav-dropdown{
-  right: 0;
-}
+ 
 .close-btn {
   background-image: url("../../../../static/img/sprite.png");
   width: 17px;
