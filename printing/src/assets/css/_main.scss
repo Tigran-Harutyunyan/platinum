@@ -1252,7 +1252,17 @@ footer {
 .foundation {
   width: 120px;
 }
-
+.portfolio-modal {
+  .el-dialog__header {
+    padding: 0
+  }
+  .el-dialog { 
+    width: 1200px  !important
+  }
+  .el-dialog__body {
+    padding: 0 !important
+  }
+}
 .himnadrum {
   color: #000000;
   font-size: 12px;
