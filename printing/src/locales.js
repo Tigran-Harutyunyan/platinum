@@ -31,6 +31,10 @@ export default {
         copywriteText2: "since 2010 powered by Platinum Ink Design."
       },
       readMore: 'Read more',
+      controlNext: 'Next',
+      controlBack: 'Back',
+      client: 'Client',
+      service: 'Service',
       dropdown: {
         item1: 'Home',
         item2: 'Services',
@@ -176,40 +180,40 @@ export default {
         design: "Design",
         advertising: 'Advertising',
         printing: 'Printing',
-        service1: { 
+        service1: {
           text: `The works are performed by qualified personnel`
         },
-        service2: { 
+        service2: {
           text: `Printing is only done with high quality materials, with your own choice`
         },
-        service3: { 
+        service3: {
           text: `We make any order in your desired, reasonable timeframe`
         },
-        service4: { 
+        service4: {
           text: `We modify the design as long as you are not satisfied`
         },
-        service5: { 
+        service5: {
           text: `We bear full responsibility for the work done and the quality of the product received`
         },
-        service6: { 
+        service6: {
           text: `A sample is provided for your print order`
         },
-        service7: { 
+        service7: {
           text: `We provide FREE design advice for you or your company`
         },
-        service8: { 
+        service8: {
           text: `You do not lose time to visit us and order. All actions are done online`
         },
-        service9: { 
+        service9: {
           text: `We discuss and offer you the best and most profitable`
         },
-        service10: { 
+        service10: {
           text: `We modify the design as long as you are not satisfied with the result`
         },
-        service11: { 
+        service11: {
           text: `You pay only when you are satisfied with the result`
         },
-        service12: { 
+        service12: {
           text: `Becoming a loyal customer you use regularly`
         }
       }
@@ -264,6 +268,10 @@ export default {
       readMore: 'Կարդալ ավելին',
       seeMore: 'Դիտել բոլորը',
       partnersOpinion: 'Գործընկերների գնահատականը մեր մասին',
+      controlNext: 'Հաջորդ',
+      controlBack: 'Նախորդ',
+      client: 'Հաճախորդ',
+      service: 'Ծառայություն',
       form: {
         send: 'Ուղարկել',
         subject: 'Նյութ',
@@ -382,40 +390,40 @@ export default {
         design: "Դիզայն",
         advertising: 'Գովազդ',
         printing: 'Տպագրություն',
-        service1: { 
+        service1: {
           text: `Աշխատանքները կատարում են համապատասխան որակավորում ունեցող մասնագետներ`
         },
-        service2: { 
+        service2: {
           text: `Տպագրությունը իրականցվում է  միայն բարձրորակ նյութերով, Ձեր  իսկ նախընտրած պահանջներով`
         },
-        service3: { 
+        service3: {
           text: `Ցանկացած պատվեր մենք  կատարում ենք Ձեր ցանկալի, խելամիտ ժամկետներում:)`
         },
-        service4: { 
+        service4: {
           text: `Դիզայնի փոփոխում կատարում  ենք այնքան ժամանակ, քանի  դեռ Դուք գոհ չեք`
         },
-        service5: { 
+        service5: {
           text: `Մենք կրում ենք լիարժեք պատասխանատվություն կատարված աշխատանքի և ստացված  պրոդուկտի որակի համար`
         },
-        service6: { 
+        service6: {
           text: `Ձեր ցանկացած տպագրության պատվերի դեպքում տրամադրվում  է ԱՆՎՃԱՐ նմուշ`
         },
-        service7: { 
+        service7: {
           text: `Անցկացնում ենք ԱՆՎՃԱՐ դիզայն խորհրդատվություն Ձեր կամ Ձեր ընկերության համար`
         },
-        service8: { 
+        service8: {
           text: `Մեր ԱՆՎՃԱՐ առաքման ծառայության շնորհիվ Դուք ևս խնայում եք ժամանակ`
         },
-        service9: { 
+        service9: {
           text: `Մենք քննարկում և առաջարկում ենք Ձեր համար լավագույն և ամենաշահավետ`
         },
-        service10: { 
+        service10: {
           text: `Դիզայնի փոփոխում կատարում ենք այնքան ժամանակ, քանի դեռ Դուք գոհ չեք ստացված արդյունքից`
         },
-        service11: { 
+        service11: {
           text: `Դուք վճարում եք միայն այն  ժամանակ, երբ գոհ եք  ստացված արդյունքից`
         },
-        service12: { 
+        service12: {
           text: `Դառնալով մեր հավատարիմ հաճախորդը Դուք օգտվում եք պարբերաբար`
         }
       }

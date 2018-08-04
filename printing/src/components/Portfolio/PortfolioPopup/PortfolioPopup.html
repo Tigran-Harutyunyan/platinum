@@ -4,11 +4,12 @@
     :visible.sync="dialogVisible"  
     @close="closePopup">
     
-     <div class="design-dialog" v-loading="loading">
+     <div class="design-dialog" v-loading="loading"> 
+     <div class="close close-1" @click="closePopup"></div>
       <div class="navigation">
         <div @click=navigate(-1)>
-          <span class="prev"></span>Back</div>
-        <div @click=navigate(1)>Next
+          <span class="prev"></span>{{ $t('message.controlBack') }}</div>
+        <div @click=navigate(1)>{{ $t('message.controlNext') }}
           <span class="next"></span>
         </div>
       </div>
@@ -26,10 +27,10 @@
           <h1 class="item-title">{{ currentSlide[0].title }}</h1>
           <div class="line"></div>
           <ul class="info-list">
-            <li>Client: {{ currentSlide[0].client }}</li>
-            <li>Date: {{ currentSlide[0].date }}</li>
-            <li>Service: {{ currentSlide[0].service }} </li>
-            <li>Category: {{ currentSlide[0].category }}</li>
+            <li>{{ $t('message.client') }}: {{ currentSlide[0].client }}</li>
+            <!-- <li>Date: {{ currentSlide[0].date }}</li> -->
+            <li>{{ $t('message.service') }}: {{ currentSlide[0].service }} </li>
+            <!-- <li>Category: {{ currentSlide[0].category }}</li> -->
           </ul>
           <p class="info-description" v-html="currentSlide[0].description"></p>
         </div>

@@ -55,7 +55,7 @@ const getCompletedWorkById = ({
   state
 }, id) => {
   return new Promise((resolve, reject) => {
-    axios.get(`${state.apiPath}/api/getCompletedWorkById?id=${id}lang=${state.storage.locale}`).then(response => {
+    axios.get(`${state.apiPath}/api/getCompletedWorkById?id=${id}&lang=${state.storage.locale}`).then(response => {
       if (response.data.images) {
         response.data.images.forEach(element => {
           element.image = `${state.apiPath}${element.image}`;
