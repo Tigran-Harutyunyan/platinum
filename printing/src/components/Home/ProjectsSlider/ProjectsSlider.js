@@ -38,7 +38,7 @@ export default {
   },
   computed: {
     swiper() {
-      return this.$refs.myProjects.swiper
+      return this.$refs.myProjects.swiper;
     },
     projectsSliderImages: {
       get: function () {
@@ -55,9 +55,11 @@ export default {
   },
   methods: {
     openPopup(image,index) {
-      this.popupImage = image;
-      this.dialogTableVisible = true;
+      this.popupImage = image; 
       this.counter  = index;
+      setTimeout(() => {
+        this.dialogTableVisible = true;
+      }, 100);
     },
     navigate(direction) { 
       if ((this.counter == 0 &&  direction ==-1) || (this.counter == this.projectsSliderImages.length-1 && direction == 1)){

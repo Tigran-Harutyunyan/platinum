@@ -10,7 +10,7 @@
   margin-top: 5px;
   padding: 7px;
   border: 1px solid #b3b3b3;
-  border-radius: 23px;
+  border-radius: 17px 0 0 17px;
   li {
     width: 100%;
     padding: 10px;
@@ -20,12 +20,25 @@
       text-transform: capitalize;
     }
   }
-} 
+}
+
 .el-input__icon {
   margin-top: 4px;
 }
+
 .no-results {
-  color: #b2b2b2; 
+  color: #b2b2b2;
   font-size: 14px;
 }
 
+ 
+.search-dropdown::-webkit-scrollbar-track { 
+    background-color: #000000;
+  }
+  .search-dropdown::-webkit-scrollbar {
+    width: 7px; 
+  }
+  .search-dropdown::-webkit-scrollbar-thumb { 
+    background-color: #b2b2b2;
+  }
+   

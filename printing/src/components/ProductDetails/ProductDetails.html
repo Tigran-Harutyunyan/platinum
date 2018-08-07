@@ -46,8 +46,8 @@
     <div class="el-upload__tip">{{ $t('message.sizeRestriction')}}</div>
     </div>
     <div class="right-block">
-      <div class="parameters-item" v-for="(value, key) in product.properties">
-        <h3 class="param-label">{{ key }}</h3>
+      <div class="parameters-item" v-for="(value, key) in product.sortedProperties">
+        <h3 class="param-label">{{ value._key }}</h3>
         <el-select v-model="value.selected" :placeholder="$t('message.select')" @change="onDropDownChange">
           <el-option v-for="(item, key) in value.options" :key="key" :label="item.name" :value="item.id">
           </el-option>

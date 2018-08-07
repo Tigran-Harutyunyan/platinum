@@ -86,10 +86,8 @@ export default {
       return categoryName;
     }
   },
-  mounted() {
-    console.log(this.sidebarProducts)
-    if (this.sidebarProducts) {
-      console.log(this.sidebarProducts)
+  mounted() { 
+    if (this.sidebarProducts) { 
       this.productList = this.sidebarProducts;
     } else {
       let categories = this.$store.getters.categories;

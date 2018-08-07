@@ -36,25 +36,23 @@ export default {
   },
   methods: {
     onDropDownChange() {
-      let properties = this.product.properties;
+      let properties = this.product.sortedProperties;
       let quantityID = '';
       this.selectedOptions = [];
-      for (const key in properties) {
-        if (properties.hasOwnProperty(key)) {
-          if (properties[key].selected) {
-            properties[key].options.forEach(option => {
-              if (option.quantity) {
-                quantityID = properties[key].selected
-              }
-              if (option.id == properties[key].selected) {
-                this.selectedOptions.push(option.id);
-              }
-            });
-          }
+      properties.forEach(element => {
+        if (element.selected != "") {
+          element.options.forEach(option => {
+            if (option.quantity) {
+              quantityID = element.selected
+            }
+            if (option.id == element.selected) {
+              this.selectedOptions.push(option.id);
+            }
+          });
         }
-      }
+      });
       if (quantityID) {
-        // only send requests if quantity is selected
+        // only send requests if quantity is selected   
         this.getProductPrice(quantityID);
       }
     },
@@ -123,10 +121,10 @@ export default {
           let formData = new FormData();
           formData.append('token', this.user ? this.user.token : "");
           formData.append('product_id', this.product[0].id);
-          formData.append('properties', JSON.stringify(this.selectedOptions)); 
-          
+          formData.append('properties', JSON.stringify(this.selectedOptions));
+
           if (this.fileList1.length > 0) {
-            formData.append('front_side', this.fileList1[0].raw, this.fileList1[0].name );
+            formData.append('front_side', this.fileList1[0].raw, this.fileList1[0].name);
           }
           if (this.fileList2.length > 0) {
             formData.append('back_side', this.fileList2[0].raw, this.fileList2[0].name);
@@ -197,12 +195,15 @@ export default {
         this.fileList2 = fileList.slice(-1);
       }
     },
+
     onHandleRemove1(file, fileList) {
       this.handleRemove(file, fileList, 1);
     },
+
     onHandleRemove2(file, fileList) {
       this.handleRemove(file, fileList, 2);
     },
+
     handleRemove(file, fileList, side) {
       if (side === 1) {
         this.fileList1 = fileList.slice(-1);
@@ -211,24 +212,15 @@ export default {
         this.fileList2 = fileList.slice(-1);
         this.styleObject2 = {}
       }
-    },
+    }, 
+
     getProductById() {
       this.$store.dispatch('getProductById', {
         id: this.$route.params.id
       }).then((response) => {
-        if (response[0]) {
-          let object = response.properties;
-          let countProperties = 0;
-          for (const key in object) {
-            if (object.hasOwnProperty(key)) {
-              const element = object[key];
-              object[key] = {};
-              object[key].selected = "";
-              object[key].options = element;
-              countProperties++
-            }
-          }
-          this.product = response;
+        if (response[0]) { 
+          this.product = this._handleGetProductResponse(response);
+
           if (this.product.images) {
             this.product.images.forEach(element => {
               element.image = `${this.apiPath}${element.image}`;
@@ -237,9 +229,46 @@ export default {
           this.productInfo = response[0];
           this.showPriceTotal = countProperties > 0;
           this.copyOfProduct = JSON.parse(JSON.stringify(this.product));
-          this.isDirty = false;
+          this.isDirty = false; 
         }
       }).catch((error) => {});
+    },
+
+    _handleGetProductResponse(response) {
+      let object = response.properties;
+      let countProperties = 0;
+      let propertyNames = response.property_names;
+      let sortedProperties = [];
+      for (const key in object) {
+        if (object.hasOwnProperty(key)) {
+          const element = object[key];
+          object[key] = {};
+          object[key].selected = "";
+          object[key].options = element;
+          object[key].order_id = this._getSortId(key, propertyNames);
+          object[key]._key = key;
+          sortedProperties.push(object[key]);
+          countProperties++;
+        }
+      }
+
+      sortedProperties.sort(function (a, b) {
+        if (a.order_id < b.order_id) return -1;
+        if (a.order_id > b.order_id) return 1;
+        return 0;
+      });
+
+      response.sortedProperties = sortedProperties; 
+      return response;
+    
+    },
+
+    _getSortId(key, propertyNames) {
+      for (const _key in propertyNames) {
+        if (propertyNames.hasOwnProperty(_key) && key === propertyNames[_key].name) {
+          return parseInt(propertyNames[_key].order_id);
+        }
+      }
     },
 
     reset() {
