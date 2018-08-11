@@ -93,7 +93,7 @@ Layout styles
 .header-heading {
   margin: 0;
 }
- 
+
 .auth-controls {
   display: none;
   width: 100%;
@@ -107,6 +107,7 @@ Layout styles
     margin-right: 5px;
   }
 }
+
 .logo-place {
   @extend .sprite;
   width: 235px;
@@ -832,7 +833,7 @@ footer {
   }
 }
 
-.banner-nav-inner { 
+.banner-nav-inner {
   width: 1448px;
   left: 50%;
   margin-left: -700px;
@@ -1074,7 +1075,7 @@ footer {
   text-align: center;
   position: relative;
   width: 270px;
-  min-height: 140px; 
+  min-height: 140px;
   background-color: white;
   border-radius: 4px;
   color: #1a1a1a;
@@ -1252,17 +1253,19 @@ footer {
 .foundation {
   width: 120px;
 }
+
 .portfolio-modal {
   .el-dialog__header {
     padding: 0
   }
-  .el-dialog { 
-    width: 1200px  !important
+  .el-dialog {
+    width: 1200px !important
   }
   .el-dialog__body {
     padding: 0 !important
   }
 }
+
 .himnadrum {
   color: #000000;
   font-size: 12px;
@@ -1666,15 +1669,16 @@ section.contact-us-section {
 
 .partners-inner {
   position: relative;
-  clear: both; 
+  clear: both;
   padding-left: 30px;
   padding-right: 30px;
 }
-.partners-inner-container {
-  width: 1440px; 
-  margin: 0 auto
 
+.partners-inner-container {
+  width: 1440px;
+  margin: 0 auto
 }
+
 .contacts-subsection {
   float: left;
   padding-left: 30px;
@@ -1721,7 +1725,7 @@ section.contact-us-section {
   a:first-child {
     margin-right: 30px;
   }
-   .menu-item-lang {
+  .menu-item-lang {
     font-size: 14px !important
   }
 }
@@ -2529,11 +2533,21 @@ menu hamburger>i:after {
   margin-top: 10px;
   font-size: 12px !important;
 }
-.el-dialog { 
+
+.el-dialog {
   background-image: url("../../assets/img/pattern.jpg");
   background-repeat: repeat;
 }
-.v-modal { 
+
+.v-modal {
   opacity: .8;
   background: #000;
+}
+
+.pdf-links {
+  line-height: 28px;
+  a {
+    color: rgb(51, 51, 51);
+    text-decoration: underline;
+  }
 }

@@ -26,19 +26,25 @@
               <tr>
                 <td>{{ $t('message.signup.company') }}</td>
                 <td>
-                  <el-input v-model="company_name" :class="{'has-error': $v.company_name.$error}"></el-input>
+                  <el-input 
+                    v-model="company_name" 
+                    :class="{'has-error': $v.company_name.$error}"></el-input>
                 </td>
               </tr>
               <tr>
                 <td>{{ $t('message.signup.email') }}</td>
                 <td>
-                  <el-input v-model="email" :class="{'has-error': $v.email.$error}"></el-input>
+                  <el-input 
+                    v-model="email" 
+                    :class="{'has-error': $v.email.$error}"></el-input>
                 </td>
               </tr>
               <tr>
                 <td>{{ $t('message.signup.birthday') }}</td>
                 <td class="custom-picker">
-                  <el-date-picker v-model="birthday_at" type="date" placeholder="" :picker-options="pickerOptions">
+                  <el-date-picker  type="date" placeholder="" 
+                    v-model="birthday_at" 
+                    :picker-options="pickerOptions">
                   </el-date-picker>
                 </td>
               </tr>
@@ -52,7 +58,9 @@
                 </li>
               </ul>
             </div>
-            <input type="submit" class="btn-submit btn-invert" :disabled="!isFormValid" :value="$t('message.signup.info10')">
+            <input type="submit" class="btn-submit btn-invert" 
+              :disabled="!isFormValid" 
+              :value="$t('message.signup.info10')">
           </div>
         </div>
       </form>

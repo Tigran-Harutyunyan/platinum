@@ -35,6 +35,16 @@ export default {
       controlBack: 'Back',
       client: 'Client',
       service: 'Service',
+      pdf: {
+        n1: '10x21 flier',
+        n2: "A4 1 fold brochure inside",
+        n3: "A4 1 fold brochure",
+        n4: "A4 2 fold brochure inside",
+        n5: "A4 2 fold brochure",
+        n6: "paper bag",
+        n7: "90x50 business card",
+        n8: "85x55 business card, card" 
+      },
       dropdown: {
         item1: 'Home',
         item2: 'Services',
@@ -272,6 +282,16 @@ export default {
       controlBack: 'Նախորդ',
       client: 'Հաճախորդ',
       service: 'Ծառայություն',
+      pdf: {
+        n1: '10x21 թռուցիկ',
+        n2: "A4 բուկլետ 1 ծալքով միջուկ",
+        n3: "A4 բուկլետ 1 ծալքով",
+        n4: "A4 բուկլետ 2 ծալքով միջուկ",
+        n5: "A4 բուկլետ 2 ծալքով",
+        n6: "Տոպրակ",
+        n7: "90x50 այցեքարտ",
+        n8: "85x55 այցեքարտ, քարտ" 
+      },
       form: {
         send: 'Ուղարկել',
         subject: 'Նյութ',

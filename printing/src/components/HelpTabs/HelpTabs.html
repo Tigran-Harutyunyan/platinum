@@ -29,7 +29,18 @@
         </p>
       </div>
     </div>
-    <div class="tab-content" v-else-if="activeTab==2">Tab2 content</div>
+    <div class="tab-content" v-else-if="activeTab==2">
+        <ul class="pdf-links">
+          <li><a download href="../../../static/pdf/10x21.flyer.pdf">{{ $t('message.pdf.n1') }}</a></li>
+          <li><a download href="../../../static/pdf/A4. 1 fold brochure inside.pdf">{{ $t('message.pdf.n2') }}</a></li>
+          <li><a download href="../../../static/pdf/A4. 1 fold brochure.pdf">{{ $t('message.pdf.n3') }}</a></li>
+          <li><a download href="../../../static/pdf/A4. 2 folded brochure inside.pdf">{{ $t('message.pdf.n4') }}</a></li>
+          <li><a download href="../../../static/pdf/A4. 2 folded brochure.pdf">{{ $t('message.pdf.n5') }}</a></li>
+          <li><a download href="../../../static/pdf/paper-bag.pdf">{{ $t('message.pdf.n6') }}</a></li>
+          <li><a download href="../../../static/pdf/90x50.business card.pdf">{{ $t('message.pdf.n7') }}</a></li>
+          <li><a download href="../../../static/pdf/85x55.business card.pdf">{{ $t('message.pdf.n8') }}</a></li>
+        </ul>
+    </div>
     <div class="tab-content" v-else="activeTab==3">Tab3 content</div>
   </div>
 </div>
