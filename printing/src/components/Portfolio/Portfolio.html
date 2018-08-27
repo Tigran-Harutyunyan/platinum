@@ -1,4 +1,4 @@
-<div class="portfolio">
+<div class="portfolio" >
   <Header />
 
   <div class="main-section content-area" :class="{'is-visible':showContent}">
@@ -30,7 +30,7 @@
     <Footer />
   </div>
   
-  <PortfolioPopup 
+  <PortfolioPopup id="scrolledDiv"
     v-on:popupClosed="onPopupClosed"
     :completedWorks="completedWorks"
     :currentSlideID="currentSlideID">

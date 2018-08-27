@@ -39,7 +39,7 @@ export default {
               response
                 .categories
                 .forEach(element => {
-                  element.url = `/#/category/${element.id}`;
+                  element.url = `/category/${element.id}`;
                   results.push(element)
                 });
             }
@@ -47,7 +47,7 @@ export default {
               response
                 .products
                 .forEach(element => {
-                  element.url = `/#/product/${element.id}`;
+                  element.url = `/product/${element.id}`;
                   results.push(element)
                 });
             }

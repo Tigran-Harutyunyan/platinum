@@ -3,13 +3,15 @@ import Footer from "../Footer/Footer.vue";
 import VueGridLayout from "vue-grid-layout";
 import isotope from 'vueisotope';
 import PortfolioPopup from './PortfolioPopup/PortfolioPopup.vue';
+import debounce from 'lodash.debounce';
 export default {
   data() {
     return { 
       counter: 0,
       currentSlideID: '',
       showContent: false,
-      loading: true
+      loading: true,
+      scrollPosition: ""
     }
   },
   watch: {
@@ -30,6 +32,13 @@ export default {
     }
   },
   methods: {  
+    invokeSearching: _.debounce(function () {
+      this.scrollPosition = window;
+      var bodyRect = document.body.getBoundingClientRect(),
+        elemRect = document.getElementById("scrolledDiv").getBoundingClientRect(),
+        offset = elemRect.top - bodyRect.top;
+      console.log('Element is ' + offset + ' vertical pixels from <body>');
+    }, 400),
     getOptions: function () {
       var _this = this
       return {
@@ -48,7 +57,11 @@ export default {
     } 
   },
   mounted() {
-    this.$store.dispatch('getCompletedWorks');
+    this.$store.dispatch('getCompletedWorks'); 
+     document.getElementById("scrolledDiv").addEventListener('scroll', this.invokeSearching);  
+  },
+  destroy() { 
+    window.removeEventListener('scroll');
   },
   components: {
     Header,

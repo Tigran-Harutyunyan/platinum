@@ -13,6 +13,8 @@ import Orders from '../components/Orders/Orders.vue'
 import Home from '../components/Home/Home.vue'
 import Shopping from '../components/Shopping/Shopping.vue'
 import Portfolio from '../components/Portfolio/Portfolio.vue'
+import Advertisement from '../components/Advertisement/Advertisement.vue'
+import Upload from '../components/Upload/Upload.vue'
 Vue.use(Router);
 
 const shouldBeAuthed = async (to, from, next) => {
@@ -34,6 +36,7 @@ const shouldNotBeLoggedIn = async (to, from, next) => {
 };
 
 const router = new Router({
+  //mode: 'history',
   routes: [{
       path: '',
       name: 'Shopping',
@@ -77,6 +80,16 @@ const router = new Router({
           name: 'changePassword',
           component: ChangePassword,
           beforeEnter: shouldBeAuthed  
+        },
+        {
+          path: '/advertisement ',
+          name: 'advertisement',
+          component: Advertisement  
+        },
+        {
+          path: '/upload',
+          name: 'upload',
+          component: Upload
         }
       ]
     },

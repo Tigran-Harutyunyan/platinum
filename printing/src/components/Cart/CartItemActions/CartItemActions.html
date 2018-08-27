@@ -5,9 +5,9 @@
     <li class="btn-links" @click="$router.push({name:'Categories', params: {id:1}})">{{ $t('message.addNew') }}</li>
     <!-- <li class="btn-links">Խմբագրել</li> -->
   </ul>
-  <el-popover placement="top-start" width="400" trigger="hover">
+  <el-popover placement="top-start" width="250" trigger="hover">
     <h2 class="popover-title">{{ item.name }}</h2>
-    <p class="popover-description">{{ item.description }}</p>
+    <!-- <p class="popover-description">{{ item.description }}</p> -->
     <a slot="reference" class="btn-submit btn-white">{{ $t('message.name') }}</a>
   </el-popover>
 </div>

@@ -2,12 +2,14 @@ import axios from 'axios';
 import {
   EventBus
 } from '../../event-bus.js';
-axios.interceptors.response.use(function (response) {  
-  if(response.data.error && response.data.message === "Invalid token"){  
+
+import productsApi from '../../api/productsApi';
+axios.interceptors.response.use(function (response) {
+  if (response.data.error && response.data.message === "Invalid token") {
     EventBus.$emit('logout');
   }
   return response
-   
+
 }, function (err) {
   return Promise.reject(err);
 });
@@ -29,10 +31,18 @@ const setUserInfo = ({
 const getProducts = ({
   commit,
   state
-}, data) => {
-  axios.get(`${state.apiPath}/api/getProductsList?lang=${state.storage.locale}`).then((response) => {
-    commit('UPDATE_PRODUCTS', response.data)
-  })
+}, data) => { 
+  return new Promise((resolve, reject) => {
+    productsApi.getProducts(state.storage.locale).then(
+      (response) => {
+        resolve(response);
+        commit('UPDATE_PRODUCTS', response)
+      },
+      (errorResponse) => {
+        reject(errorResponse);
+      }
+    );
+  }); 
 };
 const getCompletedWorks = ({
   commit,
@@ -42,9 +52,9 @@ const getCompletedWorks = ({
     if (Array.isArray(response.data)) {
       response.data.forEach(element => {
         element.imageStyle = {
-          'background-image': `url(${state.apiPath}${element.image})`
-        },
-        element.image =  `${state.apiPath}${element.image}`
+            'background-image': `url(${state.apiPath}${element.image})`
+          },
+          element.image = `${state.apiPath}${element.image}`
       });
       commit('UPDATE_COMPLETED_WORKS', response.data)
     }
@@ -77,7 +87,7 @@ const getSliderImages = ({
           'background-image': `url(${state.apiPath}${element.image})`
         }
         element.image = `${state.apiPath}${element.image}`;
-        element.productLink = `/#/product/${element.product_id}`
+        element.productLink = `/product/${element.product_id}`
       });
       commit('UPDATE_SLIDER_IMAGES', response.data)
     }
@@ -115,7 +125,13 @@ const getCategories = ({
   state
 }, data) => {
   axios.get(`${state.apiPath}/api/getCategories?lang=${state.storage.locale}`).then((response) => {
-    commit('UPDATE_CATEGORIES', response.data)
+    if(Array.isArray(response.data)){
+     /*  array.forEach(element => {
+        
+      }); */
+      commit('UPDATE_CATEGORIES', response.data)
+    }
+ 
   })
 };
 const getSearchResults = ({
@@ -278,14 +294,14 @@ const getBasketProducts = ({
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
       }
     }).then(response => {
-      if(Array.isArray(response.data)){
-        response.data.forEach(element => { 
-          if(element.front_side){
+      if (Array.isArray(response.data)) {
+        response.data.forEach(element => {
+          if (element.front_side) {
             element.front_side = `${state.apiPath}${element.front_side }`
-          } 
-          if(element.back_side){
+          }
+          if (element.back_side) {
             element.back_side = `${state.apiPath}${element.back_side }`
-          } 
+          }
         });
       }
       commit('UPDATE_CART_ITEMS', response.data)
@@ -465,8 +481,8 @@ const getOrders = ({
 
   return new Promise((resolve, reject) => {
     let formData = new FormData();
-    let token =  state.storage.user ? state.storage.user.token : "";
-    formData.append('token',token);
+    let token = state.storage.user ? state.storage.user.token : "";
+    formData.append('token', token);
     axios({
       url: `${state.apiPath}/api/getOrders?lang=${state.storage.locale}`,
       method: 'post',

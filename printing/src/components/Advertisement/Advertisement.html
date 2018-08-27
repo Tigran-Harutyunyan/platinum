@@ -1,0 +1,28 @@
+<div class="ads">
+    <div class="section-title-place"> 
+        <h5>{{ $t('message.why.title') }}</h5>
+        <span class="vert-line"></span>
+    </div>
+    <div class="sliders-place noselect projects-slider-container"> 
+        <swiper :options="swiperOption">
+          <swiper-slide v-for="(item, index) in projectsSliderImages" :key="index" class="box">
+            <img class="open-popup-link mfp-prevent-close" :src="item.thumbnail">
+          </swiper-slide>
+          <div class="swiper-button-prev" slot="button-prev"></div>
+          <div class="swiper-button-next" slot="button-next"></div>
+        </swiper> 
+      </div>
+      <div class="section-title-place"> 
+          <h5>{{ $t('message.why.title') }}</h5>
+          <span class="vert-line"></span>
+      </div>
+      <div class="sliders-place noselect projects-slider-container"> 
+          <swiper :options="swiperOption">
+            <swiper-slide v-for="(item, index) in projectsSliderImages" :key="index" class="box">
+              <img class="open-popup-link mfp-prevent-close" :src="item.thumbnail">
+            </swiper-slide>
+            <div class="swiper-button-prev" slot="button-prev"></div>
+            <div class="swiper-button-next" slot="button-next"></div>
+          </swiper> 
+        </div>
+</div>

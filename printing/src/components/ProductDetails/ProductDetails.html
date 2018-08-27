@@ -18,14 +18,8 @@
       <div class="product-detail-info">
         <p> {{ productInfo.description }}
         </p>
-        <div class="choices">
-          <!-- <a href="" class="btn-link btn-bright">բեռնել ձեր ֆայլը</a> -->
-        <!--   <el-upload class="upload-demo" action="https://jsonplaceholder.typicode.com/posts/" :on-change="handleChange1" :auto-upload="false"
-            :on-remove="handleRemove">
-            <el-button size="small" type="primary" class="btn-submit btn-invert">{{ $t('message.uploadFile') }}</el-button>
-          </el-upload>
-          <span>{{ $t('message.or') }}</span> -->
-          <a class="btn-link">{{ $t('message.uploadOurselves')}} </a>
+        <div class="choices"> 
+          <router-link class="btn-link" to="/upload">{{ $t('message.uploadOurselves') }}</router-link>  
         </div>
       </div>
     </div>
@@ -65,8 +59,15 @@
         <p>{{ totalPrice }} </p>
       </div>
       <div class="btns-container">
-        <a class="btn-submit btn-invert btn-1" v-show="showPriceTotal && isDirty" @click="reset">{{ $t('message.cancel')}}</a>
-        <a class="btn-submit btn-invert" v-show="showPriceTotal" :disabled="isLoading" @click="addProductToCart()" :class="{disabled: !isDirty}">{{ $t('message.continue')}}</a>
+        <a class="btn-submit btn-invert btn-1" 
+         v-show="showPriceTotal && isDirty"
+         @click="reset">{{ $t('message.cancel')}}</a>
+         
+        <a class="btn-submit btn-invert" 
+          v-show="showPriceTotal" 
+          :disabled="isLoading" 
+          @click="addProductToCart()" 
+          :class="{disabled: !isDirty}">{{ $t('message.continue')}}</a>
       </div>
     </div>
   </div>

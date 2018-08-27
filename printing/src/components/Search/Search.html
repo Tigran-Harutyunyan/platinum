@@ -9,8 +9,11 @@
   </el-input>
   <div v-if="showSearchResults" class="search-results">
     <ul class="search-dropdown">
-      <li v-for="(item, index) in searchResults" :key="index">
-        <a :href="item.url" @click="closeMe">{{item.name}}</a>
+      <li v-for="(item, index) in searchResults" :key="index"> 
+        <router-link  
+          :to="item.url" @click="closeMe"  >
+          {{ item.name }} 
+        </router-link> 
       </li>
       <li v-if="noResults">
         <span class="no-results">No results found</span>

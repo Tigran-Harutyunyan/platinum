@@ -93,7 +93,7 @@ img.banner-offer {
                 color: #af995a !important;
             }
         }
-        a.active-product-list {
+        a.router-link-active  {
             color: #af995a !important;
         }
     }
@@ -143,7 +143,7 @@ img.banner-offer {
 
 .tab-content {
     background: white;
-    min-height: 700px;
+    min-height: 300px;
     padding: 30px;
     p {
         width: 230px;

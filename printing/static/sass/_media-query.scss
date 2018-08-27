@@ -148,7 +148,7 @@
   }
 }
 
-@media only screen and (max-width: 1150px) {
+@media only screen and (max-width: 1150px) { 
   .link-type-2 {
     right: 0
   }
@@ -162,9 +162,12 @@
   .small-triangle4 {
     display: none
   }
-  .form-place {
+  .form-place, .home-page-subcription-form {
     width: 395px;
-    margin: 0 auto;
+    margin: 0 auto; 
+  } 
+  .social-place {
+    margin-top: 30px; 
   }
   .form-container .def-input {
     width: 395px
@@ -187,6 +190,83 @@
   }
   .tab-item {
     width: 33.333333333333336%
+  }
+}
+
+@media only screen and (max-width: 1050px) {
+  .counters-place .counter-box:last-child {
+    width: 86px;
+  }
+  .counters-place {
+    width: 657px;
+  }
+  .counters-place .counter-box {
+    width: 190px;
+  }
+  .counter-box {
+    .counter-nums {
+      font-size: 50px;
+      padding-bottom: 9px;
+    }
+    .counter-info {
+      font-size: 14px
+    }
+  }
+}
+@media only screen and (max-width: 1030px) {
+  .subscription_offer { 
+    text-align: center
+  }
+  .social-place p {
+    text-align: center;
+}
+  .home-page-subcription-form .def-input {
+    width: 100%;
+    margin-right: 0;
+}
+  .partners-inner-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+    margin: 0 auto;
+    width: 460px;
+    .btn-submit {
+      float: none
+    }
+  }
+  .subscription-form .default-inp-row {
+    text-align: center
+  }
+  .info-platinumink-am {
+    text-align: center;
+  }
+  .availability {
+    text-align: center;
+    margin-top: 0;
+  }
+  .row-btn {
+    text-align: center
+  }
+  .contact-us-p {
+    text-align: center;
+    margin-top: 40px;
+  }
+  .rights-info {
+    padding-bottom: 45px;
+    text-align: center;
+  }
+  .partners-inner {
+    .footer-social-links {
+      width: 138px;
+      margin: 0 auto;
+      .social-icons.ins .ins-link {
+        margin-right: 0;
+      }
+    }
   }
 }
 
@@ -224,28 +304,7 @@
     right: -117px;
   }
 }
-
-@media only screen and (max-width: 1050px) {
-  .counters-place .counter-box:last-child {
-    width: 86px;
-  }
-  .counters-place {
-    width: 657px;
-  }
-  .counters-place .counter-box {
-    width: 190px;
-  }
-  .counter-box {
-    .counter-nums {
-      font-size: 50px;
-      padding-bottom: 9px;
-    }
-    .counter-info {
-      font-size: 14px
-    }
-  }
-}
-
+ 
 @media only screen and (max-width: 950px) {
   .services-inner.boxes-type-1 {
     width: 408px;
@@ -491,6 +550,9 @@
     }
   }
   @media only screen and (max-width: 600px) {
+    .home-page-subcription-form {
+      width: 100%
+    }
     .projects-lightbox .el-dialog {
       width: 90%
     }
@@ -505,9 +567,7 @@
       clear: both;
       float: left;
     }
-    .btn-submit {
-      width: 100%
-    }
+   
     .see-all-link-portfolio2 {
       display: block;
       width: 100%
@@ -824,46 +884,3 @@
   }
 }
 
-@media only screen and (max-width: 1030px) {
-  .partners-inner-container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: reverse;
-    -ms-flex-direction: column-reverse;
-    flex-direction: column-reverse;
-    margin: 0 auto;
-    width: 460px;
-    .btn-submit {
-      float: none
-    }
-  }
-  .info-platinumink-am {
-    text-align: center;
-  }
-  .availability {
-    text-align: center;
-    margin-top: 0;
-  }
-  .row-btn {
-    text-align: center
-  }
-  .contact-us-p {
-    text-align: center;
-    margin-top: 40px;
-  }
-  .rights-info {
-    padding-bottom: 45px;
-    text-align: center;
-  }
-  .partners-inner {
-    .footer-social-links {
-      width: 138px;
-      margin: 0 auto;
-      .social-icons.ins .ins-link {
-        margin-right: 0;
-      }
-    }
-  }
-}

@@ -39,6 +39,18 @@
           <span>{{ $t('message.address.part2') }} {{ customData.email}}</span>
           <span>{{ $t('message.address.part4') }} {{ customData.phone}}</span>
         </div>
+        <h5 class="subscription_offer">{{ $t('message.subscription_offer') }} </h5>
+        <div class="form-container home-page-subcription-form">
+          <form class="subscription-form" name="subscription_form"
+            v-on:submit.prevent="onSubmitSubscribe" 
+            @submit="$v.subscription_email.$touch();">
+            <div class="default-inp-row">
+              <input class="def-input" type="email" placeholder="էլ-փոստ" name="contact_email"
+                v-model="subscription_email" :class="{'has-error': $v.subscription_email.$error}" >
+              <input type="submit" class="btn-submit" :value="$t('message.subscribe')">
+            </div>
+          </form>
+        </div>
         <div class="social-place">
           <p>{{ $t('message.contacts.join') }}</p>
           <SocialMedia/>
@@ -53,26 +65,35 @@
         </div>
         <div class="form-place">
           <div class="form-container">
-            <form v-on:submit.prevent="onSubmit" @submit="$v.email.$touch();$v.message.$touch();$v.subject.$touch()" class="contact-form"
-              v-loading="loading" name="contact_form">
+            <form v-on:submit.prevent="onSubmit" 
+              @submit="$v.email.$touch();$v.message.$touch();$v.subject.$touch()" 
+              class="contact-form"
+              name="contact_form">
               <div class="contact-form-referral ref1">
                 <div class="default-inp-row">
-                  <input id="contact_subject" v-model="subject" class="def-input" type="text" :placeholder="$t('message.form.subject')" :class="{'has-error': $v.subject.$error}"
-                    name="contact_subject">
+                  <input id="contact_subject" class="def-input" type="text" 
+                    v-model="subject"  
+                    :placeholder="$t('message.form.subject')" 
+                    :class="{'has-error': $v.subject.$error}">
                 </div>
                 <div class="elem-spacer"></div>
                 <div class="default-inp-row ">
-                  <input id="contact_email" class="def-input" type="email" :placeholder="$t('message.form.email')" v-model="email" :class="{'has-error': $v.email.$error}"
-                    name="contact_email">
+                  <input name="contact_email" class="def-input" type="email" 
+                    :placeholder="$t('message.form.email')" 
+                    v-model="email" 
+                    :class="{'has-error': $v.email.$error}">
                 </div>
                 <div class="elem-spacer"></div>
                 <div class="default-inp-row ">
-                  <textarea name="contact_message" :placeholder="$t('message.form.message')" :class="{'has-error': $v.message.$error}" v-model="message"
-                    class="def-input" id="contact_message" cols="30" rows="10"></textarea>
+                  <textarea name="contact_message" class="def-input" id="contact_message" cols="30" rows="10"
+                    :placeholder="$t('message.form.message')" 
+                    :class="{'has-error': $v.message.$error}" 
+                    v-model="message"></textarea>
                 </div>
                 <div class="elem-spacer"></div>
                 <div class="default-inp-row row-btn">
-                  <input type="submit" class="btn-submit" :value="$t('message.form.send')">
+                  <input type="submit" class="btn-submit" 
+                  :value="$t('message.form.send')">
                   <!-- <el-button type="primary" class="btn-submit" :loading="loading">{{ $t('message.form.send') }}</el-button> -->
                 </div>
               </div>

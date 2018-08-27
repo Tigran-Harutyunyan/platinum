@@ -12,7 +12,7 @@
           <form v-on:submit.prevent="onSubmit" @submit="$v.email.$touch();" class="subscription-form" name="contact_form">
             <div class="default-inp-row">
               <input v-model="email" :class="{'has-error': $v.email.$error}" class="def-input" type="email" placeholder="էլ-փոստ" name="contact_email">
-              <input type="submit" class="btn-submit" value="բաժանորդագրվել">
+              <input type="submit" class="btn-submit" :value="$t('message.subscribe')">
             </div>
           </form>
         </div>

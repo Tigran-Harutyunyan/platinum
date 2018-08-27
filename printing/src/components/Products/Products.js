@@ -49,16 +49,7 @@ export default {
                 if (products.hasOwnProperty(key)) {
                     const element = products[key];
                     if (this.$route.params.id == element[0].category_id) {
-                        element[0].categoryName = this.getCategoryName(element[0].category_id);
-                        element[0].categoryHref = "/#/category/" + element[0].category_id;
-                        element.forEach(product => {
-                            product.href = "/#/product/" + product.id;
-                            if (product.images.length){ 
-                                product.image = `${this.apiPath}${product.images[0].image}` 
-                            } else {
-                                product.image =  '../static/img/products/1.png'
-                            }
-                        });
+                        element[0].categoryName = this.getCategoryName(element[0].category_id); 
                         this.productList = element;
                     }
                 }

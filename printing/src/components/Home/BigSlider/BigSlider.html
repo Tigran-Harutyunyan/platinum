@@ -18,7 +18,10 @@
           <br>
           <p>{{ $t('message.bannerText.text2') }}</p>
         </div>
-        <a @click="$router.push({name:'Categories',params: {id:1}})" class="btn-link banner-see-more-link">{{ $t('message.orderOnline') }}</a>
+         <router-link  class="btn-link banner-see-more-link"
+           to="/category/1"  >
+          {{ $t('message.orderOnline') }} 
+         </router-link> 
         <div class="banner-line"></div>
       </div>
     </swiper-slide>
@@ -59,8 +62,9 @@
             <p>{{ $t('message.online_service_4') }}</p>
           </div>
         </div>
-      </div>
-      <a @click="$router.push({name:'Categories',params: {id:1}})" class="btn-link banner-see-more-link">{{ $t('message.orderOnline') }}</a>
+      </div> 
+      <router-link  class="btn-link banner-see-more-link" to="/category/1">  {{ $t('message.orderOnline') }} 
+      </router-link> 
       <div class="banner-line"></div>
     </swiper-slide>
     <div class="swiper-pagination big-slider-pagination" slot="pagination"></div>

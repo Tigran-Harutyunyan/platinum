@@ -11,10 +11,16 @@
         <div class="link-text" >
             <span>{{ $t('message.your') }}</span>
             <span class="secondary"> {{ $t('message.personalPage') }}</span>
-            <ul class="personal-page-dropdown">
-                <li><a href="/#/orders">{{ $t('message.myOrders') }}</a></li> 
-                <li><a href="/#/profile">{{ $t('message.editProfile') }}</a></li>
-                <li><a href="/#/change-password">{{ $t('message.changePasswordTitle') }}</a></li>
+            <ul class="personal-page-dropdown"> 
+                <router-link tag="li" to="/orders">
+                    <a>{{ $t('message.myOrders') }}</a>
+                </router-link>
+                <router-link tag="li" to="/profile">
+                    <a>{{ $t('message.editProfile') }}</a>
+                </router-link>
+                <router-link tag="li" to="/change-password">
+                    <a>{{ $t('message.changePasswordTitle') }}</a>
+                </router-link>
             </ul>
         </div> 
     </div>
