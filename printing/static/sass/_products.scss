@@ -107,8 +107,7 @@ img.banner-offer {
     display: flex;
     margin: 0 auto;
     width: 720px;
-    .tab-item:nth-child(1),
-    .tab-item:nth-child(2) {
+    .tab-item:nth-child(1){
         border-right: none
     }
 }
@@ -222,7 +221,7 @@ img.banner-offer {
             left: 10px;
             line-height: 17px;
             top: 57px;
-            i {
+            span {
                 font-size: 16px;
                 font-weight: bold;
                 font-style: normal;

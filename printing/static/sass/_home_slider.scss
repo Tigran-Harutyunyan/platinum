@@ -66,7 +66,7 @@
 
 .new-service-types-boxes.animated {
   .service-item-container {
-    animation-duration: 0.5s;
+    animation-duration: 2.5s;
     animation-fill-mode: both;
     opacity: 1;
     .pointer {
@@ -75,25 +75,25 @@
     }
   }
   .service-item-container:nth-child(1) {
-    animation-delay: 2s;
+    animation-delay: 3.5s;
     .pointer {
       animation-delay: 2.3s;
     }
   }
   .service-item-container:nth-child(2) {
-    animation-delay: 2.5s;
+    animation-delay: 4s;
     .pointer {
       animation-delay: 2.8s;
     }
   }
   .service-item-container:nth-child(3) {
-    animation-delay: 3s;
+    animation-delay: 5s;
     .pointer {
       animation-delay: 3.3s;
     }
   }
   .service-item-container:nth-child(4) {
-    animation-delay: 3.4s;
+    animation-delay: 5.5s;
   }
 }
 

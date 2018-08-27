@@ -12,7 +12,9 @@
          },
          speed: 2000,
          effect: 'fade',
-         autoplay: true,
+         autoplay: {
+          delay: 5000,
+          },
          pagination: {
            el: '.big-slider-pagination',
            clickable: true
@@ -22,8 +24,8 @@
      }
    },
    components: {
-    'logo-animation':LogoAnimation,
-    'social-media': SocialMedia
+     'logo-animation': LogoAnimation,
+     'social-media': SocialMedia
    },
    mounted() {
      this.setSlidesItems(1); //set slide item info.
@@ -35,19 +37,19 @@
          this.showBoxes = true
        }
        this.setSlidesItems(currentIndex);
-     }); 
+     });
 
    },
    computed: {
      swiper() {
        return this.$refs.bigSlider.swiper
-     } 
-   }, 
+     }
+   },
    methods: {
      setSlidesItems(currentIndex) {
        let slidesLength = this.swiper.slides.length;
        this.slidesLength = (currentIndex < 10) ? '/0' + slidesLength : '/' + slidesLength;
        this.currentSlide = (currentIndex < 10) ? '0' + currentIndex : currentIndex;
-     }  
+     }
    }
  }

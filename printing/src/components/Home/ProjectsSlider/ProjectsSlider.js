@@ -9,11 +9,11 @@ export default {
       popupImage: {},
       currentSlideIndex: '',
       swiperOption: {
-        slidesPerView: 7,
+        slidesPerView: 5,
         spaceBetween: 20,
         autoplay: true,
         isInitialized: false,
-        loop: true,
+        loop: false,
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',

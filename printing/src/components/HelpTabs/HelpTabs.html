@@ -3,33 +3,6 @@
   <div class="tab-content-container">
     <div class="tab-content" v-if="activeTab==1">
       <div class="tab-inner">
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas, eligendi ducimus! Adipisci neque nobis ducimus asperiores
-          sunt perferendis doloremque, maiores quibusdam quia accusamus voluptatem quod a tempora? Quidem, quia inventore?
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas, eligendi ducimus! Adipisci neque nobis ducimus asperiores
-          sunt perferendis doloremque, maiores quibusdam quia accusamus voluptatem quod a tempora? Quidem, quia inventore?
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas, eligendi ducimus! Adipisci neque nobis ducimus asperiores
-          sunt perferendis doloremque, maiores quibusdam quia accusamus voluptatem quod a tempora? Quidem, quia inventore?
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas, eligendi ducimus! Adipisci neque nobis ducimus asperiores
-          sunt perferendis doloremque, maiores quibusdam quia accusamus voluptatem quod a tempora? Quidem, quia inventore?
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas, eligendi ducimus! Adipisci neque nobis ducimus asperiores
-          sunt perferendis doloremque, maiores quibusdam quia accusamus voluptatem quod a tempora? Quidem, quia inventore?
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas, eligendi ducimus! Adipisci neque nobis ducimus asperiores
-          sunt perferendis doloremque, maiores quibusdam quia accusamus voluptatem quod a tempora? Quidem, quia inventore?
-        </p>
-      </div>
-    </div>
-    <div class="tab-content" v-else-if="activeTab==2">
         <ul class="pdf-links">
           <li><a download href="../../../static/pdf/10x21.flyer.pdf">{{ $t('message.pdf.n1') }}</a></li>
           <li><a download href="../../../static/pdf/A4. 1 fold brochure inside.pdf">{{ $t('message.pdf.n2') }}</a></li>
@@ -40,7 +13,11 @@
           <li><a download href="../../../static/pdf/90x50.business card.pdf">{{ $t('message.pdf.n7') }}</a></li>
           <li><a download href="../../../static/pdf/85x55.business card.pdf">{{ $t('message.pdf.n8') }}</a></li>
         </ul>
+      </div>
     </div>
-    <div class="tab-content" v-else="activeTab==3">Tab3 content</div>
+    <div class="tab-content" v-else-if="activeTab==2">
+       
+    </div>
+    
   </div>
 </div>

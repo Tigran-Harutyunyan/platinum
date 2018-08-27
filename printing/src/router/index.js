@@ -117,11 +117,11 @@ router.beforeEach((to, from, next) => {
     })
   }
   if (to.name != "Home") {
-   /*  setTimeout(() => { 
+    setTimeout(() => { 
       jqueryElement.animate({
         scrollTop: 0
       }, 0);
-    }, 100); */
+    }, 100);  
   }
   next();
 });

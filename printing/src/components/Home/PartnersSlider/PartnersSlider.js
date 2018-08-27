@@ -5,7 +5,12 @@ export default {
       swiperOption: {
         slidesPerView: 5,
         autoplay: true,
-        breakpoints: {
+        loop: true,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        breakpoints: { 
           1250: {
             slidesPerView: 4
           },

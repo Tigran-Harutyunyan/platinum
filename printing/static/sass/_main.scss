@@ -1664,7 +1664,32 @@ footer {
 .partners-slider-container {
   position: relative;
   padding-top: 57px;
+  z-index: 50;
+  .swiper-button-prev,
+  .swiper-button-next {
+    background-image: url("../../static/img/sprite.png");
+    background-repeat: no-repeat;
+    background-size: auto;
+    height: 55px;
+    width: 22px;
+    top: 53%;
+  }
+  .swiper-button-next {
+    background-position: -130px 0px;
+  }
+  
+  .swiper-button-prev {
+    background-position: -96px 0px;
+  }
+  
+  .swiper-button-prev.swiper-button-disabled,
+  .swiper-button-next.swiper-button-disabled {
+    pointer-events: all;
+  }
+  
 }
+  
+ 
 
 section.contact-us-section {
   padding-top: 90px;

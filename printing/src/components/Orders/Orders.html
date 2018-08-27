@@ -12,13 +12,13 @@
         </el-table-column>
         <el-table-column prop="approved_at" :label="$t('message.orderDate')" width="180">
         </el-table-column>
-        <el-table-column prop="name" :label="$t('message.orderName')">
+        <el-table-column prop="name" :label="$t('message.orderName')" width="180">
         </el-table-column>
-        <el-table-column prop="statusName" :label="$t('message.orderStatus')" width="180">
+        <el-table-column prop="statusName" :label="$t('message.orderStatus')" width="230">
         </el-table-column>
-        <el-table-column prop="price" :label="$t('message.orderPrice')" width="180">
+        <el-table-column prop="price" :label="$t('message.orderPrice')" width="140">
         </el-table-column>
-        <el-table-column label=" " width="160px">
+        <el-table-column label=" " width="140px">
           <template slot-scope="scope">
             <a class="table-link" href="javascript:void(0)">{{ $t('message.orderDetails') }}</a>
           </template>
