@@ -6,12 +6,9 @@
         v-for="(product,index) in productList" :key="index">
         <img :src="product.image">
         <div class="product-descr">
-            <span class="product-name">{{ product.name }}</span>
-            <!-- <div class="size">{{ product.size }}</div> -->
+            <span class="product-name">{{ product.name }}</span> 
             <div class="product-pricing">
-                <div class="short-description" v-html="product.short_description"> </div>
-               <!--  <i>{{ product.price }}</i>
-                <div class="part-3">դրամից</div> -->
+                <div class="short-description" v-html="product.short_description"> </div> 
             </div>
         </div>
     </router-link> 

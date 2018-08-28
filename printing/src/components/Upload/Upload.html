@@ -1,59 +1,52 @@
 <div class="products-main">
   <div class="bordered-block br-cart">
-    <h3 class="product-category-title">{{ $t('message.signup.create_personal_page') }}</h3>
+    <h3 class="product-category-title">{{ $t('message.upload.mainHeading') }}</h3>
     <div class="product-details-inner">
       <div class="sign-up-top">
-        <p>{{ $t('message.signup.info1') }}:
-          <br>{{ $t('message.signup.info2') }}:
+        <p>{{ $t('message.upload.heading1') }}:
+          <br>{{ $t('message.upload.heading2') }}:
         </p>
       </div>
-      <form v-on:submit.prevent="onSubmitSignup" @submit="$v.first_name.$touch();$v.last_name.$touch();$v.email.$touch();$v.companyName.$touch();$v.password.$touch();$v.passwordConfirm.$touch();$v.phone.$touch();">
+      <form 
+        v-on:submit.prevent="onSubmitSignup" 
+        @submit="$v.first_name.$touch();$v.last_name.$touch();$v.email.$touch();$v.companyName.$touch();$v.password.$touch();$v.passwordConfirm.$touch();$v.phone.$touch();">
         <div class="sign-up-bottom">
           <div class="left">
             <table class="table-2">
               <tr>
-                <td>{{ $t('message.signup.first_name') }}</td>
+                <td>{{ $t('message.upload.type') }}</td>
                 <td>
-                  <el-input v-model="first_name" :class="{'has-error': $v.first_name.$error}"></el-input>
+                  <el-select 
+                      v-model="selectedProduct" 
+                      :placeholder="$t('message.select')"
+                      @change="onDropDownChange">
+                    <el-option 
+                      v-for="(item, key) in productList" :key="key" 
+                      :label="item.name" 
+                      :value="item.id">
+                    </el-option>
+                  </el-select>
                 </td>
               </tr>
+              
               <tr>
-                <td>{{ $t('message.signup.last_name') }}</td>
-                <td>
-                  <el-input v-model="last_name" :class="{'has-error': $v.last_name.$error}"></el-input>
-                </td>
-              </tr>
-              <tr>
-                <td>{{ $t('message.signup.company') }}</td>
+                <td>{{ $t('message.upload.length') }}</td>
                 <td>
                   <el-input v-model="company_name" :class="{'has-error': $v.companyName.$error}"></el-input> 
                 </td>
               </tr>
               <tr>
-                <td>{{ $t('message.signup.email') }}</td>
+                <td>{{ $t('message.upload.width') }}</td>
                 <td>
                   <el-input v-model="email" :class="{'has-error': $v.email.$error}"></el-input>
                 </td>
-              </tr>
+              </tr> 
               <tr>
-                <td>{{ $t('message.signup.password') }}</td>
+                <td>{{ $t('message.upload.colors') }}</td>
                 <td>
-                  <el-input :placeholder="$t('message.signup.info9')" type="password" v-model="password" :class="{'has-error': $v.password.$error}"></el-input>
+                  <el-input type="text" v-model="formData.colors" :class="{'has-error': $v.passwordConfirm.$error}"></el-input>
                 </td>
-              </tr>
-              <tr>
-                <td>{{ $t('message.signup.confirm_password') }}</td>
-                <td>
-                  <el-input type="password" v-model="passwordConfirm"  :placeholder="$t('message.signup.info9')" :class="{'has-error': $v.passwordConfirm.$error}"></el-input>
-                </td>
-              </tr>
-              <tr>
-                <td>{{ $t('message.signup.birthday') }}</td>
-                <td class="custom-picker">
-                  <el-date-picker v-model="birthday_at" type="date" placeholder="" :picker-options="pickerOptions1">
-                  </el-date-picker>
-                </td>
-              </tr>
+              </tr> 
               <tr>
                 <td>{{ $t('message.signup.phone') }}</td>
                 <td class="custom-picker">

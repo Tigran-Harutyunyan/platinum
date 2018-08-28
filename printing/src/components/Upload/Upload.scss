@@ -24,8 +24,9 @@
 tr {
     td:first-child {
         text-transform: uppercase;
-        padding-top: 8px;
-        padding-right: 10px;
+        padding-top: 7px;
+        padding-right: 10px; 
+        padding-bottom: 19px;
     }
 }
 .sign-up-bottom {
@@ -47,22 +48,9 @@ tr {
 .checked-input {
     padding-top: 11px;
 }
-.captcha-data{
-    position: absolute;
-    left: 0;
-    bottom: -11px;
-    font-family: Myriad Pro;
-    color: #484848;
-    font-weight: normal;
-}
-.agreement-text{
-    text-transform: uppercase;
-    padding-top: 30px;
-    color: #a7a7a7;
-    font-size: 12px;
-    line-height: 20px;
-    padding-top: 4px;
-}
+ .el-select {
+     width: 200px;
+ }
 .btn-submit {
     float: left;
     width: 200px;
@@ -85,8 +73,4 @@ i {
         width: 183px;
         display: inline-block;
     } 
-}
-.recaptcha-element {
-    padding-bottom: 11px;
-    padding-top: 11px;
-}
+} 

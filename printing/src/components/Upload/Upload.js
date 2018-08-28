@@ -4,7 +4,7 @@ import {
   email,
   sameAs
 } from 'vuelidate/lib/validators';
- 
+
 export default {
   data() {
     return {
@@ -24,15 +24,33 @@ export default {
       pickerOptions1: {
         format: 'yyyy-MM-dd'
       },
-      birthday_at: ''
+      birthday_at: '',
+      productList: [],
+      selectedProduct: {}
+    }
+  },
+  watch:{
+    products(products){
+      this._proccessProducts(products);
     }
   },
   computed: {
     isFormValid() {
       return !this.$v.$invalid && this.agree && this.recaptchaResponse.length;
+    },
+    products() {
+      return this.$store.getters.products;
     }
   },
+  mounted(){
+     if(this.$store.getters.products) {
+      this.$store.dispatch('getProducts');
+     } 
+  },
   methods: {
+    onDropDownChange(){
+
+    },
     onSubmitSignup() {
       if (!this.isLoading && !this.$v.$invalid) {
         this.isLoading = true;
@@ -81,9 +99,25 @@ export default {
           this.isLoading = false
         });
       }
-    } 
+    },
+    _proccessProducts(products) {
+      let productList = [];
+      for (const key in products) {
+        if (products.hasOwnProperty(key)) {
+          const element = products[key];
+          element.forEach(element => {
+          productList.push({
+            name: element.name,
+            id: element.id,
+            selected: false
+          });
+         });
+        }
+      }
+      this.productList = productList;
+    }
   },
- 
+
   validations: {
     first_name: {
       required
@@ -105,9 +139,9 @@ export default {
     passwordConfirm: {
       required,
       sameAsPassword: sameAs('password')
-    },  
+    },
     phone: {
       required
-    },
-  } 
+    }
+  }
 }
