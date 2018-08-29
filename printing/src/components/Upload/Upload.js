@@ -26,7 +26,10 @@ export default {
       },
       birthday_at: '',
       productList: [],
-      selectedProduct: {}
+      selectedProduct: "",
+      formData: {
+        colors:""
+      }
     }
   },
   watch:{

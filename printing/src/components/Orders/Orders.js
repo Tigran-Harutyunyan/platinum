@@ -1,12 +1,23 @@
+import OrderDetailsPopup from './OrderDetailsPopup/OrderDetailsPopup.vue';
+
 export default {
   data() {
     return {
       activeTab: '1',
       allOrders: [],
-      cartItems: []
+      cartItems: [],
+      currentOrder: {},
+      showSummary: false
     }
   },
+  components:{
+    OrderDetailsPopup
+  },
   methods: {
+    openOrderDetailPopup(order) {
+         this.currentOrder = order;
+         this.showSummary = true;
+    },
     handleClick() {
       this.cartItems = this.filterOrders(this.activeTab);
     },

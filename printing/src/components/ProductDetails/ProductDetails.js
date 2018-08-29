@@ -18,7 +18,8 @@ export default {
       isRequiredSelected: false,
       totalPrice: '',
       loading: false,
-      selectedOptions: []
+      selectedOptions: [],
+      quantity: ""
     }
   },
   computed: {
@@ -43,7 +44,7 @@ export default {
         if (element.selected != "") {
           element.options.forEach(option => {
             if (option.quantity) {
-              quantityID = element.selected
+              this.quantity = element.selected
             }
             if (option.id == element.selected) {
               this.selectedOptions.push(option.id);
@@ -51,13 +52,13 @@ export default {
           });
         }
       });
-      if (quantityID) {
+      if ( this.quantity) {
         // only send requests if quantity is selected   
-        this.getProductPrice(quantityID);
+        this.getProductPrice();
       }
     },
 
-    getProductPrice(quantityID) {
+    getProductPrice() {
       this.checkAuth();
       if (!this.user) {
         this.$notify({
@@ -72,7 +73,7 @@ export default {
         let formData = new FormData();
         formData.append('token', this.user ? this.user.token : "");
         formData.append('product_id', this.product[0].id);
-        formData.append('quantity_id', [quantityID]);
+        formData.append('quantity_id', [ this.quantity]);
         formData.append('properties', JSON.stringify(this.selectedOptions));
         this.$store.dispatch('getProductPrice', {
           formData
@@ -119,10 +120,11 @@ export default {
         if (!this.isLoading) {
           this.isLoading = true;
           let formData = new FormData();
+          debugger
           formData.append('token', this.user ? this.user.token : "");
           formData.append('product_id', this.product[0].id);
           formData.append('properties', JSON.stringify(this.selectedOptions));
-
+          formData.append('quantity_id', [ this.quantity]); 
           if (this.fileList1.length > 0) {
             formData.append('front_side', this.fileList1[0].raw, this.fileList1[0].name);
           }

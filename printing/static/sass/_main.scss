@@ -2591,3 +2591,15 @@ menu hamburger>i:after {
 
   }
 }
+.order-details-modal {
+  .el-dialog__header {
+    display: none;
+  }
+}
+.orders-table  {  
+  border-right: none;
+  line-height: 44px; 
+  .el-table_1_column_6 .cell  {  
+    border-right: none  !important; 
+  }
+}

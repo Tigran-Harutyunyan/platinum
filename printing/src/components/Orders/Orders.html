@@ -1,4 +1,4 @@
-<div class="products-main">
+<div class="orders-table">
   <div class="bordered-block br-cart">
     <h3 class="product-category-title">{{ $t('message.orderStatus') }}</h3>
     <el-tabs v-model="activeTab" type="card" @tab-click="handleClick">
@@ -12,18 +12,22 @@
         </el-table-column>
         <el-table-column prop="approved_at" :label="$t('message.orderDate')" width="180">
         </el-table-column>
-        <el-table-column prop="name" :label="$t('message.orderName')" width="180">
+        <el-table-column prop="name" :label="$t('message.orderName')" width="200">
         </el-table-column>
-        <el-table-column prop="statusName" :label="$t('message.orderStatus')" width="230">
+        <el-table-column prop="statusName" :label="$t('message.orderStatus')" width="160">
         </el-table-column>
-        <el-table-column prop="price" :label="$t('message.orderPrice')" width="140">
+        <el-table-column prop="price" :label="$t('message.orderPrice')" width="120">
         </el-table-column>
-        <el-table-column label=" " width="140px">
+        <el-table-column  :label="$t('message.action')" width="180px">
           <template slot-scope="scope">
-            <a class="table-link" href="javascript:void(0)">{{ $t('message.orderDetails') }}</a>
+            <a class="table-link" @click="openOrderDetailPopup(scope.row)">{{ $t('message.orderDetails') }}</a>
           </template>
         </el-table-column>
       </el-table>
     </div>
   </div>
-</div>
+  <OrderDetailsPopup 
+    :order="currentOrder" 
+    :visible="showSummary"
+    @close="showSummary=false"></OrderDetailsPopup> 
+</div> 

@@ -1,0 +1,44 @@
+<el-dialog class="order-details-modal" title=" " width="800px"
+ :append-to-body="true" 
+ :showClose="false"
+ :visible.sync="visible" @close="$emit('close')">
+    <div class="popup-header">
+        <h2>{{$t('message.ordersPopup.header') }} </h2>
+        <div class="close" @click="$emit('close')"></div>
+    </div>
+    <table class="order-details-table">
+        <tr>
+            <td>{{ $t('message.ordersPopup.number') }}</td>
+            <td>{{ order.number }}</td>
+        </tr>
+        <tr>
+            <td>{{ $t('message.ordersPopup.date') }}</td>
+            <td>{{ order.approved_at }}</td>
+        </tr>
+        <tr>
+            <td>{{ $t('message.ordersPopup.name') }}</td>
+            <td>{{ order.approved_name  }}</td>
+        </tr>
+        <tr>
+            <td>{{ $t('message.ordersPopup.size') }}</td>
+            <td>{{ order.size }}</td>
+        </tr>
+        <tr>
+            <td>{{ $t('message.ordersPopup.paperType') }}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>{{ $t('message.ordersPopup.borders') }}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>{{ $t('message.ordersPopup.quantity') }}</td>
+            <td>{{ order.quantity }}</td>
+        </tr>
+        <tr>
+            <td>{{ $t('message.ordersPopup.price') }}</td>
+            <td>{{ order.price }}</td>
+        </tr>
+
+    </table>
+</el-dialog>

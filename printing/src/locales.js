@@ -323,6 +323,18 @@ export default {
         back: "ետ",
         recovery: "վերականգնում"
       },
+      ordersPopup: {
+        header: "պատվերի մանրամասներ",
+        number: "պատվերի համար",
+        date:"ամսաթիվ",
+        name:"պատվերի անվանում",
+        paperType:"թղթի տեսակը",
+        printingSides: "տպագրվող կողմեր",  
+        size:"չափը",
+        borders:"եզրեր",
+        quantity:"քանակ",
+        price: "արժեքը" 
+      },
       address: {
         part1: 'Հասցե՝ Ք. Երևան, Արշակունյաց 44',
         part2: 'Էլ-փոստ:',
@@ -383,10 +395,11 @@ export default {
       cartItemDeletePrompt: "Վստահ եք, որ ցանկանում եք ջնջել զամբյուղի տարրը",
       yes: 'Այո',
       orderDate: "Ամսաթիվ",
-      orderName: "Պատվերի անունը",
-      orderStatus: "Պատվերի կարգավիճակը",
+      orderName: "Պատվերի անվանում",
+      orderStatus: "կարգավիճակ",
       orderNumber: "Պատվերի ՀԱՄԱՐ",
-      orderPrice: "Գինը",
+      orderPrice: "արժեքը",
+      action: "գործողություն",
       orderDetails: "մանրամասն",
       myOrders: "իմ պատվերները",
       completedOrders: "ավարտած պատվերներ",
