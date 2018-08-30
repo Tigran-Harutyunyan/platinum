@@ -26,8 +26,7 @@
 
 .tabs {
     display: flex;
-    margin: 0 auto;
-    width: 720px;
+    margin: 0 auto; 
     .tab-item:nth-child(1){
         border-right: none
     }

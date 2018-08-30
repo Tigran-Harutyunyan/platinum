@@ -7,28 +7,16 @@ import {
 
 export default {
   data() {
-    return {
-      agree: false,
-      recaptchaResponse: "",
-      first_name: "",
-      last_name: "",
-      company_name: "",
-      email: "",
-      password: "",
-      receive_promotions: false,
-      recaptcha: '',
-      passwordConfirm: '',
-      isLoading: false,
-      birthday_at: "",
-      phone: "",
-      pickerOptions1: {
-        format: 'yyyy-MM-dd'
-      },
-      birthday_at: '',
+    return {   
+      isLoading: false, 
       productList: [],
       selectedProduct: "",
       formData: {
-        colors:""
+        product_id: "",
+        length: "",
+        height: "",
+        width: "",
+        message: "", 
       }
     }
   },
@@ -67,9 +55,7 @@ export default {
           receive_promotions: this.receive_promotions,
           recaptcha: this.recaptchaResponse
         }
-        if (this.birthday_at) {
-          data.birthday_at = this.birthday_at;
-        }
+        
 
         this.$store.dispatch('requestSignup', data).then((response) => {
           this.isLoading = false;
@@ -122,29 +108,19 @@ export default {
   },
 
   validations: {
-    first_name: {
+    length: {
       required
     },
-    last_name: {
+    height: {
       required
     },
-    email: {
+    width: {
       required,
       email
     },
-    companyName: {
+    message: {
       required
     },
-    password: {
-      required,
-      minLength: minLength(6)
-    },
-    passwordConfirm: {
-      required,
-      sameAsPassword: sameAs('password')
-    },
-    phone: {
-      required
-    }
+     
   }
 }

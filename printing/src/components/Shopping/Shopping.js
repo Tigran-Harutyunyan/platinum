@@ -3,7 +3,7 @@ import Footer from "../Footer/Footer.vue";
 import Slider from "../Slider/Slider.vue";
 import Sidebar from "../Sidebar/Sidebar.vue";
 import HelperLinks from "../HelperLinks/HelperLinks.vue";
-import HelpTabs from "../HelpTabs/HelpTabs.vue";
+import InfoTabs from "../InfoTabs/InfoTabs.vue";
 export default {
   name: 'home',
   components: {
@@ -12,7 +12,7 @@ export default {
     Footer,
     Sidebar,
     HelperLinks,
-    HelpTabs
+    InfoTabs
   },
   data() {
     return {
@@ -33,4 +33,4 @@ export default {
   created() {
     this.checkRoute(this.$route.name);
   }
-}
+} 

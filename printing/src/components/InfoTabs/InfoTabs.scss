@@ -3,7 +3,10 @@
 }
 
 .tabs-container {
-  padding-top: 80px;
+  clear: both;
+  .tabs {
+    width: 480px;
+  }
 }
 
 .tab-content {

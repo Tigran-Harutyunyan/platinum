@@ -2259,7 +2259,7 @@ menu hamburger>i:after {
 .el-tabs__item {
   color: #af995a;
   font-size: 17px;
-  padding: 1px 26px !important;
+  padding: 2px 26px !important;
   text-transform: uppercase
 }
 
@@ -2572,7 +2572,9 @@ menu hamburger>i:after {
   background: #000;
 }
 
-
+.el-tabs__item {
+  height: auto;
+}
 .home-page-subcription-form {
   .def-input {
     width: 320px;

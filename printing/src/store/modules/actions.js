@@ -31,7 +31,7 @@ const setUserInfo = ({
 const getProducts = ({
   commit,
   state
-}, data) => { 
+}, data) => {
   return new Promise((resolve, reject) => {
     productsApi.getProducts(state.storage.locale).then(
       (response) => {
@@ -42,7 +42,7 @@ const getProducts = ({
         reject(errorResponse);
       }
     );
-  }); 
+  });
 };
 const getCompletedWorks = ({
   commit,
@@ -125,13 +125,13 @@ const getCategories = ({
   state
 }, data) => {
   axios.get(`${state.apiPath}/api/getCategories?lang=${state.storage.locale}`).then((response) => {
-    if(Array.isArray(response.data)){
-     /*  array.forEach(element => {
-        
-      }); */
+    if (Array.isArray(response.data)) {
+      /*  array.forEach(element => {
+         
+       }); */
       commit('UPDATE_CATEGORIES', response.data)
     }
- 
+
   })
 };
 const getSearchResults = ({
@@ -474,11 +474,27 @@ const getStaffInfo = ({
     }
   })
 };
+const getSamples = ({
+  commit,
+  state
+}) => {
+  return new Promise((resolve, reject) => {
+    axios.get(`${state.apiPath}/api/getSamples?lang=${state.storage.locale}`).then((response) => {
+     /*  response.data.forEach(element => {
+        element.image = `${state.apiPath}${element.image}`;
+        element.name = `${ element.first_name} ${ element.last_name}`;
+      }); */
+      resolve(response.data);
+    }).catch(function (error) {
+      reject(error);
+    });
+  });
+};
+ 
 const getOrders = ({
   commit,
   state
 }) => {
-
   return new Promise((resolve, reject) => {
     let formData = new FormData();
     let token = state.storage.user ? state.storage.user.token : "";
@@ -571,5 +587,6 @@ export default {
   getProjectSliderImages,
   getSearchResults,
   setScrollParams,
-  setSideBarProducts
+  setSideBarProducts,
+  getSamples
 }

@@ -14,7 +14,7 @@ import Home from '../components/Home/Home.vue'
 import Shopping from '../components/Shopping/Shopping.vue'
 import Portfolio from '../components/Portfolio/Portfolio.vue'
 import Advertisement from '../components/Advertisement/Advertisement.vue'
-import Upload from '../components/Upload/Upload.vue'
+import CustomOrder from '../components/CustomOrder/CustomOrder.vue'
 Vue.use(Router);
 
 const shouldBeAuthed = async (to, from, next) => {
@@ -87,9 +87,9 @@ const router = new Router({
           component: Advertisement  
         },
         {
-          path: '/upload',
-          name: 'upload',
-          component: Upload
+          path: '/custom-order',
+          name: 'customOrder',
+          component: CustomOrder
         }
       ]
     },

@@ -7,8 +7,7 @@
         <img :src="product.image">
         <div class="product-descr">
             <span class="product-name">{{ product.name }}</span> 
-            <div class="product-pricing">
-                <div class="short-description" v-html="product.short_description"> </div> 
+            <div class="product-pricing" v-html="product.short_description"> 
             </div>
         </div>
     </router-link> 
