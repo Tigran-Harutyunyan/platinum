@@ -22,4 +22,44 @@
       }
     };
 </script>
+<style lang="scss" scoped>
+
+.tabs {
+    display: flex;
+    margin: 0 auto;
+    width: 720px;
+    .tab-item:nth-child(1){
+        border-right: none
+    }
+}
+
+.tab-item {
+    color: #af995a;
+    font-size: 17px;
+    padding: 14px 26px;
+    border: 1px solid #af995a;
+    border-bottom: none;
+    width: 240px;
+    text-align: center;
+    position: relative;
+    text-transform: uppercase;
+    cursor: pointer;
+    i {
+        display: none;
+        position: absolute;
+        bottom: -1px;
+        width: 100%;
+        border-bottom: 1px solid #fff;
+        left: 0;
+    }
+}
+
+.tab-item.active-tab {
+    background: white;
+    i {
+        display: block
+    }
+}
+</style>
+
  
