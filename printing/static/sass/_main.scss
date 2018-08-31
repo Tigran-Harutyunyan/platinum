@@ -2285,7 +2285,14 @@ menu hamburger>i:after {
     border-left: 1px solid #af995a !important;
   }
 }
-
+.el-textarea__inner {
+  border: 1px solid #af995a;
+  background: transparent;
+  border-radius: 30px;
+  height: 120px;
+  width: 500px;
+  resize: none
+}
 .el-table th>.cell {
   text-transform: uppercase;
   font-weight: normal;

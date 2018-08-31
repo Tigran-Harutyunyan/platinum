@@ -1,20 +1,20 @@
 <div class="products-main">
   <div class="bordered-block br-cart">
-    <h3 class="product-category-title">{{ $t('message.upload.mainHeading') }}</h3>
+    <h3 class="product-category-title">{{ $t('message.customOrder.mainHeading') }}</h3>
     <div class="product-details-inner">
       <div class="sign-up-top">
-        <p>{{ $t('message.upload.heading1') }}:
-          <br>{{ $t('message.upload.heading2') }}:
+        <p>{{ $t('message.customOrder.heading1') }}:
+          <br>{{ $t('message.customOrder.heading2') }}:
         </p>
       </div>
       <form 
-        v-on:submit.prevent="onSubmitSignup" 
-        @submit="$v.first_name.$touch();$v.last_name.$touch();$v.email.$touch();$v.companyName.$touch();$v.password.$touch();$v.passwordConfirm.$touch();$v.phone.$touch();">
+        v-on:submit.prevent="onSubmit" 
+        @submit="$v.length.$touch();$v.width.$touch();$v.height.$touch();$v.message.$touch();">
         <div class="sign-up-bottom">
           <div class="left">
             <table class="table-2">
               <tr>
-                <td>{{ $t('message.upload.type') }}</td>
+                <td>{{ $t('message.customOrder.type') }}</td>
                 <td>
                   <el-select 
                       v-model="selectedProduct" 
@@ -30,37 +30,53 @@
               </tr>
               
               <tr>
-                <td>{{ $t('message.upload.length') }}</td>
+                <td>{{ $t('message.customOrder.length') }}</td>
                 <td>
-                  <el-input v-model="formData.length" :class="{'has-error': $v.companyName.$error}"></el-input> 
+                  <el-input v-model="formData.length" :class="{'has-error': $v.length.$error}"></el-input> 
                 </td>
               </tr>
               <tr>
-                <td>{{ $t('message.upload.width') }}</td>
+                <td>{{ $t('message.customOrder.width') }}</td>
                 <td>
-                  <el-input v-model="email" :class="{'has-error': $v.email.$error}"></el-input>
+                  <el-input v-model="formData.width" :class="{'has-error': $v.width.$error}"></el-input>
                 </td>
               </tr> 
               <tr>
-                <td>{{ $t('message.upload.colors') }}</td>
+                <td>{{ $t('message.customOrder.colors') }}</td>
                 <td>
-                  <el-input type="text" v-model="formData.colors" :class="{'has-error': $v.passwordConfirm.$error}"></el-input>
+                  <el-input type="text" v-model="formData.colors" :class="{'has-error': $v.colors.$error}"></el-input>
                 </td>
               </tr> 
               <tr>
-                <td>{{ $t('message.signup.phone') }}</td>
-                <td class="custom-picker">
-                    <el-input type="text" v-model="phone" :class="{'has-error': $v.phone.$error}"></el-input> 
+                <td>{{ $t('message.customOrder.logo') }}</td>
+                <td> 
+                  <el-upload class="upload-demo up-demo1" 
+                     accept="image/*"
+                     action=""
+                     :on-change="handleUpload"
+                     :file-list="fileList" 
+                     :auto-upload="false" 
+                    >
+                  <el-button size="small" type="primary" class="btn-submit btn-invert">{{ $t('message.customOrder.uploadFile')}}</el-button>  
+                </el-upload> 
                 </td>
-              </tr>
+              </tr> 
+
             </table>
           </div>
           <div class="right"> 
             <div class="list-container">
-              
-            </div> 
-            
-            <input type="submit" class="btn-submit btn-invert" :value="$t('message.signup.info8')">
+                <tr>
+                    <td>{{ $t('message.customOrder.textInfo1') }} <br>{{ $t('message.customOrder.textInfo2') }}</td>
+                    <td class="custom-picker">
+                        <el-input type="textarea" :rows="2" v-model="formData.message" :class="{'has-error': $v.message.$error}"></el-input> 
+                    </td> 
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td><div class="description">{{ $t('message.customOrder.description') }}</div></td></tr>
+            </div>  
+            <input type="submit" class="btn-submit btn-invert" :value="$t('message.customOrder.send')">
           </div>
         </div>
       </form>

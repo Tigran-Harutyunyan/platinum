@@ -10,6 +10,7 @@ export default {
     return {   
       isLoading: false, 
       productList: [],
+      fileList:[],
       selectedProduct: "",
       formData: {
         product_id: "",
@@ -42,18 +43,16 @@ export default {
     onDropDownChange(){
 
     },
-    onSubmitSignup() {
+    onSubmit() {
       if (!this.isLoading && !this.$v.$invalid) {
         this.isLoading = true;
         let data = {
-          email: this.email,
-          password: this.password,
-          first_name: this.first_name,
-          last_name: this.last_name,
-          company_name: this.company_name,
-          phone: this.phone,
-          receive_promotions: this.receive_promotions,
-          recaptcha: this.recaptchaResponse
+          length: this.formData.length,
+          height: this.formData.height,
+          width: this.formData.width,
+          message: this.formData.message,
+          product_id: this.company_name,
+          phone: this.phone, 
         }
         
 
@@ -64,7 +63,7 @@ export default {
               this.$refs.recaptcha.reset();
             } else {
               this.$notify({
-                title: 'Sign up',
+                title: 'Custom order',
                 message: response.message ? response.message : 'Failed to sign up',
                 position: "top-right",
                 type: "error"
@@ -72,7 +71,7 @@ export default {
             }
           } else {
             this.$notify({
-              title: 'Sign up',
+              title: 'Custom order',
               message: 'Signup success! Please log in',
               position: "bottom-right",
               type: "success"
@@ -104,7 +103,20 @@ export default {
         }
       }
       this.productList = productList;
-    }
+    },
+    handleUpload(file, fileList) {
+      if (file.raw.type.indexOf('image') != -1) {
+        var fr = new FileReader();
+        fr.onload = () => {
+          let obj = {
+            'background-image': `url(${fr.result})`,
+            'background-color': 'transparent'
+          };
+           
+        }
+        fr.readAsDataURL(file.raw);
+      }
+    },
   },
 
   validations: {
@@ -121,6 +133,8 @@ export default {
     message: {
       required
     },
-     
+    colors: {
+      required
+    },
   }
 }

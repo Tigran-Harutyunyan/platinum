@@ -1,76 +1,88 @@
-.sign-up-top{ 
-    width: 100%;
-    padding-bottom: 32px;
-    border-bottom: 1px solid #af995a;
-    p {
-        text-transform: uppercase;
-        color: #484848;
-        line-height: 23px;
-    }
-}  
-.btn-submit {
-    margin-top: 30px;
+.sign-up-top {
+  width: 100%;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #af995a;
+  p {
+    text-transform: uppercase;
+    color: #484848;
+    line-height: 23px;
+  }
 }
+
+.btn-submit {
+  margin-top: 0;
+}
+
 .btn-links {
-    cursor: pointer;
+  cursor: pointer;
 }
+
 .el-input {
-    width: 200px;
-    padding-bottom: 10px;
-}  
+  width: 200px;
+  padding-bottom: 10px;
+}
+
 .input-item {
-    display: flex;
+  display: flex;
 }
+
 tr {
-    td:first-child {
-        text-transform: uppercase;
-        padding-top: 7px;
-        padding-right: 10px; 
-        padding-bottom: 19px;
-    }
+  td:first-child {
+    text-transform: uppercase;
+    padding-top: 7px;
+    padding-right: 10px;
+    padding-bottom: 19px;
+  }
 }
+
 .sign-up-bottom {
-    padding-top: 40px;
-    padding-bottom: 330px;
-    display: flex;
-    .left {
-        margin-right: 56px
+  padding-top: 40px;
+  padding-bottom: 330px;
+  display: flex;
+  .left {
+    margin-right: 56px
+  }
+  .right {
+    tr {
+      td:first-child {
+        padding-bottom: 22px;
+        width: 280px;
+      }
     }
-    .right {
-        tr {
-            td:first-child {
-                padding-bottom: 22px;
-                width: 280px;
-            } 
-        }
-    } 
+    .btn-submit {
+      float: right;
+    }
+  }
 }
-.checked-input {
-    padding-top: 11px;
+
+.el-select {
+  width: 200px;
 }
- .el-select {
-     width: 200px;
- }
+
 .btn-submit {
-    float: left;
-    width: 200px;
-    margin-top: 18px;
+  float: left;
+  width: 200px;
+  margin-top: 0;
 }
+
 i {
-    font-style: normal;
-    color: #af995a; 
+  font-style: normal;
+  color: #af995a;
 }
+
+.description {
+  color: #a9a9a9;
+  font-size: 12px;
+  width: 502px;
+  line-height: 20px;
+  padding-top: 7px;
+  margin-bottom: 45px;
+}
+
 .list-container {
-    display: flex;
-    margin-bottom: 10px;
-    ul:first-child { margin-right: 20px;}
-    ul {
-        li {
-            line-height: 28px;
-        }
-    }
-    span {
-        width: 183px;
-        display: inline-block;
-    } 
-} 
+  display: flex;
+  flex-direction: column;
+  tr td:first-child {
+    width: 129px !important;
+  }
+}
