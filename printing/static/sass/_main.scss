@@ -2331,7 +2331,7 @@ menu hamburger>i:after {
   line-height: 44px;
 }
 
-.el-input.has-error .el-input__inner {
+.el-input.has-error .el-input__inner,.el-textarea.has-error .el-textarea__inner {
   border-color: red;
 }
 

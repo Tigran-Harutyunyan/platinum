@@ -57,7 +57,7 @@
                      :file-list="fileList" 
                      :auto-upload="false" 
                     >
-                  <el-button size="small" type="primary" class="btn-submit btn-invert">{{ $t('message.customOrder.uploadFile')}}</el-button>  
+                  <el-button size="small" type="primary" :class="{'has-error': $v.message.$error}" class="btn-submit btn-invert">{{ $t('message.customOrder.uploadFile')}}</el-button>  
                 </el-upload> 
                 </td>
               </tr> 
