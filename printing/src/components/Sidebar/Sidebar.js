@@ -1,8 +1,13 @@
+import Preloader from '../../commonComponents/Preloader/Preloader.vue';
 export default {
   data() {
     return {
-      productList: {}
+      productList: {},
+      isLoading: true
     }
+  },
+  components:{
+    Preloader
   },
   watch: {
     products: function (newVal, oldVal) {
@@ -13,6 +18,7 @@ export default {
           element[0].categoryName = this.getCategoryName(element[0].category_id); 
         }
       }
+      this.isLoading = false;
       this.productList = products;
       this.$store.dispatch('setSideBarProducts',products);
     },
@@ -51,6 +57,7 @@ export default {
   },
   mounted() { 
     if (this.sidebarProducts) { 
+      this.isLoading = false;
       this.productList = this.sidebarProducts;
     } else {
       let categories = this.$store.getters.categories;

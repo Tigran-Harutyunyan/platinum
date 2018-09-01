@@ -46,43 +46,27 @@ export default {
     onSubmit() {
       if (!this.isLoading && !this.$v.$invalid) {
         this.isLoading = true;
+        debugger
         let data = {
           length: this.formData.length,
           height: this.formData.height,
           width: this.formData.width,
+          colors: this.formData.colors,
           message: this.formData.message,
-          product_id: this.company_name,
-          phone: this.phone, 
+          product_id: this.selectedProduct 
         }
         
 
-        this.$store.dispatch('requestSignup', data).then((response) => {
+        this.$store.dispatch('customOrder', data).then((response) => {
           this.isLoading = false;
-          if (response.error) {
-            if (response.message == "Invalid Recaptcha") {
-              this.$refs.recaptcha.reset();
-            } else {
-              this.$notify({
-                title: 'Custom order',
-                message: response.message ? response.message : 'Failed to sign up',
-                position: "top-right",
-                type: "error"
-              });
-            }
-          } else {
-            this.$notify({
-              title: 'Custom order',
-              message: 'Signup success! Please log in',
-              position: "bottom-right",
-              type: "success"
-            });
-            this.$router.push({
-              name: 'Categories',
-              params: {
-                id: 1
-              }
-            })
-          }
+            
+          this.$notify({
+            title: 'Custom order',
+            message: 'Success!',
+            position: "bottom-right",
+            type: "success"
+          });
+           
         }).catch((error) => {
           this.isLoading = false
         });

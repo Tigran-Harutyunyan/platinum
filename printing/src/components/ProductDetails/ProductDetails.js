@@ -1,6 +1,8 @@
 import {
   EventBus
 } from '../../event-bus.js';
+import Preloader from '../../commonComponents/Preloader/Preloader.vue';
+
 export default {
   data() {
     return {
@@ -13,7 +15,7 @@ export default {
       copyOfProduct: {},
       productInfo: {},
       isDirty: false,
-      isLoading: false,
+      isLoading: true,
       showPriceTotal: false,
       isRequiredSelected: false,
       totalPrice: '',
@@ -21,6 +23,9 @@ export default {
       selectedOptions: [],
       quantity: ""
     }
+  },
+  components: {
+    Preloader
   },
   computed: {
     storage() {
@@ -228,6 +233,7 @@ export default {
               element.image = `${this.apiPath}${element.image}`;
             });
           }
+          this.isLoading = false;
           this.productInfo = response[0];
           this.showPriceTotal = countProperties > 0;
           this.copyOfProduct = JSON.parse(JSON.stringify(this.product));

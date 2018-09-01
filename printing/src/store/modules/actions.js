@@ -402,6 +402,27 @@ const removeBasketProduct = ({
     })
   });
 };
+const customOrder = ({
+  commit,
+  state
+}, {
+  formData
+}) => {
+  return new Promise((resolve, reject) => {
+    axios({
+      url: `${state.apiPath}/api/customOrder`,
+      method: 'post',
+      data: formData,
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      }
+    }).then(response => {
+      resolve(response.data);
+    }).catch(function (error) {
+      reject(error);
+    })
+  });
+};
 const getProductById = ({
   commit,
   state
@@ -590,5 +611,6 @@ export default {
   getSearchResults,
   setScrollParams,
   setSideBarProducts,
-  getSamples
+  getSamples,
+  customOrder
 }

@@ -1,9 +1,8 @@
 <div class="portfolio" >
   <Header />
-
-  <div class="main-section content-area" :class="{'is-visible':showContent}">
- 
-    <div class="portfolio-grid"  v-loading="loading">
+  <Preloader v-if="loading" class="spinner"></Preloader>
+  <div class="main-section content-area" :class="{'is-visible':showContent}">  
+    <div class="portfolio-grid" >
       <isotope class="grid"
           :options='getOptions()'
           :list="completedWorks"  

@@ -1,10 +1,15 @@
+import Preloader from '../../commonComponents/Preloader/Preloader.vue';
 export default {
     data() {
         return {
             productList: [],
             categoryName: "",
-            allProducts: []
+            allProducts: [],
+            isLoading: true
         }
+    },
+    components:{
+        Preloader
     },
     watch: {
         '$route' (to, from) {
@@ -21,7 +26,7 @@ export default {
     },
     mounted() {
         let categories = this.$store.getters.categories;
-        if (categories) {
+        if (categories) { 
             this.allProducts = this.products;
             this.setCategories(categories); 
         } else {
@@ -54,6 +59,7 @@ export default {
                     }
                 }
             }
+            this.isLoading = false;
         },
         setCategories(data) {
             data.forEach(category => {

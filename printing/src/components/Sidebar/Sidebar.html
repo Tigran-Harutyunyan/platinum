@@ -1,6 +1,7 @@
 <div class="products-sidebar">
     <h2 class="sidebar-title">{{ $t('message.products') }}</h2>
-    <div class="subsection-container">
+    <Preloader v-if="isLoading"></Preloader>
+    <div v-else class="subsection-container">
         <div class="sidebar-subsection" v-for="group in productList"> 
             <router-link  :to="`/category/${group[0].category_id}`" >
                 <h3>{{ group[0].categoryName }} </h3>

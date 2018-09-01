@@ -4,6 +4,8 @@ import VueGridLayout from "vue-grid-layout";
 import isotope from 'vueisotope';
 import PortfolioPopup from './PortfolioPopup/PortfolioPopup.vue';
 import debounce from 'lodash.debounce';
+import Preloader from '../../commonComponents/Preloader/Preloader.vue';
+
 export default {
   data() {
     return { 
@@ -64,6 +66,7 @@ export default {
     Header,
     Footer,
     PortfolioPopup,
-    isotope
+    isotope,
+    Preloader
   }
-}
+} 

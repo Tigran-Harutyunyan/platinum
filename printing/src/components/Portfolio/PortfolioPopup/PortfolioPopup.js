@@ -1,5 +1,6 @@
+ 
  export default {
-   props: ['completedWorks', 'currentSlideID'],
+   props: ['completedWorks', 'currentSlideID'], 
    data() {
      return {
        counter: 0,
@@ -7,7 +8,7 @@
        loading: false,
        dialogVisible: false
      }
-   },
+   }, 
    computed: {
      amount() {
        return this.completedWorks.length;
