@@ -3,6 +3,7 @@
    margin-top: 68px;
  }
 
+
  .main-section.content-area.is-visible {
    opacity: 1;
    visibility: visible;
@@ -234,7 +235,7 @@
    .grid .grid-item:nth-child(5),
    .grid .grid-item:nth-child(8) {
      height: 348px;
-   }
+   }  
    .design-dialog {
      width: 100%;
    }
@@ -249,10 +250,14 @@
    }
  }
 
+
  @media only screen and (max-width: 1500px) {
    .grid {
      width: 1083px;
    }
+   .is-scrolled .info-container { 
+      margin-left: calc(100% - 266px);  
+  }
  }
 
  @media only screen and (max-width: 1200px) {

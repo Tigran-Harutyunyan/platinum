@@ -10,8 +10,8 @@ export default {
       counter: 0,
       currentSlideID: '',
       showContent: false,
-      loading: true,
-      scrollPosition: ""
+      loading: true, 
+      isScrolled:false
     }
   },
   watch: {
@@ -32,13 +32,10 @@ export default {
     }
   },
   methods: {  
-    invokeSearching: _.debounce(function () {
-      this.scrollPosition = window;
-      var bodyRect = document.body.getBoundingClientRect(),
-        elemRect = document.getElementById("scrolledDiv").getBoundingClientRect(),
-        offset = elemRect.top - bodyRect.top;
-      console.log('Element is ' + offset + ' vertical pixels from <body>');
-    }, 400),
+    invokeSearching: _.debounce(function () { 
+      let offsetTop = $('.portfolio-modal').scrollTop();
+        this.isScrolled = offsetTop > 80;
+    }, 10),
     getOptions: function () {
       var _this = this
       return {
@@ -56,7 +53,7 @@ export default {
       this.currentSlideID = -1;
     } 
   },
-  mounted() {
+  mounted() { 
     this.$store.dispatch('getCompletedWorks'); 
      document.getElementById("scrolledDiv").addEventListener('scroll', this.invokeSearching);  
   },

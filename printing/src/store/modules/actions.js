@@ -480,17 +480,19 @@ const getSamples = ({
 }) => {
   return new Promise((resolve, reject) => {
     axios.get(`${state.apiPath}/api/getSamples?lang=${state.storage.locale}`).then((response) => {
-     /*  response.data.forEach(element => {
-        element.image = `${state.apiPath}${element.image}`;
-        element.name = `${ element.first_name} ${ element.last_name}`;
-      }); */
+      if (Array.isArray(response.data)) {
+        response.data.forEach(element => {
+          element.image = `${state.apiPath}${element.image}`;
+          element.pdf = `${state.apiPath}${element.pdf}`;
+        });
+      }
       resolve(response.data);
     }).catch(function (error) {
       reject(error);
     });
   });
 };
- 
+
 const getOrders = ({
   commit,
   state

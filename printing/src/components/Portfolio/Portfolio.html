@@ -31,6 +31,7 @@
   </div>
   
   <PortfolioPopup id="scrolledDiv"
+    :class="{'is-scrolled':isScrolled}"
     v-on:popupClosed="onPopupClosed"
     :completedWorks="completedWorks"
     :currentSlideID="currentSlideID">

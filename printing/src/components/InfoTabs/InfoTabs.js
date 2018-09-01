@@ -7,6 +7,7 @@ export default {
   data() {
     return {
       activeTab: 1,
+      links: [],
       tabs: [{
           id: 1,
           name: 'message.uploadSamples',
@@ -26,10 +27,8 @@ export default {
     },
     getSamples() {
       this.$store.dispatch('getSamples').then((response) => { 
-        if (response.error) {
-
-        } else {
-
+        if(Array.isArray(response)){
+          this.links = response;
         }
       }).catch((error) => {});
     }

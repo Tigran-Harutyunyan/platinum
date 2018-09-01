@@ -4,70 +4,14 @@
     <div class="tab-content" v-if="activeTab==1">
       <div class="tab-inner">
         <ul class="download-links">
-          <li>
-            <a download href="../../../static/pdf/10x21.flyer.pdf">
+          <li v-for="(item, index) in links" >
+            <a download :href="item.pdf">
               <div class="link-box">
-                <img src="https://via.placeholder.com/200X200" alt="">
-                <div class="link-caption">{{ $t('message.pdf.n1') }}</div>
+                <img :src="item.image" :alt="item.name">
+                <div class="link-caption">{{ item.name }}</div>
               </div>
             </a>
-          </li>
-          <li>
-            <a download href="../../../static/pdf/A4. 1 fold brochure inside.pdf">
-              <div class="link-box">
-                <img src="https://via.placeholder.com/200X200" alt="">
-                <div class="link-caption">{{ $t('message.pdf.n1') }}</div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a download href="../../../static/pdf/10x21.flyer.pdf">
-              <div class="link-box">
-                <img src="https://via.placeholder.com/200X200" alt="">
-                <div class="link-caption">{{ $t('message.pdf.n1') }}</div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a download href="../../../static/pdf/A4. 1 fold brochure inside.pdf">
-              <div class="link-box">
-                <img src="https://via.placeholder.com/200X200" alt="">
-                <div class="link-caption">{{ $t('message.pdf.n1') }}</div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a download href="../../../static/pdf/10x21.flyer.pdf">
-              <div class="link-box">
-                <img src="https://via.placeholder.com/200X200" alt="">
-                <div class="link-caption">{{ $t('message.pdf.n1') }}</div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a download href="../../../static/pdf/A4. 1 fold brochure inside.pdf">
-              <div class="link-box">
-                <img src="https://via.placeholder.com/200X200" alt="">
-                <div class="link-caption">{{ $t('message.pdf.n1') }}</div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a download href="../../../static/pdf/10x21.flyer.pdf">
-              <div class="link-box">
-                <img src="https://via.placeholder.com/200X200" alt="">
-                <div class="link-caption">{{ $t('message.pdf.n1') }}</div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a download href="../../../static/pdf/A4. 1 fold brochure inside.pdf">
-              <div class="link-box">
-                <img src="https://via.placeholder.com/200X200" alt="">
-                <div class="link-caption">{{ $t('message.pdf.n1') }}</div>
-              </div>
-            </a>
-          </li>
+          </li> 
         </ul>
       </div>
     </div>

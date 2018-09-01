@@ -41,8 +41,7 @@
          if (index == this.counter) {
            id = element.id
          }
-       });
-
+       }); 
        this.getCompletedWorkById(id);
      },
      getCompletedWorkById(id) {

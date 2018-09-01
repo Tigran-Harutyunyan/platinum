@@ -2335,6 +2335,44 @@ menu hamburger>i:after {
   border-color: red;
 }
 
+// design view popup adjustments
+.is-scrolled .info-container { 
+    position: fixed !important;
+    margin-left: 890px;
+    top: 0; 
+}
+@media only screen and (max-width: 1250px) {
+  .is-scrolled .info-container { 
+    margin-left: calc(100% - 266px);  
+  }
+}
+@media only screen and (max-width: 1175px) {
+  .is-scrolled .info-container { 
+    margin-left: 610px;  
+  }
+  .portfolio-modal.el-dialog__wrapper  .el-dialog {
+    background: none;
+    width: 800px !important
+  }
+}
+@media only screen and (max-width: 850px) {
+  .portfolio-modal.el-dialog__wrapper  .el-dialog { 
+    width: 500px !important
+  }
+  .is-scrolled .info-container { 
+    margin-left: 310px;  
+  }
+}
+@media only screen and (max-width: 560px) {
+  .portfolio-modal.el-dialog__wrapper  .el-dialog { 
+    width: 95% !important
+  }
+  .is-scrolled .info-container { 
+    margin-left: 0;
+    position: relative !important;  
+  }
+}
+////////////////////////////////////////////////////////////
 .btn-submit[disabled],
 .btn-submit.disabled {
   background: #fbfbfb !important;
