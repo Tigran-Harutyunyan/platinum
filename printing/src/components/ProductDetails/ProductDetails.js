@@ -124,8 +124,7 @@ export default {
       } else {
         if (!this.isLoading) {
           this.isLoading = true;
-          let formData = new FormData();
-          debugger
+          let formData = new FormData(); 
           formData.append('token', this.user ? this.user.token : "");
           formData.append('product_id', this.product[0].id);
           formData.append('properties', JSON.stringify(this.selectedOptions));

@@ -28,13 +28,18 @@
 
 tr {
   td:first-child {
+    font-weight: bold;
     text-transform: uppercase;
     padding-top: 7px;
-    padding-right: 10px;
-    padding-bottom: 19px;
+    padding-right: 35px;
+    padding-bottom: 24px;
   }
 }
-
+.top-line {
+    span { 
+        line-height: 33px;
+    }
+}
 .sign-up-bottom {
   padding-top: 40px;
   padding-bottom: 330px;
@@ -45,6 +50,7 @@ tr {
   .right {
     tr {
       td:first-child {
+        font-weight: bold;
         padding-bottom: 22px;
         width: 280px;
       }
@@ -71,6 +77,7 @@ i {
 }
 
 .description {
+  margin-left: 12px;
   color: #a9a9a9;
   font-size: 12px;
   width: 502px;
@@ -84,5 +91,11 @@ i {
   flex-direction: column;
   tr td:first-child {
     width: 129px !important;
+    font-weight: bold;
+  }
+}
+.upload-logo-block {
+  td {
+      padding-top: 27px !important;
   }
 }

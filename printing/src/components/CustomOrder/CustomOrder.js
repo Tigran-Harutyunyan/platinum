@@ -7,66 +7,85 @@ import {
 
 export default {
   data() {
-    return {   
-      isLoading: false, 
+    return {
+      isLoading: false,
       productList: [],
-      fileList:[],
-      selectedProduct: "",
-      formData: {
-        product_id: "",
-        length: "",
-        height: "",
-        width: "",
-        message: "", 
-      }
+      fileList: [], 
+      product_id: "", 
+      height: "",
+      width: "",
+      message: "",
+      colors: ""
     }
   },
-  watch:{
-    products(products){
+  watch: {
+    products(products) {
       this._proccessProducts(products);
     }
   },
   computed: {
     isFormValid() {
-      return !this.$v.$invalid && this.agree && this.recaptchaResponse.length;
+      return !this.$v.$invalid;
     },
     products() {
       return this.$store.getters.products;
     }
   },
-  mounted(){
-     if(this.$store.getters.products) {
+  mounted() {
+    if (this.$store.getters.products) {
       this.$store.dispatch('getProducts');
-     } 
+    }
   },
-  methods: {
-    onDropDownChange(){
-
-    },
+  methods: { 
     onSubmit() {
-      if (!this.isLoading && !this.$v.$invalid) {
-        this.isLoading = true;
-        debugger
-        let data = {
-          length: this.formData.length,
-          height: this.formData.height,
-          width: this.formData.width,
-          colors: this.formData.colors,
-          message: this.formData.message,
-          product_id: this.selectedProduct 
-        }
-        
-
-        this.$store.dispatch('customOrder', data).then((response) => {
-          this.isLoading = false;
-            
+      if (!this.$v.$invalid) {
+        if (this.fileList.length === 0) {
           this.$notify({
             title: 'Custom order',
-            message: 'Success!',
+            message: 'Please upload the file.',
             position: "bottom-right",
-            type: "success"
+            type: "info"
           });
-           
+          return;
+        }
+        if (!this.product_id) {
+          this.$notify({
+            title: 'Custom order',
+            message: 'Please select the product',
+            position: "bottom-right",
+            type: "info"
+          });
+          return;
+        }
+        this.isLoading = true;
+        let formData = new FormData();
+ 
+        formData.append('height', this.height);
+        formData.append('width', this.width);
+        formData.append('colors', this.colors); 
+        formData.append('product_id', this.product_id);
+        formData.append('message', this.message); 
+        if (this.fileList.length > 0) {
+          formData.append('logo', this.fileList[0].raw, this.fileList[0].name);
+        }
+
+        this.$store.dispatch('customOrder', formData).then((response) => {
+          this.isLoading = false;
+          if (!response.error){
+            this.$notify({
+              title: 'Custom order',
+              message: 'Success!',
+              position: "bottom-right",
+              type: "success"
+            });
+          } else {
+            this.$notify({
+              title: 'Custom order',
+              message: response.message ? response.message : 0,
+              position: "bottom-right",
+              type: "error"
+            });
+          } 
         }).catch((error) => {
           this.isLoading = false
         });
@@ -78,47 +97,41 @@ export default {
         if (products.hasOwnProperty(key)) {
           const element = products[key];
           element.forEach(element => {
-          productList.push({
-            name: element.name,
-            id: element.id,
-            selected: false
+            productList.push({
+              name: element.name,
+              id: element.id,
+              selected: false
+            });
           });
-         });
         }
       }
       this.productList = productList;
     },
-    handleUpload(file, fileList) {
-      if (file.raw.type.indexOf('image') != -1) {
+    handleUpload(file, fileList) { 
         var fr = new FileReader();
         fr.onload = () => {
           let obj = {
             'background-image': `url(${fr.result})`,
             'background-color': 'transparent'
-          };
-           
+          }; 
         }
-        fr.readAsDataURL(file.raw);
-      }
+        fr.readAsDataURL(file.raw); 
+        this.fileList = fileList.slice(-1);
     },
   },
 
-  validations: {
-    length: {
-      required
-    },
+  validations: { 
     height: {
       required
     },
     width: {
-      required,
-      email
+      required
     },
     message: {
       required
     },
     colors: {
       required
-    },
+    }
   }
 }

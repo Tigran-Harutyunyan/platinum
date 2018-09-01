@@ -2286,6 +2286,7 @@ menu hamburger>i:after {
   }
 }
 .el-textarea__inner {
+  font-family: inherit;
   border: 1px solid #af995a;
   background: transparent;
   border-radius: 30px;
@@ -2380,7 +2381,9 @@ menu hamburger>i:after {
   border-color: #fbfbfb !important;
   cursor: initial;
 }
-
+.el-select-dropdown__item.selected {
+  color:  #af995a;
+}
 .staff-slider {
   width: 1270px;
   margin: 0 auto;
