@@ -23,10 +23,7 @@ export default {
       this._proccessProducts(products);
     }
   },
-  computed: {
-    isFormValid() {
-      return !this.$v.$invalid;
-    },
+  computed: { 
     products() {
       return this.$store.getters.products;
     }
