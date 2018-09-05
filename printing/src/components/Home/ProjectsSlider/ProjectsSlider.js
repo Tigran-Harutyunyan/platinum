@@ -7,38 +7,10 @@ export default {
       dialogTableVisible: false,
       counter: 0,
       popupImage: {},
-      currentSlideIndex: '',
-      swiperOption: {
-        slidesPerView: 5,
-        spaceBetween: 20,
-        autoplay: true,
-        isInitialized: false,
-        loop: false,
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-        breakpoints: {
-          1250: {
-            slidesPerView: 4
-          },
-          860: {
-            slidesPerView: 3
-          },
-          560: {
-            slidesPerView: 2
-          },
-          340: {
-            slidesPerView: 1
-          }
-        }
-      }
+      currentSlideIndex: '', 
     }
   },
-  computed: {
-    swiper() {
-      return this.$refs.myProjects.swiper;
-    },
+  computed: { 
     projectsSliderImages: {
       get: function () {
         return this.$store.getters.projectsSliderImages;
@@ -52,16 +24,50 @@ export default {
       this.$store.dispatch('getProjectSliderImages');
     }
   },
-  methods: {
-    openPopup(image,index) {
-      this.popupImage = image; 
-      this.counter  = index;
+  directives: {
+    carousel: {
+      inserted: function (el) {
+        $(el).owlCarousel({
+          loop: true,
+          rewind: true,
+          autoPlay: true,
+          margin: 20,
+         // navElement: $('#navi'),
+          nav: true,
+          dots:false,
+       
+          mouseDrag: true,
+          responsive: {
+            0: {
+              items: 1,  
+            },
+            600: {
+              items: 3, 
+            },
+             
+            950: {
+              items: 3,  
+            },
+            1000: {
+              items: 5,  
+            }
+          }
+        })
+        console.log("crousel inserted")
+      },
+    }
+  },
+
+  methods: { 
+    openPopup(image, index) {
+      this.popupImage = image;
+      this.counter = index;
       setTimeout(() => {
         this.dialogTableVisible = true;
       }, 100);
     },
-    navigate(direction) { 
-      if ((this.counter == 0 &&  direction ==-1) || (this.counter == this.projectsSliderImages.length-1 && direction == 1)){
+    navigate(direction) {
+      if ((this.counter == 0 && direction == -1) || (this.counter == this.projectsSliderImages.length - 1 && direction == 1)) {
         return;
       }
       this.counter = this.counter + direction;

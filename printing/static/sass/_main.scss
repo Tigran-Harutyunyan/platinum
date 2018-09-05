@@ -894,10 +894,13 @@ footer {
   left: 870px;
   top: -274px;
 }
-
+.projects-carousel .owl-item {
+   
+}
 // sliders//
 .sliders-place {
   z-index: 10;
+  width: 100%;
   position: relative;
   .landing-wrapper {
     width: 99.9%;
@@ -921,7 +924,7 @@ footer {
     background: #eeece5;
     width: 250px !important;
     height: 250px !important;
-    margin: 20px 20px 0 0;
+    //margin: 20px 0 0 0;
     float: left;
     overflow: hidden;
     img {
