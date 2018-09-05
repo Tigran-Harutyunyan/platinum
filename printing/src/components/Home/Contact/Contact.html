@@ -55,8 +55,7 @@
           <p>{{ $t('message.contacts.join') }}</p>
           <SocialMedia/>
         </div>
-        <p class="rights-info">{{ $t('message.contacts.copywriteText1') }}
-          <br>{{ $t('message.contacts.copywriteText2') }}
+        <p class="rights-info" v-html="customData.copyright"> 
         </p>
       </div>
       <div class="partners-right right-floated" v-if="customData.working_hours">

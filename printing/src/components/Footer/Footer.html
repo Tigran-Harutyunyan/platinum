@@ -2,95 +2,99 @@
   <div class="footer-inner">
     <div class="footer-left">
       <div class="social-place">
-        <h3>Միացեք մեր էջերին</h3>
+        <h3>{{ $t('message.shoppingFooter.joinOurPage') }}</h3>
         <social-media></social-media>
       </div>
 
       <div class="subscription-form">
-        <h3>Բաժանորդագրվեք մեր նորություններին</h3>
+        <h3>{{ $t('message.shoppingFooter.letsHelp') }}</h3>
         <div class="form-container">
-          <form v-on:submit.prevent="onSubmit" @submit="$v.email.$touch();" class="subscription-form" name="contact_form">
+          <form 
+              v-on:submit.prevent="onSubmit" 
+              @submit="$v.email.$touch();" class="subscription-form" name="contact_form">
             <div class="default-inp-row">
-              <input v-model="email" :class="{'has-error': $v.email.$error}" class="def-input" type="email" placeholder="էլ-փոստ" name="contact_email">
+              <input 
+                v-model="email" 
+                :class="{'has-error': $v.email.$error}" 
+                class="def-input" type="email" placeholder="էլ-փոստ" 
+                name="contact_email">
               <input type="submit" class="btn-submit" :value="$t('message.subscribe')">
             </div>
           </form>
         </div>
       </div>
-      <p class="rights-info">
-        Բոլոր հեղինակային իրավունքները պաշտպանված
-        <br> են © 2010-2017 Platinum Ink Design.
+      <p class="rights-info" v-html="customData.copyright"> 
       </p>
     </div>
     <div class="links-container">
       <div class="links-column">
-        <h5> Let Us Help</h5>
+        <h5>{{ $t('message.shoppingFooter.helpCenter') }}</h5>
         <ul>
           <li>
-            <a href="javascript:void(0)">Help center</a>
+            <a href="javascript:void(0)">{{ $t('message.shoppingFooter.helpCenter') }}</a>
           </li>
           <li>
-            <a href="javascript:void(0)">Contact us</a>
+            <a href="javascript:void(0)">{{ $t('message.shoppingFooter.contactUs') }}</a>
           </li>
           <li>
-            <a href="javascript:void(0)">Shipping & delivery</a>
+            <a href="javascript:void(0)">{{ $t('message.shoppingFooter.shippingAndDelivery') }}</a>
           </li>
           <li>
-            <a href="javascript:void(0)">Request samples</a>
+            <a href="javascript:void(0)">{{ $t('message.shoppingFooter.requestSamples') }}</a>
           </li>
         </ul>
       </div>
       <div class="links-column">
-        <h5>What We Offer</h5>
+        <h5>{{ $t('message.shoppingFooter.whatWeOffer') }}</h5>
         <ul>
           <li>
-            <a href="javascript:void(0)">Our products</a>
+            <a href="javascript:void(0)">{{ $t('message.shoppingFooter.ourProducts') }}</a>
           </li>
           <li>
-            <a href="javascript:void(0)">Upload designs</a>
+            <a href="javascript:void(0)">{{ $t('message.shoppingFooter.uploadDesigned') }}</a>
           </li>
           <li>
-            <a href="javascript:void(0)">Advertising with us</a>
+            <a href="javascript:void(0)">{{ $t('message.shoppingFooter.adWithUs') }}</a>
           </li>
           <li>
-            <a href="javascript:void(0)">Reseller program</a>
+            <a href="javascript:void(0)">{{ $t('message.shoppingFooter.reseller') }}</a>
           </li>
           <li>
-            <a href="javascript:void(0)">Popular searches</a>
+            <a href="javascript:void(0)">{{ $t('message.shoppingFooter.popularSearches') }}</a>
           </li>
         </ul>
       </div>
       <div class="links-column">
-        <h5>Our Company</h5>
+        <h5>{{ $t('message.shoppingFooter.ourCompany') }}</h5>
         <ul>
           <li>
-            <a href="javascript:void(0)">About us</a>
+            <a href="javascript:void(0)">{{ $t('message.shoppingFooter.aboutUs') }}</a>
           </li>
           <li>
-            <a href="javascript:void(0)">Careers</a>
+            <a href="javascript:void(0)">{{ $t('message.shoppingFooter.carrers') }}</a>
           </li>
           <li>
-            <a href="javascript:void(0)">For media</a>
+            <a href="javascript:void(0)">{{ $t('message.shoppingFooter.forMedia') }}</a>
           </li>
           <li>
-            <a href="javascript:void(0)">For investors</a>
+            <a href="javascript:void(0)">{{ $t('message.shoppingFooter.forInvestors') }}</a>
           </li>
           <li>
-            <a href="javascript:void(0)">Webs</a>
+            <a href="javascript:void(0)">{{ $t('message.shoppingFooter.webs') }}</a>
           </li>
         </ul>
       </div>
       <div class="links-column">
-        <h5>Our Policies</h5>
+        <h5>{{ $t('message.shoppingFooter.ourPolicies') }}</h5>
         <ul>
           <li>
-            <a href="javascript:void(0)">Copyright matters</a>
+            <a href="javascript:void(0)">{{ $t('message.shoppingFooter.copyrigthtMatters') }}</a>
           </li>
           <li>
-            <a href="javascript:void(0)">Trademark matters </a>
+            <a href="javascript:void(0)">{{ $t('message.shoppingFooter.trademark') }}</a>
           </li>
           <li>
-            <a href="javascript:void(0)">Patents & trademarks</a>
+            <a href="javascript:void(0)">{{ $t('message.shoppingFooter.patentTrademarks') }}</a>
           </li>
         </ul>
       </div>
