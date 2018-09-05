@@ -447,7 +447,7 @@ const getCustomData = ({
   if (Object.keys(state.customData).length === 0) {
     return new Promise((resolve, reject) => {
       axios({
-        url: `${state.apiPath}/api/getCustomData`,
+        url: `${state.apiPath}/api/getCustomData?lang=${state.storage.locale}`,
         method: 'get',
       }).then(response => {
         resolve(response.data);

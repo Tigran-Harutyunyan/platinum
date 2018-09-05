@@ -1,8 +1,7 @@
 import Vue from "vue";
 import VueResource from 'vue-resource';
 Vue.use(VueResource);
-import "element-ui/lib/theme-chalk/index.css";
- 
+import "element-ui/lib/theme-chalk/index.css"; 
 import styles from "../static/sass/styles.scss";
 import {
     Carousel,

@@ -38,27 +38,26 @@ export default {
        
           mouseDrag: true,
           responsive: {
-            0: {
-              items: 1,  
+            200: {
+              items:1
             },
-            600: {
+            550: {
+              items:2,  
+            },
+            820: {
               items: 3, 
+            }, 
+            1070: {
+              items: 4,  
             },
-             
-            950: {
-              items: 3,  
-            },
-            1000: {
+            1500: {
               items: 5,  
             },
-            1700: {
-              items: 6,  
-              margin: 20
-            },
-            
+            1600: {
+              items: 6 
+            } 
           }
-        })
-        console.log("crousel inserted")
+        }) 
       },
     }
   },
