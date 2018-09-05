@@ -28,7 +28,7 @@ export default {
     carousel: {
       inserted: function (el) {
         $(el).owlCarousel({
-          loop: true,
+          loop: true, 
           rewind: true,
           autoPlay: true,
           margin: 20,
@@ -50,7 +50,12 @@ export default {
             },
             1000: {
               items: 5,  
-            }
+            },
+            1700: {
+              items: 6,  
+              margin: 20
+            },
+            
           }
         })
         console.log("crousel inserted")

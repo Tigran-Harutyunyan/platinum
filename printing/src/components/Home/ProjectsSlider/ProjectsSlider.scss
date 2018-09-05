@@ -62,6 +62,13 @@
     background-position: -96px 0px;
     margin-left: 10px;
   }
- 
+  
 }
 
+.projects-carousel{
+  width: 1600px;
+  margin: 0 auto;
+  .owl-item {
+    width: 250px!important;
+  }
+}
