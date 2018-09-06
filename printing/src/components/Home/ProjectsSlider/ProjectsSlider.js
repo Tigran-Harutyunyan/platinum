@@ -41,10 +41,10 @@ export default {
             200: {
               items:1
             },
-            550: {
+            620: {
               items:2,  
             },
-            820: {
+            870: {
               items: 3, 
             }, 
             1070: {
@@ -53,7 +53,7 @@ export default {
             1500: {
               items: 5,  
             },
-            1600: {
+            1680: {
               items: 6 
             } 
           }

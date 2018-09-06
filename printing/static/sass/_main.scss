@@ -1827,22 +1827,46 @@ footer {
   }
 }
 
-.projects-carousel {
+.partners-carousel {
   .owl-prev {
-    left: 0;
+    left: -26px;
     background-position: -26px 0px;
   }
-   .owl-nav {
+
+  .owl-nav {
     position: absolute;
-    top:39%;
-    width:  100%;
-  }
-  
-  .owl-next {
-    right: 0;
-    background-position: -48px 0px;
+    top: 28%;
+    width: 100%;
   }
 
+  .owl-next {
+    right: 0px;
+    background-position: -48px 0px;
+  }
+}
+.projects-carousel {
+  .owl-stage {
+    left: -18px;
+  }
+  
+  .owl-prev {
+    left: -35px;
+    background-position: -26px 0px;
+  }
+
+  .owl-nav {
+    position: absolute;
+    top: 38%;
+    width: 100%;
+  }
+
+  .owl-next {
+    right: -37px;
+    background-position: -48px 0px;
+  }
+}
+.projects-carousel,
+.partners-carousel { 
   .owl-prev,
   .owl-next {
     position: absolute;
@@ -1851,7 +1875,7 @@ footer {
     background-size: auto;
     background-color: transparent;
     height: 35px;
-    width: 23px; 
+    width: 23px;
   }
 }
 
@@ -1882,6 +1906,7 @@ section.contact-us-section {
     height: 100%
   }
 }
+
 
 .z-indexed {
   z-index: 10

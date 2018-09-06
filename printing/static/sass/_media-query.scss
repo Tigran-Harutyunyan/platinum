@@ -549,6 +549,13 @@
       top: 100px;
     }
   }
+  @media only screen and (max-width: 620px) {
+    .projects-carousel,.partners-carousel { 
+      .owl-nav { 
+        display: none !important
+     }
+    } 
+  }
   @media only screen and (max-width: 600px) {
     .home-page-subcription-form {
       width: 100%

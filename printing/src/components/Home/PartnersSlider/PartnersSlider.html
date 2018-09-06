@@ -1,11 +1,14 @@
-<div class="partners-slider-container"> 
-  <swiper :options="swiperOption" ref="partners">
-    <swiper-slide class="box" v-for="(partner,index) in partnersImages" :key="index">
-      <div class="partners-box">
-        <img :src="partner.image" :alt="partner.text">  
-      </div>
-    </swiper-slide> 
-    <div class="swiper-button-prev" slot="button-prev"></div>
-    <div class="swiper-button-next" slot="button-next"></div>
-  </swiper>
+<div class="partners-slider-container">  
+
+  <div class="owl-carousel owl-theme partners-carousel" 
+      v-carousel 
+      v-if="partnersImages.length>0">
+      <div class="box"   
+          v-for="(partner, index) in partnersImages" :key="index">
+          <div class="partners-box">
+            <img :src="partner.image" :alt="partner.text">  
+          </div>
+      </div> 
+  </div> 
+
 </div>

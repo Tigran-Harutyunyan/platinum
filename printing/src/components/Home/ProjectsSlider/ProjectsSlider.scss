@@ -88,9 +88,9 @@
   }
 }
 
-@media only screen and (max-width: 1600px) {
+@media only screen and (max-width: 1680px) {
   .projects-carousel {
-    width: 1350px;
+    width: 1330px;
   }
 }
 
@@ -106,14 +106,14 @@
   }
 }
 
-@media only screen and (max-width: 820px) {
+@media only screen and (max-width: 870px) {
   .projects-carousel {
     width: 522px;
   }
 }
 
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 620px) {
   .projects-carousel {
-    width: 260px;
-  }
+    width: 260px; 
+  } 
 }

@@ -1,30 +1,41 @@
 export default {
   data() {
-    return {
-      projects: [],
-      swiperOption: {
-        slidesPerView: 5,
-        autoplay: true,
-        loop: true,
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-        breakpoints: { 
-          1250: {
-            slidesPerView: 4
-          },
-          860: {
-            slidesPerView: 3
-          },
-          560: {
-            slidesPerView: 2
-          },
-          340: {
-            slidesPerView: 1
+    return {}
+  },
+  directives: {
+    carousel: {
+      inserted: function (el) {
+        $(el).owlCarousel({
+          loop: true, 
+          rewind: true,
+          //autoplay: true,
+          //margin: 20, 
+          nav: true,
+          dots:false, 
+          mouseDrag: true,
+          responsive: {
+            0: {
+              items:1
+            },
+            630: {
+              items:2,  
+            },
+            890: {
+              items: 3, 
+            }, 
+            1190: {
+              items:4,  
+            },
+            1400: {
+              items: 5,  
+            },
+            1620: {
+              items: 6,
+              margin:0 
+            } 
           }
-        }
-      }
+        }) 
+      },
     }
   },
   computed: {
@@ -34,9 +45,6 @@ export default {
       },
       set: function () {}
     }
-  },
-  swiper() {
-    return this.$refs.partners.swiper;
   }, 
   mounted() {
     let data = this.$store.getters.partnersImages;  
