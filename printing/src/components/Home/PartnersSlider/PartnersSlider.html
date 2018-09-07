@@ -1,8 +1,6 @@
 <div class="partners-slider-container">  
-
-  <div class="owl-carousel owl-theme partners-carousel" 
-      v-carousel 
-      v-if="partnersImages.length>0">
+ 
+  <div  v-carousel  v-if="partnersImages.length>0">
       <div class="box"   
           v-for="(partner, index) in partnersImages" :key="index">
           <div class="partners-box">

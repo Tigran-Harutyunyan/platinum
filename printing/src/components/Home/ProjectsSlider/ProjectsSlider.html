@@ -1,17 +1,16 @@
 <div class="sliders-place noselect projects-slider-container">
-    
-  <div class="owl-carousel owl-theme projects-carousel" 
-      v-carousel 
-      v-if="projectsSliderImages.length>0">
-      <div class="box"  
-          @click="openPopup(item.image,index)" 
-          v-for="(item, index) in projectsSliderImages" :key="index">
-          <img class="open-popup-link mfp-prevent-close" 
-              :src="item.thumbnail" 
-              :alt="item.title">
-      </div> 
-  </div> 
      
+  <div  v-carousel v-if="projectsSliderImages.length>0">
+    <div class="box"  
+        @click="openPopup(item.image,index)" 
+        v-for="(item, index) in projectsSliderImages" :key="index">
+        <img class="open-popup-link mfp-prevent-close" 
+            :src="item.thumbnail" 
+            :alt="item.title"> 
+      </div> 
+  </div>   
+  <!-- <div class="loop"></div> -->
+  
   <el-dialog title="" class="projects-lightbox"
     :append-to-body="true"  
     :visible.sync="dialogTableVisible" @close="">

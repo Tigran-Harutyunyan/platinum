@@ -197,6 +197,7 @@ export default {
       orderNumber: "Order number",
       orderNumber: "Order number",
       orderPrice: "Price",
+      action: "action",
       orderDetails: "details",
       myOrders: "My orders",
       completedOrders: "completed orders",

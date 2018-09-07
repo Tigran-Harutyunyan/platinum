@@ -987,7 +987,7 @@ footer {
     background: #eeece5;
     width: 250px !important;
     height: 250px !important;
-    //margin: 20px 0 0 0;
+    margin-right: 20px;
     float: left;
     overflow: hidden;
 
@@ -1028,6 +1028,7 @@ footer {
 
 .projects-slider-container {
   padding-bottom: 90px;
+  padding-top: 38px;
 }
 
 .services-section {
@@ -1300,7 +1301,7 @@ footer {
 }
 
 #section-5 {
-  padding-top: 100px;
+  padding-top: 95px;
   padding-left: 0;
   padding-right: 0;
 }
@@ -1844,11 +1845,12 @@ footer {
     background-position: -48px 0px;
   }
 }
+
 .projects-carousel {
   .owl-stage {
     left: -18px;
   }
-  
+
   .owl-prev {
     left: -35px;
     background-position: -26px 0px;
@@ -1865,8 +1867,10 @@ footer {
     background-position: -48px 0px;
   }
 }
+
 .projects-carousel,
-.partners-carousel { 
+.partners-carousel {
+
   .owl-prev,
   .owl-next {
     position: absolute;
@@ -1906,7 +1910,6 @@ section.contact-us-section {
     height: 100%
   }
 }
-
 
 .z-indexed {
   z-index: 10
@@ -2873,4 +2876,46 @@ menu hamburger>i:after {
   .el-table_1_column_6 .cell {
     border-right: none !important;
   }
+}
+
+.loop {
+  background-image: url("../../static/img/loop.svg")
+}
+
+//Slick slider
+.slick-list {
+  height: 250px;
+  overflow: hidden;
+}
+
+.partners-slider-container .slick-list{
+  height: 150px;
+}
+
+.slick-arrow {
+  background-image: url("../../static/img/sprite.png");
+  height: 45px;
+  width: 22px;
+  top: 22px;
+  text-indent: -9000px;
+  position: absolute;
+  z-index: 10;
+  background-color: transparent;
+  cursor: pointer
+}
+
+.projects-slider-container {
+  .slick-arrow {
+    top: 102px !important
+  }
+}
+
+.slick-next {
+  background-position: -130px 0px;
+  right: 50px;
+}
+
+.slick-prev {
+  background-position: -96px 0px;
+  left: 50px;
 }

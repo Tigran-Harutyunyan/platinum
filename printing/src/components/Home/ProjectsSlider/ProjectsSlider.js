@@ -3,14 +3,13 @@ export default {
     return {
       visible: false,
       index: 0,
-      projects: [],
       dialogTableVisible: false,
       counter: 0,
       popupImage: {},
-      currentSlideIndex: '', 
+      currentSlideIndex: '',
     }
   },
-  computed: { 
+  computed: {
     projectsSliderImages: {
       get: function () {
         return this.$store.getters.projectsSliderImages;
@@ -27,42 +26,62 @@ export default {
   directives: {
     carousel: {
       inserted: function (el) {
-        $(el).owlCarousel({
-          loop: true, 
-          rewind: true,
-          autoPlay: true,
-          margin: 20,
-         // navElement: $('#navi'),
-          nav: true,
-          dots:false,
-       
-          mouseDrag: true,
-          responsive: {
-            200: {
-              items:1
+        $(el).slick({
+          autoplay: true,
+          dots: false,
+          infinite: true,
+          speed: 300,
+          slidesToShow: 7,
+          slidesToScroll: 3,
+          draggable: false,
+          responsive: [{ 
+              breakpoint: 1640,
+              settings: {
+                infinite: true,
+                slidesToShow: 6,
+                slidesToScroll: 1
+              }
             },
-            620: {
-              items:2,  
+            {
+              breakpoint: 1350,
+              settings: {
+                infinite: true,
+                slidesToShow: 5,
+                slidesToScroll: 1
+              }
             },
-            870: {
-              items: 3, 
-            }, 
-            1070: {
-              items: 4,  
+            {
+              breakpoint: 1090,
+              settings: {
+                infinite: true,
+                slidesToShow: 4,
+                slidesToScroll: 1
+              }
             },
-            1500: {
-              items: 5,  
+            {
+              breakpoint: 830,
+              settings: {
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 1
+              }
             },
-            1680: {
-              items: 6 
-            } 
-          }
-        }) 
+            {
+              breakpoint: 560,
+              settings: {
+                infinite: true,
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                draggable: true 
+              }
+            }
+          ]
+        });
       },
     }
   },
 
-  methods: { 
+  methods: {
     openPopup(image, index) {
       this.popupImage = image;
       this.counter = index;
