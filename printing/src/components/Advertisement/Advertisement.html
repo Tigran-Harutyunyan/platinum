@@ -1,28 +1,25 @@
-<div class="ads">
+<div class="ads sliders-place noselect projects-slider-container">
     <div class="section-title-place"> 
         <h5>{{ $t('message.why.title') }}</h5>
         <span class="vert-line"></span>
     </div>
-    <div class="sliders-place noselect projects-slider-container"> 
-        <swiper :options="swiperOption">
-          <swiper-slide v-for="(item, index) in projectsSliderImages" :key="index" class="box">
-            <img class="open-popup-link mfp-prevent-close" :src="item.thumbnail">
-          </swiper-slide>
-          <div class="swiper-button-prev" slot="button-prev"></div>
-          <div class="swiper-button-next" slot="button-next"></div>
-        </swiper> 
-      </div>
-      <div class="section-title-place"> 
-          <h5>{{ $t('message.why.title') }}</h5>
-          <span class="vert-line"></span>
-      </div>
-      <div class="sliders-place noselect projects-slider-container"> 
-          <swiper :options="swiperOption">
-            <swiper-slide v-for="(item, index) in projectsSliderImages" :key="index" class="box">
-              <img class="open-popup-link mfp-prevent-close" :src="item.thumbnail">
-            </swiper-slide>
-            <div class="swiper-button-prev" slot="button-prev"></div>
-            <div class="swiper-button-next" slot="button-next"></div>
-          </swiper> 
-        </div>
+ 
+    <div v-for="(category,index) in adCategories" v-if="Object.keys(adCategories).length>0" :key="index">
+      <div v-carousel="category.length" v-if="category.length>0">
+        <div class="box"  
+            @click="openPopup(index2,category)" 
+            v-for="(item, index2) in category" :key="index2">
+            <img class="open-popup-link mfp-prevent-close" 
+                :src="item.thumbnail" 
+                :alt="item.title"> 
+          </div> 
+      </div>   
+    </div> 
+
+    <CarouselPopup 
+      v-if="dialogTableVisible"
+      :index="index"  
+      :items="category"
+      @close="dialogTableVisible=false">
+    </CarouselPopup>
 </div>
