@@ -2,7 +2,7 @@
      
   <div  v-carousel v-if="projectsSliderImages.length>0">
     <div class="box"  
-        @click="openPopup(item.image,index)" 
+        @click="openPopup(index)" 
         v-for="(item, index) in projectsSliderImages" :key="index">
         <img class="open-popup-link mfp-prevent-close" 
             :src="item.thumbnail" 
@@ -11,14 +11,11 @@
   </div>   
   <!-- <div class="loop"></div> -->
   
-  <el-dialog title="" class="projects-lightbox"
-    :append-to-body="true"  
-    :visible.sync="dialogTableVisible" @close="">
-    <img :src="popupImage" class="popup-image">
-    <div class="popup-controls">
-      <div class="slider-prev" @click=navigate(-1)></div>
-      <div class="slider-next" @click=navigate(1)></div>
-    </div>
-  </el-dialog>
+  <CarouselPopup 
+      v-if="dialogTableVisible"
+      :index="index"  
+      :items="projectsSliderImages"
+      @close="dialogTableVisible=false">
+  </CarouselPopup>
 
 </div>

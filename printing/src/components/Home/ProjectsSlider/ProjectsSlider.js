@@ -1,12 +1,9 @@
+import CarouselPopup from '../../../commonComponents/CarouselPopup/CarouselPopup.vue';
 export default {
   data() {
-    return {
-      visible: false,
+    return { 
       index: 0,
       dialogTableVisible: false,
-      counter: 0,
-      popupImage: {},
-      currentSlideIndex: '',
     }
   },
   computed: {
@@ -16,6 +13,9 @@ export default {
       },
       set: function () {}
     }
+  },
+  components: {
+    CarouselPopup
   },
   created() {
     let data = this.$store.getters.projectsSliderImages;
@@ -82,28 +82,9 @@ export default {
   },
 
   methods: {
-    openPopup(image, index) {
-      this.popupImage = image;
-      this.counter = index;
-      setTimeout(() => {
-        this.dialogTableVisible = true;
-      }, 100);
-    },
-    navigate(direction) {
-      if ((this.counter == 0 && direction == -1) || (this.counter == this.projectsSliderImages.length - 1 && direction == 1)) {
-        return;
-      }
-      this.counter = this.counter + direction;
-      if (direction === -1 && this.counter < 0) {
-        this.counter = this.amount - 1;
-      }
-      if (direction === 1 && !this.projectsSliderImages[this.counter]) {
-        this.counter = 0;
-      }
-      this.popupImage = this.projectsSliderImages[this.counter].image;
-    },
-    show() {
-      this.visible = true;
+    openPopup(index) {
+      this.index = index;
+      this.dialogTableVisible = true;
     }
   }
 }
