@@ -18,5 +18,6 @@ export const state = {
     searchResults:'',
     scrollParams:'',
     sidebarProducts:'',
+    advertisements: [],
     storage: localStorage.getItem("platinumInk") ? JSON.parse(localStorage.getItem("platinumInk")) : {}
   };

@@ -19,6 +19,9 @@
  const PROJECTS_SLIDER_IMAGES = (state, payload) => {
   state.projectsSliderImages = payload;
 };
+const SET_ADVERTISEMENTS = (state, payload) => {
+  state.advertisements = payload;
+};
  const UPDATE_SLIDER_IMAGES = (state, payload) => {
   state.sliderImages = payload;
 };
@@ -62,5 +65,6 @@ const SET_PRODUCT_LIST = (state, products) => {
    UPDATE_COMPLETED_WORKS,
    SEARCH,
    STORE_SCROLL_PARAMS,
-   SET_PRODUCT_LIST
+   SET_PRODUCT_LIST,
+   SET_ADVERTISEMENTS
  }

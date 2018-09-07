@@ -580,6 +580,37 @@ const setSideBarProducts = ({
   commit('SET_PRODUCT_LIST', products);
 };
 
+const getAdvertisements = ({
+  commit,
+  state
+}) => {
+  return new Promise((resolve, reject) => {
+    axios.get(`${state.apiPath}/api/getAdvertisements?lang=${state.storage.locale}`).then((response) => {
+       
+      if (Object.keys(response.data).length>0) {
+        for (const key in response.data) {
+          if (response.data.hasOwnProperty(key)) {
+            const category = response.data[key]; 
+            if (key!=='audio') {
+              if (category.length > 0) {
+                category.forEach(item => { 
+                  if(item.image) {
+                    item.thumbnail = `${state.apiPath}${item.image}`;
+                    item.image = `${state.apiPath}${item.popup_image}`;
+                  } 
+                });
+              } 
+            } 
+          }
+        } 
+        commit('SET_ADVERTISEMENTS', response.data);
+      }
+      resolve(response.data);
+    }).catch(function (error) {
+      reject(error);
+    });
+  });
+};
 export default {
   setStorage,
   setData,
@@ -612,5 +643,6 @@ export default {
   setScrollParams,
   setSideBarProducts,
   getSamples,
-  customOrder
+  customOrder,
+  getAdvertisements
 }
