@@ -1,10 +1,14 @@
 <div class="ads sliders-place noselect projects-slider-container">
+    
+   <Preloader v-if="isLoading" class="prelaoder"></Preloader>
+
     <div class="section-title-place"> 
         <h5>{{ $t('message.why.title') }}</h5>
         <span class="vert-line"></span>
     </div>
  
-    <div v-for="(category,index) in adCategories" v-if="Object.keys(adCategories).length>0" :key="index">
+
+    <div v-for="(category,index) in adCategories" v-if="Object.keys(adCategories).length>0 && !isLoading" :key="index">
       <div v-carousel="category.length" v-if="category.length>0">
         <div class="box"  
             @click="openPopup(index2,category)" 

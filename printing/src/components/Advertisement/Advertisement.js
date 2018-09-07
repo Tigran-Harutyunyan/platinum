@@ -1,4 +1,5 @@
 import CarouselPopup from '../../commonComponents/CarouselPopup/CarouselPopup.vue';
+import Preloader from '../../commonComponents/Preloader/Preloader.vue';
 export default {
   data() {
     return {
@@ -6,24 +7,27 @@ export default {
       dialogTableVisible: false,
       audioADS: [],
       adCategories: {},
-      category : {}
+      category: {},
+      isLoading: true
     }
   },
   components: {
-    CarouselPopup
+    CarouselPopup,
+    Preloader
   },
   watch: {
-    advertisements:{
-      handler : function(ads){ 
+    advertisements: {
+      handler: function (ads) {
         for (const key in ads) {
-          if (ads.hasOwnProperty(key)) { 
+          if (ads.hasOwnProperty(key)) {
             if (key == 'audio') {
               this.audioADS.push(ads[key]);
               delete ads[key];
               break;
-            } 
+            }
           }
         }
+        this.isLoading = false;
         this.adCategories = ads;
       }
     }
@@ -42,13 +46,13 @@ export default {
   methods: {
     openPopup(index, category) {
       this.index = index;
-      this.category  = category;
+      this.category = category;
       this.dialogTableVisible = true;
     }
   },
   directives: {
     carousel: {
-      inserted: function (el, binding) { 
+      inserted: function (el, binding) {
         let slidesToShow = binding.value < 7 ? binding.value : 7;
         $(el).slick({
           autoplay: true,
