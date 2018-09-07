@@ -32,7 +32,7 @@ export default {
           infinite: true,
           speed: 300,
           slidesToShow: 7,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
           draggable: false,
           responsive: [{ 
               breakpoint: 1640,
