@@ -239,7 +239,9 @@ export default {
         size:"size",
         borders:"borders",
         quantity:"quanitity",
-        price: "price" 
+        price: "price",
+        statusName: "Status",
+        productName: "Product name"
       },
       services: {
         title: "Services",
@@ -389,7 +391,9 @@ export default {
         size:"չափը",
         borders:"եզրեր",
         quantity:"քանակ",
-        price: "արժեքը" 
+        price: "արժեքը",
+        statusName: "Կարգավիճակը", 
+        productName: "Ապրանք"
       },
       address: {
         part1: 'Հասցե՝ Ք. Երևան, Արշակունյաց 44',
