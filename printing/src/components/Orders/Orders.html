@@ -6,7 +6,10 @@
       <el-tab-pane :label="$t('message.completedOrders')" name="2"></el-tab-pane>
       <el-tab-pane :label="$t('message.unapprovedOrders')" name="3"></el-tab-pane>
     </el-tabs>
-    <div class="table-container">
+    
+    <Preloader v-if="isLoading" class="prelaoder"></Preloader>
+
+    <div class="table-container orders-table-container" v-else>
       <el-table :data="cartItems" stripe style="width: 100%" v-if="cartItems.length">
         <el-table-column prop="number" :label="$t('message.orderNumber')" width="180">
         </el-table-column>

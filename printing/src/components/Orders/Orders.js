@@ -1,4 +1,5 @@
 import OrderDetailsPopup from './OrderDetailsPopup/OrderDetailsPopup.vue';
+import Preloader from '../../commonComponents/Preloader/Preloader.vue';
 
 export default {
   data() {
@@ -7,11 +8,13 @@ export default {
       allOrders: [],
       cartItems: [],
       currentOrder: {},
-      showSummary: false
+      showSummary: false,
+      isLoading: true
     }
   },
   components:{
-    OrderDetailsPopup
+    OrderDetailsPopup,
+    Preloader
   },
   methods: {
     openOrderDetailPopup(order) {

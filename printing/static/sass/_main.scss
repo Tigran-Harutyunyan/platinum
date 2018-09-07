@@ -991,18 +991,18 @@ footer {
     float: left;
     overflow: hidden;
     cursor: pointer;
+
     img {
       width: 100%;
       height: 100%;
     }
   }
- 
- 
+
 
   .box-content {
     background: #eeece5;
     position: absolute;
-    top: 0; 
+    top: 0;
     left: 0;
     z-index: 999;
 
@@ -1018,6 +1018,9 @@ footer {
   #landing2 {
     margin: 0 auto 0;
   }
+}
+.orders-table-container table {
+  margin: 0 auto;
 }
 
 .projects-slider-container {
@@ -2835,11 +2838,13 @@ menu hamburger>i:after {
   background-image: url("../img/pattern.jpg");
   background-repeat: repeat;
 }
+
 .el-dialog__wrapper.projects-lightbox {
   .el-dialog {
     max-width: 500px !important;
   }
 }
+
 .v-modal {
   opacity: .8;
   background: #000;
@@ -2886,7 +2891,7 @@ menu hamburger>i:after {
   overflow: hidden;
 }
 
-.partners-slider-container .slick-list{
+.partners-slider-container .slick-list {
   height: 150px;
 }
 
