@@ -82,7 +82,7 @@ const router = new Router({
           beforeEnter: shouldBeAuthed  
         },
         {
-          path: '/advertisement ',
+          path: '/advertisement',
           name: 'advertisement',
           component: Advertisement  
         },
