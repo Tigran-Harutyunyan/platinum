@@ -17,7 +17,7 @@ export default {
   methods: {
     onSubmit() {
         if (!this.$v.recoveryMail.$invalid) {
-          this.$store.dispatch('requestPasswordRecovery', {
+          this.$store.dispatch('recover', {
             email: this.recoveryMail
           }).then((response) => {
             console.log(response)
