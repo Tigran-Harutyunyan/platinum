@@ -1,0 +1,22 @@
+<div>
+    <div class="uploads-container">
+        <div class="upload-img" v-bind:style='styleObject1' style="margin-right:30px"></div> 
+        <div class="upload-img" v-bind:style='styleObject2'></div>
+      </div>
+      <p class="upload-description">{{ $t('message.uploadFileDescription') }}</p>
+     
+    
+      <!-- <a  class="btn-submit btn-invert">բեռնել ֆայլ </a> -->
+      <el-upload class="upload-demo up-demo1" accept="image/*" action="https://jsonplaceholder.typicode.com/posts/" :on-change="handleChange1"
+        :file-list="fileList1" :auto-upload="false" :on-remove="onHandleRemove1">
+        <el-button size="small" type="primary" class="btn-submit btn-invert">{{ $t('message.uploadFile1')}}</el-button>  
+      </el-upload> 
+     
+      <el-upload class="upload-demo" accept="image/*" action="https://jsonplaceholder.typicode.com/posts/" :on-change="handleChange2"
+      :file-list="fileList2" :auto-upload="false" :on-remove="onHandleRemove2">
+      <el-button size="small" type="primary" class="btn-submit btn-invert">{{ $t('message.uploadFile2')}}</el-button> 
+    </el-upload>
+    
+    <div class="el-upload__tip">{{ $t('message.sizeRestriction')}}</div>
+    </div>
+</div>
