@@ -2603,8 +2603,7 @@ menu hamburger>i:after {
     bottom: 21px !important;
   }
 
-  .swiper-pagination-bullet {
-    @extend .sprite;
+  .swiper-pagination-bullet { 
     width: 18px;
     height: 18px;
     border-radius: 0;
@@ -2698,7 +2697,7 @@ menu hamburger>i:after {
 .nav li.search-holder {
   padding-top: 0;
   margin-top: -3px;
-
+  position: relative;
   .el-input__prefix,
   .el-input__suffix {
     right: 7px;

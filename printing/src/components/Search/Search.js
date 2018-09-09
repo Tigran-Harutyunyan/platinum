@@ -13,11 +13,11 @@ export default {
       return this.searchResults.length == 0
     }
   },
-  watch:{
+ /*  watch:{
     searchKey(val){
       this.search();
     }
-  },
+  }, */
   directives: {
     ClickOutside
   },

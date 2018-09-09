@@ -6,16 +6,18 @@
   overflow: auto;
   background: black;
   border: 1px solid #b3b3b3;
-  border-radius: 23px;
+  //border-radius: 23px;
   margin-top: 5px;
   padding: 7px;
   border: 1px solid #b3b3b3;
-  border-radius: 17px 0 0 17px;
+
+  //border-radius: 17px 0 0 17px;
   li {
     width: 100%;
     padding: 10px;
     margin: 0;
     float: none;
+
     a {
       text-transform: capitalize;
     }
@@ -23,7 +25,15 @@
 }
 
 .el-input__icon {
-  margin-top: 4px;
+  position: absolute;
+  top: -1px;
+  right: 6px;
+  color: #c3c3c3;
+}
+
+.search-container {
+  width: 200px;
+  position: relative;
 }
 
 .no-results {
@@ -31,14 +41,14 @@
   font-size: 14px;
 }
 
+.search-dropdown::-webkit-scrollbar-track {
+  background-color: #000000;
+}
 
-.search-dropdown::-webkit-scrollbar-track { 
-    background-color: #000000;
-  }
-  .search-dropdown::-webkit-scrollbar {
-    width: 7px; 
-  }
-  .search-dropdown::-webkit-scrollbar-thumb { 
-    background-color: #b2b2b2;
-  }
-   
+.search-dropdown::-webkit-scrollbar {
+  width: 7px;
+}
+
+.search-dropdown::-webkit-scrollbar-thumb {
+  background-color: #b2b2b2;
+}

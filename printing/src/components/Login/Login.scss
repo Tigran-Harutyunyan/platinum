@@ -10,7 +10,7 @@
     cursor: pointer;
 } 
 .spinner {
-    position: absolute;
+    position: absolute !important;
     top: -19px;
     left: 45%;
 }

@@ -48,9 +48,8 @@ Vue.use(Dialog);
 Vue.prototype.$loading = Loading.service;
 Vue.prototype.$confirm = MessageBox.confirm;
 Vue.prototype.$notify = Notification;
-import lang from 'element-ui/lib/locale/lang/en'
-import locale from 'element-ui/lib/locale'
-import Login from './components/Login/Login.vue';
+import lang from 'element-ui/lib/locale/lang/en';
+import locale from 'element-ui/lib/locale';
 locale.use(lang);
 
 import VueAwesomeSwiper from 'vue-awesome-swiper'; 
@@ -63,10 +62,7 @@ export default {
     name: "App", 
     data() {
         return {};
-    },
-    components :{
-        Login
-    },
+    }, 
     watch: {
         '$route': function(to, from) { 
             if (to.name=='Cart'){
