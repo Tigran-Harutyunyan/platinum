@@ -4,8 +4,16 @@
 .forgot-pass-link {
     font-size: 12px;
     color: #3c3c3c;
-    padding: 8px 0 11px;
+    padding: 10px 0 11px;
     text-transform: initial;
-    display: block;
+    display: inline-block;
     cursor: pointer;
+} 
+.spinner {
+    position: absolute;
+    top: -19px;
+    left: 45%;
+}
+.btn-submit {
+    margin-top: 18px;
 }
