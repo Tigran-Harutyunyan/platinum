@@ -1,0 +1,14 @@
+<div>
+    <el-carousel  v-if="images.length" 
+      :autoplay="false" 
+      trigger="click" 
+      indicator-position="outside" 
+      arrow="never" class="product-slider">
+    <el-carousel-item 
+      v-for="(item, index) in images" 
+      :key="index">
+      <img :src="item.image" alt="">
+    </el-carousel-item>
+  </el-carousel>
+  <img src="../../../../static/img/products/1.png" class="no-image-palceholder" alt="No image" v-else>
+</div>
