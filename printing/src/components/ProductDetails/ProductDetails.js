@@ -2,15 +2,14 @@ import {
   EventBus
 } from '../../event-bus.js';
 import Preloader from '../../commonComponents/Preloader/Preloader.vue';
-
+import Uploader from "./FIleUploader/FIleUploader.vue";
+import ProductImages from "./ProductImages/ProductImages.vue";
 export default {
   data() {
     return {
       fileList1: [],
       fileList2: [],
-      value: '',
-      styleObject1: null,
-      styleObject2: null,
+      value: '', 
       product: {},
       copyOfProduct: {},
       productInfo: {},
@@ -25,7 +24,9 @@ export default {
     }
   },
   components: {
-    Preloader
+    Preloader,
+    Uploader,
+    ProductImages
   },
   computed: {
     storage() {
@@ -36,11 +37,18 @@ export default {
     }
   },
   watch: {
-    '$route' (to, from) {
+    '$route'(to, from) {
       this.getProductById();
     }
   },
   methods: {
+    onFileChange(data) {
+      if (data.type == 1) {
+        this.fileList1 = data.list
+      } else {
+        this.fileList2 = data.list;
+      }
+    },
     onDropDownChange() {
       let properties = this.product.sortedProperties;
       let quantityID = '';
@@ -57,7 +65,7 @@ export default {
           });
         }
       });
-      if ( this.quantity) {
+      if (this.quantity) {
         // only send requests if quantity is selected   
         this.getProductPrice();
       }
@@ -78,7 +86,7 @@ export default {
         let formData = new FormData();
         formData.append('token', this.user ? this.user.token : "");
         formData.append('product_id', this.product[0].id);
-        formData.append('quantity_id', [ this.quantity]);
+        formData.append('quantity_id', [this.quantity]);
         formData.append('properties', JSON.stringify(this.selectedOptions));
         this.$store.dispatch('getProductPrice', {
           formData
@@ -124,11 +132,11 @@ export default {
       } else {
         if (!this.isLoading) {
           this.isLoading = true;
-          let formData = new FormData(); 
+          let formData = new FormData();
           formData.append('token', this.user ? this.user.token : "");
           formData.append('product_id', this.product[0].id);
           formData.append('properties', JSON.stringify(this.selectedOptions));
-          formData.append('quantity_id', [ this.quantity]); 
+          formData.append('quantity_id', [this.quantity]);
           if (this.fileList1.length > 0) {
             formData.append('front_side', this.fileList1[0].raw, this.fileList1[0].name);
           }
@@ -170,61 +178,12 @@ export default {
         }
       }
     },
-
-    handleChange1(file, fileList) {
-      this.proccessFiles(file, fileList, 1);
-    },
-
-    handleChange2(file, fileList) {
-      this.proccessFiles(file, fileList, 2);
-    },
-
-    proccessFiles(file, fileList, side) {
-      if (file.raw.type.indexOf('image') != -1) {
-        var fr = new FileReader();
-        fr.onload = () => {
-          let obj = {
-            'background-image': `url(${fr.result})`,
-            'background-color': 'transparent'
-          };
-          if (side === 1) {
-            this.styleObject1 = obj;
-          } else {
-            this.styleObject2 = obj;
-          }
-        }
-        fr.readAsDataURL(file.raw);
-      }
-      if (side === 1) {
-        this.fileList1 = fileList.slice(-1);
-      } else {
-        this.fileList2 = fileList.slice(-1);
-      }
-    },
-
-    onHandleRemove1(file, fileList) {
-      this.handleRemove(file, fileList, 1);
-    },
-
-    onHandleRemove2(file, fileList) {
-      this.handleRemove(file, fileList, 2);
-    },
-
-    handleRemove(file, fileList, side) {
-      if (side === 1) {
-        this.fileList1 = fileList.slice(-1);
-        this.styleObject1 = {};
-      } else {
-        this.fileList2 = fileList.slice(-1);
-        this.styleObject2 = {}
-      }
-    }, 
-
+ 
     getProductById() {
       this.$store.dispatch('getProductById', {
         id: this.$route.params.id
       }).then((response) => {
-        if (response[0]) { 
+        if (response[0]) {
           this.product = this._handleGetProductResponse(response);
 
           if (this.product.images) {
@@ -236,7 +195,7 @@ export default {
           this.productInfo = response[0];
           this.showPriceTotal = countProperties > 0;
           this.copyOfProduct = JSON.parse(JSON.stringify(this.product));
-          this.isDirty = false; 
+          this.isDirty = false;
         }
       }).catch((error) => {});
     },
@@ -265,9 +224,9 @@ export default {
         return 0;
       });
 
-      response.sortedProperties = sortedProperties; 
+      response.sortedProperties = sortedProperties;
       return response;
-    
+
     },
 
     _getSortId(key, propertyNames) {
