@@ -1,13 +1,16 @@
 import api from './api';
+import utils from '../utils'; 
+let lang = utils.getLang();
 
 import productsMiddleware from '../apiMiddlewares/productsMiddleware';
 const productsApi = {
-  getProductById(productId, lang) {
-    return api.get(`getProductById?${productId}?lang=${lang}`).then(res => { 
+  getProductById(productId) {
+    return api.get(`getProductById?id=${productId}&lang=${lang}`).then(res => { 
+      res = productsMiddleware.fromBackEnd.parseProduct(res);
       return res;
     });
   },
-  getProducts(lang) {
+  getProducts() {
     return api.get(`getProductsList?lang=${lang}`).then(res => {
       res = productsMiddleware.fromBackEnd.parseProducts(res);
       return res;

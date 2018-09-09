@@ -1,4 +1,8 @@
-import { config } from '../api/config.js';
+import {
+  config
+} from '../api/config.js';
+import utils from '../utils';
+
 const middleware = {
   fromBackEnd: {
     parseProducts(products) {
@@ -13,10 +17,40 @@ const middleware = {
             } else {
               product.image = '../static/img/products/1.png'
             }
-          }); 
+          });
         }
       }
       return products;
+    },
+    parseProduct(response) { 
+      if (response.images) {
+        response.images.forEach(element => {
+          element.image = `${config.imgBaseUrl}${element.image}`;
+        });
+      }
+      let object = response.properties;
+      let propertyNames = response.property_names;
+      let sortedProperties = [];
+      for (const key in object) {
+        if (object.hasOwnProperty(key)) {
+          const element = object[key];
+          object[key] = {};
+          object[key].selected = "";
+          object[key].options = element;
+          object[key].order_id = utils.getSortId(key, propertyNames);
+          object[key]._key = key;
+          sortedProperties.push(object[key]);
+        }
+      }
+
+      sortedProperties.sort(function (a, b) {
+        if (a.order_id < b.order_id) return -1;
+        if (a.order_id > b.order_id) return 1;
+        return 0;
+      });
+
+      response.sortedProperties = sortedProperties;
+      return response;
     }
   },
   toBackEnd: {
