@@ -1,18 +1,14 @@
-<div>
-  <el-input class="search-input" 
-      @input="onSearch" 
-      :placeholder="$t('message.search')" 
-      @focus="checkDropdown(false)"
-      @blur="checkDropdown(true)" 
-      v-model="search_key">
-    <i slot="prefix" class="el-input__icon el-icon-search" @click="onSearch"></i>
+<div v-click-outside="close">
+  <el-input class="search-input"  
+      :placeholder="$t('message.search')"  
+      v-model="searchKey">
+    <i slot="prefix" class="el-input__icon el-icon-search" @click="search"></i>
   </el-input>
   <div v-if="showSearchResults" class="search-results">
     <ul class="search-dropdown">
-      <li v-for="(item, index) in searchResults" :key="index"> 
+      <li v-for="(item, index) in searchResults" :key="index" @click="close"> 
         <router-link  
-          :to="item.url" @click="closeMe"  >
-          {{ item.name }} 
+          :to="item.url">{{ item.name }}
         </router-link> 
       </li>
       <li v-if="noResults">
