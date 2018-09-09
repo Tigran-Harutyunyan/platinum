@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     onSubmitSignup() {
-      if (!this.isLoading && !this.$v.$invalid) {
+      if (!this.isLoading && this.isFormValid) {
         this.isLoading = true;
         let data = {
           email: this.email,
@@ -51,7 +51,7 @@ export default {
           data.birthday_at = this.birthday_at;
         }
 
-        this.$store.dispatch('requestSignup', data).then((response) => {
+        this.$store.dispatch('signup', data).then((response) => {
           this.isLoading = false;
           if (response.error) {
             if (response.message == "Invalid Recaptcha") {
@@ -107,7 +107,7 @@ export default {
       required,
       email
     },
-    companyName: {
+    company_name: {
       required
     },
     password: {
