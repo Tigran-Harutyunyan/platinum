@@ -9,7 +9,7 @@ export default {
     return {
       fileList1: [],
       fileList2: [],
-      value: '', 
+      value: '',
       product: {},
       copyOfProduct: {},
       productInfo: {},
@@ -81,6 +81,7 @@ export default {
           type: "error"
         });
         EventBus.$emit('logout');
+        return;
       } else {
         this.loading = true;
         let formData = new FormData();
@@ -178,65 +179,20 @@ export default {
         }
       }
     },
- 
+
     getProductById() {
       this.$store.dispatch('getProductById', {
         id: this.$route.params.id
       }).then((response) => {
         if (response[0]) {
-          this.product = this._handleGetProductResponse(response);
-
-          if (this.product.images) {
-            this.product.images.forEach(element => {
-              element.image = `${this.apiPath}${element.image}`;
-            });
-          }
+          this.product = response;
           this.isLoading = false;
-          this.productInfo = response[0];
-          this.showPriceTotal = countProperties > 0;
+          this.showPriceTotal = Object.keys(this.product.properties).length > 0;
           this.copyOfProduct = JSON.parse(JSON.stringify(this.product));
           this.isDirty = false;
         }
       }).catch((error) => {});
     },
-
-    _handleGetProductResponse(response) {
-      let object = response.properties;
-      let countProperties = 0;
-      let propertyNames = response.property_names;
-      let sortedProperties = [];
-      for (const key in object) {
-        if (object.hasOwnProperty(key)) {
-          const element = object[key];
-          object[key] = {};
-          object[key].selected = "";
-          object[key].options = element;
-          object[key].order_id = this._getSortId(key, propertyNames);
-          object[key]._key = key;
-          sortedProperties.push(object[key]);
-          countProperties++;
-        }
-      }
-
-      sortedProperties.sort(function (a, b) {
-        if (a.order_id < b.order_id) return -1;
-        if (a.order_id > b.order_id) return 1;
-        return 0;
-      });
-
-      response.sortedProperties = sortedProperties;
-      return response;
-
-    },
-
-    _getSortId(key, propertyNames) {
-      for (const _key in propertyNames) {
-        if (propertyNames.hasOwnProperty(_key) && key === propertyNames[_key].name) {
-          return parseInt(propertyNames[_key].order_id);
-        }
-      }
-    },
-
     reset() {
       this.product = JSON.parse(JSON.stringify(this.copyOfProduct));
       this.isDirty = false;
