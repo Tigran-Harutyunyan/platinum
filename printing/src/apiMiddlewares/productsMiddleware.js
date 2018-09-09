@@ -22,7 +22,7 @@ const middleware = {
       }
       return products;
     },
-    parseProduct(response) { 
+    parseProduct(response) {
       if (response.images) {
         response.images.forEach(element => {
           element.image = `${config.imgBaseUrl}${element.image}`;
@@ -51,6 +51,27 @@ const middleware = {
 
       response.sortedProperties = sortedProperties;
       return response;
+    },
+
+    parseSearchResults(response) {
+      let results = []; 
+      if (response.categories && Array.isArray(response.categories)) {
+        response
+          .categories
+          .forEach(element => {
+            element.url = `/category/${element.id}`;
+            results.push(element)
+          });
+      }
+      if (response.products && Array.isArray(response.products)) {
+        response
+          .products
+          .forEach(element => {
+            element.url = `/product/${element.id}`;
+            results.push(element)
+          });
+      }
+      return results;
     }
   },
   toBackEnd: {

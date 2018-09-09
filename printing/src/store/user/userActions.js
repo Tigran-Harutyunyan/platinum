@@ -20,9 +20,9 @@
  const logout = ({
    commit,
    state
- }, data) => {
-   return new Promise((resolve, reject) => {
-     userApi.logout(data).then(
+ }, { formData }) => {
+   return new Promise((resolve, reject) => { 
+     userApi.logout(formData).then(
        (response) => {
          resolve(response);
        },

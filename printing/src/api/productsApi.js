@@ -10,12 +10,21 @@ const productsApi = {
       return res;
     });
   },
+
   getProducts() {
     return api.get(`getProductsList?lang=${lang}`).then(res => {
       res = productsMiddleware.fromBackEnd.parseProducts(res);
       return res;
     });
   },
+
+  getSearchResults(params) {
+    return api.post(`search?lang=${lang}` ,params).then(res => {
+      res = productsMiddleware.fromBackEnd.parseSearchResults(res);
+      return res;
+    });
+  },
+
 };
 
 export default productsApi; 
