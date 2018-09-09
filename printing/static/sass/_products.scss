@@ -105,18 +105,16 @@ img.banner-offer {
     padding: 11px 12px;
     position: relative;
 
-    .product-pricing {
+    .product-pricing { 
       display: flex;
       color: #5b5b5b;
-      font-size: 14px;
-      width: 230px;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+      font-size: 14px; 
       overflow: hidden;
       position: absolute;
       left: 10px;
-      line-height: 17px;
-      top: 57px; 
+      line-height: 19px;
+      top: 43px; 
+      flex-wrap: wrap;
       span {
         font-size: 16px;
         font-weight: bold;
