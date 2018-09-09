@@ -33,7 +33,7 @@ const getProducts = ({
   state
 }, data) => {
   return new Promise((resolve, reject) => {
-    productsApi.getProducts(state.storage.locale).then(
+    productsApi.getProducts().then(
       (response) => {
         resolve(response);
         commit('UPDATE_PRODUCTS', response)
@@ -153,132 +153,7 @@ const getSearchResults = ({
     })
   });
 };
-const requestLogin = ({
-  commit,
-  state
-}, data) => {
-  return new Promise((resolve, reject) => {
-    axios({
-      url: `${state.apiPath}/api/login`,
-      method: 'post',
-      params: data,
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-      }
-    }).then(response => {
-      resolve(response.data);
-    }).catch(function (error) {
-      reject(error);
-    })
-  });
-};
-
-const requestPasswordRecovery = ({
-  commit,
-  state
-}, {
-  email
-}) => {
-  return new Promise((resolve, reject) => {
-    axios({
-      url: `${state.apiPath}/api/resetPassword`,
-      method: 'post',
-      params: {
-        email
-      },
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-      }
-    }).then(response => {
-      resolve(response.data);
-    }).catch(function (error) {
-      reject(error);
-    })
-  });
-};
-
-const requestSignup = ({
-  commit,
-  state
-}, data) => {
-  return new Promise((resolve, reject) => {
-    axios({
-      url: `${state.apiPath}/api/register`,
-      method: 'post',
-      params: data,
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-      }
-    }).then(response => {
-      resolve(response.data);
-    }).catch(function (error) {
-      reject(error);
-    })
-  });
-};
-
-const updateProfileInfo = ({
-  commit,
-  state
-}, data) => {
-  return new Promise((resolve, reject) => {
-    axios({
-      url: `${state.apiPath}/api/updateProfileInfo`,
-      method: 'post',
-      params: data,
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-      }
-    }).then(response => {
-      resolve(response.data);
-    }).catch(function (error) {
-      reject(error);
-    })
-  });
-};
-
-const requestLogOut = ({
-  commit,
-  state
-}, {
-  formData
-}) => {
-  return new Promise((resolve, reject) => {
-    axios({
-      url: `${state.apiPath}/api/logout`,
-      method: 'post',
-      data: formData,
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-      }
-    }).then(response => {
-      resolve(response.data);
-    }).catch(function (error) {
-      reject(error);
-    })
-  });
-};
-const addProductToBasket = ({
-  commit,
-  state
-}, {
-  formData
-}) => {
-  return new Promise((resolve, reject) => {
-    axios({
-      url: `${state.apiPath}/api/addProductToBasket`,
-      method: 'post',
-      data: formData,
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-      }
-    }).then(response => {
-      resolve(response.data);
-    }).catch(response => {
-      reject(response);
-    })
-  });
-};
+ 
 const getBasketProducts = ({
   commit,
   state
@@ -310,77 +185,8 @@ const getBasketProducts = ({
       reject(response);
     })
   });
-};
-const requestContact = ({
-  commit,
-  state
-}, {
-  contact_email,
-  contact_message,
-  contact_subject
-}) => {
-  return new Promise((resolve, reject) => {
-    axios({
-      url: `${state.apiPath}/api/sendEmail`,
-      method: 'post',
-      params: {
-        contact_email,
-        contact_message,
-        contact_subject
-      },
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-      }
-    }).then(response => {
-      resolve(response.data);
-    }).catch(function (error) {
-      reject(error);
-    })
-  });
-};
-
-const requestSubscribe = ({
-  commit,
-  state
-}, {
-  contact_email_subscribe
-}) => {
-  return new Promise((resolve, reject) => {
-    axios({
-      url: `${state.apiPath}/api/addSubscriber`,
-      method: 'post',
-      params: {
-        contact_email_subscribe
-      },
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-      }
-    }).then(response => {
-      resolve(response.data);
-    }).catch(function (error) {
-      reject(error);
-    })
-  });
-};
-const changePassword = ({
-  commit,
-  state
-}, data) => {
-  return new Promise((resolve, reject) => {
-    axios({
-      url: `${state.apiPath}/api/changePassword`,
-      method: 'post',
-      params: data,
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-      }
-    }).then(response => {
-      resolve(response.data);
-    }).catch(function (error) {
-      reject(error);
-    })
-  });
-};
+}; 
+ 
 const removeBasketProduct = ({
   commit,
   state
@@ -430,14 +236,14 @@ const getProductById = ({
   id
 }) => {
   return new Promise((resolve, reject) => {
-    axios({
-      url: `${state.apiPath}/api/getProductById?id=${id}&lang=${state.storage.locale}`,
-      method: 'get',
-    }).then(response => {
-      resolve(response.data);
-    }).catch(function (error) {
-      reject(error);
-    })
+    productsApi.getProductById(id).then(
+      (response) => {
+        resolve(response); 
+      },
+      (errorResponse) => {
+        reject(errorResponse);
+      }
+    );
   });
 };
 const getCustomData = ({
@@ -586,23 +392,32 @@ const getAdvertisements = ({
 }) => {
   return new Promise((resolve, reject) => {
     axios.get(`${state.apiPath}/api/getAdvertisements?lang=${state.storage.locale}`).then((response) => {
-       
-      if (Object.keys(response.data).length>0) {
+
+      if (Object.keys(response.data).length > 0) {
         for (const key in response.data) {
           if (response.data.hasOwnProperty(key)) {
-            const category = response.data[key]; 
-            if (key!=='audio') {
+            const category = response.data[key];
+            if (key !== 'audio') {
               if (category.length > 0) {
-                category.forEach(item => { 
-                  if(item.image) {
+                category.forEach(item => {
+                  if (item.image) {
                     item.thumbnail = `${state.apiPath}${item.image}`;
                     item.image = `${state.apiPath}${item.popup_image}`;
-                  } 
+                  }
                 });
-              } 
-            } 
+              }
+            }
+            if (key == 'audio') {
+              if (category.length > 0) {
+                category.forEach(item => {
+                  if (item.audio) {
+                    item.audio = `${state.apiPath}${item.audio}`;
+                  }
+                });
+              }
+            }
           }
-        } 
+        }
         commit('SET_ADVERTISEMENTS', response.data);
       }
       resolve(response.data);
@@ -619,24 +434,15 @@ export default {
   getCompletedWorks,
   getCompletedWorkById,
   getSliderImages,
-  getCategories,
-  requestLogin,
-  requestPasswordRecovery,
-  requestSignup,
-  requestLogOut,
-  updateProfileInfo,
-  addProductToBasket,
-  getBasketProducts,
-  requestContact,
-  requestSubscribe,
+  getCategories,   
+  getBasketProducts,  
   removeBasketProduct,
   getProductById,
   getCustomData,
   moveProductToOrders,
   getStaffInfo,
   getOrders,
-  getProductPrice,
-  changePassword,
+  getProductPrice, 
   getPartnersImages,
   getProjectSliderImages,
   getSearchResults,
