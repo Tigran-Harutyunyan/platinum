@@ -10,7 +10,7 @@ import {
 export default {
   data() {
     return {
-      email: "tigran3@mail.ru",
+      email: "tigran@mailinator.com",
       password: "tigran",
       loading: false
     }
@@ -24,7 +24,7 @@ export default {
     onLogin() {
       if (this.isAllowedToRequest) {
         this.loading = true;
-        this.$store.dispatch('requestLogin', {
+        this.$store.dispatch('login', {
           email: this.email,
           password: this.password
         }).then((response) => {
