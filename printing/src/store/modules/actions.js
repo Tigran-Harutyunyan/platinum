@@ -137,20 +137,16 @@ const getCategories = ({
 const getSearchResults = ({
   commit,
   state
-}, data) => {
+}, params) => {
   return new Promise((resolve, reject) => {
-    axios({
-      url: `${state.apiPath}/api/search?lang=${state.storage.locale}`,
-      method: 'post',
-      params: data,
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+    productsApi.getSearchResults(params).then(
+      (response) => {
+        resolve(response); 
+      },
+      (errorResponse) => {
+        reject(errorResponse);
       }
-    }).then(response => {
-      resolve(response.data);
-    }).catch(function (error) {
-      reject(error);
-    })
+    );
   });
 };
  

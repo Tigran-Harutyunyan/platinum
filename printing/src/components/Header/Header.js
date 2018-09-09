@@ -3,26 +3,24 @@ import {
 } from '../../event-bus.js';
 import Login from '../Login/Login.vue';
 import Search from '../Search/Search.vue';
-import Hamburger from './Hamburger/Hamburger.vue';
-import PasswordRecovery from '../PasswordRecovery/PasswordRecovery.vue';
+import Hamburger from './Hamburger/Hamburger.vue'; 
 import LanguageSwitcher  from './LanguageSwitcher/LanguageSwitcher.vue';
 export default { 
   data() {
-    return {
-      loginMode: true,
-      loading: false,
-      showLoginDropdown: false, 
+    return { 
+      loading: false, 
       recoveryMail: "",
       isAuthenticated: false, 
-       user: {},
+      user: {},
       currentRoute: "", 
+      showLogin: false,
+      showPasswordRecovery: false
     }
   },
   components:{
     Login,
     Search,
-    Hamburger,
-    PasswordRecovery,
+    Hamburger, 
     LanguageSwitcher
   },
   watch: {
@@ -84,8 +82,7 @@ export default {
       this.loginMode = true
     },
  
-    toggleLang(locale) {
-      //this.$root._i18n.locale = locale;
+    toggleLang(locale) { 
       let storage = localStorage.getItem('platinumInk') ? JSON.parse(localStorage.getItem("platinumInk")) : {};
       if (locale != storage.locale) {
         storage.locale = locale;
@@ -93,22 +90,8 @@ export default {
         this.$store.dispatch('setStorage', storage);
         location.reload();
       }
-    },
+    }, 
     
-    initScroller() {
-    /*   var sectionsController = new ScrollMagic.Controller();
-      var sceneNav = new ScrollMagic.Scene({
-          triggerElement: "#section-services",
-          triggerHook: 'onEnter',
-          offset: 203
-        })
-        .addTo(sectionsController) 
-        .on("enter", function (e) { 
-        })
-      sceneNav.setClassToggle("#top-nav", "section-services");
-      sceneNav.setClassToggle("#service-boxes", "active-services"); */
-    },
-  
     onLoginSuccess(response) {
       let storage = localStorage.getItem('platinumInk') ? JSON.parse(localStorage.getItem("platinumInk")) : {};
       storage.user = response;
@@ -126,8 +109,7 @@ export default {
   },
   mounted() { 
     this.user = this.storage.user;
-    this.isAuthenticated = this.storage.user; 
-    //this.initScroller();
+    this.isAuthenticated = this.storage.user;
     this.currentRoute = this.$route.name;
     EventBus.$on('logout', () => {
       this.removeUser();

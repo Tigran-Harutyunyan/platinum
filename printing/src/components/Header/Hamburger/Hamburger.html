@@ -18,9 +18,9 @@
             </li> 
         </ul> 
         <div class="auth-controls">
-            <a v-if="!isAuthed" class="btn-link btn-bright" @click="perform('login')">{{ $t('message.form.login') }}</a> 
-            <a v-if="!isAuthed" class="btn-link btn-bright" @click="perform('signUp')">{{ $t('message.signup.info11') }}</a>  
-            <a class="btn-link btn-bright" v-if="isAuthed" @click="perform('logout')">{{ $t('message.logout') }}</a>  
+            <a v-if="!isAuthed" class="btn-link btn-bright" @click.prevent="perform('login')">{{ $t('message.form.login') }}</a> 
+            <a v-if="!isAuthed" class="btn-link btn-bright" @click.prevent="perform('signUp')">{{ $t('message.signup.info11') }}</a>  
+            <a class="btn-link btn-bright" v-if="isAuthed" @click.prevent="perform('logout')">{{ $t('message.logout') }}</a>  
         </div>
         <LanguageSwitcher /> 
     </div>
