@@ -5,7 +5,7 @@ export default {
     return {
       index: 0,
       dialogTableVisible: false,
-      audioADS: [],
+      audioAds: [],
       adCategories: {},
       category: {},
       isLoading: true
@@ -21,7 +21,7 @@ export default {
         for (const key in ads) {
           if (ads.hasOwnProperty(key)) {
             if (key == 'audio') {
-              this.audioADS.push(ads[key]);
+              this.audioAds.push(ads[key]);
               delete ads[key];
               break;
             }
