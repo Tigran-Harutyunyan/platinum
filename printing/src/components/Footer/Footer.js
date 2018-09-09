@@ -17,7 +17,7 @@ export default {
     onSubmit() {
       if (!this.loading && !this.$v.$invalid) {
         this.loading = true;
-        this.$store.dispatch('requestSubscribe', {
+        this.$store.dispatch('subscribe', {
           contact_email_subscribe: this.email
         }).then((response) => {
           this.loading = false;

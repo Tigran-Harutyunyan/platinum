@@ -21,6 +21,9 @@ export default {
   computed: {
     customData() {
       return this.$store.getters.getCustomData;
+    },
+    isSendEmailFormInvalid(){ 
+      return this.$v.subject.$invalid ||  this.$v.email.$invalid  || this.$v.message.$invalid 
     }
   },
   mounted() {
@@ -30,7 +33,7 @@ export default {
     onSubmitSubscribe() {
       if (!this.loading && !this.$v.subscription_email.$invalid) {
         this.loading = true;
-        this.$store.dispatch('requestSubscribe', {
+        this.$store.dispatch('subscribe', {
           contact_email_subscribe: this.subscription_email
         }).then((response) => {
           this.loading = false;
@@ -61,9 +64,9 @@ export default {
       }
     },
     onSubmit() {
-      if (!this.loading && !this.$v.$invalid) {
+      if (!this.loading && !this.isSendEmailFormInvalid) {
         this.loading = true;
-        this.$store.dispatch('requestContact', {
+        this.$store.dispatch('sendEmail', {
           contact_email: this.email,
           contact_message: this.message,
           contact_subject: this.subject

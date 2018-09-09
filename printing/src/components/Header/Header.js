@@ -41,7 +41,7 @@ export default {
       if (this.user) {
         let formData = new FormData();
         formData.append('token', this.user ? this.user.token : "");
-        this.$store.dispatch('requestLogOut', {
+        this.$store.dispatch('logout', {
           formData
         }).then((response) => {
           this.removeUser();
@@ -61,7 +61,7 @@ export default {
       this.isAuthenticated = false;
       EventBus.$emit('onLogout');
       EventBus.$emit('authChanged'); 
-      if(this.$route.name !== 'Home'){
+      if(this.$route.name !== 'Home',this.$route.name !== 'ProductDetail'){
         this.$router.push({
           name: 'Categories',
           params: {
