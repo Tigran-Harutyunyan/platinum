@@ -340,7 +340,7 @@
   }
   .auth-controls {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
   }
   .nav li.auth-links {
     display: none !important;
@@ -791,6 +791,9 @@
 }
 
 @media only screen and (max-width: 420px) {
+  .login-window .el-dialog {
+    width: 100% !important;
+ }
   #reviews-dots {
     transform: translate(-50%, 0%);
     position: absolute;

@@ -96,16 +96,15 @@ Layout styles
 .auth-controls {
   display: none;
   width: 100%;
-  padding: 50px 35px 0;
-
+  padding: 50px 35px 0; 
   a {
     width: 110px;
     padding-left: initial;
     padding-right: initial;
   }
 
-  a:first-child {
-    margin-right: 5px;
+  a:nth-child(2) {
+    margin-left: 5px;
   }
 }
 
@@ -2682,19 +2681,20 @@ menu hamburger>i:after {
 
 .def-input.has-error {
   border-color: red
-}
-
+} 
+ 
 .search-input {
   width: 200px;
-
+  position: relative;
   .el-input__inner {
     height: 30px;
-    padding-left: 13px; // text-transform: uppercase;
+    padding-left: 13px !important;  
     border-color: #959595 !important;
     font-family: Tahoma;
+    padding-left: 15px;
   }
 }
-
+ 
 .nav li.search-holder {
   padding-top: 0;
   margin-top: -3px;
@@ -2825,15 +2825,8 @@ menu hamburger>i:after {
   padding: 12px 26px 8px 20px
 }
 
-.password-recovery-input {
-  margin-bottom: 20px;
-}
-
-.forgot-pass-link {
-  margin-top: 10px;
-  font-size: 12px !important;
-}
-
+ 
+ 
 .el-dialog {
   background-image: url("../img/pattern.jpg");
   background-repeat: repeat;
@@ -2921,4 +2914,7 @@ menu hamburger>i:after {
 .slick-prev {
   background-position: -96px 0px;
   left: 50px;
+}
+.login-window .el-dialog  {
+  width: 400px !important;
 }
