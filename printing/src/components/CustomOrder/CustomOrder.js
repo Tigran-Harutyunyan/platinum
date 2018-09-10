@@ -4,11 +4,12 @@ import {
   email,
   sameAs
 } from 'vuelidate/lib/validators';
+import Preloader from '../../commonComponents/Preloader/Preloader.vue';
 
 export default {
   data() {
-    return {
-      isLoading: false,
+    return { 
+      isLoading: true,
       productList: [],
       fileList: [], 
       product_id: "", 
@@ -33,6 +34,9 @@ export default {
       this.$store.dispatch('getProducts');
     }
   },
+  components: {
+    Preloader
+  },
   methods: { 
     onSubmit() {
       if (!this.$v.$invalid) {
@@ -40,8 +44,7 @@ export default {
           this.$notify({
             title: 'Custom order',
             message: 'Please upload the file.',
-            position: "bottom-right",
-            type: "info"
+            position: "bottom-right"
           });
           return;
         }
@@ -49,8 +52,7 @@ export default {
           this.$notify({
             title: 'Custom order',
             message: 'Please select the product',
-            position: "bottom-right",
-            type: "info"
+            position: "bottom-right"
           });
           return;
         }
@@ -75,6 +77,12 @@ export default {
               position: "bottom-right",
               type: "success"
             });
+            this.$router.push({
+              name: 'Categories',
+              params: {
+                id: 1
+              }
+            })
           } else {
             this.$notify({
               title: 'Custom order',
@@ -115,8 +123,7 @@ export default {
         fr.readAsDataURL(file.raw); 
         this.fileList = fileList.slice(-1);
     },
-  },
-
+  }, 
   validations: { 
     height: {
       required

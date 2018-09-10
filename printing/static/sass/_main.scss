@@ -2917,3 +2917,9 @@ menu hamburger>i:after {
 .login-window .el-dialog  {
   width: 400px !important;
 }
+.el-upload-list__item-name {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

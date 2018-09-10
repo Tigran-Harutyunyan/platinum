@@ -207,9 +207,9 @@ const removeBasketProduct = ({
 const customOrder = ({
   commit,
   state
-}, {
+}, 
   formData
-}) => {
+ ) => {
   return new Promise((resolve, reject) => {
     axios({
       url: `${state.apiPath}/api/customOrder`,
