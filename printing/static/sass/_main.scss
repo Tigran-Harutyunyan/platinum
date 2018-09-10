@@ -2746,7 +2746,9 @@ menu hamburger>i:after {
     font-weight: 400;
   }
 }
-
+.el-collapse-item__wrap {
+  background-color: #090908;
+}
 .el-popper[x-placement^=bottom] .popper__arrow,
 .el-popper[x-placement^=top] .popper__arrow {
   display: none;

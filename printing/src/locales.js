@@ -155,7 +155,8 @@ export default {
       uploadFile1: 'upload the first side',
       uploadFile2: 'upload the second side',
       uploadFileDescription: 'Uploaded files are visible only in JPG format, other formats will be sent to you by e-mail',
-      remove: 'Remove',
+      remove: 'Remove', 
+      tv_audio_ads: "television and radio advertising",
       name: "Name",
       delete: "Delete",
       front: "Front",
@@ -525,6 +526,7 @@ export default {
         trademark: 'Trademark matters',
         patentTrademarks:'Patents & trademarks'
       },
+      tv_audio_ads: "հեռուստատեսային եվ ռադիո գովազդ",
       services: {
         title: "ԾԱՌԱՅՈՒԹՅՈՒՆՆԵՐ",
         design: "Դիզայն",

@@ -25,7 +25,9 @@ import {
     FormItem,
     DatePicker,
     Popover,
-    Dialog
+    Dialog,
+    Collapse,
+    CollapseItem
 } from "element-ui";
 Vue.use(Loading.directive);
 Vue.use(Carousel);
@@ -45,6 +47,9 @@ Vue.use(FormItem);
 Vue.use(DatePicker);
 Vue.use(Popover);
 Vue.use(Dialog);
+Vue.use(Collapse);
+Vue.use(CollapseItem);
+
 Vue.prototype.$loading = Loading.service;
 Vue.prototype.$confirm = MessageBox.confirm;
 Vue.prototype.$notify = Notification;
