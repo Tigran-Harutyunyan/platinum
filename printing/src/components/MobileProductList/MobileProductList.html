@@ -1,0 +1,20 @@
+<div class="backdrop" v-show="showList">
+  <nav class="mobile-products-list">
+    <div class="scroll-area">
+      <el-collapse v-model="activeNames" @change="handleChange">
+        <el-collapse-item :title="group[0].categoryName" :name="index" v-for="(group, index) in productList">
+          <!-- <router-link :to="`/category/${group[0].category_id}`">
+              <h3>{{ group[0].categoryName }} </h3>
+            </router-link> -->
+          <ul v-if="group">
+            <li v-for="(item,index) in group" :key="index">
+              <router-link :to="item.href" v-bind:class="{'active-product-list' : item.isActive}">
+                {{ item.name }}
+              </router-link>
+            </li>
+          </ul>
+        </el-collapse-item>
+      </el-collapse>
+    </div>
+  </nav>
+</div>
