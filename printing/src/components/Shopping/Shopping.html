@@ -1,5 +1,6 @@
 <div>
     <Header/>
+   <HeaderCategories :productList="productList"></HeaderCategories> 
     <div class="main-section content-area" style="margin-top: 68px;" id="products">
         <Slider/>
         <div class="content-area products-area" style="position:relative">
@@ -9,7 +10,7 @@
                 <!-- <div class="logo-transparent"></div> -->
                 <div class="large-triangle1 triangles tr-3"></div>
                 <div class="large-triangle1 triangles tr-4"></div>
-                <sidebar v-show="showSidebar"></sidebar>
+                <sidebar v-show="showSidebar" :productList="productList"></sidebar>
                 <div class="products-main">
                     <HelperLinks/>
                        <router-view></router-view>
