@@ -21,7 +21,7 @@ export default {
         for (const key in ads) {
           if (ads.hasOwnProperty(key)) {
             if (key == 'audio') {
-              this.audioAds.push(ads[key]);
+              this.audioAds = ads[key];
               delete ads[key];
               break;
             }
