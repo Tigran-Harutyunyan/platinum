@@ -9,7 +9,7 @@ import Preloader from '../../commonComponents/Preloader/Preloader.vue';
 export default {
   data() {
     return { 
-      isLoading: true,
+      isLoading: false,
       productList: [],
       fileList: [], 
       product_id: "", 
@@ -27,6 +27,9 @@ export default {
   computed: { 
     products() {
       return this.$store.getters.products;
+    },
+    isFormValid(){
+      return  this.$v.$invalid==false && this.fileList.length>0 && this.product_id;
     }
   },
   mounted() {
@@ -39,7 +42,7 @@ export default {
   },
   methods: { 
     onSubmit() {
-      if (!this.$v.$invalid) {
+      if (this.isFormValid) {
         if (this.fileList.length === 0) {
           this.$notify({
             title: 'Custom order',

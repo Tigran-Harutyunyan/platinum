@@ -1,4 +1,4 @@
-<div class="products-main"> 
+<div class="products-main">
   <div class="bordered-block br-cart">
     <h3 class="product-category-title">{{ $t('message.customOrder.mainHeading') }}</h3>
     <div class="product-details-inner">
@@ -7,77 +7,91 @@
           <br>{{ $t('message.customOrder.heading2') }}
         </p>
       </div>
-      <form 
-        v-on:submit.prevent="onSubmit" 
-        @submit="$v.width.$touch();$v.height.$touch();$v.colors.$touch();$v.message.$touch();">
+      <form v-on:submit.prevent="onSubmit" @submit="$v.width.$touch();$v.height.$touch();$v.colors.$touch();$v.message.$touch();">
         <div class="sign-up-bottom">
           <div class="left">
             <table class="table-2">
               <tr>
                 <td>{{ $t('message.customOrder.type') }}</td>
                 <td>
-                  <el-select  
-                      v-model="product_id" 
-                      :placeholder="$t('message.select')">
-                    <el-option 
-                      v-for="(item, index) in productList" :key="index" 
-                      :label="item.name" 
-                      :value="item.id">
+                  <el-select v-model="product_id" :placeholder="$t('message.select')">
+                    <el-option v-for="(item, index) in productList" :key="index" :label="item.name" :value="item.id">
                     </el-option>
                   </el-select>
                 </td>
               </tr>
               <tr>
-                  <td>{{ $t('message.customOrder.height') }}</td>
-                  <td>
-                    <el-input v-model="height" :class="{'has-error': $v.height.$error}"></el-input> 
-                  </td>
-                </tr>
+                <td>{{ $t('message.customOrder.height') }}</td>
+                <td>
+                  <el-input v-model="height" :class="{'has-error': $v.height.$error}"></el-input>
+                </td>
+              </tr>
               <tr>
                 <td>{{ $t('message.customOrder.width') }}</td>
                 <td>
                   <el-input v-model="width" :class="{'has-error': $v.width.$error}"></el-input>
                 </td>
-              </tr> 
+              </tr>
               <tr>
                 <td>{{ $t('message.customOrder.colors') }}</td>
                 <td>
                   <el-input v-model="colors" :class="{'has-error': $v.colors.$error}"></el-input>
                 </td>
-              </tr> 
+              </tr>
+
               <tr class="upload-logo-block">
-                <td>{{ $t('message.customOrder.logo') }}</td>
-                <td> 
-                  <el-upload class="upload-demo up-demo1" 
-                     action=""
-                     :on-change="handleUpload"
-                     :file-list="fileList" 
-                     :auto-upload="false" 
-                    >
-                  <el-button size="small" type="primary" class="upload-logo-btn btn-submit btn-invert">{{ $t('message.customOrder.uploadFile')}}</el-button>   
-                </el-upload> 
+                  <td>{{ $t('message.customOrder.logo') }}</td>
+                  <td>
+                    <el-upload class="upload-demo up-demo1" action="" :on-change="handleUpload" :file-list="fileList"
+                      :auto-upload="false">
+                      <el-button size="small" type="primary" class="upload-logo-btn btn-submit btn-invert">{{
+                        $t('message.customOrder.uploadFile')}}</el-button>
+                    </el-upload>
+                  </td>
+                </tr>
+
+              <tr class="description-responsive">
+                <td>
+                  <div class="top-line">{{ $t('message.customOrder.textInfo1') }} <br>
+                    <span>{{ $t('message.customOrder.textInfo2') }}</span>
+                  </div>
+                </td>
+                <td>
+                  <el-input type="textarea" :rows="2" v-model="message" :class="{'has-error': $v.message.$error}"></el-input>
+                  <div class="description">{{ $t('message.customOrder.description') }}</div>
+                </td>
+              </tr>
+
+              
+              <tr class="description-responsive">
+                <td>
+
+                </td>
+                <td>
+                  <el-button class="btn-submit btn-invert mobile-submit" type="text" @click="onSubmit" :disabled="!isFormValid"
+                    :loading="isLoading">
+                    {{ $t('message.customOrder.send') }}</el-button>
                 </td>
               </tr>
             </table>
           </div>
-          <div class="right"> 
-            <div class="list-container">
-                <tr>
-                    <td class="top-line">{{ $t('message.customOrder.textInfo1') }} <br><span>{{ $t('message.customOrder.textInfo2') }}</span></td>
-                    <td class="custom-picker">
-                        <el-input type="textarea" :rows="2" v-model="message" :class="{'has-error': $v.message.$error}"></el-input> 
-                    </td> 
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td><div class="description">{{ $t('message.customOrder.description') }}</div></td></tr>
-            </div>  
-<!--             <Preloader v-if="isLoading" class="preloader"></Preloader>
- -->            <input type="submit" class="btn-submit btn-invert" :value="$t('message.customOrder.send')">
+          <div class="right">
+            <div class="order-description-block">
+              <div class="top-line">{{ $t('message.customOrder.textInfo1') }} <br>
+                <span>{{ $t('message.customOrder.textInfo2') }}</span></div>
+              <div class="custom-picker">
+                <el-input type="textarea" :rows="2" v-model="message" :class="{'has-error': $v.message.$error}"></el-input>
+                <div class="description">{{ $t('message.customOrder.description') }}</div>
+                <el-button class="btn-submit btn-invert" type="text" @click="onSubmit" :disabled="!isFormValid"
+                  :loading="isLoading">
+                  {{ $t('message.customOrder.send') }}</el-button>
+              </div>
+            </div>
           </div>
+
+
         </div>
       </form>
     </div>
   </div>
-
 </div>
