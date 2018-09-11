@@ -575,7 +575,6 @@ footer {
 
     &:focus {
       border: 2px solid #af995a;
-      color: #000000;
       transition: border-color 0.3s linear, color 0.3s linear;
     }
   }
@@ -2765,12 +2764,6 @@ menu hamburger>i:after {
 .el-popper[x-placement^=bottom] .popper__arrow,
 .el-popper[x-placement^=top] .popper__arrow {
   display: none;
-}
-
-.list-container {
-  .el-checkbox__label {
-    line-height: 29px !important;
-  }
 }
 
 .banner-container {

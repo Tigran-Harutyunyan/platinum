@@ -1,0 +1,33 @@
+@media only screen and (max-width: 650px) {
+  .products-main .product-category-title {
+    font-size: 24px;
+  }
+
+  .sign-up-bottom {
+    tr td:first-child {
+      font-size: 14px;
+      padding-top: 6px;
+    }
+  }
+
+  .sign-up-top {
+    p {
+      font-size: 14px;
+    }
+  }
+}
+
+@media only screen and (max-width: 440px) {
+  .links-column {
+    margin-right: 5px;
+
+    h5 {
+      padding-bottom: 16px;
+    }
+
+    a {
+      font-size: 12px;
+      line-height: 20px;
+    }
+  }
+}

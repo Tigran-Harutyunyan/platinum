@@ -10,17 +10,17 @@ export default {
   data() {
     return {
       email: '',
-      loading: false
+      isLoading: false
     }
   },
   methods: {
     onSubmit() {
-      if (!this.loading && !this.$v.$invalid) {
-        this.loading = true;
+      if (!this.isLoading && !this.$v.$invalid) {
+        this.isLoading = true;
         this.$store.dispatch('subscribe', {
           contact_email_subscribe: this.email
         }).then((response) => {
-          this.loading = false;
+          this.isLoading = false;
           if (response.success) {
             this.$notify({
               title: 'Subscribe',
@@ -37,7 +37,7 @@ export default {
             });
           }
         }).catch((error) => {
-          this.loading = false;
+          this.isLoading = false;
           this.$notify({
             title: 'Subscribe',
             message: 'Server error',

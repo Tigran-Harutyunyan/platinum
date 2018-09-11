@@ -4,6 +4,7 @@
 
 .tabs-container {
   clear: both;
+
   .tabs {
     width: 480px;
   }
@@ -13,11 +14,13 @@
   background: white;
   min-height: 300px;
   padding: 30px;
+
   p {
     width: 230px;
     line-height: 22px;
     padding-bottom: 80px;
   }
+
   .tab-inner {
     width: 800px;
     display: flex;
@@ -31,12 +34,14 @@
 .link-box {
   display: flex;
   flex-direction: column;
-  width: 200px; 
+  width: 200px;
+
   img {
     width: 200px;
     height: 200px;
     border: 1px solid #af995a
   }
+
   .link-caption {
     font-size: 14px;
     color: #575757;
@@ -49,13 +54,16 @@
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 31px;
+
   li {
     margin-right: 80px;
     margin-bottom: 63px;
+
     a {
-        display: block;
+      display: block;
     }
   }
+
   li:nth-child(4n) {
     margin-right: 0;
   }
@@ -63,4 +71,10 @@
 
 .tab-content .tab-inner {
   width: auto;
+}
+
+@media only screen and (max-width: 520px) {
+  .tabs-container .tabs {
+    width: 327px;
+  }
 }

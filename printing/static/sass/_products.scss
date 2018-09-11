@@ -251,7 +251,9 @@ img.banner-offer {
 
 .footer-left {
   margin-right: 80px;
-
+  .form-container {
+    width: 320px;
+  }
   .social-place {
     display: inline-flex;
     padding-bottom: 30px;
@@ -268,8 +270,7 @@ img.banner-offer {
   }
 
   .def-input {
-    max-width: 320px;
-    margin-right: 15px;
+    max-width: 320px; 
     color: white
   }
 
@@ -280,6 +281,7 @@ img.banner-offer {
   .subscription-form {
     .default-inp-row {
       display: flex;
+      justify-content: flex-end;
     }
 
     h3 {
