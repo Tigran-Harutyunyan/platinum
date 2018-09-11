@@ -28,3 +28,20 @@
     line-height: 39px;
     cursor: pointer
 } 
+.mobile-category-list-toggler {
+    display: none;
+    background-image: url("../../../static/img/sprite.png");
+    width: 22px;
+    height: 16px;
+    background-position: -249px -224px;
+    position: absolute;
+    top: 24px;
+    left: 3px;
+    cursor: pointer
+}
+
+@media only screen and (max-width: 910px) { 
+    .mobile-category-list-toggler  {
+        display: block; 
+    }
+}

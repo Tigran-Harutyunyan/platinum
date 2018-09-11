@@ -1,6 +1,7 @@
 <header id="appHeader" class="normal-header">
     <nav class="nav-bar">
         <div class="container nav-container nav1">
+           <div class="mobile-category-list-toggler" @click="$emit('toggleCategoryDropdown')"></div>
             <a @click="$router.push({ name: 'Home'})" class="left-floated logo-link">
                 <div class="logo-place"></div>
             </a>
