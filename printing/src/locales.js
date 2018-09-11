@@ -131,7 +131,7 @@ export default {
         createPage: "Sign up",
         login: "Login",
         back: "Back",
-        recovery: "recovery"
+        recovery: "Reset password"
       },
       address: {
         part1: '',
@@ -382,7 +382,7 @@ export default {
         createPage: "Ստեղծել անձնական էջ",
         login: "մուտք",
         back: "ետ",
-        recovery: "վերականգնում"
+        recovery: " աղտնաբառի վերականգնում"
       },
       ordersPopup: {
         header: "պատվերի մանրամասներ",
