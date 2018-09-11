@@ -1,30 +1,32 @@
 <footer class="products-footer">
   <div class="footer-inner">
     <div class="footer-left">
-      <div class="social-place">
-        <h3>{{ $t('message.shoppingFooter.joinOurPage') }}</h3>
-        <social-media></social-media>
-      </div>
-
-      <div class="subscription-form">
-        <h3>{{ $t('message.shoppingFooter.letsHelp') }}</h3>
-        <div class="form-container">
-          <form 
-              v-on:submit.prevent="onSubmit" 
-              @submit="$v.email.$touch();" class="subscription-form" name="contact_form">
-            <div class="default-inp-row">
-              <input 
-                v-model="email" 
-                :class="{'has-error': $v.email.$error}" 
-                class="def-input" type="email" placeholder="էլ-փոստ" 
-                name="contact_email">
-              <input type="submit" class="btn-submit" :value="$t('message.subscribe')">
+      <div class="left-wrapper">
+          <div class="social-place">
+              <h3>{{ $t('message.shoppingFooter.joinOurPage') }}</h3>
+              <social-media></social-media>
             </div>
-          </form>
-        </div>
+      
+            <div class="subscription-form">
+              <h3>{{ $t('message.shoppingFooter.letsHelp') }}</h3>
+              <div class="form-container">
+                <form 
+                    v-on:submit.prevent="onSubmit" 
+                    @submit="$v.email.$touch();" class="subscription-form" name="contact_form">
+                  <div class="default-inp-row">
+                    <input 
+                      v-model="email" 
+                      :class="{'has-error': $v.email.$error}" 
+                      class="def-input" type="email" placeholder="էլ-փոստ" 
+                      name="contact_email">
+                    <input type="submit" class="btn-submit" :value="$t('message.subscribe')">
+                  </div>
+                </form>
+              </div>
+            </div>
+            <p class="rights-info" v-html="customData.copyright"> 
+            </p>
       </div>
-      <p class="rights-info" v-html="customData.copyright"> 
-      </p>
     </div>
     <div class="links-container">
       <div class="links-column">
