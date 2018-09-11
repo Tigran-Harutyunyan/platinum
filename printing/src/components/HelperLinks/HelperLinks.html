@@ -1,34 +1,34 @@
 <div class="helper-links" :class="{'logged-in': storage.user}">
-    <div>
-        <span class="icon"></span>
-        <div class="link-text">
-            <span>{{ $t('message.help') }}</span>
-            <a class="secondary" href="tel:+37499766664">+374 99 76 66 64</a>
-        </div>
+  <div>
+    <span class="icon"></span>
+    <div class="link-text">
+      <span>{{ $t('message.help') }}</span>
+      <a class="secondary" href="tel:+37499766664">+374 99 76 66 64</a>
     </div>
-    <div id="personal-page" v-if="storage.user">
-        <span class="icon"></span>
-        <div class="link-text" >
-            <span>{{ $t('message.your') }}</span>
-            <span class="secondary"> {{ $t('message.personalPage') }}</span>
-            <ul class="personal-page-dropdown"> 
-                <router-link tag="li" to="/orders">
-                    <a>{{ $t('message.myOrders') }}</a>
-                </router-link>
-                <router-link tag="li" to="/profile">
-                    <a>{{ $t('message.editProfile') }}</a>
-                </router-link>
-                <router-link tag="li" to="/change-password">
-                    <a>{{ $t('message.changePasswordTitle') }}</a>
-                </router-link>
-            </ul>
-        </div> 
+  </div>
+  <div v-if="storage.user" @click="$router.push({name:'Cart'})">
+    <span class="icon"></span>
+    <div class="link-text">
+      <span style="margin-top: 12px;">{{ $t('message.cart') }}</span>
     </div>
-    <div v-if="storage.user"  @click="$router.push({name:'Cart'})">
-        <span class="icon"></span>
-        <div class="link-text">
-            <span style="margin-top: 12px;">{{ $t('message.cart') }}</span>
-        </div>
-        <div class="cart-info">{{ cartItems.length }}</div>
+    <div class="cart-info">{{ cartItems.length }}</div>
+  </div>
+  <div id="personal-page" v-if="storage.user">
+    <span class="icon"></span>
+    <div class="link-text">
+      <span>{{ $t('message.your') }}</span>
+      <span class="secondary"> {{ $t('message.personalPage') }}</span>
+      <ul class="personal-page-dropdown">
+        <router-link tag="li" to="/orders">
+          <a>{{ $t('message.myOrders') }}</a>
+        </router-link>
+        <router-link tag="li" to="/profile">
+          <a>{{ $t('message.editProfile') }}</a>
+        </router-link>
+        <router-link tag="li" to="/change-password">
+          <a>{{ $t('message.changePasswordTitle') }}</a>
+        </router-link>
+      </ul>
     </div>
+  </div>
 </div>

@@ -21,10 +21,10 @@
         width: 400px;
         display: none;
         li {
-            background-color: rgba(255,255,255, 0.5);
+            background-color: rgba(255,255,255,1);
             padding: 7px 11px 5px;
             text-transform: initial;
-            border-left: 1px solid rgba(255,255,255, 0.5);
+            border-left: 1px solid rgba(255,255,255, 1);
             &:hover {
                 border-left: 1px solid #af995a;
                 background-color: #ebebeb;
@@ -113,4 +113,19 @@
 }
 #personal-page:hover   ul   {
     display: block;
+}
+
+@media only screen and (max-width: 600px) {
+    .helper-links.logged-in {
+        width: 100%;
+        flex-wrap: wrap; 
+    }
+    .helper-links > div:nth-child(2n){
+        border-right: none
+    }
+}
+@media only screen and (max-width: 400px) {     
+    .helper-links > div:nth-child(1n){
+        border-right: none
+    }
 }
