@@ -2,15 +2,13 @@
     class="login-window" 
     :append-to-body="true" 
     :visible.sync="dialogTableVisible" 
-    @close="close">
-
-    <Preloader v-show="isLoading"></Preloader>
+    @close="close"> 
 
     <div class="login-block">
 
         <form 
             v-if="loginMode"
-            v-on:submit.prevent="onLogin"  
+            v-on:submit.prevent="login"  
             @submit="$v.email.$touch();$v.password.$touch();"> 
             <el-input 
                 v-model="email" 
@@ -24,14 +22,16 @@
                 :class="{'has-error': $v.password.$error}">
             </el-input>
             <span class="forgot-pass-link" 
-                @click="loginMode=false">{{ $t('message.form.forgotPassword') }}</span>
-            <input type="submit" class="btn-submit btn-invert" 
-                :value="$t('message.form.login')">
+                @click="loginMode=false">{{ $t('message.form.forgotPassword') }}</span> 
+            <el-button class="btn-submit btn-invert" type="text" 
+                @click="login"  
+                :disabled="!isLoginFormValid" 
+                :loading="isLoading">{{ $t('message.form.login') }}</el-button>
         </form>
 
         <form  
             v-else 
-            v-on:submit.prevent="onPassRecovery" 
+            v-on:submit.prevent="recoverPass" 
             @submit="$v.recoveryMail.$touch();">
             <el-input class="password-recovery-input" 
                 v-model="recoveryMail" 
@@ -39,9 +39,11 @@
             :placeholder="$t('message.form.email')">
             </el-input> 
             <span class="forgot-pass-link" 
-                @click="loginMode=true">{{ $t('message.form.login') }}</span> 
-            <input type="submit" class="btn-submit btn-invert" 
-            :value="$t('message.form.recovery')"> 
+                @click="loginMode=true">{{ $t('message.form.login') }}</span>
+            <el-button class="btn-submit btn-invert" type="text" 
+            @click="recoverPass"  
+            :disabled="!isValidRecovery" 
+            :loading="isLoading">{{ $t('message.form.recovery') }}</el-button>
         </form>
 
     </div>   

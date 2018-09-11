@@ -20,6 +20,7 @@ export default {
     return {
       showSidebar: false,
       productList: {},
+      showCategoryDropdown: false
     };
   },
   watch: {
@@ -61,6 +62,9 @@ export default {
     }
   }, 
   methods: {
+    toggleCategoryDropdown(){
+      this.showCategoryDropdown = !this.showCategoryDropdown;
+    },
     checkRoute(route) {
       this.showSidebar =
         route == "Categories" || route == "ProductDetail" ? true : false;
