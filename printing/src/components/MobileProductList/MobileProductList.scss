@@ -3,17 +3,70 @@
    top: 68px;
    z-index: 10000;
    width: 300px;
+   transform: translateX(-300px);
+   transition: transform .3s ease-in-out
  }
 
  .backdrop {
    position: fixed;
    width: 100%;
    height: 100vh;
-   z-index: 10; 
+   z-index: 10;
    background: #000000de;
+   transform: translateX(-100vw);
+   transition: transform .3s ease-in-out
+ }
+ .spacer {
+   height: 20px;
+ }
+
+ .close-btn {
+   background-image: url(/static/img/sprite.eed7ef1.png);
+   width: 17px;
+   height: 16px;
+   background-position: -280px -226px;
+   top: 20px;
+   right: 20px;
+   position: absolute;
+   cursor: pointer;
  }
 
  .scroll-area {
    height: 100vh;
    overflow-y: auto
+ }
+
+ .open-dropdown {
+   .backdrop {
+     transform: translateX(0);
+   }
+
+   .mobile-products-list {
+     transform: translateX(0);
+   }
+ }
+
+ .mobile-products {
+   padding-top: 8px;
+
+   li {
+     a {
+       padding: 7px 3px 9px 20px;
+       border-left: 2px solid #141414;
+       width: 100%;
+       font-size: 14px;
+       display: block;
+
+       &:hover {
+         border-left: 2px solid #af995a;
+         background: #141414;
+       }
+     }
+
+     a.router-link-active {
+       border-left: 2px solid #af995a;
+       color: #af995a;
+       background: #141414;
+     }
+   }
  }

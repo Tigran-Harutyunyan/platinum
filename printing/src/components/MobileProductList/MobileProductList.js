@@ -1,8 +1,7 @@
 export default {
   data() {
     return {
-      activeNames: ['1'],
-      showList: false
+      activeNames: ['1'],//'2','3','4'
     };
   },
   props: {
@@ -10,9 +9,15 @@ export default {
       type: Object
     }
   },
-  methods: {
-    handleChange(val) {
-
+  watch: {
+    $route(to, from) {
+      this.close();
     }
+  },
+  methods: { 
+    close (){
+      this.$emit('closeDropdown');
+    },
+    handleChange(val) {}
   }
 }
