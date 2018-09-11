@@ -14,7 +14,9 @@
    z-index: 10;
    background: #000000de;
    transform: translateX(-100vw);
-   transition: transform .3s ease-in-out
+   transition: transform .3s ease-in-out;
+   opacity: 0;
+   visibility: hidden;
  }
  .spacer {
    height: 20px;
@@ -39,6 +41,8 @@
  .open-dropdown {
    .backdrop {
      transform: translateX(0);
+     opacity: 1;
+     visibility: visible;
    }
 
    .mobile-products-list {

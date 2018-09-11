@@ -139,7 +139,7 @@
 
 @media only screen and (max-width: 1100px) {
   .bordered-block {
-    padding-left: 20px;
+    padding: 20px;
   }
 
   .product-details-inner2 {
@@ -153,10 +153,6 @@
 }
 
 @media only screen and (max-width: 800px) {
-  .product-slider {
-    margin-right: 35px;
-  }
-
   .product-detail-info {
     width: 100%;
     padding-top: 30px;
@@ -172,9 +168,16 @@
   }
 
   .product-details-inner {
-    padding-bottom: 50px;
+    padding-bottom: 50px; 
+    
+    >div {
+      margin: 0 auto;
+      padding-right: 0;
+      text-align: center
+    }
   }
-  .bordered-block { 
-    margin-bottom: 50px; 
-}
+
+  .bordered-block {
+    margin-bottom: 50px;
+  }
 }
