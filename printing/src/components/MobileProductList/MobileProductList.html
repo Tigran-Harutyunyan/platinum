@@ -2,7 +2,7 @@
   <nav class="mobile-products-list">
     <div class="scroll-area">
       <el-collapse v-model="activeNames" @change="handleChange">
-        <el-collapse-item :title="group[0].categoryName" :name="index" v-for="(group, index) in productList">
+        <el-collapse-item :title="group[0].categoryName" :name="index" v-for="(group, index) in productList" :key="index">
           <!-- <router-link :to="`/category/${group[0].category_id}`">
               <h3>{{ group[0].categoryName }} </h3>
             </router-link> -->
