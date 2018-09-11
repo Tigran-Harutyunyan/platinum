@@ -7,6 +7,16 @@
     padding-left: 35px;
     padding-bottom: 83px;
 }
-/* @media only screen and (max-width: 910px) { 
+  @media only screen and (max-width: 850px) { 
+      .product-category-title {
+          text-align: center
+      }
+      .product-items {
+          width: 535px;
+          margin: 0 auto;
+          .product-item:nth-child(even) {
+            margin-right: 0;
+          }
+      }
      
-}  */
+}  
