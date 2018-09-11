@@ -51,16 +51,11 @@
             </table>
           </div>
           <div class="right">
-            <div class="list-container">
-              <ul>
-                <li>
-                  <el-checkbox v-model="receive_promotions">{{ $t('message.signup.info3') }}</el-checkbox>
-                </li>
-              </ul>
-            </div>
-            <input type="submit" class="btn-submit btn-invert" 
+            <el-checkbox class="promo" v-model="receive_promotions">{{ $t('message.signup.info3') }}</el-checkbox> 
+            <el-button class="btn-submit btn-invert" type="text" 
+              @click="updateProfileInfo"  
               :disabled="!isFormValid" 
-              :value="$t('message.signup.info10')">
+              :loading="isLoading">{{ $t('message.signup.info10') }}</el-button>
           </div>
         </div>
       </form>

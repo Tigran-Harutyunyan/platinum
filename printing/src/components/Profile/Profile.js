@@ -7,6 +7,7 @@ import {
 export default {
   data() {
     return {
+      isLoading: false,
       first_name: "",
       last_name: "",
       company_name: "",
