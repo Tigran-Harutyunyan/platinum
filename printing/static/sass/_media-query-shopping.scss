@@ -40,4 +40,20 @@
   .orders-table-container {
     padding: 74px 5px 30px !important;
   }
-} 
+}
+
+@media only screen and (max-width: 810px) {
+  .order-details-modal .el-dialog {
+    width: 100% !important;
+    .popup-header {
+      padding: 0 0 48px;
+      margin: 0 0 48px;
+      font-size: 20px;
+    }
+  }
+
+  .order-details-table {
+    margin: 0 20px;
+   
+  }
+}

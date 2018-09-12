@@ -174,12 +174,12 @@ th:last-child>.cell {
 tr {
   background: #ebebeb;
 }
+
 @media only screen and (max-width: 850px) {
-    .el-tabs {
-        width: 100%;
-    }
-}
-@media only screen and (max-width: 850px) {
+  .el-tabs {
+    width: 100%;
+  }
+
   table {
     table-layout: auto
   }
@@ -196,11 +196,13 @@ tr {
     top: -9999px;
     left: -9999px;
   }
+
   tr {
     width: 100%;
   }
+
   tr+tr {
-    margin-top: 1.5em; 
+    margin-top: 1.5em;
   }
 
   td {
@@ -219,4 +221,12 @@ tr {
     width: 100%;
     white-space: nowrap;
   }
+}
+@media only screen and (max-width: 650px) {
+    td {
+        font-size: 14px
+    }
+    .br-cart {
+        padding: 0
+    }
 }
