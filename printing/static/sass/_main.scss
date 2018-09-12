@@ -2537,6 +2537,7 @@ menu hamburger>i:after {
   font-size: 14px;
   color: white;
   background: #212121;
+  text-transform: uppercase
 }
  
 .el-input.has-error .el-input__inner,
@@ -2930,4 +2931,9 @@ menu hamburger>i:after {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+.el-button:focus, .el-button:hover {
+  color: #e5e5e5;
+   border-color: #af995a;  
+   background-color: transparent;  
 }

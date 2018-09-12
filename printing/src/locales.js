@@ -37,6 +37,7 @@ export default {
       service: 'Service',
       subscribe: 'Subscribe',
       subscription_offer: 'Subscribe to our newsletter',
+      all: 'All',
       customOrder: {
         mainHeading: 'we will prepare',
         heading1: 'Please fill in the below information',
@@ -345,6 +346,7 @@ export default {
       service: 'Ծառայություն',
       subscribe: 'բաժանորդագրվել',
       subscription_offer: 'Բաժանորդագրվեք մեր նորություններին',
+      all: 'բոլորը',
       customOrder: {
         mainHeading: 'մենք կպատրաստենք',
         heading1: 'Խնդրում ենք լրացնել ստորեվ ինֆորմացիան, դիզայնը հնարավորինս ',

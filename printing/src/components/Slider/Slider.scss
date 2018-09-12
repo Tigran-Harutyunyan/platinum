@@ -1,4 +1,7 @@
 @media only screen and (max-width: 650px) {
+  .products-slider-banner {
+    display: none;
+  }
   .banner-container .el-carousel__item {
     background-size: auto;
     background-position: unset;

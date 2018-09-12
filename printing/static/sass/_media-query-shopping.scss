@@ -1,6 +1,10 @@
 @media only screen and (max-width: 650px) {
   .products-main .product-category-title {
     font-size: 24px;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    line-height: 30px;
   }
 
   .sign-up-bottom {
@@ -31,3 +35,9 @@
     }
   }
 }
+
+@media only screen and (max-width: 1300px) {
+  .orders-table-container {
+    padding: 74px 5px 30px !important;
+  }
+} 
