@@ -37,7 +37,7 @@ export default {
       }).catch((error) => {});
     }
     EventBus.$on('orderIsPlaced', () => { 
-      t//his.cartItems = [];
+      //this.cartItems = [];
     });
   }
 }
