@@ -41,13 +41,18 @@
               <td :data-label="$t('message.orderName')">{{ item.number }}</td>
               <td :data-label="$t('message.orderStatus')">{{ item.statusName }}</td>
               <td :data-label="$t('message.orderPrice')">{{ item.price }}</td>
-              <td :data-label="$t('message.action')"> <a class="table-link" @click="openOrderDetailPopup(item)">{{
-                  $t('message.orderDetails') }}</a></td>
+              <td :data-label="$t('message.action')"> 
+                <a class="table-link" @click="openOrderDetailPopup(item)">{{ $t('message.orderDetails') }}</a>
+              </td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
   </div>
-  <OrderDetailsPopup :order="currentOrder" :visible="showSummary" @close="showSummary=false"></OrderDetailsPopup>
+  <OrderDetailsPopup 
+    :order="currentOrder" 
+    :visible="showSummary" 
+    @close="onClose">
+  </OrderDetailsPopup>
 </div>

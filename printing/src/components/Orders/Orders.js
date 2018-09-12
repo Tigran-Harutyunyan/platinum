@@ -12,14 +12,17 @@ export default {
       isLoading: true
     }
   },
-  components:{
+  components: {
     OrderDetailsPopup,
     Preloader
   },
   methods: {
+    onClose() {
+      this.showSummary = false;
+    },
     openOrderDetailPopup(order) {
-         this.currentOrder = order;
-         this.showSummary = true;
+      this.currentOrder = order;
+      this.showSummary = true;
     },
     handleClick() {
       this.orderitems = this.filterOrders(this.activeTab);
@@ -33,10 +36,10 @@ export default {
       // let statusName = this.statuses.find(status => status.id == statusID);
       for (let item in this.statuses) {
         let status = this.statuses[item]
-        if (status.id == statusID){
-          return status.name; 
+        if (status.id == statusID) {
+          return status.name;
         }
-      } 
+      }
     },
     getOrders() {
       this.isLoading = true;

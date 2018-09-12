@@ -115,7 +115,7 @@
 }
 
 .table-container {
-  padding: 70px 120px 30px;
+  padding: 70px 0 30px;
   background: white;
   min-height: 300px
 }
@@ -222,11 +222,15 @@ tr {
     white-space: nowrap;
   }
 }
+
 @media only screen and (max-width: 650px) {
-    td {
-        font-size: 14px
-    }
-    .br-cart {
-        padding: 0
-    }
+  td {
+    font-size: 14px
+  }
+
+  .br-cart {
+    padding: 0
+  }
 }
+
+
