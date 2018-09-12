@@ -19,8 +19,7 @@
                       :class="{'has-error': $v.email.$error}" 
                       class="def-input" type="email" placeholder="էլ-փոստ" 
                       name="contact_email">
-                   
-                    <el-button class="btn-submit" type="text" 
+                     <el-button class="btn-submit" native-type="submit"  
                       @click="onSubmit" 
                       :disabled="isLoading"
                       :loading="isLoading">{{ $t('message.subscribe') }}

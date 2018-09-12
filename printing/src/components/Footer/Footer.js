@@ -28,6 +28,7 @@ export default {
               position: "top-right",
               type: "success"
             });
+            this.email = ''
           } else {
             this.$notify({
               title: 'Subscribe',
