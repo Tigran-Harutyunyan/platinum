@@ -1,6 +1,6 @@
 import api from './api';
 import utils from '../utils';
-
+import userMiddleware from '../apiMiddlewares/userMiddleware';
 let lang = utils.getLang();
 
 const userApi = {
@@ -66,6 +66,15 @@ const userApi = {
       return res;
     });
   },
+
+  getBasketProducts() {
+    let url = 'getBasketProducts?';  
+    let formData = userMiddleware.toBackEnd.getBasketProducts();  
+    return api.post(url, formData).then(res => {
+      return res;
+    });
+  },
+ 
 };
 
 export default userApi;

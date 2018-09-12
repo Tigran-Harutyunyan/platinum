@@ -3,7 +3,7 @@ import {
   config
 } from './config';
 import axios from 'axios';
-axios.interceptors.response.use(function (response) {
+axios.interceptors.response.use(function (response) { 
   if (response.data.error && response.data.message === "Invalid token") {
     EventBus.$emit('logout');
   }
@@ -37,7 +37,7 @@ const api = {
       }
     }
 
-    if (url.includes('addProductToBasket' || url.includes('logout'))) {
+    if (url.includes('addProductToBasket' || url.includes('logout')  || url.includes('getBasketProducts') )) {
       configs.data = params;
     } else {
       configs.params = params;

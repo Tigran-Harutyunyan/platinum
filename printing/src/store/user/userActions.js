@@ -147,7 +147,22 @@
      );
    });
  };
-
+/* 
+ const getBasketProducts = ({
+  commit,
+  state
+}) => {
+  return new Promise((resolve, reject) => {   
+    userApi.getBasketProducts().then(
+      (response) => {
+        resolve(response);
+      },
+      (errorResponse) => {
+        reject(errorResponse);
+      }
+    );
+  });
+};  */
  export default {
    login,
    logout,
@@ -157,11 +172,11 @@
    sendEmail,
    subscribe,
    updateProfileInfo,
-   addProductToBasket
+   addProductToBasket,
+  // / getBasketProducts
    /*   setStorage,
      setData,
-     setUserInfo,   
-     getBasketProducts,
+     setUserInfo, 
       */
    //removeBasketProduct,
 

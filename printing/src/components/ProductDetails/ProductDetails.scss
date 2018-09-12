@@ -145,10 +145,12 @@
   }
   .param-label {
     padding-bottom: 5px;
+    max-width: 100%;
   }
   .product-detail-info {
     padding-right: 0;
   }
+  
 }
 @media only screen and (max-width: 1300px) {
   .parameters-item { 

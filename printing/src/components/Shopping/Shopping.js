@@ -66,8 +66,8 @@ export default {
       this.showCategoryDropdown = !this.showCategoryDropdown;
     },
     checkRoute(route) {
-      this.showSidebar =
-        route == "Categories" || route == "ProductDetail" ? true : false;
+      this.showSidebar = true;
+      //route == "Categories" || route == "ProductDetail" ? true : false;
     },
     getCategoryName(category_id) {
       let categoryName = "";
