@@ -9,8 +9,8 @@
       </div>
       <form v-on:submit.prevent="updateProfileInfo" @submit="$v.first_name.$touch();$v.last_name.$touch();$v.email.$touch();$v.company_name.$touch(); $v.phone.$touch();">
         <div class="sign-up-bottom">
-          <div class="left">
-            <table class="table-2">
+          <div>
+            <table>
               <tr>
                 <td>{{ $t('message.signup.first_name') }}</td>
                 <td>
@@ -26,37 +26,27 @@
               <tr>
                 <td>{{ $t('message.signup.company') }}</td>
                 <td>
-                  <el-input 
-                    v-model="company_name" 
-                    :class="{'has-error': $v.company_name.$error}"></el-input>
+                  <el-input v-model="company_name" :class="{'has-error': $v.company_name.$error}"></el-input>
                 </td>
               </tr>
               <tr>
                 <td>{{ $t('message.signup.email') }}</td>
                 <td>
-                  <el-input 
-                    v-model="email" 
-                    :class="{'has-error': $v.email.$error}"></el-input>
+                  <el-input v-model="email" :class="{'has-error': $v.email.$error}"></el-input>
                 </td>
               </tr>
               <tr>
                 <td>{{ $t('message.signup.birthday') }}</td>
                 <td class="custom-picker">
-                  <el-date-picker  type="date" placeholder="" 
-                    v-model="birthday_at" 
-                    :picker-options="pickerOptions">
+                  <el-date-picker type="date" placeholder="" v-model="birthday_at" :picker-options="pickerOptions">
                   </el-date-picker>
                 </td>
-              </tr>
+              </tr> 
             </table>
-          </div>
-          <div class="right">
-            <el-checkbox class="promo" v-model="receive_promotions">{{ $t('message.signup.info3') }}</el-checkbox> 
-            <el-button class="btn-submit btn-invert" type="text" 
-              @click="updateProfileInfo"  
-              :disabled="!isFormValid" 
+            <el-checkbox class="custom-checkbox" v-model="receive_promotions">{{ $t('message.signup.info3') }}</el-checkbox>
+            <el-button class="btn-submit btn-invert" type="text" @click="updateProfileInfo" :disabled="!isFormValid"
               :loading="isLoading">{{ $t('message.signup.info10') }}</el-button>
-          </div>
+          </div> 
         </div>
       </form>
     </div>

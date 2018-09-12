@@ -88,12 +88,12 @@ i {
   color: #af995a;
 }
 
- 
- .promo {
-     float: left;
-     display: flex;
-     white-space: pre-wrap;
- }
+.custom-checkbox {
+  width: 360px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
 .recaptcha-element {
   padding-bottom: 11px;
   padding-top: 11px;
@@ -116,7 +116,7 @@ i {
 }
 
 @media only screen and (max-width: 650px) {
-    .sign-up-bottom {
-        padding-bottom: 0;
-    }
-} 
+  .sign-up-bottom {
+    padding-bottom: 0;
+  }
+}
