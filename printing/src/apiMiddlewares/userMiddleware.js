@@ -1,14 +1,17 @@
+ import utils from '../utils';
 
-import axios from 'axios';
+ const userMiddleware = {
+   fromBackEnd: {
 
-const customerApi = {
-    getTaskCustomerDetails(taskId) {
-        return api.get(`admin/operations/${taskId}/customer`).then(res => {
-            return customerMiddleware.fromBackEnd.parseCustomerData(res.body.data);
-        });
-    }
-};
+   },
+   toBackEnd: {
+     getBasketProducts() {
+       let token = utils.getUserToken();  
+       let formData = new FormData();
+       formData.append('token', token);
+       return formData;
+     }
+   }
+ };
 
-export default {
-    customerApi
-};
+ export default userMiddleware
