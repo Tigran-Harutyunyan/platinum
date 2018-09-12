@@ -1,6 +1,11 @@
+import {
+  EventBus
+} from '../../event-bus.js';
 export default {
   data() {
-    return {}
+    return {
+      items: []
+    }
   },
   computed: {
     cartItems: {
@@ -11,6 +16,9 @@ export default {
     },
     storage() {
       return this.$store.getters.getStorage;
+    },
+    isCartEmpty() {
+      return this.cartItems.length === 0
     }
   },
   mounted() {
@@ -24,10 +32,12 @@ export default {
       }).then((response) => {
         this.isLoading = false;
         if (!response.error) {
-          this.cartItems = response;
-          this.isCartEmpty = this.cartItems.length === 0 ? true : false;
+          this.items = response;
         }
       }).catch((error) => {});
     }
+    EventBus.$on('orderIsPlaced', () => { 
+      t//his.cartItems = [];
+    });
   }
 }
