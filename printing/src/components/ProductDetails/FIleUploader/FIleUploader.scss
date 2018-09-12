@@ -35,4 +35,8 @@
     background-repeat: no-repeat;
     background-color: white
   }
-  
+  @media only screen and (max-width: 1115px) {
+    .upload-img {
+      width: 144px;
+      height: 144px;}
+  }
