@@ -6,7 +6,7 @@ export default {
     return {
       activeTab: '1',
       allOrders: [],
-      cartItems: [],
+      orderitems: [],
       currentOrder: {},
       showSummary: false,
       isLoading: true
@@ -22,7 +22,7 @@ export default {
          this.showSummary = true;
     },
     handleClick() {
-      this.cartItems = this.filterOrders(this.activeTab);
+      this.orderitems = this.filterOrders(this.activeTab);
     },
     filterOrders(status_id) {
       let filteredOrders = [];
@@ -58,7 +58,7 @@ export default {
           }
 
           this.allOrders = response.data;
-          this.cartItems = this.filterOrders(1);
+          this.orderitems = this.filterOrders(1);
           this.isCartEmpty = this.allOrders.length === 0 ? true : false;
         }
       }).catch((error) => {});

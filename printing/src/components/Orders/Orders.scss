@@ -1,133 +1,222 @@
 .product-type {
-    font-size: 16px;
-    color: #666666;
-    font-weight: bold;
-    text-transform: uppercase;
-    padding-right: 88px;
+  font-size: 16px;
+  color: #666666;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-right: 88px;
 }
+
 .cart-images {
-    display: flex;
-    .cart-img-container:first-child {
-        margin-right: 25px
-    }
+  display: flex;
+
+  .cart-img-container:first-child {
+    margin-right: 25px
+  }
 }
+
 .cart-img-container {
-    text-align: center;
-    h5 {
-        font-size: 16px;
-        text-transform: uppercase;
-        color: #666666;
-        padding-top: 3px
-    }
+  text-align: center;
+
+  h5 {
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #666666;
+    padding-top: 3px
+  }
 }
-.cart-top{
-    display: flex; 
-    flex-wrap: wrap; 
-    justify-content: space-around;
-    width: 100%;
-    padding-bottom: 58px;
-    border-bottom: 1px solid #af995a;
+
+.cart-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+  padding-bottom: 58px;
+  border-bottom: 1px solid #af995a;
 }
+
 .cart-products {
-    margin-left: auto;
-    display: flex;
-}
-td {
-    line-height: 36px;
+  margin-left: auto;
+  display: flex;
 }
 
 .action-btns {
-    color: #af995a;
-    line-height: 30px;
-    text-align: right;
-    margin-left: 50px;
-    li{
-        font-weight: bold;
-        font-size: 16px; 
-    }
-    .price-bold {
-        font-family: "Myriad Pro";
-        font-weight: bold;
-        font-size: 24px
-    } 
-} 
+  color: #af995a;
+  line-height: 30px;
+  text-align: right;
+  margin-left: 50px;
+
+  li {
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .price-bold {
+    font-family: "Myriad Pro";
+    font-weight: bold;
+    font-size: 24px
+  }
+}
+
 .btn-submit {
-    margin-top: 30px;
+  margin-top: 30px;
 }
+
 .btn-links {
-    cursor: pointer;
+  cursor: pointer;
 }
+
 .cart-bottom {
-    display: flex;
-    justify-content: right;
+  display: flex;
+  justify-content: right;
+  width: 100%;
+  padding-top: 43px;
+
+  .product-type {
+    text-transform: initial
+  }
+
+  .cart-products {
+    flex-wrap: wrap;
+    width: 336px;
+  }
+
+  table {
     width: 100%;
-    padding-top: 43px; 
-    .product-type {
-        text-transform: initial
-    }
-    .cart-products { 
-        flex-wrap: wrap;
-        width: 336px; 
-    }
-    table {
+  }
+}
+
+.pricing-cell {
+  display: flex;
+  margin-left: auto;
+  padding-top: 66px;
+
+  .btn-submit {
+    margin-top: 0;
+    font-size: 24px;
+    width: 220px
+  }
+
+  .link {
+    font-size: 17px;
+    color: #747474;
+    text-transform: uppercase;
+    padding-top: 12px;
+    margin-right: 20px;
+  }
+}
+
+.product-details-inner {
+  padding-bottom: 160px;
+}
+
+.el-tabs {
+  width: 680px;
+  margin: 0 auto;
+}
+
+.table-container {
+  padding: 70px 120px 30px;
+  background: white;
+  min-height: 300px
+}
+
+.table-link {
+  color: #af995a;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+//New table
+table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+/* Zebra striping */
+tr:nth-of-type(even) {
+  background: #f5f5f5;
+}
+
+td {
+  padding: 12px 0;
+  line-height: 25px;
+  box-sizing: border-box;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+  position: relative;
+}
+
+th {
+  background-color: #e1e1e1;
+  font-size: 16px;
+  color: #af995a;
+  padding-top: 13px;
+  padding-bottom: 13px;
+}
+
+td,
+th {
+  text-align: center;
+  text-transform: uppercase
+}
+
+th>.cell {
+  border-right: 1px solid #af995a;
+  line-height: 21px;
+  padding: 0 13px;
+}
+
+th:last-child>.cell {
+  border: none
+}
+
+tr {
+  background: #ebebeb;
+}
+@media only screen and (max-width: 850px) {
+    .el-tabs {
         width: 100%;
     }
 }
-tr td:last-child {
-    text-align: right
-}
-.table-1 {
-    border-bottom: 1px solid #af995a;
-    margin-bottom: 16px;
-    tr:last-child td {
-        padding-bottom: 17px;
-    }
-}
-.table-2 { 
-    td{
-        color: #af995a;
-    }
-    tr  {
-        td:first-child{
-            font-size: 20px; 
-        }
-        td:last-child{
-            font-size: 24px;
-            font-weight: bold
-        }
-    }
-}
-.pricing-cell {
-    display: flex;
-    margin-left: auto;
-    padding-top: 66px;
-    .btn-submit {
-        margin-top: 0;
-        font-size: 24px;
-        width: 220px
-    }
-    .link {
-        font-size: 17px;
-        color: #747474;
-        text-transform: uppercase;
-        padding-top: 12px;
-        margin-right: 20px;
-    }
-}
-.product-details-inner {
-    padding-bottom: 160px;
-}
-.el-tabs {
-    width: 680px;
-    margin: 0 auto;
-}
-.table-container {
-    padding: 70px 120px 30px;
-    background: white;
-    min-height: 300px
-}
-.table-link {
-    color: #af995a;
-    text-decoration: underline;
-    cursor: pointer;
+@media only screen and (max-width: 850px) {
+  table {
+    table-layout: auto
+  }
+
+  td,
+  tr {
+    display: block;
+    padding: 5px;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  tr {
+    width: 100%;
+  }
+  tr+tr {
+    margin-top: 1.5em; 
+  }
+
+  td {
+    /* make like a "row" */
+    border: none;
+    position: relative;
+    padding-left: 50%;
+    text-align: left;
+  }
+
+  td:before {
+    content: attr(data-label);
+    display: inline-block;
+    line-height: 1.5;
+    margin-left: -100%;
+    width: 100%;
+    white-space: nowrap;
+  }
 }
