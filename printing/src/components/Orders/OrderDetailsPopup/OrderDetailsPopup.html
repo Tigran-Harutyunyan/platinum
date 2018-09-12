@@ -1,7 +1,7 @@
 <el-dialog class="order-details-modal" title=" " width="800px"
  :append-to-body="true" 
  :showClose="false"
- :visible.sync="visible" @close="$emit('close')">
+ :visible.sync="isVisible" @close="$emit('close')">
     <div class="popup-header">
         <h2>{{$t('message.ordersPopup.header') }} </h2>
         <div class="close" @click="$emit('close')"></div>
