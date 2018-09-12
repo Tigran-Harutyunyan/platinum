@@ -73,6 +73,41 @@
   width: auto;
 }
 
+@media only screen and (max-width: 1400px) {
+  .download-links {
+    width: 765px;
+    margin: 0 auto;
+    li:nth-child(4n) {
+      margin-right: 80px;
+    }
+    li:nth-child(3n) {
+      margin-right: 0;
+    }
+  }
+}
+@media only screen and (max-width: 1120px) {
+  .download-links {
+    width: 482px; 
+    li:nth-child(4n) {
+      margin-right: 80px;
+    }
+    li:nth-child(3n) {
+      margin-right: 80px;
+    }
+    li:nth-child(even) {
+      margin-right: 0;
+    }
+  }
+}
+@media only screen and (max-width: 560px) {
+  .download-links {
+    width: 200px; 
+    
+    li {
+      margin-right: 0;
+    }
+  }
+}
 @media only screen and (max-width: 520px) {
   .tabs-container .tabs {
     width: 327px;

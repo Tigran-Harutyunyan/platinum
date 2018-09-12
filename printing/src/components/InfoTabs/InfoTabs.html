@@ -12,6 +12,30 @@
               </div>
             </a>
           </li> 
+          <li v-for="(item, index) in links" >
+              <a download :href="item.pdf">
+                <div class="link-box">
+                  <img :src="item.image" :alt="item.name">
+                  <div class="link-caption">{{ item.name }}</div>
+                </div>
+              </a>
+            </li> 
+            <li v-for="(item, index) in links" >
+                <a download :href="item.pdf">
+                  <div class="link-box">
+                    <img :src="item.image" :alt="item.name">
+                    <div class="link-caption">{{ item.name }}</div>
+                  </div>
+                </a>
+              </li> 
+              <li v-for="(item, index) in links" >
+                  <a download :href="item.pdf">
+                    <div class="link-box">
+                      <img :src="item.image" :alt="item.name">
+                      <div class="link-caption">{{ item.name }}</div>
+                    </div>
+                  </a>
+                </li> 
         </ul>
       </div>
     </div>
