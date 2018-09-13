@@ -60,7 +60,7 @@ export default {
             this.$notify({
               title: 'Shopping cart',
               message: response.message ? response.message : '',
-              position: "top-right",
+              position: "bottom-right",
               type: "error"
             });
           }
@@ -69,7 +69,7 @@ export default {
           this.$notify({
             title: 'Shopping cart',
             message: "Server error",
-            position: "top-right",
+            position: "bottom-right",
             type: "error"
           });
         });
@@ -97,7 +97,7 @@ export default {
         this.$notify({
           title: 'Shopping cart',
           message: "Server error",
-          position: "top-right",
+          position: "bottom-right",
           type: "error"
         });
       });
@@ -121,7 +121,7 @@ export default {
           this.$notify({
             title: 'Shopping cart',
             message: 'Order is formed',
-            position: "top-right",
+            position: "bottom-right",
             type: "success"
           });
           EventBus.$emit('orderIsPlaced');
@@ -138,7 +138,7 @@ export default {
         /* this.$notify({
           title: 'Shopping cart',
           message: "Server error",
-          position: "top-right",
+          position: "bottom-right",
           type: "error"
         }); */
       });
@@ -148,7 +148,7 @@ export default {
       this.$notify({
         title: 'Shopping cart',
         message: message,
-        position: "top-right",
+        position: "bottom-right",
         type: "error"
       });
     }

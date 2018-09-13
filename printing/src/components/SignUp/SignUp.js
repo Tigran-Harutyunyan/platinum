@@ -60,7 +60,7 @@ export default {
               this.$notify({
                 title: 'Sign up',
                 message: response.message ? response.message : 'Failed to sign up',
-                position: "top-right",
+                position: "bottom-right",
                 type: "error"
               });
             }
@@ -126,7 +126,7 @@ export default {
     this.$notify({
       title: 'Sign up',
       message: 'Signup success! Please log in',
-      position: "top-right",
+      position: "bottom-right",
       type: "error",
       iconClass:"error", //'error' and 'success' classes
       showClose: false,

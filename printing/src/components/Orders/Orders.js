@@ -49,7 +49,7 @@ export default {
           this.$notify({
             title: 'Shopping cart',
             message: message,
-            position: "top-right",
+            position: "bottom-right",
             type: "error"
           });
         } else {

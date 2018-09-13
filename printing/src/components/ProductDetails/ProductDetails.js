@@ -39,6 +39,8 @@ export default {
   },
   watch: {
     '$route'(to, from) {
+      this.fileList1 = [];
+      this.fileList2 = [];
       this.getProductById();
     }
   },
@@ -78,18 +80,16 @@ export default {
         this.$notify({
           title: 'Cart',
           message: "Please login first",
-          position: "top-right",
+          position: "bottom-right",
           type: "error"
         });
         EventBus.$emit('logout');
         return;
       } else {
         this.loading = true;
-        let formData = new FormData();
-        formData.append('token', this.user ? this.user.token : "");
-        formData.append('product_id', this.product[0].id);
-        formData.append('quantity_id', [this.quantity]);
-        formData.append('properties', JSON.stringify(this.selectedOptions));
+
+        let formData = this._getFormData();
+
         this.$store.dispatch('getProductPrice', {
           formData
         }).then((response) => {
@@ -98,7 +98,7 @@ export default {
             this.$notify({
               title: 'Get price error',
               message: response.message,
-              position: "top-right",
+              position: "bottom-right",
               type: "error"
             });
           } else {
@@ -113,11 +113,30 @@ export default {
           this.$notify({
             title: 'Get price error',
             message: "Server error",
-            position: "top-right",
+            position: "bottom-right",
             type: "error"
           });
         });
       }
+    },
+
+    _getFormData(addMode) {
+
+      let formData = new FormData();
+      formData.append('token', this.user ? this.user.token : "");
+      formData.append('product_id', this.product[0].id);
+      formData.append('quantity_id', [this.quantity]);
+      formData.append('properties', JSON.stringify(this.selectedOptions));
+
+      if (addMode) {
+        if (this.fileList1.length > 0) {
+          formData.append('front_side', this.fileList1[0].raw, this.fileList1[0].name);
+        }
+        if (this.fileList2.length > 0) {
+          formData.append('back_side', this.fileList2[0].raw, this.fileList2[0].name);
+        }
+      }
+      return formData;
     },
 
     addProductToCart() {
@@ -126,7 +145,7 @@ export default {
         this.$notify({
           title: 'Cart',
           message: "Please login first",
-          position: "top-right",
+          position: "bottom-right",
           type: "error"
         });
 
@@ -134,17 +153,8 @@ export default {
       } else {
         if (!this.isAddingToCart) {
           this.isAddingToCart = true;
-          let formData = new FormData();
-          formData.append('token', this.user ? this.user.token : "");
-          formData.append('product_id', this.product[0].id);
-          formData.append('properties', JSON.stringify(this.selectedOptions));
-          formData.append('quantity_id', [this.quantity]);
-          if (this.fileList1.length > 0) {
-            formData.append('front_side', this.fileList1[0].raw, this.fileList1[0].name);
-          }
-          if (this.fileList2.length > 0) {
-            formData.append('back_side', this.fileList2[0].raw, this.fileList2[0].name);
-          }
+
+          let formData = this._getFormData('add');
 
           this.$store.dispatch('addProductToBasket', {
             formData
@@ -154,14 +164,14 @@ export default {
               this.$notify({
                 title: 'Shopping cart',
                 message: response.message,
-                position: "top-right",
+                position: "bottom-right",
                 type: "error"
               });
             } else {
               this.$notify({
                 title: 'Shopping cart',
                 message: response.message ? response.message : 'Item is added to shopping cart!',
-                position: "top-right",
+                position: "bottom-right",
                 type: "success"
               });
               this.$router.push({
@@ -173,7 +183,7 @@ export default {
             this.$notify({
               title: 'Shopping cart',
               message: "Server error",
-              position: "top-right",
+              position: "bottom-right",
               type: "error"
             });
           });

@@ -41,14 +41,14 @@ export default {
             this.$notify({
               title: 'Subscribe',
               message: 'You have been successfully subscribed',
-              position: "top-right",
+              position: "bottom-right",
               type: "success"
             });
           } else {
             this.$notify({
               title: 'Subscribe',
               message: 'Subscription error',
-              position: "top-right",
+              position: "bottom-right",
               type: "error"
             });
           }
@@ -57,7 +57,7 @@ export default {
           this.$notify({
             title: 'Subscribe',
             message: 'Server error',
-            position: "top-right",
+            position: "bottom-right",
             type: "error"
           });
         }); 
@@ -76,14 +76,14 @@ export default {
             this.$notify({
               title: 'Contact',
               message: 'The message has been sent successfully',
-              position: "top-right",
+              position: "bottom-right",
               type: "success"
             });
           } else {
             this.$notify({
               title: 'Contact',
               message: 'Error sending contact information',
-              position: "top-right",
+              position: "bottom-right",
               type: "error"
             });
           }
@@ -92,7 +92,7 @@ export default {
           this.$notify({
             title: 'Contact',
             message: 'Error sending contact information',
-            position: "top-right",
+            position: "bottom-right",
             type: "error"
           });
         });

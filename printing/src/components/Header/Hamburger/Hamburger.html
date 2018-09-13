@@ -13,16 +13,15 @@
       <li><a class="menu-item" @click="goTo('staff')">{{ $t('message.dropdown.item6') }}</a></li>
       <li><a class="menu-item" @click="goTo('contact-us')">{{ $t('message.dropdown.item7') }}</a></li>
       <li>
-        <a class="menu-item" @click="isActive=false; $router.push({name:'Categories',params: {id:1}})">{{
-          $t('message.dropdown.item8') }}
+        <a class="menu-item" @click="isActive=false; $router.push({name:'Categories',params: {id:1}})">
+          {{ $t('message.dropdown.item8') }}
           <span class="line-elem-menu"></span></a>
       </li>
       <li class="hidden-item separate-items">
         <a class="menu-item" @click="isActive=false; $router.push({name:'Orders'})">{{ $t('message.myOrders') }}</a>
       </li>
       <li class="hidden-item">
-          <a class="menu-item" @click="isActive=false; $router.push({name:'changePassword'})">{{
-          $t('message.changePasswordTitle') }}</a>
+          <a class="menu-item" @click="isActive=false; $router.push({name:'changePassword'})">{{ $t('message.changePasswordTitle') }}</a>
       </li>
       <li class="hidden-item">
         <a class="menu-item" @click="isActive=false; $router.push({name:'profile'})">{{ $t('message.editProfile') }}</a>

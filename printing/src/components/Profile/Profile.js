@@ -53,7 +53,7 @@ export default {
             this.$notify({
               title: 'Edit profile',
               message: response.message ? response.message : 'Failed to edit the profile',
-              position: "top-right",
+              position: "bottom-right",
               type: "error"
             });
           } else {

@@ -5,10 +5,23 @@ export default {
       fileList1: [],
       fileList2: [],
       styleObject1: null,
-      styleObject2: null,
+      styleObject2: null
     }
   },
+  watch: {
+    '$route'(to, from) {
+      this._clearUploadedFiles();
+    }
+  }, 
   methods: {
+    _clearUploadedFiles() {
+      this.fileList1 = [];
+      this.fileList2 = [];
+      this.styleObject1 = null,
+        this.styleObject2 = null,
+        this.$refs.upload1.clearFiles();
+      this.$refs.upload2.clearFiles();
+    },
     handleChange1(file, fileList) {
       this._proccessFiles(file, fileList, 1);
     },
@@ -60,7 +73,6 @@ export default {
         this.styleObject2 = {};
         this._emitData(side, this.fileList2);
       }
-     
     },
     _emitData(side, list) {
       this.$emit('filelistChange', {

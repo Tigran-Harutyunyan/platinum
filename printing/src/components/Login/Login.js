@@ -38,7 +38,7 @@ export default {
           this.$notify({
             title: 'Login',
             message: response.message ? response.message : 'Failed to login',
-            position: "top-right",
+            position: "bottom-right",
             type: "error"
           });
         }
@@ -56,7 +56,7 @@ export default {
         this.$notify({
           title: 'Login',
           message: error ? error : 'Failed to login',
-          position: "top-right",
+          position: "bottom-right",
           type: "error"
         });
       });
@@ -71,7 +71,7 @@ export default {
           this.$notify({
             title: 'Password recovery',
             message: "Password recovery success",
-            position: "top-right",
+            position: "bottom-right",
             type: "success"
           });
         }

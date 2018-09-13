@@ -32,14 +32,14 @@ export default {
             this.$notify({
               title: 'Change password',
               message: response.message ? response.message : 'Failed to change the password',
-              position: "top-right",
+              position: "bottom-right",
               type: "error"
             });
           } else {
             this.$notify({
               title: 'Password change',
               message: 'Password change success!',
-              position: "top-right",
+              position: "bottom-right",
               type: "success"
             });
             this.password = this.passwordConfirm = '';
@@ -50,7 +50,7 @@ export default {
           this.$notify({
             title: 'Password change error',
             message: error.message || '' ,
-            position: "top-right",
+            position: "bottom-right",
             type: "error"
           });
         });
