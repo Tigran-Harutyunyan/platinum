@@ -71,3 +71,14 @@
     margin-bottom: 6px;
   }
 }
+.user-logged-in {
+  .hidden-item {
+    display: block;
+  }  
+}
+.hidden-item{
+  display: none;
+}
+.separate-items {
+  margin-top: 25px;
+}

@@ -1,28 +1,39 @@
 <div class="hamburger hamburger--slider" :class="{'is-active':isActive}">
-    <div class="hamburger-box" @click="isActive=!isActive">
-        <div class="hamburger-elem"></div>
+  <div class="hamburger-box" @click="isActive=!isActive">
+    <div class="hamburger-elem"></div>
+  </div>
+  <div class="nav-dropdown" v-if="isActive">
+    <div class="close-btn" @click="isActive=!isActive"></div>
+    <ul class="nav sidemenu" :class="{'user-logged-in':isAuthed}">
+      <li><a class="menu-item" @click="goTo()">{{ $t('message.dropdown.item1') }}</a></li>
+      <li><a class="menu-item" @click="goTo('services')">{{ $t('message.dropdown.item2') }}</a></li>
+      <li><a class="menu-item" @click="goTo('about-us')">{{ $t('message.dropdown.item3') }}</a></li>
+      <li><a class="menu-item" @click="goTo('projects')">{{ $t('message.dropdown.item4') }}</a></li>
+      <li><a class="menu-item" @click="goTo('why')">{{ $t('message.dropdown.item5') }}</a></li>
+      <li><a class="menu-item" @click="goTo('staff')">{{ $t('message.dropdown.item6') }}</a></li>
+      <li><a class="menu-item" @click="goTo('contact-us')">{{ $t('message.dropdown.item7') }}</a></li>
+      <li>
+        <a class="menu-item" @click="isActive=false; $router.push({name:'Categories',params: {id:1}})">{{
+          $t('message.dropdown.item8') }}
+          <span class="line-elem-menu"></span></a>
+      </li>
+      <li class="hidden-item separate-items">
+        <a class="menu-item" @click="isActive=false; $router.push({name:'Orders'})">{{ $t('message.myOrders') }}</a>
+      </li>
+      <li class="hidden-item">
+          <a class="menu-item" @click="isActive=false; $router.push({name:'changePassword'})">{{
+          $t('message.changePasswordTitle') }}</a>
+      </li>
+      <li class="hidden-item">
+        <a class="menu-item" @click="isActive=false; $router.push({name:'profile'})">{{ $t('message.editProfile') }}</a>
+      </li>
+    </ul>
+    <div class="auth-controls">
+      <a v-if="!isAuthed" class="btn-link btn-bright" @click.prevent="perform('login')">{{ $t('message.form.login') }}</a>
+      <a v-if="!isAuthed" class="btn-link btn-bright" @click.prevent="perform('signUp')">{{ $t('message.signup.info11') }}</a>
+      <a class="btn-link btn-bright" v-if="isAuthed" @click.prevent="perform('logout')">{{ $t('message.logout') }}</a>
     </div>
-    <div class="nav-dropdown" v-if="isActive">
-        <div class="close-btn" @click="isActive=!isActive"></div>
-        <ul class="nav sidemenu">
-            <li><a class="menu-item" @click="goTo()">{{ $t('message.dropdown.item1') }}</a></li>
-            <li><a class="menu-item" @click="goTo('services')">{{ $t('message.dropdown.item2') }}</a></li>
-            <li><a class="menu-item" @click="goTo('about-us')">{{ $t('message.dropdown.item3') }}</a></li>
-            <li><a class="menu-item" @click="goTo('projects')">{{ $t('message.dropdown.item4') }}</a></li>
-            <li><a class="menu-item" @click="goTo('why')">{{ $t('message.dropdown.item5') }}</a></li>
-            <li><a class="menu-item" @click="goTo('staff')">{{ $t('message.dropdown.item6') }}</a></li>
-            <li><a class="menu-item" @click="goTo('contact-us')">{{ $t('message.dropdown.item7') }}</a></li>
-            <li>
-                <a class="menu-item" @click="isActive=false; $router.push({name:'Categories',params: {id:1}})">{{ $t('message.dropdown.item8') }}
-                <span class="line-elem-menu"></span></a>
-            </li> 
-        </ul> 
-        <div class="auth-controls">
-            <a v-if="!isAuthed" class="btn-link btn-bright" @click.prevent="perform('login')">{{ $t('message.form.login') }}</a> 
-            <a v-if="!isAuthed" class="btn-link btn-bright" @click.prevent="perform('signUp')">{{ $t('message.signup.info11') }}</a>  
-            <a class="btn-link btn-bright" v-if="isAuthed" @click.prevent="perform('logout')">{{ $t('message.logout') }}</a>  
-        </div>
-        <LanguageSwitcher /> 
-    </div>
-    <div class="v-modal" @click="isActive=false" v-if="isActive"></div>
+    <LanguageSwitcher />
+  </div>
+  <div class="v-modal" @click="isActive=false" v-if="isActive"></div>
 </div>
