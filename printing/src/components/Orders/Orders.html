@@ -38,7 +38,7 @@
             <tr v-for="(item,index) in orderitems" :key="index">
               <td :data-label="$t('message.orderNumber')">{{ item.number }}</td>
               <td :data-label="$t('message.orderDate')">{{ item.approved_at }}</td>
-              <td :data-label="$t('message.orderName')">{{ item.number }}</td>
+              <td :data-label="$t('message.orderName')">{{ item.name }}</td>
               <td :data-label="$t('message.orderStatus')">{{ item.statusName }}</td>
               <td :data-label="$t('message.orderPrice')">{{ item.price }}</td>
               <td :data-label="$t('message.action')"> 

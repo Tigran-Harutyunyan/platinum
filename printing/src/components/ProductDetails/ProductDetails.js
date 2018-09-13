@@ -20,7 +20,8 @@ export default {
       totalPrice: '',
       loading: false,
       selectedOptions: [],
-      quantity: ""
+      quantity: "",
+      isAddingToCart: false
     }
   },
   components: {
@@ -131,8 +132,8 @@ export default {
 
         EventBus.$emit('logout');
       } else {
-        if (!this.isLoading) {
-          this.isLoading = true;
+        if (!this.isAddingToCart) {
+          this.isAddingToCart = true;
           let formData = new FormData();
           formData.append('token', this.user ? this.user.token : "");
           formData.append('product_id', this.product[0].id);
@@ -148,7 +149,7 @@ export default {
           this.$store.dispatch('addProductToBasket', {
             formData
           }).then((response) => {
-            this.isLoading = false;
+            this.isAddingToCart = false;
             if (response.error) {
               this.$notify({
                 title: 'Shopping cart',
@@ -168,7 +169,7 @@ export default {
               });
             }
           }).catch((error) => {
-            this.isLoading = false;
+            this.isAddingToCart = false;
             this.$notify({
               title: 'Shopping cart',
               message: "Server error",

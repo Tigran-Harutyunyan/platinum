@@ -1,6 +1,7 @@
 export default {
   en: {
     message: {
+      reset: "Reset",
       aboutUs: {
         title: "About us",
         established: "Established year",
@@ -295,6 +296,7 @@ export default {
   am: {
     message: {
       email: 'Էլ. հասցե',
+      reset: "Reset",
       aboutUs: {
         title: "Մեր մասին",
         established: "Հիմնադրման տարի՝",

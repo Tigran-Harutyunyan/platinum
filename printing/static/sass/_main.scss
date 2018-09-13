@@ -245,14 +245,7 @@ Navigation
     color: #af995a;
   }
 
-  .lang-toggler {
-    padding-top: 0;
-    margin-top: -4px;
 
-    a:first-child {
-      margin-bottom: 9px;
-    }
-  }
 
   .menu-link {
     width: 114px;
@@ -682,6 +675,12 @@ footer {
   font-size: 14px
 }
 
+.el-message-box__btns .el-button {
+  color: #af995a;
+  &:hover {
+    color: #af995a;
+  }
+}
 .btn-link,
 .btn-submit,.el-button {
   @extend .tahoma;
@@ -2706,10 +2705,12 @@ menu hamburger>i:after {
     padding-left: 15px;
   }
 }
- 
+ .cart-link {
+  padding-left: 15px !important; 
+ }
 .nav li.search-holder {
   padding-top: 0;
-  margin-top: -3px;
+  margin-top: -1px;
   position: relative;
   .el-input__prefix,
   .el-input__suffix {

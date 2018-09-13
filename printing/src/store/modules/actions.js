@@ -168,10 +168,12 @@ const getBasketProducts = ({
       if (Array.isArray(response.data)) {
         response.data.forEach(element => {
           if (element.front_side) {
-            element.front_side = `${state.apiPath}${element.front_side }`
+            element.front_side = `${state.apiPath}${element.front_side }`; 
+            element.style = `background-image:url(${ element.front_side});`; 
           }
           if (element.back_side) {
-            element.back_side = `${state.apiPath}${element.back_side }`
+            element.back_side = `${state.apiPath}${element.back_side }`;
+            element.style = `background-image: url(${ element.back_side});`;
           }
         });
       }

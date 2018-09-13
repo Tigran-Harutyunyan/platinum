@@ -35,15 +35,14 @@
             <div class="btns-container">
               <a class="btn-submit btn-invert btn-1" 
                v-show="showPriceTotal && isDirty"
-               @click="reset">{{ $t('message.cancel')}}</a>
- 
+               @click="reset">{{ $t('message.cancel')}}</a> 
                 <el-button class="btn-submit btn-invert" type="text" 
-                  v-show="showPriceTotal" 
-                  :class="{disabled: !isDirty}"
-                  @click="addProductToCart()" 
-                  :disabled="isLoading"
-                  :loading="isLoading">{{ $t('message.continue') }}
-              </el-button>
+                    v-show="showPriceTotal" 
+                    :class="{disabled: !isDirty}"
+                    @click="addProductToCart()" 
+                    :disabled="isAddingToCart"
+                    :loading="isAddingToCart">{{ $t('message.continue') }}
+                </el-button>
             </div>
           </div>
         </div>
