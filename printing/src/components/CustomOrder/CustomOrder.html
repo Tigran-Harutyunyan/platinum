@@ -44,15 +44,15 @@
                   <td>
                     <el-upload class="upload-demo up-demo1" action="" :on-change="handleUpload" :file-list="fileList"
                       :auto-upload="false">
-                      <el-button size="small" type="primary" class="upload-logo-btn btn-submit btn-invert">{{
-                        $t('message.customOrder.uploadFile')}}</el-button>
+                      <el-button size="small" type="primary" class="upload-logo-btn btn-submit btn-invert">
+                        {{ $t('message.uploadFile')}}</el-button>
                     </el-upload>
                   </td>
                 </tr>
 
-              <tr class="description-responsive">
+              <tr >
                 <td>
-                  <div class="top-line">{{ $t('message.customOrder.textInfo1') }} <br>
+                  <div class="top-line"><span>{{ $t('message.customOrder.textInfo1') }}</span> <br>
                     <span>{{ $t('message.customOrder.textInfo2') }}</span>
                   </div>
                 </td>
@@ -60,22 +60,19 @@
                   <el-input type="textarea" :rows="2" v-model="message" :class="{'has-error': $v.message.$error}"></el-input>
                   <div class="description">{{ $t('message.customOrder.description') }}</div>
                 </td>
-              </tr>
-
-              
-              <tr class="description-responsive">
-                <td>
-
+              </tr> 
+              <tr >
+                <td> 
                 </td>
                 <td>
-                  <el-button class="btn-submit btn-invert mobile-submit" type="text" @click="onSubmit" :disabled="!isFormValid"
+                  <el-button class="btn-submit btn-invert " type="text" @click="onSubmit" :disabled="!isFormValid"
                     :loading="isLoading">
                     {{ $t('message.customOrder.send') }}</el-button>
                 </td>
               </tr>
             </table>
           </div>
-          <div class="right">
+         <!--  <div class="right">
             <div class="order-description-block">
               <div class="top-line">{{ $t('message.customOrder.textInfo1') }} <br>
                 <span>{{ $t('message.customOrder.textInfo2') }}</span></div>
@@ -87,9 +84,7 @@
                   {{ $t('message.customOrder.send') }}</el-button>
               </div>
             </div>
-          </div>
-
-
+          </div> --> 
         </div>
       </form>
     </div>

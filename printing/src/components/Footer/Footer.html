@@ -17,7 +17,7 @@
                     <input 
                       v-model="email" 
                       :class="{'has-error': $v.email.$error}" 
-                      class="def-input" type="email" placeholder="էլ-փոստ" 
+                      class="def-input" type="email" :placeholder="$t('message.email')" 
                       name="contact_email">
                      <el-button class="btn-submit" native-type="submit"  
                       @click="onSubmit" 

@@ -30,6 +30,7 @@ export default {
         copywriteText1: "© All rights reserved by PLATINUM INK DESIGN ",
         copywriteText2: "since 2010 powered by Platinum Ink Design."
       },
+      email: 'Email',
       readMore: 'Read more',
       controlNext: 'Next',
       controlBack: 'Back',
@@ -293,6 +294,7 @@ export default {
   },
   am: {
     message: {
+      email: 'Էլ. հասցե',
       aboutUs: {
         title: "Մեր մասին",
         established: "Հիմնադրման տարի՝",
