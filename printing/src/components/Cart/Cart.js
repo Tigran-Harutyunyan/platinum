@@ -10,7 +10,8 @@ export default {
       value: '',
       cartItems: [],
       isLoading: false,
-      isCartEmpty: ''
+      isCartEmpty: '',
+      isMovingToOrder: false
     }
   },
   components: {
@@ -111,11 +112,11 @@ export default {
       });
       formData.append('token', this.token);
       formData.append('basket_id', JSON.stringify(productIds));
-
+      this.isMovingToOrder = true;
       this.$store.dispatch('moveProductToOrders', {
         formData
       }).then((response) => {
-        this.isLoading = false;
+        this.isMovingToOrder = false;
         if (response.success) {
           this.$notify({
             title: 'Shopping cart',
@@ -133,13 +134,13 @@ export default {
           }
         }
       }).catch((error) => {
-        this.isLoading = false;
-        this.$notify({
+        this.isMovingToOrder = false;
+        /* this.$notify({
           title: 'Shopping cart',
           message: "Server error",
           position: "top-right",
           type: "error"
-        });
+        }); */
       });
     },
 
