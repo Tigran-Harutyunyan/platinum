@@ -7,7 +7,7 @@
        
       <el-collapse v-model="activeNames" accordeon="true" @change="handleChange">
         <el-collapse-item 
-          :title="group[0].categoryName" 
+          :title="group[0].category_name" 
           :name="index" 
           v-for="(group, index) in productList" :key="index">
           <ul v-if="group" class="mobile-products">

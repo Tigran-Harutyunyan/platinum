@@ -4,7 +4,7 @@
     <div v-else class="subsection-container">
         <div class="sidebar-subsection" v-for="group in productList"> 
             <router-link  :to="`/category/${group[0].category_id}`" >
-                <h3>{{ group[0].categoryName }} </h3>
+                <h3>{{ group[0].category_name }} </h3>
             </router-link> 
             <ul v-if="group">
                 <li v-for="(item,index) in group" :key="index">
