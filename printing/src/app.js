@@ -76,6 +76,6 @@ export default {
         }
     }, 
     created() { 
-        this.$store.dispatch('getCategories');
+        this.$store.dispatch('getProducts');
     }
 };
