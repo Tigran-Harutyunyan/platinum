@@ -31,7 +31,13 @@ export default {
   computed:{
     storage(){
       return this.$store.getters.storage;
-    }
+    },
+    cartItems: {
+      get: function () {
+        return this.$store.getters.getCartItems;
+      },
+      set: function () {}
+    },
   },
   methods: {
     logout() {

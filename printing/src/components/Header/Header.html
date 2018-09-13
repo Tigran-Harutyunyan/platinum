@@ -18,6 +18,11 @@
                     <li class="search-holder">
                         <Search />
                     </li> 
+                    <li class="cart-link" v-if="isAuthenticated">
+                        <a class="icon-cart" @click="isActive=false; $router.push({name:'Cart'})"> 
+                            <span>{{ cartItems.length }}</span>
+                        </a>
+                    </li>
                     <li class="lang-toggler">
                         <LanguageSwitcher /> 
                     </li>

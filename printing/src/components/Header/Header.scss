@@ -1,47 +1,86 @@
 .on-signup {
-    font-size: 14px;
-    color: #434343;
-    text-transform: initial;
-    padding: 20px 0 6px;
+  font-size: 14px;
+  color: #434343;
+  text-transform: initial;
+  padding: 20px 0 6px;
 }
 
 .create-link {
-    color: #af995a;
-    font-size: 14px;
-    text-transform: capitalize;
+  color: #af995a;
+  font-size: 14px;
+  text-transform: capitalize;
 }
 
 .el-icon-close {
-    position: absolute;
-    right: 13px;
-    top: 8px;
-    font-size: 21px;
-    color: #b2b2b2;
-    cursor: pointer;
+  position: absolute;
+  right: 13px;
+  top: 8px;
+  font-size: 21px;
+  color: #b2b2b2;
+  cursor: pointer;
 }
 
 .navigation-container {
-    display: inline-flex
-}
- 
-.el-input__icon {
-    line-height: 39px;
-    cursor: pointer
-} 
-.mobile-category-list-toggler {
-    display: none;
-    background-image: url("../../../static/img/sprite.png");
-    width: 22px;
-    height: 16px;
-    background-position: -249px -224px;
-    position: absolute;
-    top: 24px;
-    left: 3px;
-    cursor: pointer
+  display: inline-flex
 }
 
-@media only screen and (max-width: 910px) { 
-    .mobile-category-list-toggler  {
-        display: block; 
-    }
+.el-input__icon {
+  line-height: 39px;
+  cursor: pointer
 }
+
+.mobile-category-list-toggler {
+  display: none;
+  background-image: url("../../../static/img/sprite.png");
+  width: 22px;
+  height: 16px;
+  background-position: -249px -224px;
+  position: absolute;
+  top: 24px;
+  left: 3px;
+  cursor: pointer
+}
+
+.icon-cart {
+  background-image: url("../../../static/img/sprite.svg");
+  background-size: 612px 792px;
+  background-repeat: no-repeat;
+  width: 47px;
+  height: 37px;
+  background-position: -389px -126px;
+  margin-top: -10px;
+  span {
+    position: absolute;
+    right: 0;
+    top: -5px;
+    color: white;
+    color: #af995a;
+  }
+}
+
+.lang-toggler {
+    padding-top: 0;
+    margin-top: 2px;
+    padding-left: 10px;
+  a:first-child {
+    margin-bottom: 9px;
+  }
+}
+
+@media only screen and (max-width: 910px) {
+  .mobile-category-list-toggler {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+    .search-input {
+        width: 150px; 
+    }
+    .cart-link {
+        padding-left: 0px !important;
+    }
+    .nav li.search-holder {  
+        padding-left: 0;
+    }
+  }
