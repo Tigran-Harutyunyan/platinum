@@ -681,6 +681,9 @@ footer {
     color: #af995a;
   }
 }
+.el-checkbox__input.is-checked+.el-checkbox__label {
+  color: #606266;
+}
 .btn-link,
 .btn-submit,.el-button {
   @extend .tahoma;
