@@ -1,5 +1,9 @@
 <div class="portfolio" >
-  <Header />
+  <Header @toggleCategoryDropdown="toggleCategoryDropdown"/>
+  <HeaderCategories 
+        :class="{'open-dropdown':showCategoryDropdown}" 
+        @closeDropdown="showCategoryDropdown=false">
+  </HeaderCategories>
   <Preloader v-if="loading" class="spinner"></Preloader>
   <div class="main-section content-area" :class="{'is-visible':showContent}">  
     <div class="portfolio-grid" >

@@ -1,6 +1,9 @@
 <div>
-  <Header/>
-  <!-- <p>{{ $t("message.hello") }}</p> -->
+  <Header @toggleCategoryDropdown="toggleCategoryDropdown"/>
+  <HeaderCategories 
+        :class="{'open-dropdown':showCategoryDropdown}" 
+        @closeDropdown="showCategoryDropdown=false">
+  </HeaderCategories> 
   <div class="main-section" id="main-section">
     <BigSlider/>
     <div class="content-area content-area1">

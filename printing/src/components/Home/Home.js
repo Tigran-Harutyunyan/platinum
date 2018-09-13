@@ -6,6 +6,7 @@ import ProjectsSlider from "./ProjectsSlider/ProjectsSlider.vue";
 import Reasons from "./Reasons/Reasons.vue";
 import Contact from "./Contact/Contact.vue";
 import BigSlider from "./BigSlider/BigSlider.vue";
+import HeaderCategories from '../MobileProductList/MobileProductList.vue';
 export default {
   data() {
     return {
@@ -14,7 +15,8 @@ export default {
       stage: {},
       exportRoot: {},
       anim_container: {},
-      dom_overlay_container: {}
+      dom_overlay_container: {},
+      showCategoryDropdown: false
     }
   },
   computed: {
@@ -26,6 +28,9 @@ export default {
     }
   },
   methods: {
+    toggleCategoryDropdown() {
+      this.showCategoryDropdown = !this.showCategoryDropdown;
+    },
     setZindex() {
       //************* SET BANNER Z-INDEX **********************************
 
@@ -89,7 +94,8 @@ export default {
     Staff,
     Header,
     ProjectsSlider,
-    BigSlider
+    BigSlider,
+    HeaderCategories
   },
   mounted() {
     this.initReviews();

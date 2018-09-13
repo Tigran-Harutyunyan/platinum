@@ -5,7 +5,7 @@ import isotope from 'vueisotope';
 import PortfolioPopup from './PortfolioPopup/PortfolioPopup.vue';
 import debounce from 'lodash.debounce';
 import Preloader from '../../commonComponents/Preloader/Preloader.vue';
-
+import HeaderCategories from '../MobileProductList/MobileProductList.vue';
 export default {
   data() {
     return { 
@@ -13,7 +13,8 @@ export default {
       currentSlideID: '',
       showContent: false,
       loading: true, 
-      isScrolled:false
+      isScrolled:false,
+      showCategoryDropdown: false
     }
   },
   watch: {
@@ -34,6 +35,9 @@ export default {
     }
   },
   methods: {  
+    toggleCategoryDropdown() {
+      this.showCategoryDropdown = !this.showCategoryDropdown;
+    },
     invokeSearching: _.debounce(function () { 
       let offsetTop = $('.portfolio-modal').scrollTop();
         this.isScrolled = offsetTop > 80;
@@ -67,6 +71,7 @@ export default {
     Footer,
     PortfolioPopup,
     isotope,
-    Preloader
+    Preloader,
+    HeaderCategories
   }
 } 

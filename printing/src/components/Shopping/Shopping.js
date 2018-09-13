@@ -4,7 +4,7 @@ import Slider from "../Slider/Slider.vue";
 import Sidebar from "../Sidebar/Sidebar.vue";
 import HelperLinks from "../HelperLinks/HelperLinks.vue";
 import InfoTabs from "../InfoTabs/InfoTabs.vue";
-import HeaderCategories from '../MobileProductList/MobileProductList.vue'; 
+import HeaderCategories from '../MobileProductList/MobileProductList.vue';
 export default {
   name: 'home',
   components: {
@@ -18,48 +18,30 @@ export default {
   },
   data() {
     return {
-      showSidebar: false,
-      productList: {},
+      showSidebar: false, 
       showCategoryDropdown: false
     };
   },
   watch: {
     $route(to, from) {
       this.checkRoute(to.name);
-    },
-    products: function (newVal, oldVal) { 
-      this.productList = newVal; 
-      this.$store.dispatch('setSideBarProducts',products);
-    } 
+    }
   },
   computed: {
     products() {
       return this.$store.getters.products;
-    }, 
-    sidebarProducts: {
-      get: function () {
-        return this.$store.getters.sidebarProducts;
-      },
-      set: function () {}
-    }
-  }, 
+    },
+  },
   methods: {
-    toggleCategoryDropdown(){
+    toggleCategoryDropdown() {
       this.showCategoryDropdown = !this.showCategoryDropdown;
     },
     checkRoute(route) {
-      this.showSidebar =  route == "Categories" || route == "ProductDetail" ? true : false;
-    }  
-  }, 
-  mounted(){
-    if (this.sidebarProducts) { 
-      this.isLoading = false;
-      this.productList = this.sidebarProducts;
-    } else {
-      this.$store.dispatch('getProducts');
-    }  
+      this.showSidebar = route == "Categories" || route == "ProductDetail" ? true : false;
+    }
   },
+
   created() {
     this.checkRoute(this.$route.name);
   }
-} 
+}
