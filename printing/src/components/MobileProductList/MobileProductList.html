@@ -9,7 +9,7 @@
         <el-collapse-item 
           :title="group[0].category_name" 
           :name="index" 
-          v-for="(group, index) in productList" :key="index">
+          v-for="(group, index) in products" :key="index">
           <ul v-if="group" class="mobile-products">
             <li>
              <router-link  :to="`/category/${group[0].category_id}`" >

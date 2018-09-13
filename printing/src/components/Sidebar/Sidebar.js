@@ -5,16 +5,12 @@ export default {
       isLoading: true
     }
   },
-  props: {
-    productList: {}
+  computed: {
+    products() {
+      return this.$store.getters.products;
+    },
   },
   components:{
     Preloader
-  },
-  watch: {
-    productList(newVal) { 
-      this.isLoading = false;
-      this.productList = newVal; 
-    } 
-  }   
+  }  
 }

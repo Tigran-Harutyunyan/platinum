@@ -3,11 +3,11 @@ export default {
     return {
       activeNames: ['1'],//'2','3','4'
     };
-  },
-  props: {
-    productList: {
-      type: Object
-    }
+  }, 
+  computed: {
+    products() {
+      return this.$store.getters.products;
+    },
   },
   watch: {
     $route(to, from) {
