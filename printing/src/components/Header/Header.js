@@ -3,6 +3,7 @@ import {
 } from '../../event-bus.js';
 import Login from '../Login/Login.vue';
 import Search from '../Search/Search.vue';
+import SearchMobile from '../SearchMobile/SearchMobile.vue';
 import Hamburger from './Hamburger/Hamburger.vue'; 
 import LanguageSwitcher  from './LanguageSwitcher/LanguageSwitcher.vue';
 export default { 
@@ -14,12 +15,14 @@ export default {
       user: {},
       currentRoute: "", 
       showLogin: false,
-      showPasswordRecovery: false
+      showPasswordRecovery: false,
+      isMobileSearch: false
     }
   },
   components:{
     Login,
     Search,
+    SearchMobile,
     Hamburger, 
     LanguageSwitcher
   },

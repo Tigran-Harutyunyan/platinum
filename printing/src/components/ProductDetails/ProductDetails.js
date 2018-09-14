@@ -33,9 +33,9 @@ export default {
     storage() {
       return this.$store.getters.getStorage;
     },
-    apiPath() {
-      return this.$store.getters.getApiPath;
-    }
+    filesWereUploaded(){
+      return this.fileList1.length > 0 && this.fileList2.length > 0;
+    } 
   },
   watch: {
     '$route'(to, from) {
@@ -88,7 +88,7 @@ export default {
       } else {
         this.loading = true;
 
-        let formData = this._getFormData();
+        let formData = this._constructFormData();
 
         this.$store.dispatch('getProductPrice', {
           formData
@@ -120,7 +120,7 @@ export default {
       }
     },
 
-    _getFormData(addMode) {
+    _constructFormData(addMode) {
 
       let formData = new FormData();
       formData.append('token', this.user ? this.user.token : "");
@@ -150,11 +150,20 @@ export default {
         });
 
         EventBus.$emit('logout');
-      } else {
+      } else { 
+        if(!this.filesWereUploaded){
+          this.$notify({
+            title: 'Cart',
+            message: "Please upload files",
+            position: "bottom-right",
+            type: "error"
+          });
+          return;
+        }
         if (!this.isAddingToCart) {
           this.isAddingToCart = true;
 
-          let formData = this._getFormData('add');
+          let formData = this._constructFormData('add');
 
           this.$store.dispatch('addProductToBasket', {
             formData

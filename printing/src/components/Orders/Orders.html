@@ -1,4 +1,4 @@
-<div class="orders-table">
+<div>
   <div class="bordered-block br-cart">
     <h3 class="product-category-title">{{ $t('message.orderStatus') }}</h3>
     <el-tabs v-model="activeTab" type="card" @tab-click="handleClick">
@@ -10,49 +10,30 @@
     <Preloader v-if="isLoading" class="prelaoder"></Preloader>
 
     <div class="table-container orders-table-container" v-else>
-      <div id="wrapper">
-        <table v-if="orderitems.length"> 
-          <thead>
-            <tr>
-              <th>
-                <div class="cell">{{ $t('message.orderNumber') }}</div>
-              </th>
-              <th>
-                <div class="cell">{{ $t('message.orderDate') }}</div>
-              </th>
-              <th>
-                <div class="cell">{{ $t('message.orderName') }}</div>
-              </th>
-              <th>
-                <div class="cell">{{ $t('message.orderStatus') }}</div>
-              </th>
-              <th>
-                <div class="cell">{{ $t('message.orderPrice') }}</div>
-              </th>
-              <th>
-                <div class="cell">{{ $t('message.action') }}</div>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="(item,index) in orderitems" :key="index">
-              <td :data-label="$t('message.orderNumber')">{{ item.number }}</td>
-              <td :data-label="$t('message.orderDate')">{{ item.approved_at }}</td>
-              <td :data-label="$t('message.orderName')">{{ item.name }}</td>
-              <td :data-label="$t('message.orderStatus')">{{ item.statusName }}</td>
-              <td :data-label="$t('message.orderPrice')">{{ item.price }}</td>
-              <td :data-label="$t('message.action')"> 
-                <a class="table-link" @click="openOrderDetailPopup(item)">{{ $t('message.orderDetails') }}</a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <table class="orders-table orders-table-horizontal orders-table-responsive">
+        <thead>
+          <tr>
+            <th>{{ $t('message.orderNumber') }}</th>
+            <th>{{ $t('message.orderDate') }}</th>
+            <th>{{ $t('message.orderName') }}</th>
+            <th>{{ $t('message.orderStatus') }}</th>
+            <th>{{ $t('message.orderPrice') }}</th>
+            <th>{{ $t('message.action') }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(item,index) in orderitems" :key="index">
+            <td>{{ item.number }}</td>
+            <td class="order-name">{{ item.approved_at }}</td>
+            <td class="order-name">{{ item.name }}</td>
+            <td>{{ item.statusName }}</td>
+            <td>{{ item.price }}</td>
+            <td> <a class="table-link" @click="openOrderDetailPopup(item)">{{ $t('message.orderDetails') }}</a></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
-  <OrderDetailsPopup 
-    :order="currentOrder" 
-    :visible="showSummary" 
-    @close="onClose">
+  <OrderDetailsPopup :order="currentOrder" :visible="showSummary" @close="onClose">
   </OrderDetailsPopup>
 </div>

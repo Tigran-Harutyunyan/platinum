@@ -16,8 +16,9 @@
           </div>
         </div>
         <div class="cart-products">
+          <h2 class="product-type item-name">{{ item.name }}</h2>  
           <table>
-            <tr v-for="(value, key) in item.product_properties">
+             <tr v-for="(value, key) in item.product_properties">
               <td class="product-type">{{ key }}</td>
               <td>{{ value[0].name }}</td>
             </tr>

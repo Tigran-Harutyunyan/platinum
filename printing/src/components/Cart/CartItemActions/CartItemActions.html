@@ -2,12 +2,10 @@
   <ul class="action-btns">
     <li class="price-bold">{{ item.price}}</li>
     <li class="btn-links" @click="deleteCartItem(item.id)">{{ $t('message.delete') }}</li>
-    <li class="btn-links" @click="$router.push({name:'Categories', params: {id:1}})">{{ $t('message.addNew') }}</li>
-    <!-- <li class="btn-links">Խմբագրել</li> -->
+    <li class="btn-links" @click="$router.push({name:'Categories', params: {id:1}})">{{ $t('message.addNew') }}</li> 
   </ul>
-  <el-popover placement="top-start" width="250" trigger="hover">
+ <!--  <el-popover placement="top-start" width="250" trigger="hover">
     <h2 class="popover-title">{{ item.name }}</h2>
-    <!-- <p class="popover-description">{{ item.description }}</p> -->
-    <a slot="reference" class="btn-submit btn-white">{{ $t('message.name') }}</a>
-  </el-popover>
+     <a slot="reference" class="btn-submit btn-white">{{ $t('message.name') }}</a>
+  </el-popover> -->
 </div>

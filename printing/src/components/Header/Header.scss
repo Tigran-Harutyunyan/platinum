@@ -49,6 +49,7 @@
   height: 37px;
   background-position: -389px -126px;
   margin-top: -10px;
+
   span {
     position: absolute;
     right: 0;
@@ -59,12 +60,17 @@
 }
 
 .lang-toggler {
-    padding-top: 0;
-    margin-top: 2px;
-    padding-left: 10px;
+  padding-top: 0;
+  margin-top: 2px;
+  padding-left: 10px;
+
   a:first-child {
     margin-bottom: 9px;
   }
+}
+
+.mobile-search-toggler {
+  display: none;
 }
 
 @media only screen and (max-width: 910px) {
@@ -74,13 +80,30 @@
 }
 
 @media only screen and (max-width: 420px) {
-    .search-input {
-        width: 150px; 
-    }
-    .cart-link {
-        padding-left: 0px !important;
-    }
-    .nav li.search-holder {  
-        padding-left: 0;
+  .search-input {
+    width: 150px;
+  }
+
+  .cart-link {
+    padding-left: 0px !important;
+  }
+
+  .nav li.search-holder {
+    padding-left: 0;
+  }
+}
+
+@media only screen and (max-width: 530px) {
+  .search-holder {
+    display: none;
+  }
+  .mobile-search-toggler {
+    display: block;
+    font-size: 19px;
+    color: white;
+    margin-top: 0;
+    i {
+      line-height: 0;
     }
   }
+}

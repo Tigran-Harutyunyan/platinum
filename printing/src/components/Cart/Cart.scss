@@ -32,10 +32,14 @@
     font-size: 16px;
     text-transform: uppercase;
     color: #666666;
-    padding-top: 3px
+    padding-top: 8px;
+    text-align: left;
   }
 }
-
+.item-name {
+  font-size: 20px;
+    padding-bottom: 20px;
+}
 .cart-top {
   display: flex;
   flex-wrap: wrap;

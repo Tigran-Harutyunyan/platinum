@@ -18,6 +18,11 @@
                     <li class="search-holder">
                         <Search />
                     </li> 
+                    <li class="mobile-search-toggler">
+                        <span>    
+                            <i class="el-input__icon el-icon-search ordinary-search" @click.stop ="isMobileSearch=!isMobileSearch"></i> 
+                        </span>
+                    </li>
                     <li class="cart-link" v-if="isAuthenticated">
                         <a class="icon-cart" @click="isActive=false; $router.push({name:'Cart'})"> 
                             <span>{{ cartItems.length }}</span>
@@ -26,6 +31,7 @@
                     <li class="lang-toggler">
                         <LanguageSwitcher /> 
                     </li>
+                    
                     <li> 
                         <Hamburger
                             :isAuthed="isAuthenticated" 
@@ -36,6 +42,7 @@
                 </ul>
             </div> 
         </div>
+        <SearchMobile v-show="isMobileSearch" @closeSearch="isMobileSearch=false"/>
     </nav>
     <Login 
         v-if="showLogin"

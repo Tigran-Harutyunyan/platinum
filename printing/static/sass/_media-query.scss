@@ -24,9 +24,7 @@
   .footer-inner {
     padding: 0 30px
   }
-  .br-cart {
-    padding: 0 20px 50px
-  }
+  
   #animation_container,
   #canvas,
   #dom_overlay_container {
@@ -557,6 +555,12 @@
     } 
   }
   @media only screen and (max-width: 600px) {
+    .el-message-box {
+      width: auto;
+    }
+    .br-cart {
+      padding: 0 20px 50px;
+    }
     .home-page-subcription-form {
       width: 100%
     }

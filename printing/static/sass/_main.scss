@@ -2427,6 +2427,7 @@ menu hamburger>i:after {
   background: transparent;
   border-radius: 30px;
   height: 30px;
+  line-height: 16px
 }
 
 .el-input__icon {
@@ -2783,7 +2784,7 @@ menu hamburger>i:after {
   background-color: transparent;
   border-color: #e4e7ed;
   color: #c0c4cc;
-  cursor: not-allowed;
+  cursor: not-allowed; 
 }
 
 .upload-demo .el-upload {
@@ -2876,15 +2877,7 @@ menu hamburger>i:after {
     display: none;
   }
 }
-
-.orders-table {
-  border-right: none;
-  line-height: 44px;
-
-  .el-table_1_column_6 .cell {
-    border-right: none !important;
-  }
-}
+ 
 
 .loop {
   background-image: url("../../static/img/loop.svg")
@@ -2937,7 +2930,7 @@ menu hamburger>i:after {
   white-space: nowrap;
 }
 .el-button:focus, .el-button:hover {
-  color: #e5e5e5;
+  //color: #e5e5e5;
    border-color: #af995a;  
    background-color: transparent;  
 }
@@ -2946,4 +2939,7 @@ menu hamburger>i:after {
   float: left;
   display: flex;
   white-space: pre-wrap;
+}
+.br-cart {
+  padding: 0 50px 50px
 }
