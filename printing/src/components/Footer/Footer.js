@@ -16,35 +16,47 @@ export default {
   methods: {
     onSubmit() {
       if (!this.isLoading && !this.$v.$invalid) {
+
         this.isLoading = true;
+
         this.$store.dispatch('subscribe', {
           contact_email_subscribe: this.email
         }).then((response) => {
+
           this.isLoading = false;
+
           if (response.success) {
+
             this.$notify({
               title: 'Subscribe',
               message: 'You have been successfully subscribed',
               position: "bottom-right",
               type: "success"
             });
-            this.email = ''
+
+            this.email = '';
+
           } else {
+
             this.$notify({
               title: 'Subscribe',
               message: 'Subscription error',
               position: "bottom-right",
               type: "error"
             });
+
           }
         }).catch((error) => {
+
           this.isLoading = false;
+
           this.$notify({
             title: 'Subscribe',
             message: 'Server error',
             position: "bottom-right",
             type: "error"
           });
+          
         });
       }
     }

@@ -1,5 +1,5 @@
 const utils = {
-    getLang(params) {
+    getLocale(params) {
       let storage = localStorage.getItem('platinumInk') ? JSON.parse(localStorage.getItem("platinumInk")) : {};
       if (typeof storage.locale == 'undefined') {
         storage.locale = 'en'

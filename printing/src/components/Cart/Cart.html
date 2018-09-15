@@ -23,7 +23,7 @@
               <td>{{ value[0].name }}</td>
             </tr>
           </table>
-          <CartItemActions :item="item" v-on:deleteCartItem="deleteCartItem" />
+          <CartItemActions :item="item" v-on:deleteCartItem="showConfirmation" />
         </div>
       </div>
 

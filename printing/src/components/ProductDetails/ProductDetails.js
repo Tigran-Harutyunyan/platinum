@@ -30,12 +30,13 @@ export default {
     ProductImages
   },
   computed: {
-    storage() {
-      return this.$store.getters.getStorage;
-    },
-    filesWereUploaded(){
+
+    filesWereUploaded() {
       return this.fileList1.length > 0 && this.fileList2.length > 0;
-    } 
+    },
+    token() {
+      return this.$store.getters.getToken;
+    },
   },
   watch: {
     '$route'(to, from) {
@@ -75,8 +76,7 @@ export default {
     },
 
     getProductPrice() {
-      this.checkAuth();
-      if (!this.user) {
+      if (!this.token) {
         this.$notify({
           title: 'Cart',
           message: "Please login first",
@@ -85,7 +85,9 @@ export default {
         });
         EventBus.$emit('logout');
         return;
-      } else {
+      }
+
+      if (!this.loading) {
         this.loading = true;
 
         let formData = this._constructFormData();
@@ -93,20 +95,26 @@ export default {
         this.$store.dispatch('getProductPrice', {
           formData
         }).then((response) => {
+
           this.loading = false;
+
           if (response.error) {
+
             this.$notify({
               title: 'Get price error',
               message: response.message,
               position: "bottom-right",
               type: "error"
             });
+
           } else {
+
             if (response[0].price) {
               this.showPriceTotal = true;
               this.isDirty = true;
               this.totalPrice = response[0].price;
             }
+
           }
         }).catch((error) => {
           this.loading = false;
@@ -123,7 +131,7 @@ export default {
     _constructFormData(addMode) {
 
       let formData = new FormData();
-      formData.append('token', this.user ? this.user.token : "");
+      formData.append('token', this.token);
       formData.append('product_id', this.product[0].id);
       formData.append('quantity_id', [this.quantity]);
       formData.append('properties', JSON.stringify(this.selectedOptions));
@@ -140,8 +148,7 @@ export default {
     },
 
     addProductToCart() {
-      this.checkAuth();
-      if (!this.user && !this.loading) {
+      if (!this.token) {
         this.$notify({
           title: 'Cart',
           message: "Please login first",
@@ -150,54 +157,71 @@ export default {
         });
 
         EventBus.$emit('logout');
-      } else { 
-        if(!this.filesWereUploaded){
-          this.$notify({
-            title: 'Cart',
-            message: "Please upload files",
-            position: "bottom-right",
-            type: "error"
-          });
-          return;
-        }
-        if (!this.isAddingToCart) {
-          this.isAddingToCart = true;
 
-          let formData = this._constructFormData('add');
+        return;
+      }
+      if (!this.filesWereUploaded) {
 
-          this.$store.dispatch('addProductToBasket', {
-            formData
-          }).then((response) => {
-            this.isAddingToCart = false;
-            if (response.error) {
-              this.$notify({
-                title: 'Shopping cart',
-                message: response.message,
-                position: "bottom-right",
-                type: "error"
-              });
-            } else {
-              this.$notify({
-                title: 'Shopping cart',
-                message: response.message ? response.message : 'Item is added to shopping cart!',
-                position: "bottom-right",
-                type: "success"
-              });
-              this.$router.push({
-                name: 'Cart'
-              });
-            }
-          }).catch((error) => {
-            this.isAddingToCart = false;
+        this.$notify({
+          title: 'Cart',
+          message: "Please upload files",
+          position: "bottom-right",
+          type: "error"
+        });
+        return;
+      }
+
+      if (!this.isAddingToCart) {
+
+        this.isAddingToCart = true;
+
+        let formData = this._constructFormData('add');
+
+        this.$store.dispatch('addProductToBasket', {
+          formData
+        }).then((response) => {
+
+          this.isAddingToCart = false;
+
+          if (response.error) {
+
             this.$notify({
               title: 'Shopping cart',
-              message: "Server error",
+              message: response.message,
               position: "bottom-right",
               type: "error"
             });
+
+          } else {
+
+            this.$store.dispatch('getBasketProducts');
+
+            this.$notify({
+              title: 'Shopping cart',
+              message: response.message ? response.message : 'Item is added to shopping cart!',
+              position: "bottom-right",
+              type: "success"
+            });
+
+            this.$router.push({
+              name: 'Cart'
+            });
+          }
+        }).catch((error) => {
+
+          this.isAddingToCart = false;
+
+          this.$notify({
+            title: 'Shopping cart',
+            message: "Server error",
+            position: "bottom-right",
+            type: "error"
           });
-        }
+
+        });
       }
+
+
     },
 
     getProductById() {
@@ -219,15 +243,9 @@ export default {
       this.showPriceTotal = false;
     },
 
-    checkAuth() {
-      let storage = localStorage.getItem("platinumInk") ? JSON.parse(localStorage.getItem("platinumInk")) : {};
-      this.user = storage.user ? storage.user : null;
-    }
-
   },
   created() {
     this.getProductById();
-    this.checkAuth();
   },
   mounted() {
     EventBus.$on('authChanged', () => {

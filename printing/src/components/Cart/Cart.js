@@ -8,9 +8,7 @@ export default {
   data() {
     return {
       value: '',
-      cartItems: [],
       isLoading: false,
-      isCartEmpty: '',
       isMovingToOrder: false
     }
   },
@@ -19,12 +17,8 @@ export default {
     CartItemActions,
     Preloader
   },
-  created() {
-    let storage = localStorage.getItem("platinumInk") ? JSON.parse(localStorage.getItem("platinumInk")) : {};
-    this.user = storage.user ? storage.user : null;
-    this.getBasketProducts();
-  },
   computed: {
+
     totalPrice() {
       let total = 0;
       this.cartItems.forEach(element => {
@@ -32,67 +26,67 @@ export default {
       });
       return total;
     },
-    storage() {
-      return this.$store.getters.getStorage;
-    },
+
     token() {
-      return this.storage.user ? this.storage.user.token : ""
+      return this.$store.getters.getToken;
+    },
+
+    cartItems: {
+      get: function () {
+        return this.$store.getters.getCartItems;
+      },
+      set: function () {}
+    },
+
+    isCartEmpty() {
+      return this.cartItems.length === 0 ? true : false;
     }
   },
-  methods: { 
-    deleteCartItem(id) {
+  methods: {
+    showConfirmation(id) {
+
       this.pendingOrderId = id;
+
       this.$confirm(this.$t('message.cartItemDeletePrompt'), {
         confirmButtonText: this.$t('message.yes'),
         cancelButtonText: this.$t('message.cancel'),
         type: 'warning'
+
       }).then(() => {
-        let formData = new FormData();
-        formData.append('token', this.token);
-        formData.append('id', this.pendingOrderId);
-        this.$store.dispatch('removeBasketProduct', {
-          formData
-        }).then((response) => {
-          this.isLoading = false;
-          if (response.success) {
-            this.getBasketProducts();
-          } else {
-            this.$notify({
-              title: 'Shopping cart',
-              message: response.message ? response.message : '',
-              position: "bottom-right",
-              type: "error"
-            });
-          }
-        }).catch((error) => {
-          this.isLoading = false;
-          this.$notify({
-            title: 'Shopping cart',
-            message: "Server error",
-            position: "bottom-right",
-            type: "error"
-          });
-        });
+
+        this._deleteCartItem();
+
       }).catch(() => {});
     },
 
-    getBasketProducts() {
-      this.isLoading = true;
+    _deleteCartItem() {
+
       let formData = new FormData();
       formData.append('token', this.token);
-      this.$store.dispatch('getBasketProducts', {
+      formData.append('id', this.pendingOrderId);
+
+      this.$store.dispatch('removeBasketProduct', {
         formData
       }).then((response) => {
+
         this.isLoading = false;
-        if (response.error) {
-          if (response.message) {
-            this.handleErrors(response.message);
-          }
+        
+        if (response.success) {
+
+          this.$store.dispatch('getBasketProducts');
+
         } else {
-          this.cartItems = response;
-          this.isCartEmpty = this.cartItems.length === 0 ? true : false;
+
+          this.$notify({
+            title: 'Shopping cart',
+            message: response.message ? response.message : '',
+            position: "bottom-right",
+            type: "error"
+          });
+
         }
       }).catch((error) => {
+
         this.isLoading = false;
         this.$notify({
           title: 'Shopping cart',
@@ -100,57 +94,65 @@ export default {
           position: "bottom-right",
           type: "error"
         });
+
       });
     },
 
-
     moveProductToOrders() {
-      let formData = new FormData();
+      this.isMovingToOrder = true;
+
       let productIds = [];
       this.cartItems.forEach(element => {
         productIds.push(element.id)
       });
+
+      let formData = new FormData();
       formData.append('token', this.token);
       formData.append('basket_id', JSON.stringify(productIds));
-      this.isMovingToOrder = true;
+
       this.$store.dispatch('moveProductToOrders', {
         formData
       }).then((response) => {
         this.isMovingToOrder = false;
         if (response.success) {
+
           this.$notify({
             title: 'Shopping cart',
             message: 'Order is formed',
             position: "bottom-right",
             type: "success"
           });
+
           EventBus.$emit('orderIsPlaced');
+
           this.$router.push({
             name: 'Orders'
           });
+
         } else {
+
           if (response.message) {
+
             this.handleErrors(response.message);
+
           }
         }
       }).catch((error) => {
+
         this.isMovingToOrder = false;
-        /* this.$notify({
-          title: 'Shopping cart',
-          message: "Server error",
-          position: "bottom-right",
-          type: "error"
-        }); */
+
       });
     },
 
     handleErrors(message) {
+
       this.$notify({
         title: 'Shopping cart',
         message: message,
         position: "bottom-right",
         type: "error"
       });
+
     }
   }
 }

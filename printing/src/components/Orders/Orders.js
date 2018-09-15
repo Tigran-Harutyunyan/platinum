@@ -73,10 +73,7 @@ export default {
         return this.$store.getters.getOrders;
       },
       set: function () {}
-    },
-    storage() {
-      return this.$store.getters.getStorage;
-    }
+    } 
   },
   mounted() {
     this.getOrders();

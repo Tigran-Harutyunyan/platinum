@@ -25,8 +25,11 @@ export default {
     isFormValid() {
       return !this.$v.$invalid;
     },
-    storage() {
-      return this.$store.getters.getStorage;
+    user() {
+      return this.$store.getters.getUser;
+    },
+    token(){
+      return this.$store.getters.getToken;
     }
   },
   methods: {
@@ -62,12 +65,7 @@ export default {
               message: 'Edit profile success!',
               position: "bottom-right",
               type: "success"
-            });
-            let storage = localStorage.getItem('platinumInk') ? JSON.parse(localStorage.getItem("platinumInk")) : {};
-            storage.user = response;
-            storage.user.token = this.token;
-            localStorage.setItem('platinumInk', JSON.stringify(storage));
-            this.$store.dispatch('setStorage', storage);
+            }); 
           }
         }).catch((error) => {
           this.isLoading = false
@@ -76,16 +74,14 @@ export default {
     }
   },
   mounted() {
-    if (this.storage && this.storage.user) {
-      let user = this.storage.user;
-      this.first_name = user.first_name;
-      this.last_name = user.last_name;
-      this.phone = user.phone;
-      this.birthday_at = user.birthday_at;
-      this.email = user.email;
-      this.company_name = user.company_name;
-      this.token = user.token;
-      this.receive_promotions = user.receive_promotions === 1 ? true : false;
+    if (this.user) {
+      this.first_name = this.user.first_name;
+      this.last_name = this.user.last_name;
+      this.phone = this.user.phone;
+      this.birthday_at = this.user.birthday_at;
+      this.email = this.user.email;
+      this.company_name = this.user.company_name; 
+      this.receive_promotions = this.user.receive_promotions === 1 ? true : false;
     }
   },
 

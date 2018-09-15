@@ -1,33 +1,33 @@
 import Vue from "vue";
 import VueResource from 'vue-resource';
 Vue.use(VueResource);
-import "element-ui/lib/theme-chalk/index.css"; 
+import "element-ui/lib/theme-chalk/index.css";
 import styles from "../static/sass/styles.scss";
-import utils from './utils';
- 
+
+
 import {
-    Carousel,
-    CarouselItem,
-    Select,
-    Option,
-    Input,
-    Button,
-    Checkbox,
-    Upload,
-    MessageBox,
-    Notification,
-    Loading,
-    Table,
-    TableColumn,
-    Tabs,
-    TabPane,
-    Form,
-    FormItem,
-    DatePicker,
-    Popover,
-    Dialog,
-    Collapse,
-    CollapseItem
+  Carousel,
+  CarouselItem,
+  Select,
+  Option,
+  Input,
+  Button,
+  Checkbox,
+  Upload,
+  MessageBox,
+  Notification,
+  Loading,
+  Table,
+  TableColumn,
+  Tabs,
+  TabPane,
+  Form,
+  FormItem,
+  DatePicker,
+  Popover,
+  Dialog,
+  Collapse,
+  CollapseItem
 } from "element-ui";
 Vue.use(Loading.directive);
 Vue.use(Carousel);
@@ -57,29 +57,32 @@ import lang from 'element-ui/lib/locale/lang/en';
 import locale from 'element-ui/lib/locale';
 locale.use(lang);
 
-import VueAwesomeSwiper from 'vue-awesome-swiper'; 
+import VueAwesomeSwiper from 'vue-awesome-swiper';
 // require styles
-import 'swiper/dist/css/swiper.css'; 
-Vue.use(VueAwesomeSwiper, /* { default global options } */)
- 
+import 'swiper/dist/css/swiper.css';
+Vue.use(VueAwesomeSwiper, /* { default global options } */ );
+
+import storage from './storage';
 
 export default {
-    name: "App", 
-    data() {
-        return {};
-    }, 
-    watch: {
-        '$route': function(to, from) { 
-            if (to.name=='Cart'){
-                $('html').stop().animate({ scrollTop: 400 }, 700, 'swing', function() {});
-            } 
-        }
-    }, 
-    created() { 
-        this.$store.dispatch('getProducts');
-        let token = utils.getUserToken(); 
-        if (token){ 
-            this.$store.dispatch('getBasketProducts');
-        }
+  name: "App",
+  data() {
+    return {};
+  },
+  watch: {
+    '$route': function (to, from) {
+      if (to.name == 'Cart') {
+        $('html').stop().animate({
+          scrollTop: 400
+        }, 700, 'swing', function () {});
+      }
     }
+  },
+  created() {
+    this.$store.dispatch('getProducts');
+ 
+    if (storage.getToken()) {
+      this.$store.dispatch('getBasketProducts');
+    }
+  }
 };
