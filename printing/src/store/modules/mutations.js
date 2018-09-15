@@ -1,9 +1,6 @@
  const SET_DATA = (state, payload) => {
    state.data = payload;
- };
- const SET_USER_INFO = (state, payload) => {
-   state.userInfo = payload;
- };
+ }; 
  const UPDATE_PRODUCTS = (state, products) => {
    state.products = products;
  };
@@ -34,9 +31,7 @@ const SET_ADVERTISEMENTS = (state, payload) => {
  const UPDATE_STAFF = (state, items) => {
    state.staff = items;
  };
- const UPDATE_ORDERS_DATA = (state, items) => {
-   state.orders = items;
- };
+
  const UPDATE_COMPLETED_WORKS = (state, items) => {
    state.completedWorks = items;
  };
@@ -50,8 +45,7 @@ const SET_PRODUCT_LIST = (state, products) => {
   state.sidebarProducts = products;
 }
  export default {
-   SET_DATA,
-   SET_USER_INFO,
+   SET_DATA, 
    SET_STORAGE,
    SET_CUSTOM_DATA,
    UPDATE_PRODUCTS,
@@ -60,8 +54,7 @@ const SET_PRODUCT_LIST = (state, products) => {
    PROJECTS_SLIDER_IMAGES,
    UPDATE_PARTNERS_IMAGES,
    UPDATE_CART_ITEMS,
-   UPDATE_STAFF,
-   UPDATE_ORDERS_DATA,
+   UPDATE_STAFF, 
    UPDATE_COMPLETED_WORKS,
    SEARCH,
    STORE_SCROLL_PARAMS,

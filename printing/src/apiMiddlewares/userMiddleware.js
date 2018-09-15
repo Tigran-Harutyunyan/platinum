@@ -5,7 +5,7 @@
 
    },
    toBackEnd: {
-     getBasketProducts() {
+     appendToken() {
        let token = utils.getUserToken();  
        let formData = new FormData();
        formData.append('token', token);

@@ -67,14 +67,49 @@ const userApi = {
     });
   },
 
+  moveProductToOrders(params) {
+    let url = 'moveProductToOrders?'; 
+    return api.post(url, params).then(res => {
+      return res;
+    });
+  },
+  
   getBasketProducts() {
     let url = 'getBasketProducts?';  
-    let formData = userMiddleware.toBackEnd.getBasketProducts();  
+    let formData = userMiddleware.toBackEnd.appendToken();  
     return api.post(url, formData).then(res => {
       return res;
     });
   },
- 
+
+  removeBasketProduct(params) {
+    let url = 'removeBasketProduct?'; 
+    return api.post(url, params).then(res => {
+      return res;
+    });
+  },
+
+  customOrder(params) {
+    let url = 'customOrder?'; 
+    return api.post(url, params).then(res => {
+      return res;
+    });
+  },
+  
+  getProductPrice(params) {
+    let url = 'getProductPrice?'; 
+    return api.post(url, params).then(res => {
+      return res;
+    });
+  },
+
+  getOrders() {
+    let url = 'getOrders?'; 
+    let formData = userMiddleware.toBackEnd.appendToken();  
+    return api.post(url, formData).then(res => { 
+      return res;
+    });
+  },
 };
 
 export default userApi;

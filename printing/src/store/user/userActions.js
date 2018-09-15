@@ -1,7 +1,7 @@
  import userApi from '../../api/userApi';
  import {
-  EventBus
-} from '../../event-bus.js';
+   EventBus
+ } from '../../event-bus.js';
  const login = ({
    commit,
    state
@@ -20,8 +20,10 @@
  const logout = ({
    commit,
    state
- }, { formData }) => {
-   return new Promise((resolve, reject) => { 
+ }, {
+   formData
+ }) => {
+   return new Promise((resolve, reject) => {
      userApi.logout(formData).then(
        (response) => {
          resolve(response);
@@ -131,12 +133,12 @@
 
 
  const addProductToBasket = ({
-  commit,
-  state
-}, {
-  formData
-}) => {
-   return new Promise((resolve, reject) => {  
+   commit,
+   state
+ }, {
+   formData
+ }) => {
+   return new Promise((resolve, reject) => {
      userApi.addProductToBasket(formData).then(
        (response) => {
          resolve(response);
@@ -147,22 +149,119 @@
      );
    });
  };
-/* 
+
+ const removeBasketProduct = ({
+   commit,
+   state
+ }, {
+   formData
+ }) => {
+   return new Promise((resolve, reject) => {
+     userApi.removeBasketProduct(formData).then(
+       (response) => {
+         resolve(response);
+       },
+       (errorResponse) => {
+         reject(errorResponse);
+       }
+     );
+   });
+ };
+
+ const moveProductToOrders = ({
+   commit,
+   state
+ }, {
+   formData
+ }) => {
+   return new Promise((resolve, reject) => {
+     userApi.moveProductToOrders(formData).then(
+       (response) => {
+         resolve(response);
+       },
+       (errorResponse) => {
+         reject(errorResponse);
+       }
+     );
+   });
+ };
+
  const getBasketProducts = ({
-  commit,
-  state
-}) => {
-  return new Promise((resolve, reject) => {   
-    userApi.getBasketProducts().then(
-      (response) => {
-        resolve(response);
-      },
-      (errorResponse) => {
-        reject(errorResponse);
-      }
-    );
-  });
-};  */
+   commit,
+   state
+ }) => {
+   return new Promise((resolve, reject) => {
+     userApi.getBasketProducts().then(
+       (response) => {
+         resolve(response);
+       },
+       (errorResponse) => {
+         reject(errorResponse);
+       }
+     );
+   });
+ };
+
+ const customOrder = ({
+   commit,
+   state
+ }, {
+   formData
+ }) => {
+   return new Promise((resolve, reject) => {
+     userApi.customOrder(formData).then(
+       (response) => {
+         resolve(response);
+       },
+       (errorResponse) => {
+         reject(errorResponse);
+       }
+     );
+   });
+ };
+
+ const getProductPrice = ({
+   commit,
+   state
+ }, {
+   formData
+ }) => {
+   return new Promise((resolve, reject) => {
+     userApi.getProductPrice(formData).then(
+       (response) => {
+         resolve(response);
+       },
+       (errorResponse) => {
+         reject(errorResponse);
+       }
+     );
+   });
+ };
+
+ const getOrders = ({
+   commit,
+   state
+ }) => {
+   return new Promise((resolve, reject) => {
+     userApi.getOrders().then(
+       (response) => {
+         if (!response.data.error) {
+           commit('UPDATE_ORDERS_DATA', response.data);
+         }
+         resolve(response);
+       },
+       (errorResponse) => {
+         reject(errorResponse);
+       }
+     );
+   });
+ };
+
+ const setUserInfo = ({
+   commit
+ }, payload) => {
+   commit('SET_USER_INFO', payload)
+ };
  export default {
    login,
    logout,
@@ -173,13 +272,11 @@
    subscribe,
    updateProfileInfo,
    addProductToBasket,
-  // / getBasketProducts
-   /*   setStorage,
-     setData,
-     setUserInfo, 
-      */
-   //removeBasketProduct,
-
-
-
+   moveProductToOrders,
+   removeBasketProduct,
+   getBasketProducts,
+   customOrder,
+   getProductPrice,
+   getOrders,
+   setUserInfo
  }
