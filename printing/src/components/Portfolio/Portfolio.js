@@ -23,10 +23,7 @@ export default {
       this.showContent = true;
     }
   },
-  computed: {
-    apiPath() {
-      return this.$store.getters.getApiPath;
-    }, 
+  computed: { 
     completedWorks: {
       get: function () {
         return this.$store.getters.getCompletedWorks;

@@ -61,52 +61,55 @@ const userApi = {
   },
 
   addProductToBasket(params) {
-    let url = 'addProductToBasket?'; 
+    let url = 'addProductToBasket?';
     return api.post(url, params).then(res => {
       return res;
     });
   },
 
   moveProductToOrders(params) {
-    let url = 'moveProductToOrders?'; 
+    let url = 'moveProductToOrders?';
     return api.post(url, params).then(res => {
       return res;
     });
   },
-  
+
   getBasketProducts() {
-    let url = 'getBasketProducts?';  
-    let formData = userMiddleware.toBackEnd.appendToken();  
-    return api.post(url, formData).then(res => {
-      return res;
+    let url = 'getBasketProducts?';
+    let formData = userMiddleware.toBackEnd.appendToken();
+    return api.post(url, formData).then(response => {
+      if (Array.isArray(response)) {
+        let data = userMiddleware.fromBackEnd.getBasketProducts(response);
+      } 
+      return response;
     });
   },
 
   removeBasketProduct(params) {
-    let url = 'removeBasketProduct?'; 
+    let url = 'removeBasketProduct?';
     return api.post(url, params).then(res => {
       return res;
     });
   },
 
   customOrder(params) {
-    let url = 'customOrder?'; 
+    let url = 'customOrder?';
     return api.post(url, params).then(res => {
       return res;
     });
   },
-  
+
   getProductPrice(params) {
-    let url = 'getProductPrice?'; 
+    let url = 'getProductPrice?';
     return api.post(url, params).then(res => {
       return res;
     });
   },
 
   getOrders() {
-    let url = 'getOrders?'; 
-    let formData = userMiddleware.toBackEnd.appendToken();  
-    return api.post(url, formData).then(res => { 
+    let url = 'getOrders?';
+    let formData = userMiddleware.toBackEnd.appendToken();
+    return api.post(url, formData).then(res => {
       return res;
     });
   },
