@@ -67,16 +67,17 @@ export default {
         formData.append('colors', this.colors); 
         formData.append('product_id', this.product_id);
         formData.append('message', this.message); 
+
         if (this.fileList.length > 0) {
           formData.append('logo', this.fileList[0].raw, this.fileList[0].name);
         }
-
-        this.$store.dispatch('customOrder', formData).then((response) => {
+ 
+        this.$store.dispatch('customOrder', {formData}).then((response) => {
           this.isLoading = false;
           if (!response.error){
             this.$notify({
               title: 'Custom order',
-              message: 'Success!',
+              message: 'Make custom order success',
               position: "bottom-right",
               type: "success"
             });

@@ -13,17 +13,18 @@ export default {
       return this.searchResults.length == 0
     }
   },
- /*  watch:{
+   watch:{
     searchKey(val){
       this.search();
     }
-  }, */
+  },  
   directives: {
     ClickOutside
   },
   methods: {
     close() {
       this.showSearchResults = false;
+      this.searchResults = [];
       this.searchKey = '';
     },
     search: debounce(function (e) {

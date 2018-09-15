@@ -31,7 +31,7 @@ export default {
     mounted(){
         let data = this.$store.getters.getStaffData;
         if (!data) {  
-             this.$store.dispatch('getStaffInfo');
+             this.$store.dispatch('getStaff');
         } 
     } 
     

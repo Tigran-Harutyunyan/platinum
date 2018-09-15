@@ -36,8 +36,9 @@ const api = {
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
       }
     }
-
-    if (url.includes('addProductToBasket' || url.includes('logout')  || url.includes('getBasketProducts') )) {
+      
+    if (url.includes('addProductToBasket') || url.includes('logout')  || url.includes('getBasketProducts') || url.includes('removeBasketProduct') || url.includes('customOrder') || url.includes('getProductPrice') || url.includes('getOrders'))  {
+      
       configs.data = params;
     } else {
       configs.params = params;

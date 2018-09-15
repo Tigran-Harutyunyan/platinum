@@ -25,6 +25,12 @@ const productsApi = {
     });
   },
 
+  getCategories(params) {
+    return api.post(`search?getCategories=${lang}` ,params).then(res => { 
+      return res;
+    });
+  },
+
 };
 
 export default productsApi; 

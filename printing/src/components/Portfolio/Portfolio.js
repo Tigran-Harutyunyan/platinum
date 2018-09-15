@@ -38,7 +38,7 @@ export default {
     toggleCategoryDropdown() {
       this.showCategoryDropdown = !this.showCategoryDropdown;
     },
-    invokeSearching: _.debounce(function () { 
+    startScrolling: _.debounce(function () { 
       let offsetTop = $('.portfolio-modal').scrollTop();
         this.isScrolled = offsetTop > 80;
     }, 10),
@@ -61,7 +61,7 @@ export default {
   },
   mounted() { 
     this.$store.dispatch('getCompletedWorks'); 
-     document.getElementById("scrolledDiv").addEventListener('scroll', this.invokeSearching);  
+     document.getElementById("scrolledDiv").addEventListener('scroll', this.startScrolling);  
   },
   destroy() { 
     window.removeEventListener('scroll');

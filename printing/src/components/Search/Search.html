@@ -3,7 +3,7 @@
       :placeholder="$t('message.search')"   
       v-on:change="search"
       v-model="searchKey">
-    <i  class="el-input__icon el-icon-search ordinary-search" @click="search"></i> 
+    <i  class="el-input__icon el-icon-search ordinary-search" @click="search"></i>  
   <div v-if="showSearchResults" class="search-results">
     <ul class="search-dropdown">
       <li v-for="(item, index) in searchResults" :key="index" @click="close"> 

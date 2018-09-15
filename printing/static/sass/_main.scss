@@ -19,7 +19,9 @@
   font-weight: normal;
   font-style: normal;
 }
-
+* {
+  -webkit-overflow-scrolling: touch;
+}
 .tahoma {
   font-family: 'Tahoma', sans-serif;
 }
@@ -188,7 +190,7 @@ Navigation
   transition: margin-top 0.25s ease-in-out 0.3s, opacity ease-in-out 0.3s;
 
   .btn-link {
-    margin-top: -8px;
+    margin-top: -5px;
     padding-top: 6px;
     padding-bottom: 6px;
     color: #959595;
@@ -525,7 +527,9 @@ footer {
 .default-inp-row label {
   display: none !important;
 }
-
+textarea{
+  -webkit-appearance:none
+}
 .form-container {
   .contact-form-left {
     position: relative;
@@ -2572,7 +2576,7 @@ menu hamburger>i:after {
   }
 }
 
-@media only screen and (max-width: 850px) {
+/* @media only screen and (max-width: 850px) {
   .portfolio-modal.el-dialog__wrapper .el-dialog {
     width: 500px !important
   }
@@ -2580,11 +2584,11 @@ menu hamburger>i:after {
   .is-scrolled .info-container {
     margin-left: 310px;
   }
-}
+} */
 
-@media only screen and (max-width: 560px) {
+@media only screen and (max-width: 1000px) {
   .portfolio-modal.el-dialog__wrapper .el-dialog {
-    width: 95% !important
+    width: 90% !important
   }
 
   .is-scrolled .info-container {

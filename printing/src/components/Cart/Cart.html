@@ -30,9 +30,11 @@
       <CartTotals :totalPrice="totalPrice" />
 
       <div class="pricing-cell">
-        <a href="javascript:void(0)" @click="$router.push({name:'Categories', params: {id:1}})" class="link">{{
-          $t('message.continueShopping') }}</a>
-        <el-button class="btn-submit btn-invert " type="text" @click="moveProductToOrders" :loading="isMovingToOrder">
+        <a href="javascript:void(0)" 
+          @click="$router.push({name:'Categories', params: {id:1}})" class="link">
+          {{ $t('message.continueShopping') }}</a>
+        <el-button class="btn-submit btn-invert " type="text" 
+          @click="moveProductToOrders" :loading="isMovingToOrder">
           {{ $t('message.pay') }}
         </el-button>
       </div>

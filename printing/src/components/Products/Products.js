@@ -29,7 +29,6 @@ export default {
   methods: {
     _filterProducts() {
       this.productList = [];
-      console.log(this.productList);
       for (const key in this.products) {
         if (this.products.hasOwnProperty(key)) {
           const items = this.products[key];

@@ -121,16 +121,5 @@ export default {
     phone: {
       required
     },
-  },
-  /* mounted(){
-    this.$notify({
-      title: 'Sign up',
-      message: 'Signup success! Please log in',
-      position: "bottom-right",
-      type: "error",
-      iconClass:"error", //'error' and 'success' classes
-      showClose: false,
-      offset:52
-    });
-  } */
+  }
 }

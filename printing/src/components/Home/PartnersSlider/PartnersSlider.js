@@ -68,7 +68,7 @@ export default {
   mounted() {
     let data = this.$store.getters.partnersImages;
     if (!data.length) {
-      this.$store.dispatch('getPartnersImages');
+      this.$store.dispatch('getPartnerImages');
     }
   }
 }

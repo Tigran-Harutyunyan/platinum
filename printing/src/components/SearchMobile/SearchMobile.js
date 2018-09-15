@@ -22,7 +22,10 @@ export default {
     ClickOutside
   },
   methods: {
-    close() { 
+    close() {  
+      this.showSearchResults = false;
+      this.searchResults = [];
+      this.searchKey = '';
       this.$emit('closeSearch'); 
     },
     search: debounce(function (e) { 
