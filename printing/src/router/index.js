@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import {
-  state
-} from '../store/modules/state.js';
+import storage from '../storage.js';
 import Products from '../components/Products/Products.vue'
 import ProductDetails from '../components/ProductDetails/ProductDetails.vue'
 import Cart from '../components/Cart/Cart.vue'
@@ -18,7 +16,7 @@ import CustomOrder from '../components/CustomOrder/CustomOrder.vue'
 Vue.use(Router);
 
 const shouldBeAuthed = async (to, from, next) => {
-  let authorized = state.storage.user ? true : false;
+  let authorized = storage.getToken().length > 0 ? true : false;
   if (authorized) {
     next();
   } else {
@@ -27,7 +25,7 @@ const shouldBeAuthed = async (to, from, next) => {
 };
 
 const shouldNotBeLoggedIn = async (to, from, next) => {
-  let authorized = state.storage.user ? true : false;
+  let authorized = storage.getToken().length > 0 ? true : false;
   if (authorized) {
     next('/category/1');
   } else {
@@ -68,7 +66,7 @@ const router = new Router({
           name: 'Orders',
           component: Orders,
           beforeEnter: shouldBeAuthed
-        }, 
+        },
         {
           path: '/profile',
           name: 'profile',
@@ -79,12 +77,12 @@ const router = new Router({
           path: '/change-password',
           name: 'changePassword',
           component: ChangePassword,
-          beforeEnter: shouldBeAuthed  
+          beforeEnter: shouldBeAuthed
         },
         {
           path: '/advertisement',
           name: 'advertisement',
-          component: Advertisement  
+          component: Advertisement
         },
         {
           path: '/custom-order',
@@ -117,11 +115,11 @@ router.beforeEach((to, from, next) => {
     })
   }
   if (to.name != "Home") {
-    setTimeout(() => { 
+    setTimeout(() => {
       jqueryElement.animate({
         scrollTop: 0
       }, 0);
-    }, 100);  
+    }, 100);
   }
   next();
 });

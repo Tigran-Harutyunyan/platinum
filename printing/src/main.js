@@ -5,26 +5,36 @@ import App from './App.vue' //Use App.vue if the templates and scripts are separ
 // ATTENTION. Forgetting .vue extension next to App will cause "Failed to mount component: template or render function not defined" error
 import router from './router'
 import store from './store/index';
-import { EventBus } from './event-bus.js';
+import {
+  EventBus
+} from './event-bus.js';
 import Vuelidate from 'vuelidate';
-import VueI18n from 'vue-i18n'; 
+import VueI18n from 'vue-i18n';
 import messages from './locales';
 Vue.config.productionTip = false;
-Vue.use(Vuelidate); 
-Vue.use(VueI18n);   
+Vue.use(Vuelidate);
+Vue.use(VueI18n);
+
+let token = localStorage.getItem('token') ? localStorage.getItem("token") : '';
+if (token.length) {
+  store.dispatch('setToken', token);
+}
+
+let user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem("user")) : {};
+if (Object.keys(user).length > 0) {
+  store.dispatch('setUser', user);
+}
+
+
+let locale = localStorage.getItem('locale') ? localStorage.getItem("locale") : 'en';
+
+store.dispatch('setLocale', locale);
 
 // Create VueI18n instance with options
-let storage = localStorage.getItem('platinumInk') ? JSON.parse(localStorage.getItem("platinumInk")) : {};  
-if (typeof storage.locale == 'undefined'){
-  storage.locale = 'en'
-}
- 
-store.dispatch('setStorage', storage);
 const i18n = new VueI18n({
-  locale: storage.locale, // set locale
+  locale: locale, // set locale
   messages, // set locale messages
-})
-/* eslint-disable no-new */
+});
 Object.defineProperty(Vue.prototype, '$locale', {
   get: function () {
     return App.i18n.locale
@@ -33,11 +43,15 @@ Object.defineProperty(Vue.prototype, '$locale', {
     App.i18n.locale = locale
   }
 })
+
+
 new Vue({
   el: '#app',
   router,
   i18n,
   store,
-  components: { App },
+  components: {
+    App
+  },
   template: '<App/>'
 })
