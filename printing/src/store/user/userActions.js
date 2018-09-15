@@ -192,7 +192,10 @@
  }) => {
    return new Promise((resolve, reject) => {
      userApi.getBasketProducts().then(
-       (response) => {
+       (response) => { 
+         if (Array.isArray(response)){
+          commit('UPDATE_CART_ITEMS', response); 
+         } 
          resolve(response);
        },
        (errorResponse) => {

@@ -6,7 +6,7 @@
  const getStorage = state => state.storage;
  const getCustomData = state => state.customData;
  const getSliderImages = state => state.sliderImages;
- const getCartItems = state => state.cart;
+
  const getStaffData = state => state.staff;
  const getOrders = state => state.orders;
  const getCompletedWorks = state => state.completedWorks;
@@ -27,8 +27,7 @@
    getCustomData,
    getSliderImages,
    projectsSliderImages,
-   partnersImages,
-   getCartItems,
+   partnersImages, 
    getStaffData,
    getOrders,
    getCompletedWorks,

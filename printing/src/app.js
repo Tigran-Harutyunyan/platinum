@@ -3,7 +3,7 @@ import VueResource from 'vue-resource';
 Vue.use(VueResource);
 import "element-ui/lib/theme-chalk/index.css"; 
 import styles from "../static/sass/styles.scss";
-
+import utils from './utils';
  
 import {
     Carousel,
@@ -77,5 +77,9 @@ export default {
     }, 
     created() { 
         this.$store.dispatch('getProducts');
+        let token = utils.getUserToken(); 
+        if (token){ 
+            this.$store.dispatch('getBasketProducts');
+        }
     }
 };

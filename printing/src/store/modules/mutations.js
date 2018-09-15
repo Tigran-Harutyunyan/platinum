@@ -25,9 +25,7 @@ const SET_ADVERTISEMENTS = (state, payload) => {
  const UPDATE_PARTNERS_IMAGES = (state, payload) => {
    state.partnersImages = payload;
  };
- const UPDATE_CART_ITEMS = (state, items) => {
-   state.cart = items;
- };
+
  const UPDATE_STAFF = (state, items) => {
    state.staff = items;
  };
@@ -52,8 +50,7 @@ const SET_PRODUCT_LIST = (state, products) => {
    UPDATE_CATEGORIES,
    UPDATE_SLIDER_IMAGES,
    PROJECTS_SLIDER_IMAGES,
-   UPDATE_PARTNERS_IMAGES,
-   UPDATE_CART_ITEMS,
+   UPDATE_PARTNERS_IMAGES, 
    UPDATE_STAFF, 
    UPDATE_COMPLETED_WORKS,
    SEARCH,
