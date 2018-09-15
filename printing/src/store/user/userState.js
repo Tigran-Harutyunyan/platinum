@@ -1,5 +1,7 @@
 export const state = {
   cart: '',
   orders: '',
-  userInfo: {},
+  user: {},
+  locale: '',
+  token: ''
 }

@@ -1,6 +1,10 @@
 const getCartItems = state => state.cart;
-const getUserInfo = state => state.userInfo;
+const getUser = state => state.user; 
+const getLocale = state => state.locale;
+const getToken = state => state.token;
 export default {
   getCartItems,
-  getUserInfo,
+  getUser, 
+  getLocale,
+  getToken
 };

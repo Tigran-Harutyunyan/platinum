@@ -1,14 +1,9 @@
- const SET_DATA = (state, payload) => {
-   state.data = payload;
- }; 
+ 
  const UPDATE_PRODUCTS = (state, products) => {
    state.products = products;
  };
  const UPDATE_CATEGORIES = (state, categories) => {
    state.categories = categories;
- };
- const SET_STORAGE = (state, payload) => {
-   state.storage = payload;
  };
  const SET_CUSTOM_DATA = (state, payload) => {
    state.customData = payload;
@@ -42,9 +37,11 @@ const STORE_SCROLL_PARAMS = (state, params) => {
 const SET_PRODUCT_LIST = (state, products) => { 
   state.sidebarProducts = products;
 }
- export default {
-   SET_DATA, 
-   SET_STORAGE,
+const SET_SIDEBAR = (state, products) => { 
+  state.sidebarProducts = products;
+}
+
+ export default { 
    SET_CUSTOM_DATA,
    UPDATE_PRODUCTS,
    UPDATE_CATEGORIES,
@@ -56,5 +53,6 @@ const SET_PRODUCT_LIST = (state, products) => {
    SEARCH,
    STORE_SCROLL_PARAMS,
    SET_PRODUCT_LIST,
-   SET_ADVERTISEMENTS
+   SET_ADVERTISEMENTS, 
+   SET_SIDEBAR
  }

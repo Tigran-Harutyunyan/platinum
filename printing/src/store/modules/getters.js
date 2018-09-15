@@ -1,7 +1,6 @@
  const appData = state => state.data; 
  const products = state => state.products;
- const categories = state => state.categories;
- const getStorage = state => state.storage;
+ const categories = state => state.categories; 
  const getCustomData = state => state.customData;
  const getSliderImages = state => state.sliderImages; 
  const getStaffData = state => state.staff;
@@ -17,8 +16,7 @@
  export default {
    appData, 
    products,
-   categories,
-   getStorage,
+   categories, 
    getCustomData,
    getSliderImages,
    projectsSliderImages,

@@ -1,7 +1,7 @@
 import api from './api';
-import utils from '../utils';
+import storage from '../storage';
 import generalMiddleware from '../apiMiddlewares/generalMiddleware';
-let lang = utils.getLang();
+let lang = storage.getLocale();
 
 const generalApi = {
 

@@ -1,6 +1,6 @@
 import api from './api';
-import utils from '../utils'; 
-let lang = utils.getLang();
+import storage from '../storage'; 
+let lang = storage.getLocale();
 
 import productsMiddleware from '../apiMiddlewares/productsMiddleware';
 const productsApi = {

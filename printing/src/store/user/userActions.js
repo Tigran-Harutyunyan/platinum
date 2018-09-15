@@ -1,7 +1,37 @@
  import userApi from '../../api/userApi';
+ import storage from '../../storage';
  import {
    EventBus
  } from '../../event-bus.js';
+
+
+ const setUser = ({
+   commit
+ }, payload) => {
+   commit('SET_USER', payload)
+ };
+
+ const setLocale = ({
+   commit
+ }, payload) => {
+   storage.setLocale(payload);
+   commit('SET_LOCALE', payload)
+ };
+
+ const setToken = ({
+  commit
+}, payload) => {
+  storage.setToken(payload);
+  commit('SET_TOKEN', payload)
+}; 
+ 
+const deleteToken = ({
+  commit
+}, payload) => {
+  storage.deleteToken();
+  commit('DELETE_TOKEN')
+}; 
+
  const login = ({
    commit,
    state
@@ -9,6 +39,12 @@
    return new Promise((resolve, reject) => {
      userApi.login(data).then(
        (response) => {
+         if (response.success) {
+           commit('SET_USER', response);
+           if (response.token) {
+             commit('SET_TOKEN', response.token);
+           }
+         }
          resolve(response);
        },
        (errorResponse) => {
@@ -20,15 +56,17 @@
  const logout = ({
    commit,
    state
- }, {
-   formData
  }) => {
    return new Promise((resolve, reject) => {
-     userApi.logout(formData).then(
+     userApi.logout().then(
        (response) => {
+         commit('SET_USER', {});
+         commit('DELETE_TOKEN');
          resolve(response);
        },
        (errorResponse) => {
+         commit('SET_USER', {});
+         commit('DELETE_TOKEN');
          reject(errorResponse);
        }
      );
@@ -121,7 +159,10 @@
  }, data) => {
    return new Promise((resolve, reject) => {
      userApi.updateProfileInfo(data).then(
-       (response) => {
+       (response) => { 
+         if (response.success) { 
+           commit('SET_USER', response);
+         }
          resolve(response);
        },
        (errorResponse) => {
@@ -192,10 +233,10 @@
  }) => {
    return new Promise((resolve, reject) => {
      userApi.getBasketProducts().then(
-       (response) => { 
-         if (Array.isArray(response)){
-          commit('UPDATE_CART_ITEMS', response); 
-         } 
+       (response) => {
+         if (Array.isArray(response)) {
+           commit('UPDATE_CART_ITEMS', response);
+         }
          resolve(response);
        },
        (errorResponse) => {
@@ -260,11 +301,6 @@
    });
  };
 
- const setUserInfo = ({
-   commit
- }, payload) => {
-   commit('SET_USER_INFO', payload)
- };
  export default {
    login,
    logout,
@@ -281,5 +317,8 @@
    customOrder,
    getProductPrice,
    getOrders,
-   setUserInfo
+   setLocale,
+   setUser,
+   setToken,
+   deleteToken
  }

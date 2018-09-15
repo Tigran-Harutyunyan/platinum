@@ -1,10 +1,10 @@
- import utils from '../utils';
+ import storage from '../storage';
  import {
   config
 } from '../api/config';
 
  const userMiddleware = {
-   fromBackEnd: {
+   fromBackEnd: { 
      getBasketProducts(response) { 
        response.forEach(element => {
          if (element.front_side) {
@@ -17,13 +17,13 @@
          }
        });
        return response;
-      }
+      }, 
    },
    toBackEnd: {
      appendToken() {
-       let token = utils.getUserToken();
+       storage.getToken();
        let formData = new FormData();
-       formData.append('token', token);
+       formData.append('token', storage.getToken());
        return formData;
      },
    }

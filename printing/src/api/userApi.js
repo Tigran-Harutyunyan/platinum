@@ -1,19 +1,28 @@
 import api from './api';
-import utils from '../utils';
+import storage from '../storage';
 import userMiddleware from '../apiMiddlewares/userMiddleware';
-let lang = utils.getLang();
+let lang = storage.getLocale();
 
 const userApi = {
   login(params) {
     let url = 'login?';
     return api.post(url, params).then(res => {
+      if (res.success) {
+        storage.setUser(res);
+        if(res.token){
+          storage.setToken(res.token);
+        }
+      }
       return res;
     });
   },
 
-  logout(params) {
+  logout() {
     let url = 'logout?';
-    return api.post(url, params).then(res => {
+    let formData = userMiddleware.toBackEnd.appendToken();
+    return api.post(url, formData).then(res => {
+      storage.removeUser();
+      storage.deleteToken();
       return res;
     });
   },
@@ -56,6 +65,9 @@ const userApi = {
   updateProfileInfo(params) {
     let url = 'updateProfileInfo?';
     return api.post(url, params).then(res => {
+      if (res.success) {
+        storage.setUser(res);
+      }
       return res;
     });
   },
@@ -80,7 +92,7 @@ const userApi = {
     return api.post(url, formData).then(response => {
       if (Array.isArray(response)) {
         let data = userMiddleware.fromBackEnd.getBasketProducts(response);
-      } 
+      }
       return response;
     });
   },

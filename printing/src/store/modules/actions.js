@@ -1,16 +1,6 @@
 import productsApi from '../../api/productsApi';
 import generalApi from '../../api/generalApi';
  
-const setStorage = ({
-  commit
-}, payload) => {
-  commit('SET_STORAGE', payload)
-};
-const setData = ({
-  commit
-}, payload) => {
-  commit('SET_DATA', payload)
-};
  
 const getProducts = ({
   commit,
@@ -233,7 +223,7 @@ const setSideBarProducts = ({
   commit,
   state
 }, products) => {
-  commit('SET_PRODUCT_LIST', products);
+  commit('SET_SIDEBAR', products);
 };
 
 const getAdvertisements = ({
@@ -256,9 +246,7 @@ const getAdvertisements = ({
 };
 
  
-export default {
-  setStorage,
-  setData, 
+export default { 
   getProducts,
   getCompletedWorks,
   getCompletedWorkById,
