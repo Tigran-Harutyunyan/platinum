@@ -15,26 +15,19 @@ export default {
     }
   },
   computed:{
-    storage(){
-      return this.$store.getters.storage;
+    locale(){
+      return this.$store.getters.getLocale;
     }
   },
   methods: {
     toggleLang(locale) {
-      //this.$root._i18n.locale = locale;
-      let storage = localStorage.getItem('platinumInk') ? JSON.parse(localStorage.getItem("platinumInk")) : {};
-      if (locale != storage.locale) {
-        storage.locale = locale;
-        localStorage.setItem('platinumInk', JSON.stringify(storage));
-        this.$store.dispatch('setStorage', storage);
-        location.reload();
-      }
+      this.$store.dispatch('setLocale', locale);
+      location.reload(); 
     }
   },
-  mounted() {
-    let currentLocale = this.storage.locale ? this.storage.locale : "en";
+  mounted() { 
     this.locales.forEach(item => {
-      item.activeLocale = item.locale == currentLocale;
+      item.activeLocale = item.locale == this.locale;
     });
   }
 }
