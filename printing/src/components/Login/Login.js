@@ -43,11 +43,7 @@ export default {
           });
         }
         if (response.success) {
-          this.$emit('LoginSuccess', response)
-          let storage = localStorage.getItem('platinumInk') ? JSON.parse(localStorage.getItem("platinumInk")) : {};
-          storage.user = response;
-          localStorage.setItem('platinumInk', JSON.stringify(storage));
-          this.$store.dispatch('setStorage', storage);
+          this.$emit('LoginSuccess', response);  
           this.close();
         }
         EventBus.$emit('authChanged');
