@@ -37,7 +37,7 @@ const api = {
       }
     }
       
-    if (url.includes('addProductToBasket') || url.includes('logout')  || url.includes('getBasketProducts') || url.includes('removeBasketProduct') || url.includes('customOrder') || url.includes('getProductPrice') || url.includes('getOrders'))  {
+    if (url.includes('addProductToBasket') || url.includes('logout')  || url.includes('getBasketProducts') || url.includes('removeBasketProduct') || url.includes('customOrder') || url.includes('getProductPrice') || url.includes('getOrders') || url.includes('moveProductToOrders'))  {
       
       configs.data = params;
     } else {
