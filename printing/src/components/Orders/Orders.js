@@ -43,17 +43,21 @@ export default {
     },
     getOrders() {
       this.isLoading = true;
+
       this.$store.dispatch('getOrders').then((response) => {
+
         this.isLoading = false;
         if (response.error) {
-          this.$notify({
-            title: 'Shopping cart',
+
+          this.$notify.error({ 
             message: message,
-            position: "bottom-right",
-            type: "error"
+            position: "bottom-right" 
           });
-        } else {
+          
+        } else { 
+
           this.statuses = response.statuses || [];
+
           if (Array.isArray(response.data)) {
             response.data.forEach(order => {
               order.statusName = this.getStatusName(order.status_id);

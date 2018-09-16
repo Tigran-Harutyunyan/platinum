@@ -33,6 +33,15 @@ export default {
     }
   },
   methods: {
+    _fillForm(){
+      this.first_name = this.user.first_name;
+      this.last_name = this.user.last_name;
+      this.phone = this.user.phone;
+      this.birthday_at = this.user.birthday_at;
+      this.email = this.user.email;
+      this.company_name = this.user.company_name; 
+      this.receive_promotions = this.user.receive_promotions === 1 ? true : false;
+    },
     updateProfileInfo() {
       if (!this.isLoading && this.isFormValid) {
         this.isLoading = true;
@@ -52,20 +61,21 @@ export default {
 
         this.$store.dispatch('updateProfileInfo', data).then((response) => {
           this.isLoading = false;
+
           if (response.error) {
-            this.$notify({
-              title: 'Edit profile',
+
+            this.$notify.error({ 
               message: response.message ? response.message : 'Failed to edit the profile',
-              position: "bottom-right",
-              type: "error"
+              position: "bottom-right" 
             });
+
           } else {
-            this.$notify({
-              title: 'Edit profile',
+
+            this.$notify.success({ 
               message: 'Edit profile success!',
-              position: "bottom-right",
-              type: "success"
+              position: "bottom-right" 
             }); 
+
           }
         }).catch((error) => {
           this.isLoading = false
@@ -75,13 +85,7 @@ export default {
   },
   mounted() {
     if (this.user) {
-      this.first_name = this.user.first_name;
-      this.last_name = this.user.last_name;
-      this.phone = this.user.phone;
-      this.birthday_at = this.user.birthday_at;
-      this.email = this.user.email;
-      this.company_name = this.user.company_name; 
-      this.receive_promotions = this.user.receive_promotions === 1 ? true : false;
+     this._fillForm();
     }
   },
 

@@ -29,29 +29,23 @@ export default {
         }).then((response) => {
           this.isLoading = false;
           if (response.error) {
-            this.$notify({
-              title: 'Change password',
+            this.$notify.error({ 
               message: response.message ? response.message : 'Failed to change the password',
-              position: "bottom-right",
-              type: "error"
+              position: "bottom-right" 
             });
           } else {
-            this.$notify({
-              title: 'Password change',
+            this.$notify.success({ 
               message: 'Password change success!',
-              position: "bottom-right",
-              type: "success"
+              position: "bottom-right" 
             });
             this.password = this.passwordConfirm = '';
             this.$v.$reset();
           }
         }).catch((error) => {
           this.isLoading = false;
-          this.$notify({
-            title: 'Password change error',
+          this.$notify.error({ 
             message: error.message || '' ,
-            position: "bottom-right",
-            type: "error"
+            position: "bottom-right" 
           });
         });
       }
