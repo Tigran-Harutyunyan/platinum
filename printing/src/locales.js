@@ -142,6 +142,7 @@ export default {
         part3: '',
         part4: 'Mobile:'
       },
+      user:'user',
       partnersOpinion: 'Peer review about us',
       seeMore: 'See more',
       more: 'More',
@@ -341,6 +342,7 @@ export default {
         copywriteText2: "են © 2010-2017 Platinum Ink Design.",
         password: "Գաղտնաբառ"
       },
+      user:"օգտագործող",
       readMore: 'Կարդալ ավելին',
       seeMore: 'Դիտել բոլորը',
       partnersOpinion: 'Գործընկերների գնահատականը մեր մասին',

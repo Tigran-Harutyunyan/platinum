@@ -95,20 +95,6 @@ Layout styles
   margin: 0;
 }
 
-.auth-controls {
-  display: none;
-  width: 100%;
-  padding: 50px 35px 0; 
-  a {
-    width: 110px;
-    padding-left: initial;
-    padding-right: initial;
-  }
-
-  a:nth-child(2) {
-    margin-left: 5px;
-  }
-}
 
 .logo-place {
   @extend .sprite;

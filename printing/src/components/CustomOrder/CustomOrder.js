@@ -4,15 +4,15 @@ import {
   email,
   sameAs
 } from 'vuelidate/lib/validators';
-import Preloader from '../../commonComponents/Preloader/Preloader.vue';
+ 
 
 export default {
   data() {
-    return { 
+    return {
       isLoading: false,
       productList: [],
-      fileList: [], 
-      product_id: "", 
+      fileList: [],
+      product_id: "",
       height: "",
       width: "",
       message: "",
@@ -24,84 +24,51 @@ export default {
       this._proccessProducts(products);
     }
   },
-  computed: { 
+  computed: {
     products() {
       return this.$store.getters.products;
     },
-    isFormValid(){
-      return  this.$v.$invalid==false && this.fileList.length>0 && this.product_id;
+    isFormValid() {
+      return this.$v.$invalid == false && this.fileList.length > 0 && this.product_id;
     }
   },
-  mounted() {
-    if (this.$store.getters.products) {
-      this.$store.dispatch('getProducts');
-    }
-  },
-  components: {
-    Preloader
-  },
-  methods: { 
+    
+  methods: {
     onSubmit() {
       if (this.isFormValid) {
-        if (this.fileList.length === 0) {
-          this.$notify({
-            title: 'Custom order',
-            message: 'Please upload the file.',
-            position: "bottom-right"
-          });
-          return;
-        }
-        if (!this.product_id) {
-          this.$notify({
-            title: 'Custom order',
-            message: 'Please select the product',
-            position: "bottom-right"
-          });
-          return;
-        }
+      
         this.isLoading = true;
         let formData = new FormData();
- 
+
         formData.append('height', this.height);
         formData.append('width', this.width);
-        formData.append('colors', this.colors); 
+        formData.append('colors', this.colors);
         formData.append('product_id', this.product_id);
-        formData.append('message', this.message); 
+        formData.append('message', this.message);
 
         if (this.fileList.length > 0) {
           formData.append('logo', this.fileList[0].raw, this.fileList[0].name);
         }
- 
-        this.$store.dispatch('customOrder', {formData}).then((response) => {
+
+        this.$store.dispatch('customOrder', {
+          formData
+        }).then((response) => {
           this.isLoading = false;
-          if (!response.error){
-            this.$notify({
-              title: 'Custom order',
-              message: 'Make custom order success',
-              position: "bottom-right",
-              type: "success"
-            });
-            this.$router.push({
-              name: 'Categories',
-              params: {
-                id: 1
-              }
-            })
+          if (!response.error) {
+            this.$notify.success({message: 'Order is placed',position: "bottom-right" });
+            this.$router.push({name: 'Categories', params: { id: 1 } })
           } else {
-            this.$notify({
-              title: 'Custom order',
-              message: response.message ? response.message : 0,
-              position: "bottom-right",
-              type: "error"
-            });
-          } 
+            this.$notify.error({ message: response.message ? response.message : 0, position: "bottom-right" });
+          }
         }).catch((error) => {
           this.isLoading = false
         });
       }
     },
     _proccessProducts(products) {
+
       let productList = [];
+
       for (const key in products) {
         if (products.hasOwnProperty(key)) {
           const element = products[key];
@@ -114,21 +81,23 @@ export default {
           });
         }
       }
+
       this.productList = productList;
     },
-    handleUpload(file, fileList) { 
-        var fr = new FileReader();
-        fr.onload = () => {
-          let obj = {
-            'background-image': `url(${fr.result})`,
-            'background-color': 'transparent'
-          }; 
-        }
-        fr.readAsDataURL(file.raw); 
-        this.fileList = fileList.slice(-1);
+    handleUpload(file, fileList) {
+      
+      var fr = new FileReader();
+      fr.onload = () => {
+        let obj = {
+          'background-image': `url(${fr.result})`,
+          'background-color': 'transparent'
+        };
+      }
+      fr.readAsDataURL(file.raw);
+      this.fileList = fileList.slice(-1);
     },
-  }, 
-  validations: { 
+  },
+  validations: {
     height: {
       required
     },
