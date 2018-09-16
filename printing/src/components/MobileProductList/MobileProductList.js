@@ -55,18 +55,22 @@ export default {
               id: 1
             }
           });
+          break;
         case 'Orders':
           this.$router.push({
             name: 'Orders'
           });
+          break;
         case 'changePassword':
           this.$router.push({
             name: 'changePassword'
           });
+          break;
         case 'profile':
           this.$router.push({
             name: 'profile'
           });
+          break;
       }
     },
 
