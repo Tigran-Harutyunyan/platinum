@@ -1,9 +1,7 @@
 <div>
-    <Header @toggleCategoryDropdown="toggleCategoryDropdown"></Header>
+    <Header></Header>
 
-    <HeaderCategories 
-        :class="{'open-dropdown':showCategoryDropdown}" 
-        @closeDropdown="showCategoryDropdown=false">
+    <HeaderCategories>
     </HeaderCategories>
 
     <div class="main-section content-area" style="margin-top: 68px;" id="products">

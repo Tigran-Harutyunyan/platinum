@@ -4,7 +4,7 @@ import {
   email,
   sameAs
 } from 'vuelidate/lib/validators';
- 
+
 
 export default {
   data() {
@@ -19,24 +19,20 @@ export default {
       colors: ""
     }
   },
-  watch: {
-    products(products) {
-      this._proccessProducts(products);
-    }
-  },
+ 
   computed: {
     products() {
-      return this.$store.getters.products;
+      return this.$store.getters.getProductsArray;
     },
     isFormValid() {
       return this.$v.$invalid == false && this.fileList.length > 0 && this.product_id;
     }
   },
-    
+
   methods: {
     onSubmit() {
       if (this.isFormValid) {
-      
+
         this.isLoading = true;
         let formData = new FormData();
 
@@ -55,37 +51,29 @@ export default {
         }).then((response) => {
           this.isLoading = false;
           if (!response.error) {
-            this.$notify.success({message: 'Order is placed',position: "bottom-right" });
-            this.$router.push({name: 'Categories', params: { id: 1 } })
+            this.$notify.success({
+              message: 'Order is placed',
+              position: "bottom-right"
+            });
+            this.$router.push({
+              name: 'Categories',
+              params: {
+                id: 1
+              }
+            })
           } else {
-            this.$notify.error({ message: response.message ? response.message : 0, position: "bottom-right" });
+            this.$notify.error({
+              message: response.message ? response.message : 0,
+              position: "bottom-right"
+            });
           }
         }).catch((error) => {
           this.isLoading = false
         });
       }
-    },
-    _proccessProducts(products) {
-
-      let productList = [];
-
-      for (const key in products) {
-        if (products.hasOwnProperty(key)) {
-          const element = products[key];
-          element.forEach(element => {
-            productList.push({
-              name: element.name,
-              id: element.id,
-              selected: false
-            });
-          });
-        }
-      }
-
-      this.productList = productList;
-    },
+    }, 
     handleUpload(file, fileList) {
-      
+
       var fr = new FileReader();
       fr.onload = () => {
         let obj = {

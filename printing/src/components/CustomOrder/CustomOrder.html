@@ -15,7 +15,7 @@
                 <td>{{ $t('message.customOrder.type') }}</td>
                 <td>
                   <el-select v-model="product_id" :placeholder="$t('message.select')">
-                    <el-option v-for="(item, index) in productList" :key="index" :label="item.name" :value="item.id">
+                    <el-option v-for="(item, index) in products" :key="index" :label="item.name" :value="item.id">
                     </el-option>
                   </el-select>
                 </td>

@@ -1,7 +1,7 @@
 <header id="appHeader" class="normal-header">
     <nav class="nav-bar">
-        <div class="container nav-container nav1">
-           <div class="mobile-category-list-toggler" @click="$emit('toggleCategoryDropdown')"></div>
+        <div class="container nav-container nav1"> 
+            <NewBurger></NewBurger>
             <a @click="$router.push({ name: 'Home'})" class="left-floated logo-link">
                 <div class="logo-place"></div>
             </a>
@@ -10,21 +10,22 @@
                     <li class="auth-links" v-show="!isAuthenticated">
                        <a class="btn-link" style="margin-right: -13px;" @click="showLogin=true">{{ $t('message.form.login') }}</a> 
                     <li class="auth-links" v-if="!isAuthenticated">
-                        <a class="btn-link btn-bright" @click="toSignupPage">{{ $t('message.signup.info11') }}</a>
+                        <a class="btn-link btn-bright" @click.stop="toSignupPage">{{ $t('message.signup.info11') }}</a>
                     </li>
                     <li class="auth-links" v-if="isAuthenticated">
-                        <a class="btn-link btn-bright" @click="logout">{{ $t('message.logout') }}</a>
+                        <a class="btn-link btn-bright" @click.stop="logout">{{ $t('message.logout') }}</a>
                     </li>
                     <li class="search-holder">
                         <Search />
                     </li> 
                     <li class="mobile-search-toggler">
                         <span>    
-                            <i class="el-input__icon el-icon-search ordinary-search" @click.stop ="isMobileSearch=!isMobileSearch"></i> 
+                            <i class="el-input__icon el-icon-search ordinary-search" 
+                            @click.stop ="isMobileSearch=!isMobileSearch"></i> 
                         </span>
                     </li>
                     <li class="cart-link" v-if="isAuthenticated">
-                        <a class="icon-cart" @click="isActive=false; $router.push({name:'Cart'})"> 
+                        <a class="icon-cart" @click.stop="goToCart()"> 
                             <span>{{ cartItems.length }}</span>
                         </a>
                     </li>
@@ -32,7 +33,7 @@
                         <LanguageSwitcher /> 
                     </li>
                     
-                <!--     <li> 
+               <!-- <li> 
                         <Hamburger
                             :isAuthed="isAuthenticated" 
                             v-on:signUp="toSignupPage" 
@@ -44,9 +45,12 @@
         </div>
         <SearchMobile v-show="isMobileSearch" @closeSearch="isMobileSearch=false"/>
     </nav>
+    
     <Login 
         v-if="showLogin"
         @close="showLogin=false"
         v-on:LoginSuccess ="onLoginSuccess"
-        v-on:onPassRecovery = "showLogin=false"/>
+        v-on:onPassRecovery = "showLogin=false">
+    </Login>
+
 </header>

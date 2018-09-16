@@ -4,11 +4,16 @@
    EventBus
  } from '../../event-bus.js';
 
+ const setDropDownState = ({
+  commit
+}, payload) => { 
+  commit('SET_DROPDOWN_STATE', payload);
+};
 
  const setUser = ({
    commit
  }, payload) => {
-   commit('SET_USER', payload)
+   commit('SET_USER', payload);
  };
 
  const setLocale = ({
@@ -320,5 +325,6 @@ const deleteToken = ({
    setLocale,
    setUser,
    setToken,
-   deleteToken
+   deleteToken,
+   setDropDownState
  }

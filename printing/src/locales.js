@@ -144,7 +144,7 @@ export default {
       },
       user:'user',
       partnersOpinion: 'Peer review about us',
-      seeMore: 'See more',
+      seeMore: 'See all',
       more: 'More',
       search: 'Search',
       logout: 'Logout',

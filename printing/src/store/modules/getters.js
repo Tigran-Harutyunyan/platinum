@@ -11,8 +11,9 @@
  const scrollParams = state => state.scrollParams;
  const sidebarProducts = state => state.sidebarProducts;
  const getAdvertisements = state => state.advertisements;
-
+ const getProductsArray = state => state.productsArray;
  const storage = state => state.storage;
+ 
  export default {
    appData, 
    products,
@@ -27,5 +28,6 @@
    scrollParams,
    sidebarProducts,
    storage,
-   getAdvertisements
+   getAdvertisements,
+   getProductsArray
  };

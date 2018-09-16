@@ -148,31 +148,32 @@ export default {
     },
 
     addProductToCart() {
-      if (!this.token) {
-        this.$notify({
-          title: 'Cart',
-          message: "Please login first",
-          position: "bottom-right",
-          type: "error"
-        });
 
-        EventBus.$emit('logout');
 
-        return;
-      }
-      if (!this.filesWereUploaded) {
+      if (!this.isAddingToCart && this.isDirty) {
 
-        this.$notify({
-          title: 'Cart',
-          message: "Please upload files",
-          position: "bottom-right",
-          type: "error"
-        });
-        return;
-      }
+        if (!this.token) {
+          this.$notify({
+            title: 'Cart',
+            message: "Please login first",
+            position: "bottom-right",
+            type: "error"
+          });
 
-      if (!this.isAddingToCart) {
+          EventBus.$emit('logout');
 
+          return;
+        }
+        if (!this.filesWereUploaded) {
+
+          this.$notify({
+            title: 'Cart',
+            message: "Please upload files",
+            position: "bottom-right",
+            type: "error"
+          });
+          return;
+        }
         this.isAddingToCart = true;
 
         let formData = this._constructFormData('add');

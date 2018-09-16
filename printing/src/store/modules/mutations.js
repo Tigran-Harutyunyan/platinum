@@ -40,6 +40,9 @@ const SET_PRODUCT_LIST = (state, products) => {
 const SET_SIDEBAR = (state, products) => { 
   state.sidebarProducts = products;
 }
+const UPDATE_PRODUCTS_ARRAY = (state,products) =>{
+  state.productsArray = products;
+}
 
  export default { 
    SET_CUSTOM_DATA,
@@ -54,5 +57,6 @@ const SET_SIDEBAR = (state, products) => {
    STORE_SCROLL_PARAMS,
    SET_PRODUCT_LIST,
    SET_ADVERTISEMENTS, 
-   SET_SIDEBAR
+   SET_SIDEBAR,
+   UPDATE_PRODUCTS_ARRAY
  }

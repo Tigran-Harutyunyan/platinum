@@ -3,5 +3,6 @@ export const state = {
   orders: '',
   user: {},
   locale: '',
-  token: ''
+  token: '',
+  dropdownOpened: false
 }

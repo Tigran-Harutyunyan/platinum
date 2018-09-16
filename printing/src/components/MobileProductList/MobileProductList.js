@@ -4,8 +4,7 @@ import {
 export default {
   data() {
     return {
-      activeNames: [], //'0'
-      isActive: false
+      activeNames: [], //'0' 
     };
   },
   computed: {
@@ -15,18 +14,20 @@ export default {
     token() {
       return this.$store.getters.getToken;
     },
-  },
-  watch: {
-    $route(to, from) {
-      this.close();
-    }
-  },
-  methods: {
-    close() {
-      this.isActive = false;
-      this.$emit('closeDropdown');
+    dropdownOpened() {
+      return this.$store.getters.dropdownOpened;
     },
-    perform(action) {
+  },
+ /*  watch: {
+    $route(to, from) { 
+    }
+  }, */
+  methods: { 
+    close() {
+      this.$store.dispatch('setDropDownState', !this.dropdownOpened);
+    },
+
+    navigateTo(action) {
       this.close();
       switch (action) {
         case 'login':
@@ -42,10 +43,34 @@ export default {
         case 'logout':
           EventBus.$emit('logout');
           break;
+        case 'design':
+          this.$router.push({
+            name: 'Design'
+          });
+          break;
+        case 'categories':
+          this.$router.push({
+            name: 'Categories',
+            params: {
+              id: 1
+            }
+          });
+        case 'Orders':
+          this.$router.push({
+            name: 'Orders'
+          });
+        case 'changePassword':
+          this.$router.push({
+            name: 'changePassword'
+          });
+        case 'profile':
+          this.$router.push({
+            name: 'profile'
+          });
       }
     },
 
-    goTo(section) {
+    scrollTo(section) {
       let param = '';
       let customOffset = 0;
       switch (section) {

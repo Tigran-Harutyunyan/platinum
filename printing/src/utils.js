@@ -1,4 +1,4 @@
- const utils = { 
+ const utils = {
 
    getSortId(key, propertyNames) {
      for (const _key in propertyNames) {
@@ -6,6 +6,24 @@
          return parseInt(propertyNames[_key].order_id);
        }
      }
+   },
+
+   getProductsArray(products) {
+     let productList = [];
+
+     for (const key in products) {
+       if (products.hasOwnProperty(key)) {
+         const element = products[key];
+         element.forEach(element => {
+           productList.push({
+             name: element.name,
+             id: element.id,
+             selected: false
+           });
+         });
+       }
+     } 
+     return productList;
    }
  };
 

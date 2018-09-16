@@ -16,11 +16,16 @@
 const DELETE_TOKEN = (state, token) => {
   state.token = '';
 };
+const SET_DROPDOWN_STATE = (state, payload) => {
+  state.dropdownOpened = payload;
+};
+
  export default {
    SET_USER,
    UPDATE_ORDERS_DATA,
    UPDATE_CART_ITEMS,
    SET_LOCALE,
    SET_TOKEN,
-   DELETE_TOKEN
+   DELETE_TOKEN,
+   SET_DROPDOWN_STATE
  }

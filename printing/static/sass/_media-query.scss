@@ -618,10 +618,7 @@
   }
 }
 
-@media only screen and (max-width: 480px) {
-  .lang-toggler {
-    display: none !important;
-  }
+@media only screen and (max-width: 480px) { 
   .hamburger .language-switcher {
     display: flex;
   }

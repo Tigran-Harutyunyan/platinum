@@ -33,6 +33,9 @@ export default {
     },
   },
   methods: {
+    fromBurger(){
+      console.log('sdfdfs');
+    },
     toggleCategoryDropdown() {
       this.showCategoryDropdown = !this.showCategoryDropdown;
     },

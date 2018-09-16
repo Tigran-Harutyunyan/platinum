@@ -15,7 +15,7 @@ const middleware = {
             if (product.images.length) {
               product.image = `${config.imgBaseUrl}${product.images[0].image}`
             } else {
-              product.image = '../static/img/products/1.png'
+              product.image = '../static/img/no-image.svg'
             }
           });
         }

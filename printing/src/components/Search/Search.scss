@@ -1,7 +1,7 @@
 .search-dropdown {
   display: flex;
   flex-wrap: wrap;
-  width: 200px;
+  width: 230px;
   max-height: 200px;
   overflow: auto;
   background: black;
@@ -14,12 +14,13 @@
   //border-radius: 17px 0 0 17px;
   li {
     width: 100%;
-    padding: 10px;
+    padding-left: 10px;
     margin: 0;
     float: none;
 
     a {
-      text-transform: capitalize;
+      text-transform: uppercase;
+      line-height: 18px;
     }
   }
 }

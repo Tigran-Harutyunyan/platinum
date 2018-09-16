@@ -1,14 +1,13 @@
 <div class="products-sidebar">
-    <h2 class="sidebar-title">{{ $t('message.products') }}</h2>
-    <!-- <Preloader v-if="isLoading"></Preloader> -->
+    <h2 class="sidebar-title">{{ $t('message.products') }}</h2> 
     <div  class="subsection-container">
         <div class="sidebar-subsection" v-for="group in products"> 
-            <router-link  :to="`/category/${group[0].category_id}`" >
+            <router-link  :to="`/category/${group[0].category_id}`">
                 <h3>{{ group[0].category_name }} </h3>
             </router-link> 
             <ul v-if="group">
                 <li v-for="(item,index) in group" :key="index">
-                    <router-link  
+                    <router-link   
                         :to="item.href"  
                         v-bind:class="{'active-product-list' : item.isActive}">
                         {{ item.name }} 

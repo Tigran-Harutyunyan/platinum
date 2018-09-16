@@ -101,7 +101,7 @@ Layout styles
   width: 235px;
   height: 50px;
   background-position: -38px -128px;
-  margin-top: 6px;
+  margin-top: 8px;
   cursor: pointer
 }
 
@@ -806,9 +806,7 @@ textarea{
   }
 }
 
-#banner-dots2 {
-  position: absolute
-}
+ 
 
 .nav-element-container {
   position: absolute;
@@ -2532,7 +2530,9 @@ menu hamburger>i:after {
   background: #212121;
   text-transform: uppercase
 }
- 
+.el-collapse-item__content {
+  padding-bottom: 5px;
+}
 .el-input.has-error .el-input__inner,
 .el-textarea.has-error .el-textarea__inner {
   border-color: red;
