@@ -1,30 +1,64 @@
 <div>
   <div class="backdrop">
-      <div class="close-btn" @click="close"></div> 
-  </div> 
-  <nav class="mobile-products-list"> 
+    <div class="close-btn" @click="close"></div>
+  </div>
+  <nav class="mobile-products-list">
+    <div class="auth-controls">
+      <a v-if="!token" class="btn-link btn-bright" @click="perform('login')">{{ $t('message.form.login') }}</a>
+      <a v-if="!token" class="btn-link btn-bright" @click="perform('signUp')">{{ $t('message.signup.info11') }}</a>
+      <a class="btn-link btn-bright" v-if="token" @click="perform('logout')">{{ $t('message.logout') }}</a>
+    </div>
     <div class="scroll-area"> 
-       
-      <el-collapse v-model="activeNames" accordeon="true" @change="handleChange">
-        <el-collapse-item 
-          :title="group[0].category_name" 
-          :name="index" 
-          v-for="(group, index) in products" :key="index">
+      <el-collapse v-model="activeNames" accordeon="false">
+        <el-collapse-item :title="$t('message.dropdown.item1')" name="0">
+          <ul class="mobile-products">
+            <li><a class="menu-item" @click="goTo()">{{ $t('message.dropdown.item1') }}</a></li>
+            <li><a class="menu-item" @click="goTo('services')">{{ $t('message.dropdown.item2') }}</a></li>
+            <li><a class="menu-item" @click="goTo('about-us')">{{ $t('message.dropdown.item3') }}</a></li>
+            <li><a class="menu-item" @click="goTo('projects')">{{ $t('message.dropdown.item4') }}</a></li>
+            <li><a class="menu-item" @click="goTo('why')">{{ $t('message.dropdown.item5') }}</a></li>
+            <li><a class="menu-item" @click="goTo('staff')">{{ $t('message.dropdown.item6') }}</a></li>
+            <li><a class="menu-item" @click="goTo('contact-us')">{{ $t('message.dropdown.item7') }}</a></li>
+            <li><a class="menu-item" @click="isActive=false; $router.push({name:'Design'})">{{ $t('message.services.design') }}</a></li>
+            <li>
+              <a class="menu-item" @click="isActive=false; $router.push({name:'Categories',params: {id:1}})">
+                {{ $t('message.dropdown.item8') }}
+                <span class="line-elem-menu"></span></a>
+            </li>
+          </ul>
+        </el-collapse-item>
+
+        <el-collapse-item :title="$t('message.user')" name="5" v-if="token">
+          <ul class="mobile-products">
+            <li class="hidden-item separate-items">
+              <a class="menu-item" @click="isActive=false; $router.push({name:'Orders'})">{{ $t('message.myOrders') }}</a>
+            </li>
+            <li class="hidden-item">
+              <a class="menu-item" @click="isActive=false; $router.push({name:'changePassword'})">{{ $t('message.changePasswordTitle') }}</a>
+            </li>
+            <li class="hidden-item">
+              <a class="menu-item" @click="isActive=false; $router.push({name:'profile'})">{{ $t('message.editProfile') }}</a>
+            </li>
+          </ul>
+        </el-collapse-item>
+
+        <el-collapse-item :title="group[0].category_name" :name="index" v-for="(group, index) in products" :key="index">
           <ul v-if="group" class="mobile-products">
             <li>
-             <router-link  :to="`/category/${group[0].category_id}`" >
-                  <h3>{{ $t('message.all') }}</h3>
-              </router-link> 
+              <router-link :to="`/category/${group[0].category_id}`">
+                <h3>{{ $t('message.all') }}</h3>
+              </router-link>
             </li>
             <li v-for="(item,index) in group" :key="index">
-              <router-link :to="item.href"  click="closeDropdown" v-bind:class="{'active-product-list' : item.isActive}">
+              <router-link :to="item.href" click="closeDropdown" v-bind:class="{'active-product-list' : item.isActive}">
                 {{ item.name }}
               </router-link>
             </li>
           </ul>
         </el-collapse-item>
-      </el-collapse>
 
+      </el-collapse>
+    
       <div class="spacer"></div>
     </div>
   </nav>

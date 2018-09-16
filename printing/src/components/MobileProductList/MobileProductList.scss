@@ -11,31 +11,33 @@
    position: fixed;
    width: 100%;
    height: 100vh;
-   z-index: 10;
+   z-index: 11;
    background: #000000de;
    transform: translateX(-100vw);
    transition: transform .3s ease-in-out;
    opacity: 0;
    visibility: hidden;
+   top:0
  }
- .spacer {
-   height: 20px;
- }
+ 
 
  .close-btn {
    background-image: url(/static/img/sprite.eed7ef1.png);
    width: 17px;
    height: 16px;
    background-position: -280px -226px;
-   top: 20px;
+   top: 85px;
    right: 20px;
    position: absolute;
    cursor: pointer;
  }
 
+ .menu-item {cursor: pointer;}
  .scroll-area {
-   height: 100vh;
-   overflow-y: auto
+   height: calc(100vh - 146px);
+   overflow-y: auto;
+   overflow-x: hidden;
+   background-color: #090908
  }
 
  .open-dropdown {
@@ -72,5 +74,27 @@
        color: #af995a;
        background: #141414;
      }
+   }
+ }
+ 
+.auth-controls {
+  display: none;
+  width: 100%;
+  padding: 20px 5px 20px;
+  background: #090908; 
+  a {
+    width: 110px;
+    padding-left: initial;
+    padding-right: initial;
+  }
+
+  a:nth-child(2) {
+    margin-left: 10px;
+  }
+}
+ @media only screen and (max-width: 920px) { 
+   .auth-controls {
+     display: flex;
+     justify-content: center
    }
  }
