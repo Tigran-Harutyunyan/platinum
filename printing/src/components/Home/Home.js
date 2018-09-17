@@ -19,10 +19,7 @@ export default {
       showCategoryDropdown: false
     }
   },
-  computed: {
-    storage() {
-      return this.$store.getters.getStorage
-    },
+  computed: { 
     scrollParams() {
       return this.$store.getters.scrollParams
     }
@@ -98,8 +95,8 @@ export default {
     HeaderCategories
   },
   mounted() {
-    this.initReviews();
-    this.setZindex();
-    this.checkToScrollOrNot();
+    //this.initReviews();
+    ///this.setZindex();
+    //this.checkToScrollOrNot();
   }
 }

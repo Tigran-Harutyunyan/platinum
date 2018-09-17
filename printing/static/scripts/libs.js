@@ -1,0 +1,6 @@
+//@prepros-append jquery.js 
+//@prepros-append jquery.easing.1.3.js    
+//@prepros-append createjs-2015.11.26.min.js
+//@prepros-append Logo_animation.js
+//@prepros-append slick.min.js 
+//@prepros-append countUp.min.js   
