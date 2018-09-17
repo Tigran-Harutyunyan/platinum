@@ -7,6 +7,7 @@ export default {
       activeNames: [], //'0' 
     };
   },
+
   computed: {
     products() {
       return this.$store.getters.products;
@@ -18,11 +19,18 @@ export default {
       return this.$store.getters.dropdownOpened;
     },
   },
- /*  watch: {
-    $route(to, from) { 
+  watch: {
+    dropdownOpened() {
+      if (this.dropdownOpened) {
+        document.body.classList.add('hide-it');
+      } else {
+        document.body.classList.remove('hide-it'); 
+      }
     }
-  }, */
-  methods: { 
+    /* $route(to, from) { 
+    } */
+  },
+  methods: {
     close() {
       this.$store.dispatch('setDropDownState', !this.dropdownOpened);
     },

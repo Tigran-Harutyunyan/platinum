@@ -98,3 +98,9 @@
      justify-content: center
    }
  }
+ @media only screen and (max-width: 550px) { 
+  .mobile-products-list  {
+    width: 100%;
+    transform: translateX(-550px); 
+  }
+}
