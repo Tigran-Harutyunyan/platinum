@@ -27,7 +27,7 @@
 .el-input__icon {
   position: absolute;
   top: 16px;
-  right: 19px;
+  right: 10px;
   color: white;
   height: auto;
   font-size: 24px;
@@ -62,6 +62,6 @@
 }
 
 .search-input {
-  width: 100%;
+  width: calc(100% - 30px );
   color: white
 }
