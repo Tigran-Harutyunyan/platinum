@@ -19,7 +19,7 @@ export default {
       showCategoryDropdown: false
     }
   },
-  computed: { 
+  computed: {
     scrollParams() {
       return this.$store.getters.scrollParams
     }
@@ -78,8 +78,8 @@ export default {
     checkToScrollOrNot() {
       if (this.scrollParams) {
         $('html, body').animate({
-          scrollTop:  $(this.scrollParams.param).offset().top - this.scrollParams.offset
-        }, 0,()=>this.$store.dispatch('setScrollParams', '' ));
+          scrollTop: $(this.scrollParams.param).offset().top - this.scrollParams.offset
+        }, 0, () => this.$store.dispatch('setScrollParams', ''));
       }
     }
   },
@@ -95,8 +95,8 @@ export default {
     HeaderCategories
   },
   mounted() {
-    //this.initReviews();
-    ///this.setZindex();
-    //this.checkToScrollOrNot();
+    this.initReviews();
+    this.setZindex();
+    this.checkToScrollOrNot();
   }
 }
