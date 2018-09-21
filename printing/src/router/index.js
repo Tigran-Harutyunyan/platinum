@@ -78,17 +78,17 @@ const router = new Router({
           name: 'changePassword',
           component: ChangePassword,
           beforeEnter: shouldBeAuthed
+        }, 
+        {
+          path: '/custom-order',
+          name: 'customOrder',
+          component: CustomOrder
         },
         {
           path: '/advertisement',
           name: 'advertisement',
           component: Advertisement
         },
-        {
-          path: '/custom-order',
-          name: 'customOrder',
-          component: CustomOrder
-        }
       ]
     },
     {
@@ -101,6 +101,7 @@ const router = new Router({
       name: 'Design',
       component: Portfolio
     },
+ 
     {
       path: '*',
       redirect: '/home'

@@ -14,12 +14,14 @@ export default {
     Sidebar,
     HelperLinks,
     InfoTabs,
-    HeaderCategories
+    HeaderCategories,
+    fullWidth: false
   },
   data() {
     return {
       showSidebar: false, 
-      showCategoryDropdown: false
+      showCategoryDropdown: false,
+      showInfoTabs: false
     };
   },
   watch: {
@@ -40,7 +42,9 @@ export default {
       this.showCategoryDropdown = !this.showCategoryDropdown;
     },
     checkRoute(route) {
-      this.showSidebar = route == "Categories" || route == "ProductDetail" ? true : false;
+      this.showSidebar = route != "advertisement";
+      this.showInfoTabs = route == "Categories" || route == "ProductDetail" ? true : false;
+      this.fullWidth = route === "advertisement";
     }
   },
 
