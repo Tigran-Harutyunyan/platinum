@@ -547,13 +547,7 @@
       top: 100px;
     }
   }
-  @media only screen and (max-width: 620px) {
-    .projects-carousel,.partners-carousel { 
-      .owl-nav { 
-        display: none !important
-     }
-    } 
-  }
+ 
   @media only screen and (max-width: 600px) {
     .el-message-box {
       width: auto;
@@ -655,12 +649,7 @@
   .himnadrman-tari {
     line-height: 16px;
   }
-  /* .parallax-bg {
-        display: none
-    }*/
-  /*.reviews-slider-container {
-        background: url(../img/pattern-footer2.png) repeat;
-    }*/
+  
   #reviews-slider p {
     height: 100px;
   }
@@ -718,9 +707,7 @@
       margin-bottom: 3px
     }
   }
-  #landing2 {
-    display: none
-  }
+ 
   .large-triangle7 {
     top: -62px;
     left: -547px;
@@ -768,9 +755,7 @@
   .services-section {
     padding-top: 0
   }
-  /*   .parallax-section {
-    height: 370px
-  } */
+ 
   .main-inner {
     padding-left: 20px;
     padding-right: 20px;
@@ -794,12 +779,7 @@
 @media only screen and (max-width: 420px) {
   .login-window .el-dialog {
     width: 100% !important;
- }
-  #reviews-dots {
-    transform: translate(-50%, 0%);
-    position: absolute;
-    left: 50%;
-  }
+ } 
 }
 
 @media only screen and (max-width: 370px) {
