@@ -21,6 +21,14 @@ export default {
       ]
     }
   },
+  computed: {
+    locale: {
+      get: function () {
+        return this.$store.getters.getLocale;
+      },
+      set: function () {}
+    } 
+  },
   methods: {
     onTabChange(value) {
       this.activeTab = value;

@@ -72,7 +72,20 @@
 .tab-content .tab-inner {
   width: auto;
 }
-
+.how-to-use-tab {
+  h2 {
+    padding-bottom: 17px;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  p {
+    width: 100%;
+    padding-bottom: 10px;
+  }
+  .tab-block {
+    padding-bottom: 20px;
+  }
+}
 @media only screen and (max-width: 1400px) {
   .download-links {
     width: 765px;

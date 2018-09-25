@@ -48,7 +48,7 @@ export default {
       this.index = index;
       this.category = category;
       this.dialogTableVisible = true;
-    }
+    },
   },
   directives: {
     carousel: {
