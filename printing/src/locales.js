@@ -2,6 +2,8 @@ export default {
   en: {
     message: {
       reset: "Reset",
+      car: 'Car advertising',
+      outdoor:"Outdoor advertising", 
       aboutUs: {
         title: "About us",
         established: "Established year",
@@ -160,7 +162,7 @@ export default {
       uploadFile2: 'upload the second side',
       uploadFileDescription: 'Uploaded files are visible only in JPG format, other formats will be sent to you by e-mail',
       remove: 'Remove', 
-      tv_audio_ads: "television and radio advertising",
+      tv_audio_ads: "television and radio advertising", 
       name: "Name",
       delete: "Delete",
       front: "Front",
@@ -297,7 +299,8 @@ export default {
     message: {
       email: 'Էլ. հասցե',
       reset: "վերականգնել",
-      car: 'meqena',
+      car: 'գովազդ մեքենաների վրա',
+      outdoor:"Արտաքին գովազդ", 
       aboutUs: {
         title: "Մեր մասին",
         established: "Հիմնադրման տարի՝",
@@ -428,6 +431,7 @@ export default {
       search: 'Փնտրել',
       play:'Play',
       download: 'Download',
+
       uploadFile: 'բեռնել ձեր ֆայլը',
       uploadFile1: 'բեռնել առաջին կողմի ֆայլը',
       uploadFile2: 'բեռնել երկրորդ կողմի ֆայլը',
