@@ -21,7 +21,8 @@ export default {
       loading: false,
       selectedOptions: [],
       quantity: "",
-      isAddingToCart: false
+      isAddingToCart: false,
+      isOneSide: false
     }
   },
   components: {
@@ -29,10 +30,13 @@ export default {
     Uploader,
     ProductImages
   },
-  computed: {
-
+  computed: { 
     filesWereUploaded() {
-      return this.fileList1.length > 0 && this.fileList2.length > 0;
+      if ( this.isOneSide && this.fileList1.length > 0 ) {
+        return this.fileList1.length > 0; 
+      } else {
+        return  this.fileList1.length > 0 && this.fileList2.length > 0;
+      } 
     },
     token() {
       return this.$store.getters.getToken;
@@ -56,10 +60,14 @@ export default {
     onDropDownChange() {
       let properties = this.product.sortedProperties;
       let quantityID = '';
-      this.selectedOptions = [];
+      this.selectedOptions = []; 
+      this.isDirty = true;
       properties.forEach(element => {
         if (element.selected != "") {
           element.options.forEach(option => {
+            if (option.one_side){
+              this.isOneSide = true;
+            }
             if (option.quantity) {
               this.quantity = element.selected
             }
@@ -140,7 +148,7 @@ export default {
         if (this.fileList1.length > 0) {
           formData.append('front_side', this.fileList1[0].raw, this.fileList1[0].name);
         }
-        if (this.fileList2.length > 0) {
+        if (this.fileList2.length > 0 &&  !this.oneSide) {
           formData.append('back_side', this.fileList2[0].raw, this.fileList2[0].name);
         }
       }
@@ -168,7 +176,7 @@ export default {
 
           this.$notify({
             title: 'Cart',
-            message: "Please upload files",
+            message: `Please upload ${this.oneSide  ? 'your file' : 'your files'}`,
             position: "bottom-right",
             type: "error"
           });
@@ -229,6 +237,16 @@ export default {
       this.$store.dispatch('getProductById', {
         id: this.$route.params.id
       }).then((response) => {
+        this.isLoading = false;
+            
+        if (response.error){
+          this.$notify({ 
+            message: response.message ? response.message : "Error getting product info",
+            position: "bottom-right",
+            type: "error"
+          });
+        }
+
         if (response[0]) {
           this.product = response;
           this.isLoading = false;
@@ -236,12 +254,15 @@ export default {
           this.copyOfProduct = JSON.parse(JSON.stringify(this.product));
           this.isDirty = false;
         }
-      }).catch((error) => {});
+      }).catch((error) => {
+        this.isLoading = false;
+      });
     },
     reset() {
       this.product = JSON.parse(JSON.stringify(this.copyOfProduct));
       this.isDirty = false;
       this.showPriceTotal = false;
+      this.isOneSide = false;
     },
 
   },

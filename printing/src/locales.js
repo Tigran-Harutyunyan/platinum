@@ -296,7 +296,7 @@ export default {
   am: {
     message: {
       email: 'Էլ. հասցե',
-      reset: "Reset",
+      reset: "վերականգնել",
       car: 'meqena',
       aboutUs: {
         title: "Մեր մասին",

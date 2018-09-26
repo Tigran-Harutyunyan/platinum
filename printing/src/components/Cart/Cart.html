@@ -7,11 +7,11 @@
         <div class="spacer"></div>
         <div class="cart-images">
           <div class="cart-img-container" v-if="item.front_side">
-            <div class="cart-img" v-bind:style="item.style"> </div>
+            <div class="cart-img" v-bind:style="item.frontBGstyle"> </div>
             <h5>{{ $t('message.front') }}</h5>
           </div>
           <div class="cart-img-container" v-if="item.back_side">
-            <div class="cart-img" v-bind:style="item.style"> </div>
+            <div class="cart-img" v-bind:style="item.backBGstyle"> </div>
             <h5>{{ $t('message.back') }}</h5>
           </div>
         </div>

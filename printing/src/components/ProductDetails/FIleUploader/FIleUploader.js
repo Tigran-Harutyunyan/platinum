@@ -1,5 +1,11 @@
 export default {
     name: 'image-uploader',
+    props: {
+        oneSide: {
+            type: Boolean,
+            default: false
+        }
+    },
     data() {
         return {
             fileList1: [],

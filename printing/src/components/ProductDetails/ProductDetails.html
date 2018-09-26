@@ -18,7 +18,9 @@
         </div>
         <div class="product-details-inner2" >
           <div class="left-block">
-            <Uploader @filelistChange="onFileChange"></Uploader> 
+            <Uploader 
+              :oneSide="isOneSide" 
+              @filelistChange="onFileChange"></Uploader> 
           </div>
           <div class="right-block">
             <div class="parameters-item"  v-for="(value, key) in product.sortedProperties">
@@ -34,10 +36,10 @@
             </div>
             <div class="btns-container">
               <a class="btn-submit btn-invert btn-1" 
-               v-show="showPriceTotal && isDirty"
-               @click="reset">{{ $t('message.cancel')}}</a> 
+               v-show="isDirty"
+               @click="reset">{{ $t('message.reset')}}</a> 
                 <el-button class="btn-submit btn-invert" type="text" 
-                    v-show="showPriceTotal" 
+                    v-show="showPriceTotal && totalPrice" 
                     :class="{disabled: !isDirty}"
                     @click="addProductToCart()" 
                     :disabled="isAddingToCart"
