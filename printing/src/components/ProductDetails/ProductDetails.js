@@ -172,15 +172,16 @@ export default {
 
           return;
         }
-        if (!this.filesWereUploaded) {
-
+        if ( !this.filesWereUploaded ) {
+           
           this.$notify({
             title: 'Cart',
-            message: `Please upload ${this.oneSide  ? 'your file' : 'your files'}`,
+            message: `Please upload ${this.isOneSide  ? 'your file' : 'your files'}`,
             position: "bottom-right",
             type: "error"
           });
           return;
+
         }
         this.isAddingToCart = true;
 
