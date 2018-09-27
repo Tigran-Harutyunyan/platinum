@@ -10,8 +10,8 @@ import {
 export default {
   data() {
     return {
-      email: "tigran@mailinator.com",
-      password: "tigran",
+      email: "",
+      password: "",
       isLoading: false,
       dialogTableVisible: true,
       recoveryMail: '',
