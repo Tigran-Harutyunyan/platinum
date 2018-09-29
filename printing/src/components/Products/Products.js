@@ -24,7 +24,7 @@ export default {
     }
   },
   mounted() { 
-      this._filterProducts(); 
+    this._filterProducts(); 
   },
   methods: {
     _filterProducts() {

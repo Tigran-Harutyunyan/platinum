@@ -12,6 +12,7 @@
 
 .btn-submit {
   margin-top: 30px;
+  float: left;
 }
 
 .btn-links {
@@ -29,8 +30,9 @@
 tr {
   td:first-child {
     text-transform: uppercase;
+    font-weight: bold;
     padding-top: 8px;
-    padding-right: 10px;
+    padding-right: 20px;
   }
 }
 
@@ -130,6 +132,30 @@ i {
 
   .custom-checkbox {
     width: 281px;
+  }
+}
+
+@media only screen and (max-width: 520px) {
+  tr {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  form, table,
+  td {
+    width: 100%;
+  }
+
+  tr td:first-child {
+    padding-bottom: 10px;
+  }
+
+  .sign-up-bottom>div {
+    width: 100%;
+  }
+
+  .btn-submit {
+    width: 100%;
   }
 }
 

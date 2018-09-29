@@ -7,7 +7,7 @@
       <isotope class="grid"
           :options='getOptions()'
           :list="completedWorks"  
-          v-if="completedWorks.length"> 
+          v-if="completedWorks.length>0"> 
           <div class="grid-item" 
               v-for="(element, index) in completedWorks" 
               :key="index" 

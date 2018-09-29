@@ -56,7 +56,7 @@ export default {
       this.currentSlideID = -1;
     } 
   },
-  mounted() { 
+  created() { 
     this.$store.dispatch('getCompletedWorks'); 
      document.getElementById("scrolledDiv").addEventListener('scroll', this.startScrolling);  
   },

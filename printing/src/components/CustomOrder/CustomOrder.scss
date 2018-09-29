@@ -191,10 +191,24 @@ i {
   .description, .el-textarea__inner {
     width: 100% !important;
   }
+  .description { 
+    margin-left: 0;
+  }
   .sign-up-bottom {
-    padding-bottom: 100px;
+    padding-bottom: 50px;
   }
 }
-@media only screen and (max-width: 480px) {
-
+@media only screen and (max-width: 520px) {
+  td,.el-input,.el-select,.btn-submit {
+    width: 100%;
+  }
+  
+  .sign-up-top  {
+    p br {
+      display: none;
+    }
+  }
+  .sign-up-top {
+    padding-bottom: 32px; 
+  }
 }

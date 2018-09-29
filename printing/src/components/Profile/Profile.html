@@ -3,8 +3,7 @@
     <h3 class="product-category-title">{{ $t('message.editProfileTitle') }}</h3>
     <div class="product-details-inner">
       <div class="sign-up-top">
-        <p>{{ $t('message.signup.info1') }}:
-          <br>{{ $t('message.signup.info2') }}:
+        <p>{{ $t('message.editProfileSubTitle') }} 
         </p>
       </div>
       <form v-on:submit.prevent="updateProfileInfo" @submit="$v.first_name.$touch();$v.last_name.$touch();$v.email.$touch();$v.company_name.$touch(); $v.phone.$touch();">

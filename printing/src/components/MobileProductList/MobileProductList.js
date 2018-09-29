@@ -32,6 +32,7 @@ export default {
   },
   methods: {
     close() {
+      document.body.classList.remove('hide-it'); 
       this.$store.dispatch('setDropDownState', !this.dropdownOpened);
     },
 

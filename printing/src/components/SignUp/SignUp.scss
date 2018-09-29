@@ -138,3 +138,40 @@ i {
     }
   }
 }
+@media only screen and (max-width: 520px) {
+  tr {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  form, table,
+  td, .el-input {
+    width: 100%;
+  }
+  .agreement-text {
+    max-width: 100%;
+  }
+   
+  tr td:first-child {
+    padding-bottom: 10px;
+  }
+
+  .sign-up-bottom>div {
+    width: 100%;
+  }
+
+  .sign-up-top {
+    br {
+      display: none;
+    }
+  }
+  .btn-submit {
+    width: 100%;
+  }
+  .list-container ul {
+    margin-right: 0 !important;
+  }
+  .product-details-inner { 
+    padding-bottom: 20px;
+  }
+}
