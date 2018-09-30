@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Platinum Ink</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Description" lang="en" content="'PLATINUM INK DESIGN' is rapidly developing company specializing in marketing, printing, advertising and designed to create new breathtaking appearance and image of your company.">
+    <meta name="author" content="Platinum Ink Design">
+    <meta name="keywords" content="printing, design, business card, logo, graphic,  flyer,  web site" />
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body id="section-home" data-id="home" class="english" onload="init();">
+    <header data-scroll-index="0" id="appHeader" class="normal-header">
+        <nav class="nav-bar">
+            <div class="container nav-container nav1">
+                <a href="javascript:void(0);" class="left-floated logo-link" data-scroll-nav="section-home">
+                    <div class="logo-place"></div>
+                </a>
+                <ul class="nav sidemenu right-floated" id="top-nav">
+                    <li><a class="menu-item active-menu" data-scroll-nav="section-home">Home<span class="line-elem-menu"></span></a></li>
+                    <li><a class="menu-item" data-scroll-nav="section-services">Services<span class="line-elem-menu"></span></a></li>
+                    <li><a class="menu-item" data-scroll-nav="section-about-us">About us<span class="line-elem-menu"></span></a></li>
+                    <li><a class="menu-item" data-scroll-nav="section-portfolio">Projects<span class="line-elem-menu"></span></a></li>
+                    <li><a class="menu-item" data-scroll-nav="section-contact-us">Contact us<span class="line-elem-menu"></span></a></li>
+                    <li class="lang-toggler">
+                        <a href="http://platinuminkdesign.com/hy.html" class="menu-item-lang">ՀԱՅ</a>
+                        <a href="http://platinuminkdesign.com/en.html" class="menu-item-lang active-lang">ENG</a>
+                    </li>
+                </ul>
+                <content class="menu-toggler-container">
+                    <menu>
+                        <label for="trigger">
+                            <input id="trigger" type="checkbox" />
+                            <section class="drawer-list">
+                                <ul>
+                                    <li><a class="nav-item active-menu" data-scroll-nav="section-home">Home</a></li>
+                                    <li><a class="nav-item" data-scroll-nav="section-services">Services</a></li>
+                                    <li><a class="nav-item" data-scroll-nav="section-about-us">About us </a></li>
+                                    <li><a class="nav-item" data-scroll-nav="section-portfolio">Projects</a></li>
+                                    <li><a class="nav-item" data-scroll-nav="section-contact-us">Contact us</a></li>
+                                    <li class="lang-selector">
+                                        <a class="nav-item active-lang" href="http://platinuminkdesign.com/en.html">ENG </a>
+                                        <a class="nav-item" href="http://platinuminkdesign.com/hy.html">ՀԱՅ</a>
+                                    </li>
+                                </ul>
+                            </section>
+                            <hamburger> <i></i>
+                                <text>
+                                    <close> </close>
+                                    <open> </open>
+                                </text>
+                            </hamburger>
+                        </label>
+                    </menu>
+                </content>
+            </div>
+        </nav>
+    </header>
+    <div class="main-section" id="main-section">
+        <div class="banner" id="mainSlider">
+            <!-- <div class="logo"></div> -->
+            <div class="banner-nav-inner">
+                <div class="slides-info-place">
+                    <span id="current-slide"></span><span id="items-counter"></span>
+                </div>
+                <div class="nav-element-container">
+                    <span class="active-nav" data-nav="0"></span>
+                </div>
+                <div class="social-place slider-social-btns">
+                    <ul class="footer-social-links">
+                        <li class="social-icons fb">
+                            <a href="https://www.facebook.com/PlatiniumInk/" class="fb-link"></a>
+                        </li>
+                        <li class="social-icons in">
+                            <a href="https://www.linkedin.com/profile/edit?trk=nav_responsive_sub_nav_edit_profile" class="in-link"></a>
+                        </li>
+                        <li class="social-icons ins">
+                            <a href="https://www.instagram.com/platinuminkdesign/" class="ins-link"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Home Slider -->
+            <div class="owl-container">
+                <div class="banner-container">
+                    <div class="owl-carousel owl-carousel-home owl-theme" id="banners-slider">
+                        <div class="owl-item">
+                            <div class="home-slide-inner">
+                                <!-- <div class="logo"></div> -->
+                                <div id="animation_container" style="background-color:rgba(0, 0, 0, 0.00); width:100%; height:370px">
+                                    <canvas id="canvas" width="566" height="370" style="position: absolute; display: block; background-color:rgba(0, 0, 0, 0.00);"></canvas>
+                                    <div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:566px; height:370px; position: absolute; left: 0px; top: 0px; display: block;">
+                                    </div>
+                                </div>
+                                <a href="javascript:void(0)" class="btn-link banner-see-more-link">More</a>
+                                <div class="banner-line"></div>
+                            </div>
+                        </div>
+                        <div class="owl-item">
+                        </div>
+                        <div class="owl-item">
+                        </div>
+                    </div>
+                    <div id="banner-dots2" class="banner-dots"></div>
+                </div>
+            </div>
+            <!-- Home slider  -->
+        </div>
+        <div class="content-area content-area1">
+            <div class="main-inner">
+                <!--                 
+                <div class="big-triangle swingimage1"></div>
+                <div class="big-triangle swingimage2"></div> 
+                -->
+                <div class="large-triangle1 triangles"></div>
+                <div class="large-triangle2 triangles"></div>
+                <section class="services-section" id="section-services">
+                    <div class="section-title-place">
+                        <div class="letter-divider">
+                            <h6>01</h6>
+                        </div>
+                        <h5>SERVICES</h5>
+                        <span class="vert-line"></span>
+                    </div>
+                    <div class="services-inner flex-section" id="service-boxes">
+                        <div class="services-box" onclick="void(0)">
+                            <div class="box-image"></div>
+                            <h2 class="box-title">Graphic <br>Design</h2>
+                            <a href="javascript:void(0)" class="service-read-more">Read more<i class="services-more-i"></i></a>
+                            <!-- <p class="box-text">
+                                Մենք կստեղծենք ձեր ընկերության կորպորատիվ ոճը, որը թույլ կտա ձեզ դառնալ ավելի յուրահատուկ,ավելի մրցունակ և հեշտությամբ ճանաչելի:
+                            </p>-->
+                        </div>
+                        <div class="services-box" onclick="void(0)">
+                            <div class="box-image"></div>
+                            <h2 class="box-title">Web<br>Design</h2>
+                            <a href="javascript:void(0)" class="service-read-more">Read more<i class="services-more-i"></i></a>
+                            <!--<p class="box-text">
+                                Վստահեք մեզ ձեր վեբ կայքի նախագծումը, պատրաստումն ու առաջխաղացումը և մեր մասնագետները հոգ կտանեն նրբաճաշակ դիզայնի և հարմարավետության մասին:
+                            </p>-->
+                        </div>
+                        <div class="services-box" onclick="void(0)">
+                            <div class="box-image"></div>
+                            <h2 class="box-title">Outdoor <br>Advertising</h2>
+                            <a href="javascript:void(0)" class="service-read-more">Read more<i class="services-more-i"></i></a>
+                            <!--     <p class="box-text">
+                                Արտաքին գովազդի պատրաստում և տեղադրում տարատեսակ նյութերով`ծավալային տառեր,լուսավորվող վահանակներ,ցուցանակներ և այլն:
+                            </p>-->
+                        </div>
+                        <div class="services-box" onclick="void(0)">
+                            <div class="box-image"></div>
+                            <h2 class="box-title">Promo <br> Services</h2>
+                            <a href="javascript:void(0)" class="service-read-more">Read more<i class="services-more-i"></i></a>
+                            <!--    <p class="box-text">
+                                Գովազդային ակցիաների կազմակերպումը ենթադրում է որոշակի գործողություններ, որոնք ուղղված են ընկերության և սպառողների միջև անմիջական կապի ձևավորմանը:
+                            </p>-->
+                        </div>
+                        <div class="services-box" onclick="void(0)">
+                            <div class="box-image"></div>
+                            <h2 class="box-title">Digital <br> Printing</h2>
+                            <a href="javascript:void(0)" class="service-read-more">Read more<i class="services-more-i"></i></a>
+                            <!-- <p class="box-text">
+                                Այս եղանակը թույլ է տալիս արագ և որակյալ տպագրել փոքր և միջին քանակ ունեցող այցեքարտեր, բուկլետներ և այլ տպագիր նյութեր:
+                            </p>-->
+                        </div>
+                        <div class="services-box" onclick="void(0)">
+                            <div class="box-image"></div>
+                            <h2 class="box-title">Offset <br> Printing</h2>
+                            <a href="" class="service-read-more">Read more<i class="services-more-i"></i></a>
+                            <!--<p class="box-text">
+                                Այս եղանակը ամենահարմարն է մեծաքանակ տպագրության համար, քանի որ ապահովում է արտադրության բարձր որակ և մատչելի գին:
+                            </p>-->
+                        </div>
+                        <div class="services-box" onclick="void(0)">
+                            <div class="box-image"></div>
+                            <h6 class="box-title">Large format <br> Printing</h6>
+                            <a href="javascript:void(0)" class="service-read-more">Read more<i class="services-more-i"></i></a>
+                            <!--<p class="box-text">
+                                Այս եղանակը թույլ է տալիս ստանալ մեծ չափսերի տպագիր նյութեր,որոնք կիրառվում են ինտերյերի ձևաորման և արտաքին գովազդի մեջ:
+                            </p>-->
+                        </div>
+                        <div class="services-box" onclick="void(0)">
+                            <div class="box-image"></div>
+                            <h2 class="box-title">Other <br> Services</h2>
+                            <a href="javascript:void(0)" class="service-read-more">Read more<i class="services-more-i"></i></a>
+                            <!--<p class="box-text">
+                                Ծառայության տեսակներ,որոնք փոքր ինչ բազմազան են, այդ իսկ պատճառով խմբագրվելեն մեկ ընդհանուր վերնագրով:
+                            </p>-->
+                        </div>
+                    </div>
+                </section>
+                <section class="about-us-section" id="section-about-us">
+                    <div class="logo-transparent"></div>
+                    <div class="large-triangle3 triangles"></div>
+                    <div class="large-triangle4 triangles"></div>
+                    <div class="large-triangle5 triangles"></div>
+                    <div class="section-title-place">
+                        <div class="letter-divider">
+                            <h6>02</h6>
+                        </div>
+                        <h5>About us</h5>
+                        <div class="foundation">
+                            <span class="himnadrum">Established year</span>
+                            <span class="himnadrum-tari">2010</span>
+                        </div>
+                        <span class="vert-line"></span>
+                    </div>
+                    <div class="section-about-us-inner">
+                        <figure class="founder-info-left">
+                            <img src="assets/img/founder.jpg" alt="Macaque in the trees">
+                            <figcaption>
+                                <span class="tnoren-title">Founding Director</span>
+                                <br>
+                                <span class="tnoren-name">Gnel Chibukhchyan </span>
+                            </figcaption>
+                            <div class="erankyun"></div>
+                        </figure>
+                        <div class="founder-info-right">
+                            <p class="parag-1">"PLATINUM INK DESIGN" is rapidly developing company specializing in marketing, printing, advertising and designed to create new breathtaking appearance and image of your company. </p>
+                            <p class="parag-1">Our creative team reflects the goals and passion of "PLATINUM INK DESIGN". Only the most qualified specialists, with extensive practical skills and solid work experience can provide our customers with high quality services.
+                            </p>
+                            <p class="parag-1">Every customer is exclusive for us and gets only personalized approach. Our team develops high-quality custom design based on market demands, targeted audience and goals, which leads to creating unique and prestige look for your company.
+                            </p>
+                            <p>Due to the principles of sustainable business over the years of its existence, "PLATINUM INK DESIGN" has managed to acquire variety of partners and loyal friends.</p>
+                        </div>
+                    </div>
+                    <div class="counters-place flex-section" id="counters">
+                        <div class="counter-box">
+                            <h6 class="counter-info ci-2">Ongoing Projects</h6>
+                            <div class="small-triangle1"></div>
+                            <div class="icon ico1"></div>
+                            <h5 class="counter-nums" id="counter1">11</h5>
+                            <h6 class="counter-info ci-1">Ongoing Projects</h6>
+                        </div>
+                        <div class="counter-box">
+                            <h6 class="counter-info ci-2">Completed Projects</h6>
+                            <div class="small-triangle2"></div>
+                            <div class="icon ico2"> </div>
+                            <h5 class="counter-nums" id="counter2">225</h5>
+                            <h6 class="counter-info ci-1">Completed Projects</h6>
+                        </div>
+                        <div class="counter-box">
+                            <h6 class="counter-info ci-2">Partners </h6>
+                            <div class="small-triangle1"></div>
+                            <div class="icon ico3"> </div>
+                            <h5 class="counter-nums" id="counter3">155</h5>
+                            <h6 class="counter-info ci-1">Partners </h6>
+                        </div>
+                        <div class="counter-box">
+                            <h6 class="counter-info ci-2">Years of experience</h6>
+                            <div class="small-triangle2"></div>
+                            <div class="icon ico4"> </div>
+                            <h5 class="counter-nums" id="counter4">7</h5>
+                            <h6 class="counter-info ci-1">Years of experience</h6>
+                        </div>
+                    </div>
+                </section>
+                <section class="portfolio-section" id="section-portfolio">
+                    <div class="large-triangle6 triangles"></div>
+                    <div class="section-title-place">
+                        <div class="letter-divider">
+                            <h6>03</h6>
+                        </div>
+                        <h5>Projects</h5>
+                        <div class="portfolio-links">
+                            <a data-id="graphicsTab" href="javascript:void(0)" class="active">Graphic Design</a>
+                            <a data-id="webDesignTab" href="javascript:void(0)">Web Design</a>
+                            <a data-id="outdoorTab" href="javascript:void(0)">Outdoor Advertising</a>
+                            <a data-id="digitalTab" href="javascript:void(0)">Digital Printing</a>
+                            <a data-id="offsetTab" href="javascript:void(0)">Offset Printing</a>
+                            <a data-id="largeTab" href="javascript:void(0)">Large Format Printing</a>
+                            <a data-id="othersTab" href="javascript:void(0)">Other Services</a>
+                        </div>
+                        <a href="javascript:void(0)" class="btn-link link-type-2 see-all-link-portfolio1">See more</a>
+                        <span class="vert-line"></span>
+                    </div>
+                    <div class="portfolio-inner"></div>
+                </section>
+            </div>
+
+            <div class="sliders-place noselect">
+                <div class="landing-wrapper" data-tabId="graphicsTab" id="graphicsTab">
+                    <div class="landing-inner-content" id="graphics_slider">
+                        <div class="box">
+                            <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/Avangard.jpg" data-mfp-src="assets/img/portfolio/Avangard_1200px_Card.jpg" alt="Avangard" magnific-popup>
+                        </div>
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/Green_Art.jpg" data-mfp-src="assets/img/portfolio/Green_Art.jpg" alt="Green Art" magnific-popup>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/Hay_Amerikyan.jpg" data-mfp-src="assets/img/portfolio/Hay_Amerikyan.jpg" alt="Hay Amerikyan aroxjutyan kentron" magnific-popup>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/Lider_Class.jpg" data-mfp-src="assets/img/portfolio/Lider_Class.jpg" alt="Lider Class" magnific-popup>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/Major_travel.jpg" data-mfp-src="assets/img/portfolio/Major_travel.jpg" alt="Major travel" magnific-popup>
+                            </div>
+                        </div>
+                        <div class="box box-6">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/Majorica.jpg" data-mfp-src="assets/img/portfolio/Majorica.jpg" alt="Majorica" magnific-popup>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/andy.jpg" data-mfp-src="assets/img/portfolio/andy.jpg" alt="Andy" magnific-popup>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/adela.jpg" data-mfp-src="assets/img/portfolio/adela.jpg" alt="Adela" magnific-popup>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/furniture card.jpg" data-mfp-src="assets/img/portfolio/furniture card.jpg" alt="Furniture" magnific-popup>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/eterniti.jpg" data-mfp-src="assets/img/portfolio/eterniti.jpg" alt="Eternity auto Group" magnific-popup>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/dr-Ike.jpg" data-mfp-src="assets/img/portfolio/dr Ike.jpg" alt="Doctor Ike" magnific-popup>
+                            </div>
+                        </div>
+
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/Credit-fix.jpg" data-mfp-src="assets/img/portfolio/Credit fix.jpg" alt="Credit fix pro" magnific-popup>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/core.jpg" data-mfp-src="assets/img/portfolio/core.jpg" alt="Core fireplace" magnific-popup>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/Furniture.jpg" data-mfp-src="assets/img/portfolio/Furniture.jpg" alt="Furniture" magnific-popup>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/Vaneni.jpg" data-mfp-src="assets/img/portfolio/Vaneni.jpg" alt="Vaneni" magnific-popup>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/Karas.jpg" data-mfp-src="assets/img/portfolio/Karas.jpg" alt="Karas" magnific-popup>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/tanning.jpg" data-mfp-src="assets/img/portfolio/tanning.jpg" alt="Tanning" magnific-popup>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/rush.jpg" data-mfp-src="assets/img/portfolio/rush.jpg" alt="Rush" magnific-popup>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/royal-meat.jpg" data-mfp-src="assets/img/portfolio/royal meat.jpg" alt="Royal meat" magnific-popup>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/royal-express.jpg" data-mfp-src="assets/img/portfolio/royal express.jpg" alt="Royal express" magnific-popup>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/hair2faces.jpg" data-mfp-src="assets/img/portfolio/hair2faces.jpg" alt="Hair 2 faces" magnific-popup>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/vaneni-brochure.jpg" data-mfp-src="assets/img/portfolio/vaneni brochure.jpg" alt="Vanini" magnific-popup>
+                            </div>
+                        </div>
+
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/finca.jpg" data-mfp-src="assets/img/portfolio/finca.jpg" alt="" magnific-popup>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/master.jpg" data-mfp-src="assets/img/portfolio/master.jpg" alt="" magnific-popup>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/range.jpg" data-mfp-src="assets/img/portfolio/range.jpg" alt="Range Rover" magnific-popup>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/range1.jpg" data-mfp-src="assets/img/portfolio/range1.jpg" alt="Range Rover" magnific-popup>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/range2.jpg" data-mfp-src="assets/img/portfolio/range2.jpg" alt="Range Rover" magnific-popup>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/f-pace.jpg" data-mfp-src="assets/img/portfolio/f pace.jpg" alt="" magnific-popup>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/hotel.jpg" data-mfp-src="assets/img/portfolio/hotel.jpg" alt="Hotel" magnific-popup>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/xe.jpg" data-mfp-src="assets/img/portfolio/xe.jpg" alt="" magnific-popup>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/xf.jpg" data-mfp-src="assets/img/portfolio/xf.jpg" alt="" magnific-popup>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/xj.jpg" data-mfp-src="assets/img/portfolio/xj.jpg" alt="" magnific-popup>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/05.jpg" data-mfp-src="assets/img/portfolio/05.jpg" alt="" magnific-popup>
+                            </div>
+                        </div>
+                         <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/06.jpg" data-mfp-src="assets/img/portfolio/06.jpg" alt="" magnific-popup>
+                            </div>
+                        </div>
+                          <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/bf.jpg" data-mfp-src="assets/img/portfolio/bf.jpg" alt="" magnific-popup>
+                            </div>
+                        </div>
+                          <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/prim.jpg" data-mfp-src="assets/img/portfolio/prim.jpg" alt="" magnific-popup>
+                            </div>
+                        </div>
+                          <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/blacksmiths.jpg" data-mfp-src="assets/img/portfolio/blacksmiths.jpg" alt="" magnific-popup>
+                            </div>
+                        </div>
+                            <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/portfolio/thumbnails/karas2.jpg" data-mfp-src="assets/img/portfolio/karas2.jpg" alt="" magnific-popup>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="landing-wrapper" data-tabId="webDesignTab" id="webDesignTab">
+                    <div class="landing-inner-content" id="web_slider">
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/web projects/thumbnails/YourNurses.jpg" data-mfp-src="assets/img/web projects/YourNurses.jpg" alt="Your nurses web site mockup" magnific-popup>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/web projects/thumbnails/GoldenYears.jpg" data-mfp-src="assets/img/web projects/GoldenYears.jpg" alt="Goldern Years web site mockup" magnific-popup>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/web projects/thumbnails/Faint&Hope.jpg" data-mfp-src="assets/img/web projects/Faint&Hope.jpg" alt="Faint & Hope web site mockup" magnific-popup>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/web projects/thumbnails/ZenNoho.jpg" data-mfp-src="assets/img/web projects/ZenNoho.jpg" alt="Faint & Hope web mockup" magnific-popup>
+                            </div>
+                        </div>
+                         <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/web projects/thumbnails/eternity.jpg" data-mfp-src="assets/img/web projects/eternity.jpg" alt="Eternity   web mockup" magnific-popup>
+                            </div>
+                        </div>
+                          <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/web projects/thumbnails/CMWCUSA.jpg" data-mfp-src="assets/img/web projects/CMWCUSA.jpg" alt="CMWCUSA   web mockup" magnific-popup>
+                            </div>
+                        </div> 
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/web projects/thumbnails/EatNoho.jpg" data-mfp-src="assets/img/web projects/EatNoho.jpg" alt="EAT Noho web mockup" magnific-popup>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/web projects/thumbnails/Nomenclature.jpg" data-mfp-src="assets/img/web projects/Nomenclature.jpg" alt="Nomenclature web site mockup" magnific-popup>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-content">
+                                <img class="open-popup-link mfp-prevent-close" src="assets/img/web projects/thumbnails/YourNurses.jpg" data-mfp-src="assets/img/web projects/YourNurses.jpg" alt="Your nurses web site mockup" magnific-popup>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="large-triangle11" id="triangle11"></div>
+            </div>
+            <div class="content-area">
+                <div class="main-inner z-indexed">
+                    <a href="javascript:void(0)" class="btn-link link-type-2 see-all-link-portfolio2">See more</a>
+                </div>
+            </div>
+            <span class="vert-line"></span>
+            <div class="main-inner inner-reviews">
+                <section class="testimonials-section">
+                    <div class="section-title-place">
+                        <div class="letter-divider">
+                            <h6>04</h6>
+                        </div>
+                        <h5>Comments</h5>
+                        <span class="vert-line"></span>
+                        <a href="javascript:void(0)" class="btn-link link-type-2 add-review-link1">Add a comment</a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div class="parallax-bg" id="parallax1"></div>
+    <div class="main-section">
+        <div class="parallax-section" id="parallax-trigger">
+            <!-- Reviews slider main container -->
+            <div id="reviews-dots"> </div>
+            <div class="owl-container reviews-slider-container">
+                <div class="owl-carousel owl-theme" id="reviews-slider">
+                    <div class="owl-item">
+                        <div class="review-box">
+                            <h5>Luiza M</h5>
+                            <p class="dot-ellipsis dot-resize-update">
+                                Best Printing, Design, Web Design company. Great customer service, I Had an experience to work with them and I'm still working. Recommend for 10000000%.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="owl-item">
+                        <div class="review-box">
+                            <h5>David G.</h5>
+                            <p class="dot-ellipsis dot-resize-update">
+                                I only have good things to say. It is one stop source for all my printing and marketing needs. Their rates are very competitive and they offer to help in the design process.I used Platinum Ink to print and design business cards, website, brochures.I will highly recommend Platinum ink design to all my business colleagues and friends. Thank you for good business.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="owl-item">
+                        <div class="review-box">
+                            <h5>Tiffany R</h5>
+                            <p class="dot-ellipsis dot-resize-update">
+                                PLATINUM INK DESIGN .. really practice customer service He/They returned all my phone calls. ("Gnel Chibukhcyan") really was INVOLVED with my project, he help in getting out my ideas, I was so Happy & excited over my finished design. He will come to You its Unaffordable.. check on this company first before going anywhere else Highly Recommended... Thanks Gnel
+                            </p>
+                        </div>
+                    </div>
+                    <div class="owl-item">
+                        <div class="review-box">
+                            <h5>David G.</h5>
+                            <p class="dot-ellipsis dot-resize-update">
+                                I only have good things to say. It is one stop source for all my printing and marketing needs. Their rates are very competitive and they offer to help in the design process.I used Platinum Ink to print and design business cards, website, brochures.I will highly recommend Platinum ink design to all my business colleagues and friends. Thank you for good business.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="owl-item">
+                        <div class="review-box">
+                            <h5>Tiffany R</h5>
+                            <p class="dot-ellipsis dot-resize-update">
+                                PLATINUM INK DESIGN .. really practice customer service He/They returned all my phone calls. ("Gnel Chibukhcyan") really was INVOLVED with my project, he help in getting out my ideas, I was so Happy & excited over my finished design. He will come to You its Unaffordable.. check on this company first before going anywhere else Highly Recommended... Thanks Gnel
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-section">
+        </div>
+        <div class="content-area">
+            <div class="main-inner inner-add-rev">
+                <a href="javascript:void(0)" class="btn-link link-type-2 add-review-link2">Add a comment</a>
+            </div>
+        </div>
+        <div class="content-area contacts-section" id="area-contacts">
+            <div class="main-inner" id="section-5">
+                <!-- Partners -->
+                <div class="owl-container partners-slider-container">
+                    <div class="owl-carousel owl-theme" id="partners-slider">
+                        <div class="owl-item">
+                            <div class="partners-box">
+                                <img src=" assets/img/partners/1.png" alt="Tsirani">
+                                <img src=" assets/img/768/1.png" alt="Tsirani">
+                            </div>
+                        </div>
+                        <div class="owl-item">
+                            <div class="partners-box">
+                                <img src=" assets/img/partners/6.png" alt="Matikyan">
+                                <img src=" assets/img/768/6.png" alt="Matikyan">
+                            </div>
+                        </div>
+                        <div class="owl-item">
+                            <div class="partners-box">
+                                <img src=" assets/img/partners/3.png" alt="Best Western Congress Hall">
+                                <img src=" assets/img/768/3.png" alt="Best Western Congress Hall">
+                            </div>
+                        </div>
+                        <div class="owl-item">
+                            <div class="partners-box">
+                                <img src=" assets/img/partners/2.png" alt="Karas">
+                                <img src=" assets/img/768/2.png" alt="Karas">
+                            </div>
+                        </div>
+                        <div class="owl-item">
+                            <div class="partners-box">
+                                <img src=" assets/img/partners/4.png" alt="Marco Polo">
+                                <img src=" assets/img/768/4.png" alt="Marco Polo">
+                            </div>
+                        </div>
+                        <div class="owl-item">
+                            <div class="partners-box">
+                                <img src=" assets/img/partners/5.png" alt="Armenian Wine">
+                                <img src=" assets/img/768/5.png" alt="Armenian Wine">
+                            </div>
+                        </div>
+                        <div class="owl-item">
+                            <div class="partners-box">
+                                <img src=" assets/img/partners/1.png" alt="Tsirani">
+                                <img src=" assets/img/768/1.png" alt="Tsirani">
+                            </div>
+                        </div>
+                        <div class="owl-item">
+                            <div class="partners-box">
+                                <img src=" assets/img/partners/6.png" alt="Matikyan">
+                                <img src=" assets/img/768/6.png" alt="Matikyan">
+                            </div>
+                        </div>
+                        <div class="owl-item">
+                            <div class="partners-box">
+                                <img src=" assets/img/partners/3.png" alt="Best Western Congress Hall">
+                                <img src=" assets/img/768/3.png" alt="Best Western Congress Hall">
+                            </div>
+                        </div>
+                        <div class="owl-item">
+                            <div class="partners-box">
+                                <img src=" assets/img/partners/2.png" alt="Karas">
+                                <img src=" assets/img/768/2.png" alt="Karas">
+                            </div>
+                        </div>
+                        <div class="owl-item">
+                            <div class="partners-box">
+                                <img src=" assets/img/partners/4.png" alt="Marco Polo">
+                                <img src=" assets/img/768/4.png" alt="Marco Polo">
+                            </div>
+                        </div>
+                        <div class="owl-item">
+                            <div class="partners-box">
+                                <img src=" assets/img/partners/5.png" alt="Armenian Wine">
+                                <img src=" assets/img/768/5.png" alt="Armenian Wine">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Partners -->
+                <section class="contact-us-section" id="section-contact-us">
+                    <div class="large-triangle7 triangles" id="triangle7"></div>
+                    <div class="large-triangle10 triangles" id="triangle10"></div>
+                    <div class="large-triangle9 triangles" id="triangle9"></div>
+                    <div class="contacts-subsection">
+                        <div class="section-title-place">
+                            <div class="letter-divider">
+                                <h6>05</h6>
+                            </div>
+                            <h5>Contact us</h5>
+                            <span class="vert-line"></span>
+                        </div>
+                    </div>
+                    <div class="rating-place right-floated">
+                        <ul class="right-floated">
+                            <li class="stars rated"></li>
+                            <li class="stars rated"></li>
+                            <li class="stars rated"></li>
+                            <li class="stars rated"></li>
+                            <li class="stars"></li>
+                        </ul>
+                        <p class="partners-opinion-p">Our partners reviews</p>
+                    </div>
+                    <div class="partners-inner">
+                        <div class="partners-left left-floated">
+                            <p class="contact-us-p">
+                                For more information contact us
+                            </p>
+                            <div class="info-platinumink-am">
+                                <!-- Հասցե՝ Ք. Երևան, Արշակունյաց 44-->
+                                <br> Email: info@platinumink.am
+                                <br> Mobile +1(323)6004477
+                            </div>
+                            <div class="social-place">
+                                <p>Follow us </p>
+                                <ul class="footer-social-links">
+                                    <li class="social-icons fb">
+                                        <a href="https://web.facebook.com/platinuminkdesign/" class="fb-link"></a>
+                                    </li>
+                                    <li class="social-icons in">
+                                        <a href="https://www.linkedin.com/profile/edit?trk=nav_responsive_sub_nav_edit_profile" class="in-link"></a>
+                                    </li>
+                                    <li class="social-icons ins">
+                                        <a href="https://www.instagram.com/platinuminkdesign/" class="ins-link"></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <p class="rights-info">
+                                © all rights reserved by PLATINUM INK DESIGN
+                                <br> since 2010 powered by Platinum Ink Design
+                            </p>
+                        </div>
+                        <div class="partners-right right-floated">
+                            <div class="availability">
+                                Working hours
+                                <br> 9am - 7pm
+                            </div>
+                            <div class="form-place">
+                                <div class="form-container">
+                                    <form class="contact-form" id="form-contact-us" name="contact_form" id="form">
+                                        <div class="contact-form-referral ref1">
+                                            <div class="default-inp-row ">
+                                                <input id="contact_subject" class="def-input" type="text" placeholder="Subject" name="contact_subject">
+                                            </div>
+                                            <div class="elem-spacer"></div>
+                                            <div class="default-inp-row ">
+                                                <input id="contact_email" class="def-input" type="email" placeholder="Email" name="contact_email">
+                                            </div>
+                                            <div class="elem-spacer"></div>
+                                            <div class="default-inp-row ">
+                                                <textarea name="contact_message" placeholder="Message" class="def-input" id="contact_message" cols="30 " rows="10 "></textarea>
+                                            </div>
+                                            <div class="elem-spacer"></div>
+                                            <div class="default-inp-row row-btn">
+                                                <input type="submit" class="btn-submit" id="contact-us-btn" value="Send">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contacts-space clearfix"></div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <footer class="footer">
+        </footer>
+    </div>
+    <script type="text/javascript" src="assets/js/min/libs.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.magnific-popup.js"></script>
+    <script type="text/javascript" src="assets/js/dev.js"></script>
+    <script type="text/javascript" src="assets/js/createjs-2015.11.26.min.js"></script>
+    <script type="text/javascript" src="assets/js/Logo_animation.js"></script>
+    <script type="text/javascript" src="assets/js/logo.js"></script>
+</body>
+
+</html>
