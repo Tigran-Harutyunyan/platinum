@@ -469,10 +469,12 @@
         display: block
     }*/
   }
-  @media only screen and (max-width: 650px) {
+  @media only screen and (max-width: 680px) {
     .logo-place {
       width: 51px
     }
+  }
+  @media only screen and (max-width: 650px) { 
     .services-inner.boxes-type-2 {
       width: 274px;
       .services-box:nth-child(odd),
@@ -794,7 +796,7 @@
   #dom_overlay_container {
     width: 252px !important;
     height: 165px !important;
-    top: 130px;
+    top: 100px;
   }
   .services-box .box-title {
     font-size: 10px
