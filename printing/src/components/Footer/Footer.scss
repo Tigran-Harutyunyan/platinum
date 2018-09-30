@@ -45,12 +45,23 @@
 }
 
 @media only screen and (max-width: 440px) {
+  .rights-info {
+    text-align: center
+  }
   .left-wrapper {
     width: 100%;
   } 
 
   .links-container {
-    justify-content: center;
+    justify-content: flex-start;
     padding-top: 30px;
   }
+  .footer-left .subscription-form .btn-submit {
+    width: 100% !important;
+  }
+  .form-container { 
+    width: 100%; 
+  }
 }
+
+ 

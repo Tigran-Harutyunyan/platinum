@@ -233,7 +233,7 @@
     margin: 0 auto;
     width: 460px;
     .btn-submit {
-      float: none
+      float: none;  
     }
   }
   .subscription-form .default-inp-row {
@@ -615,6 +615,11 @@
 }
 
 @media only screen and (max-width: 480px) { 
+  .partners-inner-container { 
+    .btn-submit { 
+      width: 100% !important;
+    }
+  }
   .hamburger .language-switcher {
     display: flex;
   }
