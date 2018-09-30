@@ -49,7 +49,8 @@ export default {
               breakpoint: 500,
               settings: { 
                 slidesToShow:2,
-                slidesToScroll: 1
+                slidesToScroll: 1,
+                arrows: false 
               }
             }
           ]

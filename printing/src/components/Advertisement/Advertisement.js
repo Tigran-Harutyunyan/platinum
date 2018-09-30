@@ -100,7 +100,8 @@ export default {
                 infinite: true,
                 slidesToShow: 2,
                 slidesToScroll: 1,
-                draggable: true
+                draggable: true,
+                arrows: false
               }
             }
           ]
