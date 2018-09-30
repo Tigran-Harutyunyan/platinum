@@ -1,6 +1,5 @@
 import Vue from 'vue';
-import VueResource from 'vue-resource';
-Vue.use(VueResource);
+ 
 import 'element-ui/lib/theme-chalk/index.css';
 import styles from '../static/sass/styles.scss';
 
@@ -55,13 +54,8 @@ Vue.prototype.$confirm = MessageBox.confirm;
 Vue.prototype.$notify = Notification;
 import lang from 'element-ui/lib/locale/lang/en';
 import locale from 'element-ui/lib/locale';
-locale.use(lang);
-
-import VueAwesomeSwiper from 'vue-awesome-swiper';
-// require styles
-import 'swiper/dist/css/swiper.css';
-Vue.use(VueAwesomeSwiper, /* { default global options } */ );
-
+locale.use(lang); 
+ 
 import storage from './storage';
 
 export default {
