@@ -1,43 +1,75 @@
 <div class="products-main">
 
-  <Preloader v-if="isLoading" class="prelaoder"></Preloader>
+  <Preloader class="prelaoder" 
+    v-if="isLoading">
+  </Preloader>
 
   <div v-if="product.properties && !isLoading">
       <div class="bordered-block">
           <h3 class="product-category-title">{{ product[0].name }}</h3>  
           <div class="product-details-inner" :class="{'single-image': product.images.length==1}">
-             <ProductImages :images="product.images"></ProductImages>
+
+            <ProductImages 
+              :images="product.images">
+            </ProductImages>
+
             <div class="product-detail-info">
               <p> {{ product[0].description }}
               </p>
               <div class="choices"> 
-                <router-link class="btn-link" to="/custom-order">{{ $t('message.uploadOurselves') }}</router-link>  
+
+                <router-link class="btn-link" 
+                    to="/custom-order">{{ $t('message.uploadOurselves') }}
+                </router-link>  
+                
               </div>
             </div>
           </div>
         </div>
         <div class="product-details-inner2" >
           <div class="left-block">
+
             <Uploader 
               :oneSide="isOneSide" 
-              @filelistChange="onFileChange"></Uploader> 
+              @filelistChange="onFileChange">
+            </Uploader>
+
           </div>
           <div class="right-block">
-            <div class="parameters-item"  v-for="(value, key) in product.sortedProperties">
+
+            <div class="parameters-item"  
+              v-for="(value, key) in product.sortedProperties">
+
               <h3 class="param-label">{{ value._key }}</h3>
-              <el-select v-model="value.selected" :placeholder="$t('message.select')" @change="onDropDownChange">
-                <el-option v-for="(item, key) in value.options" :key="key" :label="item.name" :value="item.id">
+
+              <el-select 
+                v-model="value.selected" 
+                :placeholder="$t('message.select')" 
+                @change="onDropDownChange">
+
+                <el-option 
+                  v-for="(item, key) in value.options" 
+                  :key="key" 
+                  :label="item.name" 
+                  :value="item.id">
                 </el-option>
+
               </el-select>
             </div>
             <div class="summary-block" v-show="showPriceTotal && totalPrice">
+
               <h3 class="param-label">{{ $t('message.printingCost')}}:</h3>
+
               <p>{{ totalPrice }} </p>
+
             </div>
+
             <div class="btns-container">
-              <a class="btn-submit btn-invert btn-1" 
-               v-show="isDirty"
-               @click="reset">{{ $t('message.reset')}}</a> 
+                <a class="btn-submit btn-invert btn-1" 
+                    v-show="isDirty"
+                    @click="reset">{{ $t('message.reset')}}
+                </a> 
+
                 <el-button class="btn-submit btn-invert" type="text" 
                     v-show="showPriceTotal && totalPrice" 
                     :class="{disabled: !isDirty}"
@@ -45,6 +77,7 @@
                     :disabled="isAddingToCart"
                     :loading="isAddingToCart">{{ $t('message.continue') }}
                 </el-button>
+
             </div>
           </div>
         </div>
