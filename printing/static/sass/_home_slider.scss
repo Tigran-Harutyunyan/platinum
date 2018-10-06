@@ -125,20 +125,15 @@
   }
 }
 
-.banner1-text {
-  padding-top: 355px;
+.banner1-text { 
   line-height: 0px;
   margin-bottom: 148px;
+  opacity: 0;
 }
-
-#animation_container {
-  position: absolute;
-  left: 50%;
-  top: 118px;
-  bottom: 88px;
-  width: 498px;
-  transform: translateX(-50%);
-}
+.active .banner1-text{
+  transition: opacity 1s 3.5s;
+  opacity: 1;
+ } 
 
 .banner-see-more-link {
   font-size: 24px;
@@ -278,7 +273,7 @@
   }
   .banner1-text {
     margin-bottom: 38px;
-    padding-top: 300px;
+    padding-top: 81px;
     padding-left: 20px;
     padding-right: 20px;
   }

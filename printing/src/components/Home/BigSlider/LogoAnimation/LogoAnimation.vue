@@ -1,2 +1,2 @@
 <template src="./LogoAnimation.html"></template>
-<script src="./LogoAnimation.js"></script>
+<style src="./LogoAnimation.scss" scoped lang="scss"></style> 

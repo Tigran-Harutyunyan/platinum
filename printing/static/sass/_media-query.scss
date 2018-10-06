@@ -24,16 +24,7 @@
   .footer-inner {
     padding: 0 30px
   }
-  
-  #animation_container,
-  #canvas,
-  #dom_overlay_container {
-    width: 360px !important;
-    height: 235px !important;
-  }
-  #animation_container {
-    top: 166px,
-  }
+ 
   .banner-line {
     display: none
   }
@@ -394,12 +385,7 @@
         margin: 0 auto 73px;
       }
     }
-    #animation_container,
-    #canvas,
-    #dom_overlay_container {
-      width: 470px !important;
-      height: 307px !important
-    }
+ 
     .banner-line {
       display: none
     }
@@ -416,9 +402,7 @@
       top: 322px;
       right: 0
     }
-    #animation_container {
-      top: 145px;
-    }
+  
     .large-triangle1 {
       top: 108px;
       left: -202px;
@@ -541,13 +525,7 @@
         }
       }
     }
-    #animation_container,
-    #canvas,
-    #dom_overlay_container {
-      width: 380px !important;
-      height: 248px !important;
-      top: 100px;
-    }
+ 
   }
  
   @media only screen and (max-width: 600px) {
@@ -628,8 +606,8 @@
   }
   .new-service-ad-texts {
     p {
-      line-height: 17px;
-      font-size: 26px;
+      line-height: 8px !important;
+      font-size: 21px !important;
     }
     p.big-text {
       font-size: 32px;
@@ -768,13 +746,7 @@
     padding-right: 20px;
     padding-top: 31px
   }
-  #animation_container,
-  #canvas,
-  #dom_overlay_container {
-    width: 300px !important;
-    height: 196px !important;
-    top: 110px;
-  }
+  
   .menu-toggler-container.menu-opened {
     height: 480px
   }
@@ -796,13 +768,7 @@
   .projects-lightbox .el-dialog {
     width: 90%
   }
-  #animation_container,
-  #canvas,
-  #dom_overlay_container {
-    width: 252px !important;
-    height: 165px !important;
-    top: 100px;
-  }
+ 
   .services-box .box-title {
     font-size: 10px
   }
@@ -842,11 +808,7 @@
   #items-counter {
     line-height: 54px;
   }
-  #animation_container,
-  #canvas,
-  #dom_overlay_container {
-    top: 79px;
-  }
+ 
   .btn-link banner-see-more-link {
     display: none
   }

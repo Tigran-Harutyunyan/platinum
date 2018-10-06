@@ -7,27 +7,29 @@
    data() {
      return {
        currentSlide: 1,
-       slidesLength: '', 
-       showBoxes: false
+       slidesLength: '',
+       showBoxes: false,
+       isLogoActive: false
      }
    },
    directives: {
      carousel: {
-       inserted: function (el) {
+       inserted: function (el) {  
          $(el).slick({
            autoplay: true,
            dots: false,
            infinite: true,
            speed: 800,
-           autoplaySpeed: 4000,
+           autoplaySpeed: 6500,
            dots: true,
            fade: true,
            cssEase: 'linear',
            slidesToShow: 1,
            slidesToScroll: 1,
            draggable: false,
-         });
+         });  
          $(el).on('afterChange', (event, slick, currentSlide) => {
+           slick.autoplaySpeed = 4000;
            EventBus.$emit('slideChange', currentSlide + 1);
          });
        },
@@ -37,7 +39,14 @@
      'logo-animation': LogoAnimation,
      'social-media': SocialMedia
    },
+ 
+   updated(){ 
+    setTimeout(() => {
+      this.isLogoActive = true;
+    }, 2000);
+   },
    mounted() {
+   
      EventBus.$on('slideChange', (currentSlide) => {
        if (currentSlide === 2) {
          this.showBoxes = true;
