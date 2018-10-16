@@ -106,10 +106,7 @@ export default {
     email: {
       required,
       email
-    },
-    company_name: {
-      required
-    },
+    }, 
     password: {
       required,
       minLength: minLength(6)
