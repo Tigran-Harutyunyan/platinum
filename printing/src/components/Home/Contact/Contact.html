@@ -45,7 +45,7 @@
             v-on:submit.prevent="onSubmitSubscribe" 
             @submit="$v.subscription_email.$touch();">
             <div class="default-inp-row">
-              <input class="def-input" type="email" placeholder="էլ-փոստ" name="contact_email"
+              <input class="def-input" type="email" :placeholder="$t('message.form.email')"  name="contact_email"
                 v-model="subscription_email" :class="{'has-error': $v.subscription_email.$error}" >
               <input type="submit" class="btn-submit" :value="$t('message.subscribe')">
             </div>

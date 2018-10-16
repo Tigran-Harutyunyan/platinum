@@ -70,6 +70,7 @@ export default {
             position: "bottom-right",
             type: "success"
           });
+          this.close();
         }
       }).catch((error) => {
         this.isLoading = false;

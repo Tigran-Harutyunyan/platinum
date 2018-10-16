@@ -394,7 +394,7 @@ export default {
         createPage: "Ստեղծել անձնական էջ",
         login: "մուտք",
         back: "ետ",
-        recovery: " աղտնաբառի վերականգնում"
+        recovery: " գաղտնաբառի վերականգնում"
       },
       ordersPopup: {
         header: "պատվերի մանրամասներ",
