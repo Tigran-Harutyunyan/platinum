@@ -30,10 +30,35 @@ export default {
   },
   computed: {
     isFormValid() {
-      return !this.$v.$invalid && this.agree && this.recaptchaResponse.length;
+      return !this.$v.$invalid && this.agree && this.recaptchaResponse.length>0;
     }
   },
   methods: {
+    _login() { 
+
+      this.$store.dispatch('login', {
+        email: this.email,
+        password: this.password
+      }).then((response) => { 
+        if (response.error) {
+          this.$notify({
+            title: 'Login',
+            message: response.message ? response.message : 'Failed to login',
+            position: "bottom-right",
+            type: "error"
+          });
+        }
+        if (response.success) {
+          this.$emit('LoginSuccess', response);   
+          this.$router.push({
+            name: 'Categories',
+            params: {
+              id: 1
+            }
+          })
+        } 
+      }).catch((error) => {});
+    },
     onSubmitSignup() {
       if (!this.isLoading && this.isFormValid) {
         this.isLoading = true;
@@ -62,21 +87,17 @@ export default {
                 message: response.message ? response.message : 'Failed to sign up',
                 position: "bottom-right",
                 type: "error"
-              });
+              }); 
             }
           } else {
             this.$notify({
               title: 'Sign up',
-              message: 'Signup success! Please log in',
+              message: 'Signup success!',
               position: "bottom-right",
               type: "success"
             });
-            this.$router.push({
-              name: 'Categories',
-              params: {
-                id: 1
-              }
-            })
+            
+            this._login(); 
           }
         }).catch((error) => {
           this.isLoading = false
