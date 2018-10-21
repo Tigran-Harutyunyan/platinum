@@ -9,6 +9,20 @@ import {
   EventBus
 } from './event-bus.js';
 import Vuelidate from 'vuelidate';
+
+import VueAnalytics from 'vue-analytics';
+const isProd = process.env.NODE_ENV === 'production';
+
+Vue.use(VueAnalytics, {
+    id: 'UA-127799677-1',
+    router,
+    debug: {
+      enabled: !isProd,
+      sendHitTask: isProd
+    }
+    
+});
+
 import VueI18n from 'vue-i18n';
 import messages from './locales';
 Vue.config.productionTip = false;
