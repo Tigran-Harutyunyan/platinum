@@ -18,6 +18,7 @@
             <div class="spacer-1"></div>
             <el-input 
                 v-model="password" 
+                type="password"
                 :placeholder="$t('message.form.password')" 
                 :class="{'has-error': $v.password.$error}">
             </el-input>
