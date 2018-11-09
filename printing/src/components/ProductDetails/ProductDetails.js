@@ -62,11 +62,12 @@ export default {
       let quantityID = '';
       this.selectedOptions = []; 
       this.isDirty = true;
+      this.isOneSide = false;
       properties.forEach(element => {
         if (element.selected != "") {
           element.options.forEach(option => {
-            if (option.one_side){
-              this.isOneSide = true;
+            if (option.one_side && (option.id ==  element.selected)){
+              this.isOneSide = true; 
             }
             if (option.quantity) {
               this.quantity = element.selected
