@@ -468,7 +468,7 @@ export default {
       tax: 'Հարկ',
       totalPrice: 'Ընդհանուր գինը',
       addNew: 'Ավելացնել նորը',
-      pay: 'Վճարել',
+      pay: 'Պատվիրել',
       continueShopping: "Շարունակել պատվիրել",
       emptyCart: "Ձեր զամբյուղը դատարկ է",
       cartItemDeletePrompt: "Վստահ եք, որ ցանկանում եք ջնջել զամբյուղի տարրը",
