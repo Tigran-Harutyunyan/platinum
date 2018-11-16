@@ -1,6 +1,6 @@
 const config = {
-  host: `http://api.platinuminkdesign.com/api/`,
-  imgBaseUrl: `http://api.platinuminkdesign.com/`
+  host: `https://api.platinuminkdesign.com/api/`,
+  imgBaseUrl: `https://api.platinuminkdesign.com/`
 }
 
 export {
