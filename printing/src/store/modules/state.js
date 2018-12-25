@@ -13,5 +13,5 @@ export const state = {
     scrollParams:'',
     sidebarProducts:'',
     advertisements: [],
-    
+    appVersion : location.host.includes('platinuminkdesign') ? 'usa' : 'am'
    };

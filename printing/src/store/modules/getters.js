@@ -13,7 +13,7 @@
  const getAdvertisements = state => state.advertisements;
  const getProductsArray = state => state.productsArray;
  const storage = state => state.storage;
- 
+ const getAppVersion = state => state.appVersion;
  export default {
    appData, 
    products,
@@ -29,5 +29,6 @@
    sidebarProducts,
    storage,
    getAdvertisements,
-   getProductsArray
+   getProductsArray,
+   getAppVersion
  };

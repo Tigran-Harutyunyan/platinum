@@ -22,6 +22,9 @@ export default {
     customData() {
       return this.$store.getters.getCustomData;
     },
+    phoneNumberUrl() {
+      return `tel:${this.customData.phone}`;
+    },
     isSendEmailFormInvalid(){ 
       return this.$v.subject.$invalid ||  this.$v.email.$invalid  || this.$v.message.$invalid 
     }

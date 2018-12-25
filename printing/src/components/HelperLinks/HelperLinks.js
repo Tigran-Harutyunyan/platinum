@@ -16,8 +16,13 @@ export default {
       return this.$store.getters.getToken;
     },
 
+    appVersion() {
+      return this.$store.getters.getAppVersion;
+    },
+
     isCartEmpty() {
       return this.cartItems.length === 0 ? true : false;
-    }
+    },
+    
   } 
 }

@@ -1,10 +1,14 @@
 <div class="helper-links" :class="{'logged-in': token}">
     <div>
         <span class="icon"></span>
-        <div class="link-text">
+        <a class="link-text" href="tel:+37499766664" v-if="appVersion=='am'">
             <span>{{ $t('message.help') }}</span>
-            <a class="secondary" href="tel:+37499766664">+374 99 76 66 64</a>
-        </div>
+            <span class="secondary">+374 99 76 66 64</span> 
+        </a>
+        <a class="link-text" href="tel:+3236004477" v-else>
+            <span>{{ $t('message.help') }}</span>
+            <span class="secondary">3236004477</span>
+        </a>
     </div>
     <div id="personal-page" v-if="token">
         <span class="icon"></span>

@@ -1,6 +1,7 @@
 import api from './api';
 import storage from '../storage';
 import userMiddleware from '../apiMiddlewares/userMiddleware';
+import { EventBus } from '../event-bus.js';
 let lang = storage.getLocale();
 
 const userApi = {
@@ -90,6 +91,9 @@ const userApi = {
     let url = 'getBasketProducts?';
     let formData = userMiddleware.toBackEnd.appendToken();
     return api.post(url, formData).then(response => {
+      if (response.error && response.message == "Not authorized"){
+         EventBus.$emit('logout');
+      }
       if (Array.isArray(response)) {
         let data = userMiddleware.fromBackEnd.getBasketProducts(response);
       }

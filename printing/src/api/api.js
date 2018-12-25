@@ -1,10 +1,8 @@
-import Vue from 'vue';
-import {
-  config
-} from './config';
+import { config } from './config';
+import { EventBus } from '../event-bus.js';
 import axios from 'axios';
 axios.interceptors.response.use(function (response) { 
-  if (response.data.error && response.data.message === "Invalid token") {
+  if (response.data.error && response.data.message === "Invalid token" ) {
     EventBus.$emit('logout');
   }
   return response

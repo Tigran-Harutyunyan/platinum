@@ -37,7 +37,7 @@
         <p class="contact-us-p">{{ $t('message.contacts.toContact') }}</p>
         <div class="info-platinumink-am">
           <span>{{ $t('message.address.part2') }} {{ customData.email}}</span>
-          <span>{{ $t('message.address.part4') }} {{ customData.phone}}</span>
+          <a :href="phoneNumberUrl">{{ $t('message.address.part4') }} {{ customData.phone }}</a>
         </div>
         <h5 class="subscription_offer">{{ $t('message.subscription_offer') }} </h5>
         <div class="form-container home-page-subcription-form">
